@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-	<title>Dashboard &mdash; Adminnnnn</title>
+	<title>Dashboard &mdash; Admin</title>
 	<!-- Logo  -->
 	<link rel="shortcut icon" href="">
 
