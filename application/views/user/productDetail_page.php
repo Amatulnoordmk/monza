@@ -44,7 +44,7 @@
 					<h2>Nama Barang Muncul Disini</h2>
 					<div class="product_price">Rp 50.000</div>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, excepturi minima nostrum vero earum voluptatibus atque exercitationem sequi laudantium inventore eveniet similique consectetur velit fuga adipisci nesciunt veniam minus reprehenderit.</p>
-					<p>Lokasi : <span class="product_price">Medan</span></p>
+					<p>Lokasi : <span class="product_price">Alamat disini</span></p>
 				</div>
 				<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 					<span class="ti-mobile"></span><span>Hubungi via WhatsApp</span>
@@ -76,6 +76,9 @@
 					<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 					<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
 				</div> -->
+				<div class="alert alert-danger" role="alert">
+  					
+				</div>
 			</div>
 		</div>
 	</div>
