@@ -54,10 +54,13 @@
 									<li><a href="#">gratis</a></li>
 									<li><a href="#">termurah</a></li>
 									<li><a href="#">jual</a></li>
-									<li><a href="#" style="color: #F1873B;"><b>masuk</b></a></li>
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+									<li><a href="#">
+											<i class="fa fa-user" aria-hidden="true"></i>
+										</a>
+									</li>
 								</ul>
 								<div class="hamburger_container">
 									<i class="fa fa-bars" aria-hidden="true"></i>
