@@ -26,8 +26,6 @@ class Welcome extends CI_Controller {
 		// $this->load->view('admin/dashboard');
 		// $this->load->view('admin/include/footer');
 
-		$this->load->view('user/include/header');
-		$this->load->view('user/home_page');
-		$this->load->view('user/include/footer');
+		$this->load->view('user/landing_page');
 	}
 }

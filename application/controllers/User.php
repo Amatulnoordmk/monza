@@ -19,17 +19,7 @@ class User extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	
-	public function index()
-	{
-		// $this->load->view('admin/include/header');
-		// $this->load->view('admin/include/sidebar');
-		// $this->load->view('admin/dashboard');
-		// $this->load->view('admin/include/footer');
-
-		$this->load->view('user/landing_page');
-	}
-
-    public function homePage()
+	public function home_page()
 	{
 		// $this->load->view('admin/include/header');
 		// $this->load->view('admin/include/sidebar');
