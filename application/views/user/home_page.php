@@ -270,7 +270,7 @@
 
 <!-- Deal of the week -->
 
-<div class="deal_ofthe_week">
+<!-- <div class="deal_ofthe_week">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-6">
@@ -306,7 +306,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <!-- Best Sellers -->
 
