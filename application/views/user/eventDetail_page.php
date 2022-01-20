@@ -6,9 +6,9 @@
 
 			<div class="breadcrumbs d-flex flex-row align-items-center">
 				<ul>
-					<li><a href="index.html">Beranda</a></li>
-					<li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Detail
-							donasi</a></li>
+					<li>Beranda</li>
+					<li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>Detail
+						donasi</li>
 				</ul>
 			</div>
 
