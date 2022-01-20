@@ -19,6 +19,7 @@ class User extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	
+	//  Halaman beranda
 	public function home_page()
 	{
         $this->load->view('user/include/header');
@@ -26,6 +27,7 @@ class User extends CI_Controller {
         $this->load->view('user/include/footer');
 	}
 
+	// Halaman detail produk
 	public function productDetail_page()
 	{
         $this->load->view('user/include/header');
@@ -33,6 +35,14 @@ class User extends CI_Controller {
         $this->load->view('user/include/footer');
 	}
 
+	// Halaman kontak
+	public function contact_page(){
+		$this->load->view('user/include/header');
+		$this->load->view('user/contact_page');
+
+	}
+	
+	// Halaman produk gratis
 	public function freeProduct_page()
 	{
         $this->load->view('user/include/header');
@@ -41,6 +51,7 @@ class User extends CI_Controller {
         $this->load->view('user/include/footer');
 	}
 
+	// halaman produk murah
 	public function cheapProduct_page()
 	{
         $this->load->view('user/include/header');
@@ -48,6 +59,7 @@ class User extends CI_Controller {
 		$this->load->view('user/cheapProduct_page');
         $this->load->view('user/include/footer');
 	}
+<<<<<<< HEAD
 	public function postProduct_page()
 	{
         $this->load->view('user/include/header');
@@ -58,6 +70,22 @@ class User extends CI_Controller {
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page');
+=======
+
+	// Halaman list donasi
+	public function event_page()
+	{
+        $this->load->view('user/include/header');		
+		$this->load->view('user/event_page');
+        $this->load->view('user/include/footer');
+	}
+
+	// Halaman detail donasi
+	public function eventDetail_page()
+	{
+        $this->load->view('user/include/header');		
+		$this->load->view('user/eventDetail_page');
+>>>>>>> 1bf0e4e4db775bc33ed8bce076cebe1591e838d2
         $this->load->view('user/include/footer');
 	}
 }

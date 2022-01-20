@@ -58,11 +58,20 @@ $route['translate_uri_dashes'] = FALSE;
 $route['beranda'] = "user/home_page";
 // Detail produk
 $route['detailproduk'] = "user/productDetail_page";
+// Contact us
+$route['kontak'] = "user/contact_page";
 // Barang gratis
 $route['produkgratis'] = "user/freeProduct_page";
 // Barang Murah
 $route['produkmurah'] = "user/cheapProduct_page";
+<<<<<<< HEAD
 // Post Produk
 $route['postproduk'] = "user/postProduct_page";
 // Profile
 $route['profil'] = "user/profile_page";
+=======
+// Donasi
+$route['donasi'] = "user/event_page";
+// Detail event
+$route['detailevent'] = "user/eventDetail_page";
+>>>>>>> 1bf0e4e4db775bc33ed8bce076cebe1591e838d2

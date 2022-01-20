@@ -169,7 +169,7 @@ h2::selection,
 h3::selection,
 h4::selection,
 h5::selection,
-h6::selection {}
+h6::selection,
 
 ::-webkit-input-placeholder {
 	font-size: 16px !important;
@@ -731,7 +731,7 @@ section {
 
 .hamburger_close:hover i {
 	color: #b5aec4;
-}
+} 
 
 .hamburger_menu_content {
 	padding-top: 100px;
@@ -965,6 +965,21 @@ section {
 	width: 100%;
 	height: calc(100% + 30px);
 }
+/* .map-container{
+	overflow:hidden;
+	padding-bottom:56.25%;
+	position:relative;
+	height:0;
+
+	}
+.map-container iframe{
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	position:absolute;
+
+	} */
 
 /*********************************
 6. Contact Us
@@ -1334,3 +1349,5 @@ textarea:hover {
 .footer_social ul li a:hover {
 	color: #fe4c50;
 }
+
+	
