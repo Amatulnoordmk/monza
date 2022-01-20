@@ -56,5 +56,9 @@ $route['translate_uri_dashes'] = FALSE;
 // Halaman user
 // Beranda
 $route['beranda'] = "user/home_page";
+
 // Detail produk
 $route['detailproduk'] = "user/productDetail_page";
+
+// kontak (hubungikami)
+$route['kontak'] = "user/contact_page";
