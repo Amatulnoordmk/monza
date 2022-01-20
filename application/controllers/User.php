@@ -48,4 +48,16 @@ class User extends CI_Controller {
 		$this->load->view('user/cheapProduct_page');
         $this->load->view('user/include/footer');
 	}
+	public function postProduct_page()
+	{
+        $this->load->view('user/include/header');
+		$this->load->view('user/postProduct_page');
+        $this->load->view('user/include/footer');
+	}
+	public function profile_page()
+	{
+        $this->load->view('user/include/header');
+		$this->load->view('user/profile_page');
+        $this->load->view('user/include/footer');
+	}
 }
