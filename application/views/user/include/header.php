@@ -85,7 +85,6 @@
 					<li class="menu_item"><a href="#">gratis</a></li>
 					<li class="menu_item"><a href="#">termurah</a></li>
 					<li class="menu_item"><a href="#">jual</a></li>
-					<li class="menu_item"><a href="#" style="color: #F1873B;"><b>masuk</b></a></li>
 				</ul>
 			</div>
 		</div>

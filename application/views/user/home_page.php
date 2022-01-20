@@ -48,7 +48,7 @@
 	</div>
 </div>
 
-<!-- New Arrivals -->
+<!-- Baru ditambahkan -->
 
 <div class="new_arrivals">
 	<div class="container">
@@ -186,10 +186,6 @@
 	</div>
 </div>
 
-<!-- Deal of the week -->
-
-<!-- Best Sellers -->
-
 <!-- Benefit -->
 
 <div class="benefit">
@@ -226,7 +222,7 @@
 	</div>
 </div>
 
-<!-- Blogs -->
+<!-- Event Donasi -->
 
 <div class="blogs">
 	<div class="container">

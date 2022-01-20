@@ -21,13 +21,15 @@ class User extends CI_Controller {
 	
 	public function home_page()
 	{
-		// $this->load->view('admin/include/header');
-		// $this->load->view('admin/include/sidebar');
-		// $this->load->view('admin/dashboard');
-		// $this->load->view('admin/include/footer');
-
         $this->load->view('user/include/header');
 		$this->load->view('user/home_page');
+        $this->load->view('user/include/footer');
+	}
+
+	public function productDetail_page()
+	{
+        $this->load->view('user/include/header');
+		$this->load->view('user/productDetail_page');
         $this->load->view('user/include/footer');
 	}
 }
