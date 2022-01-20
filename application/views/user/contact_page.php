@@ -14,7 +14,7 @@
 
 		</div>
 	</div>
-
+	
 	<!-- Map Container -->
 
 	<div class="row">
