@@ -53,10 +53,12 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// Halaman user
+// HALAMAN USER
 // Beranda
 $route['beranda'] = "user/home_page";
 // Detail produk
 $route['detailproduk'] = "user/productDetail_page";
 // Barang gratis
 $route['produkgratis'] = "user/freeProduct_page";
+// Barang Murah
+$route['produkmurah'] = "user/cheapProduct_page";
