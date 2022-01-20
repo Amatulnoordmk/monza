@@ -41,8 +41,12 @@ class User extends CI_Controller {
 		$this->load->view('user/contact_page');
 
 	}
+<<<<<<< HEAD
+
+=======
 	
 	// Halaman produk gratis
+>>>>>>> f4d6dd931d8e44309f613a96ba097c355b8ec412
 	public function freeProduct_page()
 	{
         $this->load->view('user/include/header');

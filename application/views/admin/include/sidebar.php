@@ -2,10 +2,10 @@
 <div class="main-sidebar">
 	<aside id="sidebar-wrapper">
 		<div class="sidebar-brand">
-			<a href="#">Trace Study<br></a>
+			<a href="#">Monza<br></a>
 		</div>
 		<div class="sidebar-brand sidebar-brand-sm">
-			<a href="#">TS</a>
+			<a href="#">M</a>
 		</div>
 		<ul class="sidebar-menu">
 			<li class="menu-header">Dashboard</li>

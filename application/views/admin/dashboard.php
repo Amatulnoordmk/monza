@@ -5,7 +5,7 @@
 	<!-- End alert -->
 	<section class="section">
 		<div class="section-header">
-			<h1>Dashboard</h1>
+			<h1>Dasboard</h1>
 		</div>
 		<!-- Info -->
 		<div class="row">
@@ -16,7 +16,7 @@
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
-							<h4>Total Alumni</h4>
+							<h4>Total User</h4>
 						</div>
 						<div class="card-body">
 							<h4>10</h4>
@@ -31,7 +31,7 @@
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
-							<h4>Loker</h4>
+							<h4>Total Barang</h4>
 						</div>
 						<div class="card-body">
 							<h4>9</h4>
@@ -42,11 +42,11 @@
 			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas fa-tasks"></i>
+					<i class="fas fa-heart"></i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
-							<h4>Survei</h4>
+							<h4>Total Event</h4>
 						</div>
 						<div class="card-body">
 							<h4>5</h4>
@@ -57,11 +57,11 @@
 			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-success">
-						<i class="fas fa-comment-alt"></i>
+						<i class="fas fa-hand-holding-usd"></i>	
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
-							<h4>Testimoni</h4>
+							<h4>Total Penjual</h4>
 						</div>
 						<div class="card-body">
 							<h4>2</h4>
