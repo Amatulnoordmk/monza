@@ -54,7 +54,8 @@
 									<li><a href="#">gratis</a></li>
 									<li><a href="#">termurah</a></li>
 									<li><a href="#">jual</a></li>
-									<li><a href="#" style="color: #F1873B;"><b>masuk</b></a></li>
+									<li><a href="#" style="color: #F1873B;" data-toggle="modal"
+											data-target="#modalLoginForm"><b>masuk</b></a></li>
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -82,7 +83,8 @@
 					<li class="menu_item"><a href="#">gratis</a></li>
 					<li class="menu_item"><a href="#">termurah</a></li>
 					<li class="menu_item"><a href="#">jual</a></li>
-					<li class="menu_item"><a href="#" style="color: #F1873B;"><b>masuk</b></a></li>
+					<li class="menu_item"><a href="#" style="color: #F1873B;" data-toggle="modal"
+							data-target="#modalLoginForm"><b>masuk</b></a></li>
 				</ul>
 			</div>
 		</div>
@@ -364,3 +366,187 @@
 				</div>
 			</div>
 		</div>
+
+
+		<!-- Modal sign-in -->
+		<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header center">
+						<div class="col-md-4 offset-md-4">
+							<center>
+								<a href="#"><img src="<?=base_url();?>assets/user/images/logo-log.png" alt=""
+										height="85"></a>
+								<h4 class="modal-title w-100 font-weight-bold">Masuk</h4>
+							</center>
+						</div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body p-5">
+						<form>
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label for="exampleInputEmail1">Email</label>
+									<input type="email" class="form-control" id="exampleInputEmail1"
+										aria-describedby="emailHelp">
+								</div>
+								<br><br><br>
+								<div class="form-group col-md-12">
+									<label for="exampleInputPassword1">Password</label>
+									<input type="password" class="form-control" id="exampleInputPassword1">
+								</div>
+
+								<div class="form-group col-md-12">
+									<button class="btn btn-lg btn-block"
+										style="background-color:#f1873b; color:white;">Masuk</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer d-flex justify-content-center text-align">
+						<p>Belum punya akun?
+							<a href="#modalregisterform" data-toggle="modal" data-dismiss="modal"
+								style="color:#f1873b">Daftar di sini</a>
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end modal sign-in -->
+
+
+	<!-- modal register -->
+	<div class="modal fade" id="modalregisterform">
+		<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header center">
+					<div class="col-md-4 offset-md-4">
+						<center>
+							<a href="#"><img src="<?=base_url();?>assets/user/images/logo-log.png" alt=""
+									height="65"></a>
+							<h4 class="modal-title w-100 font-weight-bold">Daftar</h4>
+						</center>
+					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body p-4">
+					<div class="row">
+						<div class="form-group col-md-6 col-12">
+							<label>Nama Lengkap</label>
+							<input type="text" name="nama" class="form-control" autocomplete="off" required="">
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-12">
+							<label>Nomor Handphone</label>
+							<input type="number" name="nomor" class="form-control" autocomplete="off" required="">
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6 col-12">
+							<label>Email</label>
+							<input type="email" name="email" class="form-control" autocomplete="off" required="">
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-12">
+							<label>Username</label>
+							<input type="email" name="username" class="form-control" autocomplete="off" required="">
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6 col-12">
+							<label>Password</label>
+							<input type="password" name="password" class="form-control" autocomplete="off" required="">
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-12">
+							<label>Konfirmasi Password</label>
+							<input type="password" name="konfirmasi" class="form-control" autocomplete="off" required="">
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6 col-12">
+							<label for="provinsi">Jenis Kelamin</label>
+							<select class="form-control" id="jenkel">
+								<option selected disabled>Jenis Kelamin</option>
+								<option>Laki - Laki</option>
+								<option>Perempuan</option>
+								<option>Tidak Mau Disebutkan</option>
+							</select>
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-12">
+							<label for="provinsi">Provinsi</label>
+							<select class="form-control" id="provinsi">
+								<option selected disabled>Piih Provinsi</option>
+								<option>Aceh</option>
+								<option>Sumatera Utara</option>
+								<option>Sumatera Barat</option>
+								<option>Sumatera Selatan</option>
+							</select>
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6 col-12">
+							<label>Alamat Lengkap</label>
+							<textarea name="alamat" class="form-control" autocomplete="off" required=""></textarea>
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-12">
+							<label for="kota">Kabupaten/Kota</label>
+							<select class="form-control" id="kota">
+								<option selected disabled>Pilih</option>
+								<option>Medan Area</option>
+								<option>Medan Kota</option>
+								<option>Medan Tuntungan</option>
+								<option>Medan Selayang</option>
+							</select>
+							<div class="invalid-feedback">
+								Kolom wajib diisi
+							</div>
+						</div>
+					</div>
+					<center>
+						<br><button type="submit" class="btn btn-lg btn-block" style="background-color:#f1873b; color:white;">Daftar</button>
+					</center>	
+				</div>
+				<div class="modal-footer d-flex justify-content-center text-align">
+					<p>Sudah Punya Akun? <a href="#modalLoginForm" data-toggle="modal" data-dismiss="modal"
+								style="color:#f1873b">Masuk di sini</a></p>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- end modal regist -->
+
+
