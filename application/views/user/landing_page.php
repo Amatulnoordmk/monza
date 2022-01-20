@@ -53,9 +53,9 @@
 									<li><a href="#">Beranda</a></li>
 									<li><a href="#">Gratis</a></li>
 									<li><a href="#">Termurah</a></li>
-									<li><a href="#">Jual</a></li>
-									<li><a href="#" style="color: #F1873B;" data-toggle="modal"
-											data-target="#modalLoginForm"><b>masuk</b></a></li>
+									<li><a href="#">Donasi</a></li>
+									<li><a href="#modalregisterform" data-toggle="modal"
+											style="color: #F1873B;"><b>daftar</b></a></li>
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -84,7 +84,7 @@
 					<li class="menu_item"><a href="#">termurah</a></li>
 					<li class="menu_item"><a href="#">jual</a></li>
 					<li class="menu_item"><a href="#" style="color: #F1873B;" data-toggle="modal"
-							data-target="#modalLoginForm"><b>masuk</b></a></li>
+							data-target="#modalregisterform"><b>daftar</b></a></li>
 				</ul>
 			</div>
 		</div>
@@ -438,7 +438,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body p-4">
+				<div class="modal-body p-5">
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Nama Lengkap</label>
