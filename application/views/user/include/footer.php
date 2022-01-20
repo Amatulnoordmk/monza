@@ -10,7 +10,7 @@
 					class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
 					<ul class="footer_nav">
 						<li><a href="#">Blog</a></li>
-						<li><a href="contact.html">Hubungi kami</a></li>
+						<li><a href="<?=base_url();?>kontak">Hubungi kami</a></li>
 					</ul>
 				</div>
 			</div>

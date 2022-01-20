@@ -1,4 +1,3 @@
-
 <div class="container contact_container">
 	<div class="row">
 		<div class="col">
@@ -14,7 +13,7 @@
 
 		</div>
 	</div>
-	
+
 	<!-- Map Container -->
 
 	<div class="row">
@@ -25,7 +24,7 @@
 				</div>
 			</div>
 		</div>
-</div>
+	</div>
 
 
 	<!-- Contact Us -->
@@ -35,8 +34,8 @@
 		<div class="col-lg-6 contact_col">
 			<div class="contact_contents">
 				<h1>Hubungi Kami</h1>
-				<p>Monza memberikan barang bekas secara gratis bagi yang membutuhkan. 
-				   Monza adalah istilah warga Medan sebagai "pakaian bekas".</p>
+				<p>Monza memberikan barang bekas secara gratis bagi yang membutuhkan.
+					Monza adalah istilah warga Medan sebagai "pakaian bekas".</p>
 				<div>
 					<p>+62853-7347-4968</p>
 					<p>hello@monza.id</p>
@@ -54,8 +53,8 @@
 								aria-hidden="true"></i></a></li>
 					<li><a href="#" style="background-color: #fb4343"><i class="fa fa-google-plus"
 								aria-hidden="true"></i></a></li>
-					<li><a href="https://www.instagram.com/monzadotid/" style="background-color: #8f6247"><i class="fa fa-instagram"
-								aria-hidden="true"></i></a></li>
+					<li><a href="https://www.instagram.com/monzadotid/" style="background-color: #8f6247"><i
+								class="fa fa-instagram" aria-hidden="true"></i></a></li>
 				</ul>
 			</div>
 
@@ -75,8 +74,8 @@
 							rows="3" required data-error="Please, write us a message."></textarea>
 					</div>
 					<div>
-						<button id="review_submit" type="submit" class="btn btn-info"
-							value="Submit">   kirim   </button>
+						<button id="review_submit" type="submit" class="btn" value="Submit"
+							style="background-color: #f1873b; color: white;"> kirim </button>
 					</div>
 				</form>
 			</div>

@@ -87,18 +87,20 @@
 					</div>
 					<!-- Product 3 -->
 					<div class="col">
-						<div class="product-itm">
-							<div class=" product_image">
-								<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-							</div>
-							<div class="favorite favorite_left"></div>
+						<a href="<?=base_url();?>detailproduk">
+							<div class="product-itm">
+								<div class=" product_image">
+									<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
+								</div>
+								<div class="favorite favorite_left"></div>
 
-							<div class="product_info">
-								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-										Camera (Silver)</a></h6>
-								<div class="product_price">Gratis</div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="">Fujifilm X100T 16 MP Digital
+											Camera (Silver)</a></h6>
+									<div class="product_price">Gratis</div>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					<!-- Product 4 -->
 					<div class="col">
