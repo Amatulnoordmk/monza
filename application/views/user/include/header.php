@@ -50,10 +50,10 @@
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
-									<li><a href="#">Beranda</a></li>
-									<li><a href="#">Gratis</a></li>
-									<li><a href="#">Termurah</a></li>
-									<li><a href="#">Donasi</a></li>
+									<li><a href="<?= base_url(); ?>beranda">Beranda</a></li>
+									<li><a href="<?= base_url(); ?>produkgratis">Gratis</a></li>
+									<li><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
+									<li><a href="<?= base_url(); ?>donasi">Donasi</a></li>
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
