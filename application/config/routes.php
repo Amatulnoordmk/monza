@@ -58,3 +58,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['beranda'] = "user/home_page";
 // Detail produk
 $route['detailproduk'] = "user/productDetail_page";
+// Barang gratis
+$route['produkgratis'] = "user/freeProduct_page";
