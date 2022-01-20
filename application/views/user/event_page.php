@@ -72,9 +72,10 @@
 										<img class="card-img-top" src="<?=base_url();?>assets/user/images/blogg_1.jpg"
 											alt="Card image cap">
 										<div class="card-body">
+											<p style="color: #f1873b"><i class="fa fa-clock-o"></i> 7 hari lagi</p>
 											<h5 class="card-title">Pakaian bekas bagi anak kurang mampu daerah pedalaman
 											</h5>
-											<p class="card-text">15 dari 20 terkumpul</p>
+											<p class="card-text" style="color: #f1873b">15 dari 20 terkumpul</p>
 											<a href="<?=base_url();?>detailevent" class="btn"
 												style="background-color: #f1873b; color: white;">Lihat</a>
 										</div>
@@ -85,9 +86,10 @@
 										<img class="card-img-top" src="<?=base_url();?>assets/user/images/blogg_1.jpg"
 											alt="Card image cap">
 										<div class="card-body">
+											<p style="color: #f1873b"><i class="fa fa-clock-o"></i> 7 hari lagi</p>
 											<h5 class="card-title">Pakaian bekas bagi anak kurang mampu daerah pedalaman
 											</h5>
-											<p class="card-text">15 dari 20 terkumpul</p>
+											<p class="card-text" style="color: #f1873b">15 dari 20 terkumpul</p>
 											<a href="#" class="btn"
 												style="background-color: #f1873b; color: white;">Lihat</a>
 										</div>
@@ -98,9 +100,10 @@
 										<img class="card-img-top" src="<?=base_url();?>assets/user/images/blogg_1.jpg"
 											alt="Card image cap">
 										<div class="card-body">
+											<p style="color: #f1873b"><i class="fa fa-clock-o"></i> 7 hari lagi</p>
 											<h5 class="card-title">Pakaian bekas bagi anak kurang mampu daerah pedalaman
 											</h5>
-											<p class="card-text">15 dari 20 terkumpul</p>
+											<p class="card-text" style="color: #f1873b">15 dari 20 terkumpul</p>
 											<a href="#" class="btn"
 												style="background-color: #f1873b; color: white;">Lihat</a>
 										</div>
