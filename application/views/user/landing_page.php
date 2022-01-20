@@ -50,20 +50,12 @@
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
-<<<<<<< HEAD
-									<li><a href="#">beranda</a></li>
-									<li><a href="#">gratis</a></li>
-									<li><a href="#">termurah</a></li>
-									<li><a href="#">jual</a></li>
-									<li><a href="#" style="color: #F1873B;" data-toggle="modal"
-											data-target="#modalLoginForm"><b>masuk</b></a></li>
-=======
 									<li><a href="#">Beranda</a></li>
 									<li><a href="#">Gratis</a></li>
 									<li><a href="#">Termurah</a></li>
-									<li><a href="#">Donasi</a></li>
-									<li><a href="#" style="color: #F1873B;"><b>masuk</b></a></li>
->>>>>>> 4b281756a0f922599058a2cf017c3a84227a6faa
+									<li><a href="#">Jual</a></li>
+									<li><a href="#" style="color: #F1873B;" data-toggle="modal"
+											data-target="#modalLoginForm"><b>masuk</b></a></li>
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -489,7 +481,8 @@
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Konfirmasi Password</label>
-							<input type="password" name="konfirmasi" class="form-control" autocomplete="off" required="">
+							<input type="password" name="konfirmasi" class="form-control" autocomplete="off"
+								required="">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
@@ -545,12 +538,13 @@
 						</div>
 					</div>
 					<center>
-						<br><button type="submit" class="btn btn-lg btn-block" style="background-color:#f1873b; color:white;">Daftar</button>
-					</center>	
+						<br><button type="submit" class="btn btn-lg btn-block"
+							style="background-color:#f1873b; color:white;">Daftar</button>
+					</center>
 				</div>
 				<div class="modal-footer d-flex justify-content-center text-align">
 					<p>Sudah Punya Akun? <a href="#modalLoginForm" data-toggle="modal" data-dismiss="modal"
-								style="color:#f1873b">Masuk di sini</a></p>
+							style="color:#f1873b">Masuk di sini</a></p>
 				</div>
 				</form>
 			</div>
@@ -558,5 +552,3 @@
 	</div>
 
 	<!-- end modal regist -->
-
-
