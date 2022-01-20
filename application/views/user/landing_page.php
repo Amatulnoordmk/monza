@@ -54,7 +54,8 @@
 									<li><a href="#">Gratis</a></li>
 									<li><a href="#">Termurah</a></li>
 									<li><a href="#">Donasi</a></li>
-									<li><a href="#modalregisterform" data-toggle="modal" style="color: #F1873B;"><b>daftar</b></a></li>
+									<li><a href="#modalregisterform" data-toggle="modal"
+											style="color: #F1873B;"><b>daftar</b></a></li>
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -480,7 +481,8 @@
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Konfirmasi Password</label>
-							<input type="password" name="konfirmasi" class="form-control" autocomplete="off" required="">
+							<input type="password" name="konfirmasi" class="form-control" autocomplete="off"
+								required="">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
@@ -536,12 +538,13 @@
 						</div>
 					</div>
 					<center>
-						<br><button type="submit" class="btn btn-lg btn-block" style="background-color:#f1873b; color:white;">Daftar</button>
-					</center>	
+						<br><button type="submit" class="btn btn-lg btn-block"
+							style="background-color:#f1873b; color:white;">Daftar</button>
+					</center>
 				</div>
 				<div class="modal-footer d-flex justify-content-center text-align">
 					<p>Sudah Punya Akun? <a href="#modalLoginForm" data-toggle="modal" data-dismiss="modal"
-								style="color:#f1873b">Masuk di sini</a></p>
+							style="color:#f1873b">Masuk di sini</a></p>
 				</div>
 				</form>
 			</div>
@@ -549,5 +552,3 @@
 	</div>
 
 	<!-- end modal regist -->
-
-

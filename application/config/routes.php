@@ -70,3 +70,5 @@ $route['produkgratis'] = "user/freeProduct_page";
 $route['produkmurah'] = "user/cheapProduct_page";
 // Donasi
 $route['donasi'] = "user/event_page";
+// Detail event
+$route['detailevent'] = "user/eventDetail_page";
