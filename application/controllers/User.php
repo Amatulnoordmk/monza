@@ -38,7 +38,7 @@ class User extends CI_Controller {
 		$this->load->view('user/contact_page');
 
 	}
-	
+
 	public function freeProduct_page()
 	{
         $this->load->view('user/include/header');

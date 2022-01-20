@@ -53,6 +53,10 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// 	HALAMAN ADMIN
+// Beranda
+$route['dashboard_admin'] = "admin/dashboard";
+
 // HALAMAN USER
 // Beranda
 $route['beranda'] = "user/home_page";
