@@ -229,7 +229,7 @@
 		<div class="row">
 			<div class="col text-center">
 				<div class="section_title">
-					<h2>Blog</h2>
+					<h2>Donasi</h2>
 				</div>
 			</div>
 		</div>

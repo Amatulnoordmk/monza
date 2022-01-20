@@ -45,15 +45,15 @@
 					<div class="row">
 						<div class="col-lg-12 text-right">
 							<div class="logo_container">
-								<a href="#"><img src="<?=base_url();?>assets/user/images/logo-nav.png" alt=""
+								<a href="#"><img src="<?=base_url();?>assets/user/images/logo-nav.png" alt="monza"
 										height="36"></a>
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
-									<li><a href="#">beranda</a></li>
-									<li><a href="#">gratis</a></li>
-									<li><a href="#">termurah</a></li>
-									<li><a href="#">jual</a></li>
+									<li><a href="#">Beranda</a></li>
+									<li><a href="#">Gratis</a></li>
+									<li><a href="#">Termurah</a></li>
+									<li><a href="#">Donasi</a></li>
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>

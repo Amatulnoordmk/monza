@@ -50,10 +50,10 @@
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
-									<li><a href="#">beranda</a></li>
-									<li><a href="#">gratis</a></li>
-									<li><a href="#">termurah</a></li>
-									<li><a href="#">jual</a></li>
+									<li><a href="#">Beranda</a></li>
+									<li><a href="#">Gratis</a></li>
+									<li><a href="#">Termurah</a></li>
+									<li><a href="#">Donasi</a></li>
 									<li><a href="#" style="color: #F1873B;"><b>masuk</b></a></li>
 								</ul>
 								<ul class="navbar_user">
@@ -319,7 +319,7 @@
 				<div class="row">
 					<div class="col text-center">
 						<div class="section_title">
-							<h2>Blog</h2>
+							<h2>Donasi</h2>
 						</div>
 					</div>
 				</div>

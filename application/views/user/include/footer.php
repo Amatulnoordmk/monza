@@ -26,12 +26,22 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="footer_nav_container">
-					<div class="cr">©2021 All Rights Reserved.</div>
+			<div class="col-8">
+				<div
+					class="footer_nav_container d-flex flex-sm-row flex-column justify-content-lg-start justify-content-center">
+					<!-- <img src="<?=base_url();?>assets/user/images/logo-nav.png" alt="monza" height="70"> -->
+					<i class="fa fa-map-marker" style="font-size:55px; color: #f1873b;" aria-hidden="true"></i>
+					<div class="cr ml-3">Jalan Merpati No 541, 209387<br>Medan, Sumatera Utara</div>
 				</div>
 			</div>
+			<!-- <div class="col-lg-12">
+				<div class="footer_nav_container d-flex flex-sm-row justify-content-lg-start justify-content-center">
+					<i class="fa fa-map-marker" style="font-size:55px; color: #f1873b;" aria-hidden="true"></i>
+					<div class="cr ml-3">Jalan Merpati No 541, 209387<br>Medan, Sumatera Utara</div>
+				</div>
+			</div> -->
 		</div>
+	</div>
 	</div>
 </footer>
 
