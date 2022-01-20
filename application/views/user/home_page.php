@@ -62,18 +62,20 @@
 		<div class="row mt-5">
 			<!-- Product 1 -->
 			<div class="col">
-				<div class="product-itm">
-					<div class=" product_image">
-						<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-					</div>
-					<div class="favorite favorite_left"></div>
+				<a href="<?=base_url();?>detailproduk">
+					<div class="product-itm">
+						<div class=" product_image">
+							<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
+						</div>
+						<div class="favorite favorite_left"></div>
 
-					<div class="product_info">
-						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-								Camera (Silver)</a></h6>
-						<div class="product_price">$520.00<span>$590.00</span></div>
+						<div class="product_info">
+							<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
+									Camera (Silver)</a></h6>
+							<div class="product_price">RP 43.000</div>
+						</div>
 					</div>
-				</div>
+				</a>
 			</div>
 			<!-- Product 2 -->
 			<div class="col">
@@ -86,7 +88,7 @@
 					<div class="product_info">
 						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 								Camera (Silver)</a></h6>
-						<div class="product_price">$520.00<span>$590.00</span></div>
+						<div class="product_price">RP 43.000</div>
 					</div>
 				</div>
 			</div>
@@ -101,7 +103,7 @@
 					<div class="product_info">
 						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 								Camera (Silver)</a></h6>
-						<div class="product_price">$520.00<span>$590.00</span></div>
+						<div class="product_price">RP 43.000</div>
 					</div>
 				</div>
 			</div>
@@ -116,7 +118,7 @@
 					<div class="product_info">
 						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 								Camera (Silver)</a></h6>
-						<div class="product_price">$520.00<span>$590.00</span></div>
+						<div class="product_price">RP 43.000</div>
 					</div>
 				</div>
 			</div>
@@ -133,7 +135,7 @@
 					<div class="product_info">
 						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 								Camera (Silver)</a></h6>
-						<div class="product_price">$520.00<span>$590.00</span></div>
+						<div class="product_price">RP 43.000</div>
 					</div>
 				</div>
 			</div>
@@ -148,7 +150,7 @@
 					<div class="product_info">
 						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 								Camera (Silver)</a></h6>
-						<div class="product_price">$520.00<span>$590.00</span></div>
+						<div class="product_price">RP 43.000</div>
 					</div>
 				</div>
 			</div>
@@ -163,7 +165,7 @@
 					<div class="product_info">
 						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 								Camera (Silver)</a></h6>
-						<div class="product_price">$520.00<span>$590.00</span></div>
+						<div class="product_price">RP 43.000</div>
 					</div>
 				</div>
 			</div>
@@ -178,7 +180,7 @@
 					<div class="product_info">
 						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 								Camera (Silver)</a></h6>
-						<div class="product_price">$520.00<span>$590.00</span></div>
+						<div class="product_price">RP 43.000</div>
 					</div>
 				</div>
 			</div>
@@ -229,7 +231,7 @@
 		<div class="row">
 			<div class="col text-center">
 				<div class="section_title">
-					<h2>Blog</h2>
+					<h2>Donasi</h2>
 				</div>
 			</div>
 		</div>

@@ -54,4 +54,11 @@ class User extends CI_Controller {
 		$this->load->view('user/cheapProduct_page');
         $this->load->view('user/include/footer');
 	}
+
+	public function event_page()
+	{
+        $this->load->view('user/include/header');		
+		$this->load->view('user/event_page');
+        $this->load->view('user/include/footer');
+	}
 }

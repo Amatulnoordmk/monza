@@ -56,14 +56,13 @@ $route['translate_uri_dashes'] = FALSE;
 // HALAMAN USER
 // Beranda
 $route['beranda'] = "user/home_page";
-
 // Detail produk
 $route['detailproduk'] = "user/productDetail_page";
-
-// contact us
-
+// Contact us
 $route['kontak'] = "user/contact_page";
 // Barang gratis
 $route['produkgratis'] = "user/freeProduct_page";
 // Barang Murah
 $route['produkmurah'] = "user/cheapProduct_page";
+// Donasi
+$route['donasi'] = "user/event_page";

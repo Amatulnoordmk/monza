@@ -50,12 +50,20 @@
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
+<<<<<<< HEAD
 									<li><a href="#">beranda</a></li>
 									<li><a href="#">gratis</a></li>
 									<li><a href="#">termurah</a></li>
 									<li><a href="#">jual</a></li>
 									<li><a href="#" style="color: #F1873B;" data-toggle="modal"
 											data-target="#modalLoginForm"><b>masuk</b></a></li>
+=======
+									<li><a href="#">Beranda</a></li>
+									<li><a href="#">Gratis</a></li>
+									<li><a href="#">Termurah</a></li>
+									<li><a href="#">Donasi</a></li>
+									<li><a href="#" style="color: #F1873B;"><b>masuk</b></a></li>
+>>>>>>> 4b281756a0f922599058a2cf017c3a84227a6faa
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -154,18 +162,20 @@
 				<div class="row mt-5">
 					<!-- Product 1 -->
 					<div class="col">
-						<div class="product-itm">
-							<div class=" product_image">
-								<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-							</div>
-							<div class="favorite favorite_left"></div>
+						<a href="<?=base_url();?>detailproduk">
+							<div class="product-itm">
+								<div class=" product_image">
+									<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
+								</div>
+								<div class="favorite favorite_left"></div>
 
-							<div class="product_info">
-								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-										Camera (Silver)</a></h6>
-								<div class="product_price">$520.00<span>$590.00</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
+											Camera (Silver)</a></h6>
+									<div class="product_price">Gratis</div>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					<!-- Product 2 -->
 					<div class="col">
@@ -178,7 +188,7 @@
 							<div class="product_info">
 								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 										Camera (Silver)</a></h6>
-								<div class="product_price">$520.00<span>$590.00</span></div>
+								<div class="product_price">Gratis</div>
 							</div>
 						</div>
 					</div>
@@ -193,7 +203,7 @@
 							<div class="product_info">
 								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 										Camera (Silver)</a></h6>
-								<div class="product_price">$520.00<span>$590.00</span></div>
+								<div class="product_price">Gratis</div>
 							</div>
 						</div>
 					</div>
@@ -208,7 +218,7 @@
 							<div class="product_info">
 								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 										Camera (Silver)</a></h6>
-								<div class="product_price">$520.00<span>$590.00</span></div>
+								<div class="product_price">Gratis</div>
 							</div>
 						</div>
 					</div>
@@ -225,7 +235,7 @@
 							<div class="product_info">
 								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 										Camera (Silver)</a></h6>
-								<div class="product_price">$520.00<span>$590.00</span></div>
+								<div class="product_price">Gratis</div>
 							</div>
 						</div>
 					</div>
@@ -240,7 +250,7 @@
 							<div class="product_info">
 								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 										Camera (Silver)</a></h6>
-								<div class="product_price">$520.00<span>$590.00</span></div>
+								<div class="product_price">Gratis</div>
 							</div>
 						</div>
 					</div>
@@ -255,7 +265,7 @@
 							<div class="product_info">
 								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 										Camera (Silver)</a></h6>
-								<div class="product_price">$520.00<span>$590.00</span></div>
+								<div class="product_price">Gratis</div>
 							</div>
 						</div>
 					</div>
@@ -270,7 +280,7 @@
 							<div class="product_info">
 								<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
 										Camera (Silver)</a></h6>
-								<div class="product_price">$520.00<span>$590.00</span></div>
+								<div class="product_price">Gratis</div>
 							</div>
 						</div>
 					</div>
@@ -321,7 +331,7 @@
 				<div class="row">
 					<div class="col text-center">
 						<div class="section_title">
-							<h2>Blog</h2>
+							<h2>Donasi</h2>
 						</div>
 					</div>
 				</div>
