@@ -32,4 +32,20 @@ class User extends CI_Controller {
 		$this->load->view('user/productDetail_page');
         $this->load->view('user/include/footer');
 	}
+
+	public function freeProduct_page()
+	{
+        $this->load->view('user/include/header');
+		$this->load->view('user/include/sidebar');
+		$this->load->view('user/freeProduct_page');
+        $this->load->view('user/include/footer');
+	}
+
+	public function cheapProduct_page()
+	{
+        $this->load->view('user/include/header');
+		$this->load->view('user/include/sidebar');
+		$this->load->view('user/cheapProduct_page');
+        $this->load->view('user/include/footer');
+	}
 }
