@@ -104,7 +104,7 @@
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 											<a class="dropdown-item" href="<?= base_url(); ?>profil">Profil</a>
-											<a class="dropdown-item" href="#">Keluar</a>
+											<a href="<?=base_url('user/logout')?>"class="dropdown-item">Keluar</a>
 										</div>
 									</li>
 								</ul>

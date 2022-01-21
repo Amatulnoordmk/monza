@@ -459,14 +459,14 @@
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Nama Lengkap</label>
-							<input type="text" name="nama" class="form-control" autocomplete="off" required="">
+							<input type="text" name="nama" class="form-control" autocomplete="off" required>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Nomor Handphone</label>
-							<input type="number" name="nomor" class="form-control" autocomplete="off" required="">
+							<input type="number" name="nomor" class="form-control" autocomplete="off" onkeyup="cekNomorHP()" required>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
@@ -475,14 +475,14 @@
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Email</label>
-							<input type="email" name="email" class="form-control" autocomplete="off" required="">
+							<input type="email" name="email" class="form-control" autocomplete="off" onkeyup="cekEmail" required>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Username</label>
-							<input type="email" name="username" class="form-control" autocomplete="off" required="">
+							<input type="email" name="username" class="form-control" autocomplete="off" onkeyup="cekUsername()" required>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
@@ -491,15 +491,14 @@
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Password</label>
-							<input type="password" name="password" class="form-control" autocomplete="off" required="">
+							<input type="password" name="password" class="form-control" autocomplete="off" required>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Konfirmasi Password</label>
-							<input type="password" name="konfirmasi" class="form-control" autocomplete="off"
-								required="">
+							<input type="password" name="konfirmasi" class="form-control" autocomplete="off" required>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>

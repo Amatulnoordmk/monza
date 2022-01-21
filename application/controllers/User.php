@@ -91,4 +91,11 @@ class User extends CI_Controller {
 		$this->load->view('user/eventDetail_page');
         $this->load->view('user/include/footer');
 	}
+	#Keluar
+	public function logout()
+    {
+        $this->session->set_userdata('isLogin')=="0";
+        $this->session->sess_destroy();
+        redirect('');
+    }
 }
