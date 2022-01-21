@@ -103,7 +103,7 @@
 											<i class="fa fa-user"></i>&nbsp&nbspHai,<?= $this->session->userdata('username') ?>
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-											<a class="dropdown-item" href="#">Profil</a>
+											<a class="dropdown-item" href="<?= base_url(); ?>profil">Profil</a>
 											<a class="dropdown-item" href="#">Keluar</a>
 										</div>
 									</li>
