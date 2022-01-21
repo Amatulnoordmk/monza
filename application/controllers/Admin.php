@@ -19,6 +19,40 @@ class Admin extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	
+	public function doLogin()
+    {
+        $this->load->model('User_model');
+        $cek_user = $this->User_model->cek_user();
+		if ($cek_user->num_rows() > 0) {
+			foreach($cek_user->result() as $user){
+					$sess = array(
+						'isLogin' => "1",
+						'id_user' => $user->id,
+						'email' => $user->email,
+						'username' => $user->username,
+						'password' => $user->password,
+						'jen_kel' => $user->jenkel,
+						'no_telp' => $user->notelp,
+						'lokasi' => $user->lokasi,
+						'level_user' => $user->level_user
+					);
+					$this->session->set_userdata($sess);
+					if ($this->session->userdata('level_user')==1) {
+						//$this->session->set_flashdata('login','Selamat Datang Admin!');
+						redirect(base_url('dashboard_admin'));
+					
+					}else if($this->session->userdata('level_user')==0){
+						// $this->session->set_flashdata('login','Selamat Datang !');
+						redirect(base_url('beranda'));
+					}
+			}
+			
+		}else{
+			$this->session->set_flashdata('login','Password atau Username anda tidak cocok !');
+			redirect('login');
+		}
+    }
+
 	public function dashboard()
 	{
         $this->load->view('admin/include/header');
@@ -27,4 +61,19 @@ class Admin extends CI_Controller {
         $this->load->view('admin/include/footer');
 	}
 
+	public function data_user()
+	{
+        $this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/data_user');
+        $this->load->view('admin/include/footer');
+	}
+
+	public function data_user()
+	{
+        $this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/data_user');
+        $this->load->view('admin/include/footer');
+	}
 }
