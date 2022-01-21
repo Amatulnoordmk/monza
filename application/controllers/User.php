@@ -51,7 +51,7 @@ class User extends CI_Controller {
         $this->load->view('user/include/footer');
 	}
 
-	// halaman produk murah
+	// Halaman produk murah
 	public function cheapProduct_page()
 	{
         $this->load->view('user/include/header');
@@ -59,19 +59,22 @@ class User extends CI_Controller {
 		$this->load->view('user/cheapProduct_page');
         $this->load->view('user/include/footer');
 	}
-<<<<<<< HEAD
+
+	// Halaman upload produk
 	public function postProduct_page()
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/postProduct_page');
         $this->load->view('user/include/footer');
 	}
+
+	// Halaman profil
 	public function profile_page()
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page');
-=======
-
+	}
+	
 	// Halaman list donasi
 	public function event_page()
 	{
@@ -85,7 +88,6 @@ class User extends CI_Controller {
 	{
         $this->load->view('user/include/header');		
 		$this->load->view('user/eventDetail_page');
->>>>>>> 1bf0e4e4db775bc33ed8bce076cebe1591e838d2
         $this->load->view('user/include/footer');
 	}
 }
