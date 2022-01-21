@@ -80,22 +80,7 @@ $route['produkmurah'] = "user/cheapProduct_page";
 $route['postproduk'] = "user/postProduct_page";
 // Profile
 $route['profil'] = "user/profile_page";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 89c9381bb67d9d9aec4f2de0ae0644d62cea7853
-=======
->>>>>>> 567f469585f28b543d49c63c1bdd90f9b2bab9c8
 // Donasi
 $route['donasi'] = "user/event_page";
 // Detail event
 $route['detailevent'] = "user/eventDetail_page";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 16a128356c03959ef3177ed0c525497eb4bdeb11
->>>>>>> 89c9381bb67d9d9aec4f2de0ae0644d62cea7853
-=======
->>>>>>> 567f469585f28b543d49c63c1bdd90f9b2bab9c8

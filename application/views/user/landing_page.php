@@ -375,16 +375,16 @@
 		<?php
                 if ($this->session->flashdata('login')) :
                 ?>
-				<div class="alert alert-danger" id="alertLogin" role="alert">
-					<?= $this->session->flashdata('login') ?>
-				</div>
-				<?php endif ?>
-				<?php
+		<div class="alert alert-danger" id="alertLogin" role="alert">
+			<?= $this->session->flashdata('login') ?>
+		</div>
+		<?php endif ?>
+		<?php
                 if ($this->session->flashdata('gagal')) :
                 ?>
-				<div class="alert alert-danger" id="alertgagal" role="alert">
-					<?= $this->session->flashdata('gagal') ?>
-				</div>
+		<div class="alert alert-danger" id="alertgagal" role="alert">
+			<?= $this->session->flashdata('gagal') ?>
+		</div>
 		<?php endif ?>
 		<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 			aria-hidden="true">
@@ -403,7 +403,8 @@
 						</button>
 					</div>
 					<div class="modal-body p-5">
-						<form>
+						<form action="<?= base_url('admin/doLogin') ?>" method="POST" class="register-form"
+							id="login-form">
 							<div class="row">
 								<div class="form-group col-md-12">
 									<label for="exampleInputEmail1">Email</label>
@@ -413,12 +414,13 @@
 								<br><br><br>
 								<div class="form-group col-md-12">
 									<label for="exampleInputPassword1">Password</label>
-									<input type="password" name="password" class="form-control" id="exampleInputPassword1">
+									<input type="password" name="password" class="form-control"
+										id="exampleInputPassword1">
 								</div>
 
 								<div class="form-group col-md-12">
 									<button class="btn btn-lg btn-block" style="background-color:#f1873b; color:white;"
-									name="masuk" id="masuk" >Masuk</button>
+										name="masuk" id="masuk">Masuk</button>
 								</div>
 							</div>
 						</form>
