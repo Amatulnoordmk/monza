@@ -24,7 +24,7 @@
 				<div class="banner_item align-items-center"
 					style="background-image:url(<?=base_url();?>assets/user/images/banner__1.jpeg)">
 					<div class="banner_category">
-						<a href="categories.html">Gratis</a>
+						<a href="<?= base_url(); ?>produkgratis">Gratis</a>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 				<div class="banner_item align-items-center"
 					style="background-image:url(<?=base_url();?>assets/user/images/banner__2.jpeg)">
 					<div class="banner_category">
-						<a href="categories.html">Termurah</a>
+						<a href="<?= base_url(); ?>produkmurah">Termurah</a>
 					</div>
 				</div>
 			</div>
@@ -40,7 +40,7 @@
 				<div class="banner_item align-items-center"
 					style="background-image:url(<?=base_url();?>assets/user/images/banner__3.jpeg)">
 					<div class="banner_category">
-						<a href="categories.html">Donasi</a>
+						<a href="<?= base_url(); ?>donasi">Donasi</a>
 					</div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 						<div class="favorite favorite_left"></div>
 
 						<div class="product_info">
-							<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
+							<h6 class="product_name"><a href="<?=base_url();?>detailproduk">Fujifilm X100T 16 MP Digital
 									Camera (Silver)</a></h6>
 							<div class="product_price">RP 43.000</div>
 						</div>
@@ -243,7 +243,7 @@
 					<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 						<h4 class="blog_title">Pakaian bekas bagi anak kurang mampu daerah pedalaman</h4>
 						<span class="blog_meta">oleh admin | 20 April 2021</span>
-						<a class="blog_more" href="#">Baca</a>
+						<a class="blog_more" href="<?= base_url(); ?>donasi">Baca</a>
 					</div>
 				</div>
 			</div>

@@ -72,3 +72,10 @@ $route['produkmurah'] = "user/cheapProduct_page";
 $route['postproduk'] = "user/postProduct_page";
 // Profile
 $route['profil'] = "user/profile_page";
+<<<<<<< HEAD
+=======
+// Donasi
+$route['donasi'] = "user/event_page";
+// Detail event
+$route['detailevent'] = "user/eventDetail_page";
+>>>>>>> 16a128356c03959ef3177ed0c525497eb4bdeb11
