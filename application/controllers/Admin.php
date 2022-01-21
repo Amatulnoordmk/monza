@@ -19,6 +19,7 @@ class Admin extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	
+	//  Fungsi login
 	public function doLogin()
     {
         $this->load->model('User_model');
@@ -51,6 +52,14 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('login','Password atau Username anda tidak cocok !');
 			redirect('login');
 		}
+    }
+
+	// Fungsi logout
+	public function logout()
+    {
+        $this->session->set_userdata('isLogin')=="0";
+        $this->session->sess_destroy();
+        redirect('');
     }
 
 	public function dashboard()
