@@ -59,8 +59,11 @@ class User extends CI_Controller {
 		$this->load->view('user/cheapProduct_page');
         $this->load->view('user/include/footer');
 	}
+<<<<<<< HEAD
+=======
 
 	// Halaman upload produk
+>>>>>>> 16a128356c03959ef3177ed0c525497eb4bdeb11
 	public function postProduct_page()
 	{
         $this->load->view('user/include/header');
@@ -74,7 +77,10 @@ class User extends CI_Controller {
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page');
 	}
+<<<<<<< HEAD
+=======
 	
+>>>>>>> 16a128356c03959ef3177ed0c525497eb4bdeb11
 	// Halaman list donasi
 	public function event_page()
 	{
