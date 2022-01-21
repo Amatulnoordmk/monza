@@ -50,9 +50,11 @@
 					<h4>Diposting Oleh : <span>Mei Mei</span></h4>
 					<p>No HP : <span>0812-2233-4455</span></p>
 				</div>
+				<a href="">
 				<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-					<span class="ti-mobile"></span><span>Hubungi via WhatsApp</span>
+					<span class="fa fa-whatsapp"></span>Hubungi via WhatsApp
 				</div>
+				</a>
 				<!-- <div class="original_price">$629.99</div> -->
 				
 				<!-- <ul class="star_rating">
