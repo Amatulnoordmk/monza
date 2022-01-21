@@ -10,7 +10,7 @@
         <tbody>
             <tr>
                 <td rowspan="4" style="text-align: center;"><img src="<?=base_url();?>assets/user/images/single_1.jpg" alt="" height="150" width="170"></td>
-                <td width="80%"><h4>Karvin Halim</h4></td>
+                <td width="80%"><h4>Jojhon Suhendi</h4></td>
             </tr>
             <tr>
                 <td><span class="ti-location-pin"></span> Medan</td>
