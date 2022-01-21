@@ -403,8 +403,7 @@
 						</button>
 					</div>
 					<div class="modal-body p-5">
-						<form action="<?= base_url('admin/doLogin') ?>" method="POST" class="register-form"
-							id="login-form">
+						<form action="<?= base_url('admin/doLogin') ?>" method="POST" id="login-form">
 							<div class="row">
 								<div class="form-group col-md-12">
 									<label for="exampleInputEmail1">Email</label>
@@ -456,6 +455,7 @@
 					</button>
 				</div>
 				<div class="modal-body p-5">
+				<form action="<?= base_url('admin/doRegist') ?>" method="POST" class="register-form">
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Nama Lengkap</label>
@@ -559,11 +559,11 @@
 							style="background-color:#f1873b; color:white;">Daftar</button>
 					</center>
 				</div>
+				</form>
 				<div class="modal-footer d-flex justify-content-center text-align">
 					<p>Sudah Punya Akun? <a href="#modalLoginForm" data-toggle="modal" data-dismiss="modal"
 							style="color:#f1873b">Masuk di sini</a></p>
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>

@@ -100,7 +100,7 @@
 										<a class="nav-link dropdown-toggle dropleft" href="#"
 											id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
 											aria-expanded="false" style="color: #1e1e27">
-											<i class="fa fa-user"></i>&nbsp&nbspHai, kamu
+											<i class="fa fa-user"></i>&nbsp&nbspHai,<?= $this->session->userdata('username') ?>
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 											<a class="dropdown-item" href="#">Profil</a>
