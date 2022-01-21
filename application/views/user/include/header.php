@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Colo Shop Template">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="<?=base_url();?>assets/user/images/logo-log.png" />
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/bootstrap4/bootstrap.min.css">
 	<link href="<?=base_url();?>assets/user/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet"
 		type="text/css">
@@ -55,13 +56,59 @@
 									<li><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
 									<li><a href="<?= base_url(); ?>donasi">Donasi</a></li>
 								</ul>
-								<ul class="navbar_user">
-									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-									<li><a href="#">
+								<!-- <ul class="navbar_user">
+									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+									</li>
+									<li class="dropdown">
+										<a href="#" data-toggle="dropdown"
+											class="nav-link dropdown-toggle nav-link-sm nav-link-user">
 											<i class="fa fa-user" aria-hidden="true"></i>
 										</a>
+										<div class="dropdown-menu">
+											<a href="" class="dropdown-item">Profil</a>
+											<div class="dropdown-divider"></div>
+											<a href="" class="dropdown-item text-danger">Keluar</a>
+										</div>
+									</li>
+									</li>
+								</ul> -->
+
+								<!-- <ul class="navbar_user navbar-right">
+									<li class="nav-item">
+										<h6>
+											<a href="" class="nav-link nav-link-lg">
+												<i class="fa fa-user"></i>
+											</a>
+										</h6>
+									</li>
+									<li class="nav-item dropdown"><a href="#" data-toggle="dropdown"
+											class="nav-link dropdown-toggle" id="navbarDropdownMenuLink">
+											Hai
+										</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+											<a href="" class="dropdown-item">
+												Profil
+											</a>
+											<a href="" class="dropdown-item">
+												Keluar
+											</a>
+										</div>
+									</li>
+								</ul> -->
+								<ul class="navbar-menu">
+									<li class="nav-item dropdown dropleft">
+										<a class="nav-link dropdown-toggle dropleft" href="#"
+											id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false" style="color: #1e1e27">
+											<i class="fa fa-user"></i>&nbsp&nbspHai, kamu
+										</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+											<a class="dropdown-item" href="#">Profil</a>
+											<a class="dropdown-item" href="#">Keluar</a>
+										</div>
 									</li>
 								</ul>
+
 								<div class="hamburger_container">
 									<i class="fa fa-bars" aria-hidden="true"></i>
 								</div>
