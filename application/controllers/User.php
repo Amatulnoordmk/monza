@@ -59,40 +59,24 @@ class User extends CI_Controller {
 		$this->load->view('user/cheapProduct_page');
         $this->load->view('user/include/footer');
 	}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 
-	// Halaman upload produk
->>>>>>> 16a128356c03959ef3177ed0c525497eb4bdeb11
->>>>>>> 89c9381bb67d9d9aec4f2de0ae0644d62cea7853
 	public function postProduct_page()
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/postProduct_page');
         $this->load->view('user/include/footer');
 	}
-<<<<<<< HEAD
 	
-=======
 
 	// Halaman profil
->>>>>>> 89c9381bb67d9d9aec4f2de0ae0644d62cea7853
 	public function profile_page()
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page');
-<<<<<<< HEAD
-
-=======
 	}
-<<<<<<< HEAD
-=======
 	
->>>>>>> 16a128356c03959ef3177ed0c525497eb4bdeb11
->>>>>>> 89c9381bb67d9d9aec4f2de0ae0644d62cea7853
 	// Halaman list donasi
+
 	public function event_page()
 	{
         $this->load->view('user/include/header');		
