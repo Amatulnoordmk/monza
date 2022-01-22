@@ -25,10 +25,10 @@ class User extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('User_model');
-		if ($this->session->userdata('isLogin')!="1")
-		{
-			redirect('');
-		}
+		// if ($this->session->userdata('isLogin')!="1")
+		// {
+		// 	redirect('');
+		// }
 	}
 
 	//  Halaman beranda
@@ -118,39 +118,33 @@ class User extends CI_Controller {
 		// $cek = $this->user_model->cek_regis();
 		// if ($cek == false)
 		// {
+			
 			$data = array (
-				// 'nama_lengkap' => $this->input->post("nama"),
-				// 'email' => $this->input->post("email"),
-				// 'username' => $this->input->post("username"),
-				// 'password' => $this->input->post("password"),				
-				// 'no_telp' => $this->input->post("nomor"),
-				// 'provinsi' => $this->input->post("provinsi"),
-				// 'kota' => $this->input->post("kota"),
-				// 'level_user' => '0'
-				'nama_lengkap' => 'nama',
-				'email' => 'email',
-				'username' => 'userme',
-				'password' => 'passrd',				
-				'no_telp' => 'nomor',
-				'provinsi' => 'provsi',
-				'kota' => 'kota',
+				'nama_lengkap' => $this->input->post("nama"),
+				'email' => $this->input->post("email"),
+				'username' => $this->input->post("username"),
+				'password' => $this->input->post("password"),				
+				'no_telp' => $this->input->post("nomor"),
+				'provinsi' => $this->input->post("provinsi"),
+				'kota' => $this->input->post("kota"),
 				'level_user' => '0'
-			);
+				// 'nama_lengkap' => 'nama',
+				// 'email' => 'email',
+				// 'username' => 'userme',
+				// 'password' => 'passrd',				
+				// 'no_telp' => 'nomor',
+				// 'provinsi' => 'provsi',
+				// 'kota' => 'kota',
+				// 'level_user' => '0'
+			);			
+			
 			$this->User_model->tambah_user('user', $data);  
+			// log_message('error', 'a');
 			// $this->user_model->tambah_user($data);
 			// $this->session->set_flashdata('tambah-user', 'Anda berhasil daftar');
-			redirect('');
+			// redirect(base_url('beranda'));
+			// $this->load->view('user/home_page');
+			// redirect('beranda');
 		// }
-	# API provinsi
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('User_model');
-	}
-
-	public function daftarprov()
-	{	
-		$data['provinsi'] = $this->User_model->getDataProv()->result();
-		$this->load->view('user/landing_page',$data);
 	}
 }
