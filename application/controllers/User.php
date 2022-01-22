@@ -141,5 +141,16 @@ class User extends CI_Controller {
 			// $this->session->set_flashdata('tambah-user', 'Anda berhasil daftar');
 			redirect('');
 		// }
+	# API provinsi
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('User_model');
+	}
+
+	public function daftarprov()
+	{	
+		$data['provinsi'] = $this->User_model->getDataProv()->result();
+		$this->load->view('user/landing_page',$data);
 	}
 }

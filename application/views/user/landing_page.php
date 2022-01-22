@@ -512,40 +512,66 @@
 									Kolom wajib diisi
 								</div>
 							</div>
-						</div>
-						<div class="row">
 							<div class="form-group col-md-6 col-12">
-								<label>Provinsi</label>
-								<select class="form-control" id="provinsi" name="provinsi" style="color: #1e1e27">
+								<label for="provinsi">Provinsi</label>
+								<select class="form-control" id="provinsi" name="provinsi">
 									<option selected disabled>Piih Provinsi</option>
-									<option value="aceh">Aceh</option>
-									<option value="sumut">Sumatera Utara</option>
-									<option value="sumbar">Sumatera Barat</option>
-									<option value="sumsel">Sumatera Selatan</option>
+									<?php foreach($provinsi as $prov): ?>
+									<option value="<?= $prov->email; ?>"><?= $prov->nama_lengkap; ?></option>
+									<?php endforeach; ?>
+
 								</select>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
 								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6 col-12">
+									<label>Provinsi</label>
+									<select class="form-control" id="provinsi" name="provinsi" style="color: #1e1e27">
+										<option selected disabled>Piih Provinsi</option>
+										<option value="aceh">Aceh</option>
+										<option value="sumut">Sumatera Utara</option>
+										<option value="sumbar">Sumatera Barat</option>
+										<option value="sumsel">Sumatera Selatan</option>
+									</select>
+									<div class="invalid-feedback">
+										Kolom wajib diisi
+									</div>
+								</div>
+								<<<<<<< HEAD <div class="form-group col-md-6 col-12">
+									<label for="kota">Kabupaten/Kota</label>
+									<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
+										<option selected disabled>Pilih</option>
+										<option value="mera">Medan Area</option>
+										<option value="meko">Medan Kota</option>
+										<option value="metun">Medan Tuntungan</option>
+										<option value="mesel">Medan Selayang</option>
+									</select>
+									<div class="invalid-feedback">
+										Kolom wajib diisi
+									</div>
+									=======
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label for="kota">Kabupaten/Kota</label>
-								<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
+								<select class="form-control" id="kota" name="nama_kota">
 									<option selected disabled>Pilih</option>
-									<option value="mera">Medan Area</option>
-									<option value="meko">Medan Kota</option>
-									<option value="metun">Medan Tuntungan</option>
-									<option value="mesel">Medan Selayang</option>
+									<option>Medan Area</option>
+									<option>Medan Kota</option>
+									<option>Medan Tuntungan</option>
+									<option>Medan Selayang</option>
 								</select>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
+									>>>>>>> b793013d50351c8c566717b95a1b97c3335866f5
 								</div>
 							</div>
+							<center>
+								<br><button type="submit" class="btn btn-lg btn-block"
+									style="background-color:#f1873b; color:white; cursor: pointer;">Daftar</button>
+							</center>
 						</div>
-						<center>
-							<br><button type="submit" class="btn btn-lg btn-block"
-								style="background-color:#f1873b; color:white; cursor: pointer;">Daftar</button>
-						</center>
-					</div>
 				</form>
 				<div class="modal-footer d-flex justify-content-center text-align">
 					<p>Sudah Punya Akun? <a href="#modalLoginForm" data-toggle="modal" data-dismiss="modal"
@@ -555,4 +581,25 @@
 		</div>
 	</div>
 
-	<!-- end modal daftar -->
+	<<<<<<< HEAD <!-- end modal daftar -->
+		=======
+		<!-- end modal regist -->
+
+		<!-- <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$.ajax({
+			type:'post',
+			url:'dataprovinsi.php',
+			success:function(hasil)
+			{
+				alert("oke");
+				console.log(hasil);
+			}
+		})
+	})
+ -->
+
+
+		>>>>>>> b793013d50351c8c566717b95a1b97c3335866f5

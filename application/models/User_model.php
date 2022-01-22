@@ -59,5 +59,11 @@ class User_model extends CI_Model
     {
         return $this->db->insert($table, $data);
     }
+	public function getDataProv()
+	{
+		return $this->db->get('user');
+
+	}
+	
 
 }
