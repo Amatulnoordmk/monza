@@ -58,6 +58,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['dashboard_admin'] = "admin/dashboard";
 $route['data_user'] = "admin/data_user";
 
+//barang gratis
+$route['gratis'] = "admin/barang_gratis";
 
 
 

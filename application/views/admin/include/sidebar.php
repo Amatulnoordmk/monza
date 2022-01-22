@@ -12,27 +12,27 @@
 			<li class="<?php if(current_url() == base_url('admin')){?>active<?php } ?>"><a class="nav-link"
 					href="<?=base_url();?>admin"><i class="fas fa-columns"></i> <span>Dashboard</span></a></li>
 			<li class="<?php if(current_url() == base_url('admin/data')){?>active<?php } ?>"><a class="nav-link"
-					href="<?=base_url();?>admin/data"><i class="fas fa-users"></i> <span>Data Alumni</span></a></li>
+					href="<?=base_url();?>admin/data"><i class="fas fa-users"></i> <span>Data User</span></a></li>
 			<li
 				class="<?php if(current_url() == base_url('admin/loker')){?>active<?php } elseif(current_url() == base_url('admin/bidang-pekerjaan')){?>active<?php }?>">
 				<a class="nav-link has-dropdown" data-toggle="dropdown" href="#">
-					<i class="fas fa-briefcase"></i> <span>Loker</span>
+					<i class="fas fa-briefcase"></i> <span>Barang</span>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a class="nav-link <?php if(current_url() == base_url('admin/loker')){?>active<?php } ?>"
-							href="<?=base_url();?>admin/loker">Data loker</a>
+						<a class="nav-link <?php if(current_url() == base_url('admin/gratis')){?>active<?php } ?>"
+							href="<?=base_url();?>admin/gratis">Barang Gratis</a>
 					</li>
 					<li>
 						<a class="nav-link <?php if(current_url() == base_url('admin/bidang-pekerjaan')){?>active<?php } ?>"
-							href="<?=base_url();?>admin/bidang-pekerjaan">Bidang pekerjaan</a>
+							href="<?=base_url();?>admin/bidang-pekerjaan">Barang murah</a>
 					</li>
 				</ul>
 			</li>
 			<li
 				class="<?php if(current_url() == base_url('admin/survei') || current_url() == base_url('admin/surveiDetail/(:any)') ){?>active<?php } ?>">
 				<a class="nav-link" href="<?=base_url();?>admin/survei"><i class="fas fa-tasks"></i>
-					<span>Survei</span></a></li>
+					<span>Event Donasi</span></a></li>
 			<li
 				class="<?php if(current_url() == base_url('admin/testi')){?>active<?php } elseif(current_url() == base_url('admin/kritik-saran')){?>active<?php } ?>">
 				<a class="nav-link has-dropdown" data-toggle="dropdown" href="#">

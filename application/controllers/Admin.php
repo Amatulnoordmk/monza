@@ -70,6 +70,14 @@ class Admin extends CI_Controller {
         $this->load->view('admin/include/footer');
 	}
 
+	public function gratis()
+	{
+        $this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/barang_gratis');
+        $this->load->view('admin/include/footer');
+	}
+
 	// public function data_user()
 	// {
     //     $this->load->view('admin/include/header');
