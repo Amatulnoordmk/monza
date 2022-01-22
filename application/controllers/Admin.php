@@ -78,6 +78,27 @@ class Admin extends CI_Controller {
         $this->load->view('admin/include/footer');
 	}
 
+	public function murah()
+	{
+        $this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/barang_murah');
+        $this->load->view('admin/include/footer');
+	}
+	public function event()
+	{
+        $this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/event_donasi');
+        $this->load->view('admin/include/footer');
+	}
+	public function data()
+	{
+        $this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/data_user');
+        $this->load->view('admin/include/footer');
+	}
 	// public function data_user()
 	// {
     //     $this->load->view('admin/include/header');

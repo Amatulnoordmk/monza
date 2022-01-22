@@ -12,11 +12,11 @@
 <div class="main-content">
 	<section class="section">
 		<div class="section-header">
-			<h1>Data User</h1>
+			<h1>Event Donasi</h1>
 		</div>
 
 		<div class="section-body">
-			<h2 class="section-title">User Terdaftar</h2>
+			<h2 class="section-title">Event Terdaftar</h2>
 			<!-- <?php 
 			foreach($website as $web): ?>
 			<p class="section-lead"><?=$web->prodi?> - <?=$web->universitas?></p>
@@ -31,10 +31,11 @@
 									<thead>
 										<tr>
 											<th>No</th>
-											<th>Nama</th>
-											<th>No. HP Aktif</th>
-											<th>Email</th>
-											<th>Alamat</th>
+											<th>Nama Donasi</th>
+											<th>Penyelenggara</th>
+											<th>Deskripsi</th>
+											<th>Lokasi</th>
+                                            <th>Foto</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
@@ -42,9 +43,11 @@
 										<!-- <?php foreach ($data as $key): ?> -->
 										<tr>
 											<td><?= $nomor++; ?></td>
-											<td><?= $key->nim ?></td>
-											<td><?= $key->nama_depan ?> <?= $key->nama_belakang ?></td>
-											<td><?= $key->tahun_lulus ?></td>
+											<td>nama</td>
+											<td>penyelenggara</td>
+											<td>deskripsi</td>
+											<td>lokasi</td>
+                                            <td>foto</td>
 											<td>
 												<a data-toggle="tooltip"
 													href="<?= base_url('backend/dashboard/det_data/'.$key->id) ?>"
