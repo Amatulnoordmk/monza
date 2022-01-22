@@ -37,13 +37,18 @@
 
 		<header class="header trans_300">
 
-			<!-- alert berhasil tambah loker -->
-			<?php if($this->session->flashdata('tambah_user')): ?>
+			<!-- Alert -->
+			<?php if($this->session->flashdata('berhasilTambahUser')): ?>
+			<!-- alert berhasil tambah user -->
 			<div class="alert alert-success" role="alert">
-				<h6><?= $this->session->flashdata('tambah_user') ?></h6>
+				<h6><?= $this->session->flashdata('berhasilTambahUser') ?></h6>
+			</div>
+			<?php elseif($this->session->flashdata('gagalTambahUser')): ?>
+			<!-- alert gagal tambah user -->
+			<div class="alert alert-warning" role="alert">
+				<h6><?= $this->session->flashdata('gagalTambahUser') ?></h6>
 			</div>
 			<?php endif; ?>
-			<!-- end alert berhasil tambah loker -->
 
 			<!-- Main Navigation -->
 
@@ -464,7 +469,8 @@
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Nama Lengkap</label>
-								<input type="text" name="nama" class="form-control" autocomplete="off" required>
+								<input type="text" name="nama" class="form-control" autocomplete="off"
+									style="color: #1e1e27" required>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
 								</div>
@@ -472,6 +478,7 @@
 							<div class="form-group col-md-6 col-12">
 								<label>Nomor Handphone</label>
 								<input type="text" name="nomor" class="form-control" autocomplete="off"
+									onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
 									onkeyup="cekNomorHP()" required>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
@@ -482,7 +489,7 @@
 							<div class="form-group col-md-6 col-12">
 								<label>Email</label>
 								<input type="email" name="email" class="form-control" autocomplete="off"
-									onkeyup="cekEmail" required>
+									style="color: #1e1e27" onkeyup="cekEmail" required>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
 								</div>
@@ -490,7 +497,7 @@
 							<div class="form-group col-md-6 col-12">
 								<label>Username</label>
 								<input type="text" name="username" class="form-control" autocomplete="off"
-									onkeyup="cekUsername()" required>
+									style="color: #1e1e27" onkeyup="cekUsername()" required>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
 								</div>
@@ -499,15 +506,16 @@
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Password</label>
-								<input type="password" name="password" class="form-control" autocomplete="off" required>
+								<input type="password" name="password" class="form-control" autocomplete="off"
+									style="color: #1e1e27" required>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
 								</div>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Konfirmasi Password</label>
-								<input type="password" name="konfirpass" class="form-control" autocomplete="off"
-									required>
+								<input type="password" name="konfirpass" class="form-control" style="color: #1e1e27"
+									autocomplete="off" required>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
 								</div>
@@ -529,7 +537,7 @@
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label for="provinsi">Provinsi</label>
-								<select class="form-control" id="provinsi" name="provinsi">
+								<select class="form-control" id="provinsi" style="color: #1e1e27" name="provinsi">
 									<option selected disabled>Piih Provinsi</option>
 									<?php foreach($provinsi as $prov): ?>
 									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
