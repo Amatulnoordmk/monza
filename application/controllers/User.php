@@ -131,7 +131,6 @@ class User extends CI_Controller {
 				'level_user' => '0'
 			);			
 			
-<<<<<<< HEAD
 			$this->User_model->tambah_user('user', $data);  
 			// log_message('error', 'a');
 			// $this->user_model->tambah_user($data);
@@ -140,7 +139,6 @@ class User extends CI_Controller {
 			// $this->load->view('user/home_page');
 			redirect('');
 		// }
-=======
 			$this->User_model->tambah_user('user', $data);
 			$this->session->set_flashdata('berhasilTambahUser', 'Anda berhasil daftar');
 			redirect();
@@ -148,6 +146,5 @@ class User extends CI_Controller {
 			$this->session->set_flashdata('gagalTambahUser', 'Anda sudah terdaftar');
 			redirect();
 		}
->>>>>>> a7bf2d05ed4b758e0c7b9b7717d0b07ae2cba17b
 	}
 }
