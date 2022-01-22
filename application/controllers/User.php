@@ -19,6 +19,18 @@ class User extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	
+	//  Load model - model
+	public function __construct()
+	{
+		parent::__construct();
+		
+		$this->load->model('User_model');
+		if ($this->session->userdata('isLogin')!="1")
+		{
+			redirect('');
+		}
+	}
+
 	//  Halaman beranda
 	public function home_page()
 	{
@@ -60,13 +72,13 @@ class User extends CI_Controller {
         $this->load->view('user/include/footer');
 	}
 
+	// Halaman upload produk
 	public function postProduct_page()
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/postProduct_page');
         $this->load->view('user/include/footer');
-	}
-	
+	}	
 
 	// Halaman profil
 	public function profile_page()
@@ -91,11 +103,43 @@ class User extends CI_Controller {
 		$this->load->view('user/eventDetail_page');
         $this->load->view('user/include/footer');
 	}
-	#Keluar
+
+	// Keluar
 	public function logout()
     {
         $this->session->set_userdata('isLogin')=="0";
         $this->session->sess_destroy();
         redirect('');
     }
+
+	// Fungsi daftar
+	public function daftar()
+	{
+		// $cek = $this->user_model->cek_regis();
+		// if ($cek == false)
+		// {
+			$data = array (
+				// 'nama_lengkap' => $this->input->post("nama"),
+				// 'email' => $this->input->post("email"),
+				// 'username' => $this->input->post("username"),
+				// 'password' => $this->input->post("password"),				
+				// 'no_telp' => $this->input->post("nomor"),
+				// 'provinsi' => $this->input->post("provinsi"),
+				// 'kota' => $this->input->post("kota"),
+				// 'level_user' => '0'
+				'nama_lengkap' => 'nama',
+				'email' => 'email',
+				'username' => 'userme',
+				'password' => 'passrd',				
+				'no_telp' => 'nomor',
+				'provinsi' => 'provsi',
+				'kota' => 'kota',
+				'level_user' => '0'
+			);
+			$this->User_model->tambah_user('user', $data);  
+			// $this->user_model->tambah_user($data);
+			// $this->session->set_flashdata('tambah-user', 'Anda berhasil daftar');
+			redirect('');
+		// }
+	}
 }
