@@ -85,6 +85,7 @@ class User extends CI_Controller {
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page');
+		$this->load->view('user/include/footer');
 	}
 	
 	// Halaman list donasi
@@ -123,7 +124,7 @@ class User extends CI_Controller {
 				'nama_lengkap' => $this->input->post("nama"),
 				'email' => $this->input->post("email"),
 				'username' => $this->input->post("username"),
-				'password' => $this->input->post("password"),				
+				'password' => md5($this->input->post("password")),				
 				'no_telp' => $this->input->post("nomor"),
 				'provinsi' => $this->input->post("provinsi"),
 				'kota' => $this->input->post("kota"),
@@ -144,7 +145,7 @@ class User extends CI_Controller {
 			// $this->session->set_flashdata('tambah-user', 'Anda berhasil daftar');
 			// redirect(base_url('beranda'));
 			// $this->load->view('user/home_page');
-			// redirect('beranda');
+			redirect('');
 		// }
 	}
 }
