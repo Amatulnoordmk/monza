@@ -1,129 +1,115 @@
+<!-- alert berhasil hapus alumni -->
+<?php if($this->session->flashdata('hapus-alumni')): ?>
+<script>
+	swal("<?= $this->session->flashdata('hapus-alumni') ?>", "", "success", {
+		button: "OK",
+	});
+
+</script>
+<?php endif; ?>
+
 <!-- Main Content -->
 <div class="main-content">
-	<!-- Alert berhasil login -->
-
-	<!-- End alert -->
 	<section class="section">
 		<div class="section-header">
 			<h1>Barang Gratis</h1>
 		</div>
-		<!-- Info -->
-		<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>No</th>
-      <th>Nama</th>
-      <th>Harga</th>
-      <th>Stok</th>
-      <th>Foto</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>x</td>
-      <td>x</td>
-      <td>x</td>
-      <td>x</td>
-      <td>x</td>
-      <td>
-        <a href="#" class="btn-danger btn">Hapus</a>
-        <a href="#" class="btn btn-warning">Ubah</a>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
-		<div class="row">
-			<!-- Statistic -->
-			<!-- <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-				<div class="card">
-					<div class="card-header">
-						<h4>Statistics</h4>
-					</div>
-					<div class="card-body" id="piechart">
-						<script type="text/javascript">
-							// Load google charts
-							google.charts.load('current', {
-								'packages': ['corechart']
-							});
-							google.charts.setOnLoadCallback(drawChart);
-
-							// Draw the chart and set the chart values
-							function drawChart() {
-								var data = google.visualization.arrayToDataTable([
-									['Total', 'Survei'],
-									['Sudah mengisi survei', < ? = $sudahIsi ? > ],
-									['Belum mengisi survei', < ? = $jlh_alumni - $sudahIsi ? > ]
-								]);
-
-								// Optional; add a title and set the width and height of the chart
-								var options = {
-									//'title': 'My Average Day',
-									//'width': 450,
-									'height': 350
-								};
-
-								// Display the chart inside the <div> element with id="piechart"
-								var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-								chart.draw(data, options);
-							}
-
-						</script>
-					</div>
-				</div>
-			</div> -->
-
-			<!-- Recent activities -->
-			<!-- <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-				<div class="card">
-					<div class="card-header">
-						<h4>Aktivitas Baru</h4>
-					</div>
-					<div class="card-body">
-						<ul class="list-unstyled list-unstyled-border">
-							<?php foreach($aktivitas as $act):
-                    date_default_timezone_set('Asia/Jakarta');
-              ?>
-							<li class="media">
-								<img class="mr-3 rounded-circle" width="50"
-									src="<?=base_url();?>assets/backend/img/avatar-1.png" alt="avatar">
-								<div class="media-body">
-									<div class="text-small float-right text-primary">
-										<?= date('d F Y, H:i:s', strtotime($act->waktu)) ?>
-									</div>
-									<div class="media-title"><?= $act->nama_depan ?> <?= $act->nama_belakang ?></div>
-									<span class="text-muted">
-										<?php if($act->aksi == 'loker_delete'): ?>
-										<p>Menghapus Lowongan Pekerjaan</p>
-										<?php elseif($act->aksi == 'loker_new'): ?>
-										<p>Menambahkan <a href="<?= base_url('admin/loker') ?>">Lowongan Pekerjaan</a>.
-										</p>
-										<?php elseif($act->aksi == 'user_delete'): ?>
-										<p>Menghapus User</p>
-										<?php elseif($act->aksi == 'testi_update'): ?>
-										<p>Mengubah <a href="<?= base_url('admin/testi')?>">Testimoni</a>.</p>
-										<?php elseif($act->aksi == 'testi_new'): ?>
-										<p>Menambahkan <a href="<?= base_url('admin/testi')?>">Testimoni</a>.</p>
-										<?php elseif($act->aksi == 'registrasi'): ?>
-										<p>Melakukan <a href="<?=base_url();?>notifikasi">Registrasi</a>.</p>
-										<?php elseif($act->aksi == 'do_survei'): ?>
-										<p>Telah Mengisi <a href="<?= base_url('admin/report')?>">Survei</a>.</p>
-										<?php endif; ?>
-									</span>
-								</div>
-							</li>
-							<?php endforeach; ?>
-						</ul>
-						<div class="text-center pt-1 pb-1">
-							<a href="<?= base_url('backend/History');?>" class="btn btn-primary btn-lg btn-round">
-								View All
-							</a>
+		<div class="section-body">
+			<h2 class="section-title">Barang Terdaftar</h2>
+			<!-- <?php 
+			foreach($website as $web): ?>
+			<p class="section-lead"><?=$web->prodi?> - <?=$web->universitas?></p>
+			<?php endforeach; ?> -->
+			<div class="row">
+				<div class="col-12 col-md-12 col-lg-12">
+					<div class="card p-3">
+						<div class="card-body p-0">
+							<div class="table-responsive">
+								<table class="table table-striped table-md" id="myAlumni">
+									<?php $nomor=1; ?>
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>Nama Barang</th>
+											<th>Pemilik</th>
+											<th>Lokasi</th>
+											<th>Foto</th>
+											<th>Aksi</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- <?php foreach ($data as $key): ?> -->
+										<tr>
+											<td><?= $nomor++; ?></td>
+											<td>nama</td>
+											<td>pemilik</td>
+											<td>lokasi</td>
+											<td>foto</td>
+											<td>
+												<a data-toggle="tooltip"
+													href="<?= base_url('backend/dashboard/det_data/'.$key->id) ?>"
+													role="button" class="btn btn-icon btn-sm icon-left btn-primary">
+													<i class="fas fa-info-circle"></i> detail
+												</a>
+												<a role="button" data-toggle="modal" data-target="#hapusalumni"
+													data-idalumni="<?=$key->id?>" class="btn btn-icon btn-sm btn-danger"
+													style="cursor: pointer;">
+													<i class="far fa-trash-alt text-white" data-toggle="tooltip"
+														title="Hapus"></i>
+												</a>
+											</td>
+										</tr>
+										<!-- <?php endforeach; ?> -->
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</section>
 </div>
+
+<!-- modal hapus alumni -->
+<div class="modal fade" id="hapusalumni" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"></h5>
+			</div>
+			<form action="<?= base_url('backend/dashboard/hapus_alumni') ?>" method="post">
+				<div class="modal-body text-center">
+					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+					<h5>Alumni terdaftar beserta datanya akan terhapus</h5>
+					<div class="form-group">
+						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+					<button type="submit" class="btn btn-danger">Hapus</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- end modal -->
+
+<script>
+	$(document).ready(function () {
+		$('#hapusalumni').on('show.bs.modal', function (event) {
+			var button = $(event.relatedTarget) // Button that triggered the modal
+			var recipient = button.data('idalumni') // Extract info from data-* attributes
+			// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+			// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+			var modal = $(this)
+			// modal.find('.modal-title').text('Hapus ' + recipient)
+			modal.find('.modal-body input').val(recipient)
+		})
+
+		$('#myAlumni').DataTable();
+	});
+
+</script>

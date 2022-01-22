@@ -61,7 +61,14 @@ $route['data_user'] = "admin/data_user";
 //barang gratis
 $route['gratis'] = "admin/barang_gratis";
 
+//barang murah
+$route['murah'] = "admin/barang_murah";
 
+//Event Donasi
+$route['event'] = "admin/event_donasi";
+
+//Data User
+$route['data'] = "admin/data_user";
 
 
 

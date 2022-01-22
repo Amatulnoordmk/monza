@@ -50,7 +50,7 @@
 					<h4>Diposting Oleh : <span>Mei Mei</span></h4>
 					<p>No HP : <span>0812-2233-4455</span></p>
 				</div>
-				<a href="">
+				<a href="https://api.whatsapp.com/send?phone=6285365310823">
 				<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 					<span class="fa fa-whatsapp"></span>Hubungi via WhatsApp
 				</div>
