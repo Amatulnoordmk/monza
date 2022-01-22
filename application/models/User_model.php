@@ -37,7 +37,7 @@ class User_model extends CI_Model
         $where = array(
             'username' => $this->input->post('username'),
             'email' => $this->input->post('email'),
-            'pass' => $this->input->post('password')
+            'password' => $this->input->post('password')
         );
         
         $result = $this->db->get_where('user_v', $where);

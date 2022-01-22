@@ -115,36 +115,27 @@ class User extends CI_Controller {
 	// Fungsi daftar
 	public function daftar()
 	{
-		// $cek = $this->user_model->cek_regis();
-		// if ($cek == false)
-		// {
+		$cek = $this->User_model->cek_regis();
+		if ($cek == false)
+		{
 			
 			$data = array (
 				'nama_lengkap' => $this->input->post("nama"),
 				'email' => $this->input->post("email"),
 				'username' => $this->input->post("username"),
-				'password' => $this->input->post("password"),				
+				'password' => md5($this->input->post("password")),				
 				'no_telp' => $this->input->post("nomor"),
 				'provinsi' => $this->input->post("provinsi"),
 				'kota' => $this->input->post("kota"),
 				'level_user' => '0'
-				// 'nama_lengkap' => 'nama',
-				// 'email' => 'email',
-				// 'username' => 'userme',
-				// 'password' => 'passrd',				
-				// 'no_telp' => 'nomor',
-				// 'provinsi' => 'provsi',
-				// 'kota' => 'kota',
-				// 'level_user' => '0'
 			);			
 			
-			$this->User_model->tambah_user('user', $data);  
-			// log_message('error', 'a');
-			// $this->user_model->tambah_user($data);
-			// $this->session->set_flashdata('tambah-user', 'Anda berhasil daftar');
-			// redirect(base_url('beranda'));
-			// $this->load->view('user/home_page');
-			// redirect('beranda');
-		// }
+			$this->User_model->tambah_user('user', $data);
+			$this->session->set_flashdata('berhasilTambahUser', 'Anda berhasil daftar');
+			redirect();
+		} else {
+			$this->session->set_flashdata('gagalTambahUser', 'Anda sudah terdaftar');
+			redirect();
+		}
 	}
 }
