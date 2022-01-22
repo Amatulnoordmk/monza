@@ -519,12 +519,12 @@
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label for="provinsi">Provinsi</label>
-							<select class="form-control" id="provinsi">
+							<select class="form-control" id="provinsi" name="provinsi">
 								<option selected disabled>Piih Provinsi</option>
-								<option>Aceh</option>
-								<option>Sumatera Utara</option>
-								<option>Sumatera Barat</option>
-								<option>Sumatera Selatan</option>
+								<?php foreach($provinsi as $prov): ?>
+									<option value="<?= $prov->email; ?>"><?= $prov->nama_lengkap; ?></option>
+								<?php endforeach; ?>
+
 							</select>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
@@ -541,7 +541,7 @@
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label for="kota">Kabupaten/Kota</label>
-							<select class="form-control" id="kota">
+							<select class="form-control" id="kota" name="nama_kota">
 								<option selected disabled>Pilih</option>
 								<option>Medan Area</option>
 								<option>Medan Kota</option>
@@ -568,3 +568,21 @@
 	</div>
 
 	<!-- end modal regist -->
+
+	<!-- <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$.ajax({
+			type:'post',
+			url:'dataprovinsi.php',
+			success:function(hasil)
+			{
+				alert("oke");
+				console.log(hasil);
+			}
+		})
+	})
+ -->
+
+
