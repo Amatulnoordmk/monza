@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Colo Shop Template">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="<?= base_url();?>'assets/user/plugins/jquery/jquery.min.js'"></script>
 	<link rel="shortcut icon" href="<?=base_url();?>assets/user/images/logo-log.png" />
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/bootstrap4/bootstrap.min.css">
 	<link href="<?=base_url();?>assets/user/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -27,6 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/single_responsive.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_styles.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_responsive.css">
+
 </head>
 
 <body>
@@ -389,14 +391,14 @@
 		<div class="alert alert-danger" id="alertLogin" role="alert">
 			<?= $this->session->flashdata('login') ?>
 		</div>
-		<?php endif ?>
+		<?php endif; ?>
 		<?php
                 if ($this->session->flashdata('gagal')) :
                 ?>
 		<div class="alert alert-danger" id="alertgagal" role="alert">
 			<?= $this->session->flashdata('gagal') ?>
 		</div>
-		<?php endif ?>
+		<?php endif; ?>
 		<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog" role="document">
@@ -464,58 +466,48 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form method="POST" action="<?= base_url();?>user/daftar" class="needs-validation" novalidate="">
+				<form method="POST" action="<?= base_url();?>user/daftar" enctype="multipart/form-data">
 					<div class="modal-body p-5">
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Nama Lengkap</label>
-								<input type="text" name="nama" class="form-control" autocomplete="off"
-									style="color: #1e1e27" required>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
+								<input type="text" name="nama" id="nama_lengkap" class="form-control"
+									style="color: #1e1e27" onkeyup="cekNamaLengkap()">
+								<span id="pesan_nama_lengkap"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Nomor Handphone</label>
-								<input type="text" name="nomor" class="form-control" autocomplete="off"
+								<input type="text" name="nomor" id="nomor" class="form-control"
 									onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
-									onkeyup="cekNomorHP()" required>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
+									onkeyup="cekNo()">
+								<span id="pesan_notel"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Email</label>
-								<input type="email" name="email" class="form-control" autocomplete="off"
-									style="color: #1e1e27" onkeyup="cekEmail" required>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
+								<input type="email" name="email" id="email" class="form-control" style="color: #1e1e27"
+									onkeyup="cekEmail()">
+								<span id="pesan_email"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Username</label>
-								<input type="text" name="username" class="form-control" autocomplete="off"
-									style="color: #1e1e27" onkeyup="cekUsername()" required>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
+								<input type="text" name="username" id="username" class="form-control"
+									style="color: #1e1e27" onkeyup="cekUsername()">
+								<span id="pesan_username"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Password</label>
-								<input type="password" name="password" class="form-control" autocomplete="off"
-									style="color: #1e1e27" required>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
+								<input type="password" name="password" id="password" class="form-control"
+									autocomplete="off" style="color: #1e1e27" onkeyup="cekPass()">
+								<span id="pesan_pass"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Konfirmasi Password</label>
 								<input type="password" name="konfirpass" class="form-control" style="color: #1e1e27"
-									autocomplete="off" required>
+									required>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
 								</div>
@@ -523,33 +515,31 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
+								<label>Provinsi</label>
+								<select class="form-control" style="color: #1e1e27" name="provinsi" id="provinsi"
+									onchange="cekProvinsi()">
+									<option value="" selected disabled>Piih Provinsi</option>
+									<?php foreach($provinsi as $prov): ?>
+									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
+									<?php endforeach; ?>
+								</select>
+								<span id="pesan_prov"></span>
+							</div>
+							<div class="form-group col-md-6 col-12">
 								<label for="kota">Kabupaten/Kota</label>
-								<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
-									<option selected disabled>Pilih</option>
+								<select class="form-control" id="kota" name="kota" style="color: #1e1e27"
+									onchange="cekKota()">
+									<option value="" selected disabled>Pilih</option>
 									<option value="mera">Medan Area</option>
 									<option value="meko">Medan Kota</option>
 									<option value="metun">Medan Tuntungan</option>
 									<option value="mesel">Medan Selayang</option>
 								</select>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
-							</div>
-							<div class="form-group col-md-6 col-12">
-								<label for="provinsi">Provinsi</label>
-								<select class="form-control" id="provinsi" style="color: #1e1e27" name="provinsi">
-									<option selected disabled>Piih Provinsi</option>
-									<?php foreach($provinsi as $prov): ?>
-									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
-									<?php endforeach; ?>
-								</select>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
+								<span id="pesan_kota"></span>
 							</div>
 						</div>
 						<center>
-							<br><button type="submit" class="btn btn-lg btn-block"
+							<br><button type="submit" id="signup" class="btn btn-lg btn-block"
 								style="background-color:#f1873b; color:white; cursor: pointer;">Daftar</button>
 						</center>
 					</div>
@@ -561,24 +551,34 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- end modal daftar -->
 
-	<!-- <script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script>
-	$(document).ready(function(){
-		$.ajax({
-			type:'post',
-			url:'dataprovinsi.php',
-			success:function(hasil)
-			{
-				alert("oke");
-				console.log(hasil);
+	<!-- <script type="text/javascript">
+		var provinsi_error = 1;
+
+		function cekProvinsi() {
+			var prov = $('#provinsi option:selected').attr('value');
+
+			if (prov == "") {
+				$('#pesanProvinsi').html("Pilih provinsi");
+				$('#pesanProvinsi').css('color', 'red');
+				provinsi_error = 1;
+			} else {
+				$('#pesanProvinsi').html("");
+				provinsi_error = 0;
+			}
+		}
+
+		$('#daftar').click(function () {
+			cekProvinsi();
+
+			if (provinsi_error == 0) {
+				error = 0;
+			}
+
+			if (error == 1) {
+				event.preventDefault();
 			}
 		})
-	})
- -->
 
-
-	>>>>>>> b793013d50351c8c566717b95a1b97c3335866f5
+	</script> -->
