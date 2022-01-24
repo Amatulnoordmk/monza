@@ -552,33 +552,3 @@
 		</div>
 	</div>
 	<!-- end modal daftar -->
-
-	<!-- <script type="text/javascript">
-		var provinsi_error = 1;
-
-		function cekProvinsi() {
-			var prov = $('#provinsi option:selected').attr('value');
-
-			if (prov == "") {
-				$('#pesanProvinsi').html("Pilih provinsi");
-				$('#pesanProvinsi').css('color', 'red');
-				provinsi_error = 1;
-			} else {
-				$('#pesanProvinsi').html("");
-				provinsi_error = 0;
-			}
-		}
-
-		$('#daftar').click(function () {
-			cekProvinsi();
-
-			if (provinsi_error == 0) {
-				error = 0;
-			}
-
-			if (error == 1) {
-				event.preventDefault();
-			}
-		})
-
-	</script> -->

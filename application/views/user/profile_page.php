@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>
-                <a href="#modaleditprofil" data-target="#modaleditprofil" data-toggle="modal" class="btn btn-warning"><span class="ti-pencil"></span> Edit Profil</a>
+                <a href="#modaleditprofil" data-toggle="modal" style="color: #F1873B;"><b>Edit Profil</b>
                 </td>
             </tr>
         <tbody>
@@ -157,7 +157,7 @@
 						<center>
 							<a href="#"><img src="<?=base_url();?>assets/user/images/logo-log.png" alt=""
 									height="65"></a>
-							<h4 class="modal-title w-100 font-weight-bold">Daftar</h4>
+							<h4 class="modal-title w-100 font-weight-bold">Edit Profil</h4>
 						</center>
 					</div>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -165,7 +165,7 @@
 					</button>
 				</div>
 				<div class="modal-body p-5">
-				<form action="<?= base_url('admin/doRegist') ?>" method="POST" class="register-form">
+				<form action="" method="POST" class="register-form">
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Nama Lengkap</label>
@@ -265,14 +265,14 @@
 					</div>
 					<center>
 						<br><button type="submit" class="btn btn-lg btn-block"
-							style="background-color:#f1873b; color:white;">Daftar</button>
+							style="background-color:#f1873b; color:white;">Simpan Perubahan</button>
 					</center>
 				</div>
 				</form>
-				<div class="modal-footer d-flex justify-content-center text-align">
+				<!-- <div class="modal-footer d-flex justify-content-center text-align">
 					<p>Sudah Punya Akun? <a href="#modalLoginForm" data-toggle="modal" data-dismiss="modal"
 							style="color:#f1873b">Masuk di sini</a></p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

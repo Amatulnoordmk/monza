@@ -85,6 +85,7 @@ class User extends CI_Controller {
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page');
+		$this->load->view('user/include/footer');
 	}
 	
 	// Halaman list donasi
@@ -130,6 +131,14 @@ class User extends CI_Controller {
 				'level_user' => '0'
 			);			
 			
+			$this->User_model->tambah_user('user', $data);  
+			// log_message('error', 'a');
+			// $this->user_model->tambah_user($data);
+			// $this->session->set_flashdata('tambah-user', 'Anda berhasil daftar');
+			// redirect(base_url('beranda'));
+			// $this->load->view('user/home_page');
+			redirect('');
+		// }
 			$this->User_model->tambah_user('user', $data);
 			$this->session->set_flashdata('berhasilTambahUser', 'Anda berhasil daftar');
 			redirect();
