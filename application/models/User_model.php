@@ -60,19 +60,6 @@ class User_model extends CI_Model
         }
     }
 
-    // Cek password di db
-    public function cekPass($pass)
-    {
-        $this->db->where('password', $pass);
-        $query = $this->db->get('user');
-
-        if($query->num_rows() > 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
     // Menambah user baru ke db
     public function tambah_user($table, $data)
     {
@@ -92,10 +79,13 @@ class User_model extends CI_Model
 	
     public function getDataUserById($id)
     {
-        $id_user = $this->db->where('id_user', $id);
-        return $this->db->get('user', $id_user);
+        $this->db->where('id_user', $id);
+        return $this->db->get('user_v');
     }
 
 // END REGISTER FUNCTION
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 }

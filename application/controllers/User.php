@@ -25,15 +25,19 @@ class User extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('User_model');
-		// if ($this->session->userdata('isLogin')!="1")
-		// {
-		// 	redirect('');
-		// }
+		if ($this->session->userdata('isLogin')!="1")
+		{
+			redirect('');
+		}
 	}
 
 	//  Halaman beranda
 	public function home_page()
 	{
+<<<<<<< HEAD
+=======
+		
+>>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
         $this->load->view('user/include/header');
 		$this->load->view('user/home_page');
         $this->load->view('user/include/footer');
@@ -83,8 +87,8 @@ class User extends CI_Controller {
 	// Halaman profil
 	public function profile_page($id)
 	{	
-		$data['provinsi'] = $this->User_model->getDataProv()->result();
-		$data['user'] = $this->User_model->getDataUserById($id)->result();
+		// $data['provinsi'] = $this->User_model->getDataProv()->result();
+		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);
 		$this->load->view('user/include/footer');
@@ -118,19 +122,16 @@ class User extends CI_Controller {
 	// Fungsi daftar/register
 	public function daftar()
 	{
-		$cek = $this->User_model->cek_regis();
-		if ($cek == false)
-		{
-			
-			$data = array (
+		$data = array (
 				'nama_lengkap' => $this->input->post("nama"),
 				'email' => $this->input->post("email"),
 				'username' => $this->input->post("username"),
 				'password' => md5($this->input->post("password")),				
-				'no_telp' => $this->input->post("nomor"),
+				'no_telp' => '0'.$this->input->post("nomor"),
 				'provinsi' => $this->input->post("provinsi"),
 				'kota' => $this->input->post("kota"),
 				'level_user' => '0'
+<<<<<<< HEAD
 			);			
 
 			$this->session->set_userdata($sess);
@@ -145,24 +146,21 @@ class User extends CI_Controller {
 						redirect('beranda');
 					}
 
+=======
+		);			
+			
+>>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 			$this->User_model->tambah_user('user', $data);  
-			// log_message('error', 'a');
-			// $this->user_model->tambah_user($data);
-			// $this->session->set_flashdata('tambah-user', 'Anda berhasil daftar');
-			// redirect(base_url('beranda'));
-			// $this->load->view('user/home_page');
+			
 			redirect('');
-		// }
-			$this->User_model->tambah_user('user', $data);
-			$this->session->set_flashdata('berhasilTambahUser', 'Anda berhasil daftar');
-			redirect();
-		} else {
-			$this->session->set_flashdata('gagalTambahUser', 'Anda sudah terdaftar');
-			redirect();
-		}
 	}
 
+<<<<<<< HEAD
 	public function edit_profil() {
+=======
+	public function edit_profil()
+	{
+>>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 	}
 
 	// Cek No telepon yg diinput dengan db
@@ -189,16 +187,20 @@ class User extends CI_Controller {
 		}
 	}
 
-	// Cak password yg diinput dgn db
-	public function cekPass()
+	// Cak konfirmasi password
+	public function cekKonfirPass()
 	{
-		$pass = substr(md5($this->input->post('password')), 0, 15);
-		$data = $this->User_model->cekPass($pass);
-
-		if ($data == true) {
+		$pass = $this->input->post('password');
+		$konfirpass = $this->input->post('konfirpass');
+		
+		if ($pass == $konfirpass) {
 			echo true;
 		} else {
 			echo false;
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 }

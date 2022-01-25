@@ -76,6 +76,7 @@
 	var email_error = 1;
 	var username_error = 1;
 	var pass_error = 1;
+	var Kpass_error = 1;
 	var prov_error = 1;
 	var kota_error = 1;
 
@@ -176,7 +177,7 @@
 
 	// Validasi password
 	function cekPass() {
-		var pass = $('#password').val();
+		var pass = $('.password').val();
 
 		if (pass == "") {
 			$('#pesan_pass').html("Silakan isi sandi Anda");
@@ -188,22 +189,35 @@
 				$('#pesan_pass').css('color', 'red');
 				pass_error = 1;
 			} else {
-				$.ajax({
-					url: "<?= base_url('user/cekPass') ?>",
-					data: 'password=' + pass,
-					type: 'POST',
-					success: function (msg) {
-						if (msg) {
-							$('#pesan_pass').html("Sandi sudah digunakan");
-							$('#pesan_pass').css('color', 'red');
-							pass_error = 1;
-						} else {
-							$('#pesan_pass').html("Sandi dapat digunakan");
-							$('#pesan_pass').css('color', 'green');
-							pass_error = 0;
-						}
-					}
-				});
+				$('#pesan_pass').html("");
+				pass_error = 0;
+			}
+		}
+	}
+
+	// Validasi konfirmasi password
+	function cekKonfirPass() {
+		var Kpass = $('#konfirpass').val();
+		var pass = $('.password').val();
+
+		if (Kpass == "") {
+			$('#pesan_konfirPass').html("Konfirmasi sandi Anda");
+			$('#pesan_konfirPass').css('color', 'red');
+			Kpass_error = 1;
+		} else {
+			if (Kpass.length < 6) {
+				$('#pesan_konfirPass').html("Sandi minimal 6 digit");
+				$('#pesan_konfirPass').css('color', 'red');
+				Kpass_error = 1;
+			} else {
+				if (Kpass == pass) {
+					$('#pesan_konfirPass').html("Sandi sesuai");
+					$('#pesan_konfirPass').css('color', 'green');
+				} else {
+					$('#pesan_konfirPass').html("Sandi tidak sesuai");
+					$('#pesan_konfirPass').css('color', 'red');
+				}
+
 			}
 		}
 	}
@@ -242,11 +256,12 @@
 		cekEmail();
 		cekUsername();
 		cekPass();
+		cekKonfirPass();
 		cekProvinsi();
 		cekKota();
 
 		if (nama_lengkap_error == 0 && notel_error == 0 && email_error == 0 && username_error == 0 && pass_error ==
-			0 && prov_error == 0 && kota_error == 0) {
+			0 && Kpass_error == 0 && prov_error == 0 && kota_error == 0) {
 			error = 0;
 		}
 

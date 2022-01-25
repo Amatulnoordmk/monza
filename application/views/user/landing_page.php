@@ -479,10 +479,17 @@
 								<span id="pesan_nama_lengkap"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
-								<label>Nomor Handphone</label>
-								<input type="text" name="nomor" id="nomor" class="form-control"
-									onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
-									onkeyup="cekNo()">
+								<label>Nomor Telepon</label>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-secondary" type="button" id="button-addon1"
+											disabled>+62</button>
+									</div>
+									<input type="text" name="nomor" id="nomor" class="form-control"
+										aria-describedby="addon-wrapping" aria-describedby="inputGroup-sizing-default"
+										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
+										onkeyup="cekNo()">
+								</div>
 								<span id="pesan_notel"></span>
 							</div>
 						</div>
@@ -490,7 +497,7 @@
 							<div class="form-group col-md-6 col-12">
 								<label>Email</label>
 								<input type="email" name="email" id="email" class="form-control" style="color: #1e1e27"
-									onkeyup="cekEmail()">
+									placeholder="begini@contoh.com" onkeyup="cekEmail()">
 								<span id="pesan_email"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
@@ -503,21 +510,23 @@
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Password</label>
-								<input type="password" name="password" id="password" class="form-control"
-									autocomplete="off" style="color: #1e1e27" onkeyup="cekPass()">
+								<input type="password" name="password" class="password form-control" autocomplete="off"
+									style="color: #1e1e27" onkeyup="cekPass()">
 								<span id="pesan_pass"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Konfirmasi Password</label>
-								<input type="password" name="konfirpass" class="form-control" style="color: #1e1e27"
-									required>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
+								<input type="password" name="konfirpass" id="konfirpass" class="form-control"
+									style="color: #1e1e27" onkeyup="cekKonfirPass()" required>
+								<span id="pesan_konfirPass"></span>
 							</div>
 						</div>
 						<div class="row">
+<<<<<<< HEAD
 							<div class="form-group col-md-6 col-12">								
+=======
+							<div class="form-group col-md-6 col-12">
+>>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 								<label>Provinsi</label>
 								<select class="form-control" style="color: #1e1e27" name="provinsi" id="provinsi"
 									onchange="cekProvinsi()">
@@ -525,7 +534,11 @@
 									<?php foreach($provinsi as $prov): ?>
 									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
 									<?php endforeach; ?>
+<<<<<<< HEAD
 								</select>								
+=======
+								</select>
+>>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 								<span id="pesan_prov"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
@@ -538,9 +551,12 @@
 									<option value="metun">Medan Tuntungan</option>
 									<option value="mesel">Medan Selayang</option>
 								</select>
+<<<<<<< HEAD
 								<div class="invalid-feedback">
 									Kolom wajib diisi
 								</div>
+=======
+>>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 								<span id="pesan_kota"></span>
 							</div>
 						</div>
