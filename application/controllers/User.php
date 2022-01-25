@@ -116,7 +116,7 @@ class User extends CI_Controller {
         redirect('');
     }
 
-	// Fungsi daftar
+	// Fungsi daftar/register
 	public function daftar()
 	{
 		$cek = $this->User_model->cek_regis();
@@ -151,8 +151,46 @@ class User extends CI_Controller {
 		}
 	}
 
+<<<<<<< HEAD
 	public function edit_profil()
 	{
 
+=======
+	// Cek No telepon yg diinput dengan db
+	public function cekNotel(){
+		$notel = $this->input->post('nomor');
+		$data = $this->User_model->cekNotel($notel);
+		if ($data == true) {
+			echo true;
+		} else {
+			echo false;
+		}
+	}
+
+	// Cak email yg diinput dgn db
+	public function cekEmail()
+	{
+		$email = $this->input->post('email');
+		$data = $this->User_model->cekEmail($email);
+
+		if ($data == true) {
+			echo true;
+		} else {
+			echo false;
+		}
+	}
+
+	// Cak password yg diinput dgn db
+	public function cekPass()
+	{
+		$pass = substr(md5($this->input->post('password')), 0, 15);
+		$data = $this->User_model->cekPass($pass);
+
+		if ($data == true) {
+			echo true;
+		} else {
+			echo false;
+		}
+>>>>>>> c69829eb002615d8e8c85483249970e48ffcd50e
 	}
 }

@@ -27,9 +27,8 @@ class Welcome extends CI_Controller {
 		// $this->load->view('admin/include/footer');
 		$this->load->model('User_model');
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
+		
 		$this->load->view('user/landing_page', $data);
-
-		$this->load->view('user/landing_page');
 		$this->load->view('user/include/footer');
 	}
 }
