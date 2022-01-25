@@ -3,6 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class User_model extends CI_Model
 {
+
+// LOGIN FUNCTION
     // Cek user ketika login
 	public function cek_user()
     {
@@ -12,25 +14,9 @@ class User_model extends CI_Model
         );
         return $this->db->get_where('user', $where);
     }
+// END LOGIN FUNCTION
 
-    // public function get_email($email)
-    // {
-    //     $this->db->where('email', $email);
-    //     return $this->db->get('user')->row();
-    // }
-
-    // public function verifikasi($status, $email)
-    // {
-    //     $data = array('status' => $status);
-    //     $this->db->where('email', $email);
-    //     $query = $this->db->update('user', $data);
-    //     if ($query) {
-    //         return TRUE;
-    //     } else {
-    //         return FALSE;
-    //     }
-    // }
-
+// REGISTER FUNCTION
     // Cek email dan username dari view user_v
     public function cek_regis()
     {
@@ -48,24 +34,73 @@ class User_model extends CI_Model
         }
     }
 
-    // Tambah/daftar user
-    // public function tambah_user($data)
-    // {
-    //     $sql = "INSERT INTO `user`(`nama_lengkap`, `email`, `username`, `password`, `no_telp`, `provinsi`, `kota`, `level_user`) VALUES ('[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]')";
-    //     $this->db->query($sql, $data);   
-    // }
+    // Cek No telepon di db
+    public function cekNotel($notel)
+    {
+        $this->db->where('no_telp', $notel);
+        $query = $this->db->get('user');
+        
+        if($query->num_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
+    // Cek email di db
+    public function cekEmail($email)
+    {
+        $this->db->where('email', $email);
+        $query = $this->db->get('user');
+
+        if($query->num_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // Cek password di db
+    public function cekPass($pass)
+    {
+        $this->db->where('password', $pass);
+        $query = $this->db->get('user');
+
+        if($query->num_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // Menambah user baru ke db
     public function tambah_user($table, $data)
     {
         return $this->db->insert($table, $data);
     }
 
+    // Mengambil daftar provindi dari db
 	public function getDataProv()
 	{
 		return $this->db->get('wilayah_provinsi');
 	}
+<<<<<<< HEAD
 	public function getDataKabupaten($idprov)
 	{
 		return $this->db->get_where('wilayah_kabupaten',['provinsi_id'=>$idprov])-> result();
 	}
+=======
+<<<<<<< HEAD
+	
+    public function getDataUserById($id)
+    {
+        $id_user = $this->db->where('id_user', $id);
+        return $this->db->get('user', $id_user);
+    }
+=======
+
+// END REGISTER FUNCTION
+>>>>>>> c69829eb002615d8e8c85483249970e48ffcd50e
+
+>>>>>>> 2a97ff3ac7e0f2473e31d1f92a6c4591ae3c25cf
 }
