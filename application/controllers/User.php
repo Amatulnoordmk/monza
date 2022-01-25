@@ -85,7 +85,7 @@ class User extends CI_Controller {
 	public function profile_page($id)
 	{	
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
-		$data['user'] = $this->User_model->getDataUserById($id)->result();
+		$data['user'] = $this->User_model->getDataUserById($id);
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);
 		$this->load->view('user/include/footer');
@@ -150,12 +150,9 @@ class User extends CI_Controller {
 			redirect();
 		}
 	}
-
-<<<<<<< HEAD
 	public function edit_profil()
-	{
+	{}
 
-=======
 	// Cek No telepon yg diinput dengan db
 	public function cekNotel(){
 		$notel = $this->input->post('nomor');
@@ -191,6 +188,5 @@ class User extends CI_Controller {
 		} else {
 			echo false;
 		}
->>>>>>> c69829eb002615d8e8c85483249970e48ffcd50e
 	}
 }

@@ -84,16 +84,14 @@ class User_model extends CI_Model
 	{
 		return $this->db->get('wilayah_provinsi');
 	}
-<<<<<<< HEAD
-	
+    
     public function getDataUserById($id)
-    {
+    {   
+        
         $id_user = $this->db->where('id_user', $id);
         return $this->db->get('user', $id_user);
     }
-=======
 
 // END REGISTER FUNCTION
->>>>>>> c69829eb002615d8e8c85483249970e48ffcd50e
 
 }
