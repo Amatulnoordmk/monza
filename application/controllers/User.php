@@ -34,7 +34,8 @@ class User extends CI_Controller {
 	//  Halaman beranda
 	public function home_page()
 	{
-        $this->load->view('user/include/header');
+		$data['user'] = $this->User_model->getDataUserById($this->session->userdata('id_user'))->result();
+        $this->load->view('user/include/header', $data);
 		$this->load->view('user/home_page');
         $this->load->view('user/include/footer');
 	}
@@ -81,10 +82,12 @@ class User extends CI_Controller {
 	}	
 
 	// Halaman profil
-	public function profile_page()
-	{
+	public function profile_page($id)
+	{	
+		$data['provinsi'] = $this->User_model->getDataProv()->result();
+		$data['user'] = $this->User_model->getDataUserById($id)->result();
         $this->load->view('user/include/header');
-		$this->load->view('user/profile_page');
+		$this->load->view('user/profile_page', $data);
 		$this->load->view('user/include/footer');
 	}
 	
@@ -146,5 +149,10 @@ class User extends CI_Controller {
 			$this->session->set_flashdata('gagalTambahUser', 'Anda sudah terdaftar');
 			redirect();
 		}
+	}
+
+	public function edit_profil()
+	{
+
 	}
 }

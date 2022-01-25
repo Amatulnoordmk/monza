@@ -28,12 +28,12 @@ class Admin extends CI_Controller {
 			foreach($cek_user->result() as $user){
 					$sess = array(
 						'isLogin' => "1",
-						'id_user' => $user->id,
+						'id_user' => $user->id_user,
 						'email' => $user->email,
 						'username' => $user->username,
 						'password' => $user->password,
 						'jen_kel' => $user->jenkel,
-						'no_telp' => $user->notelp,
+						'no_telp' => $user->no_telp,
 						'lokasi' => $user->lokasi,
 						'level_user' => $user->level_user
 					);

@@ -10,7 +10,7 @@
         <tbody>
             <tr>
                 <td rowspan="4" style="text-align: center;"><img src="<?=base_url();?>assets/user/images/single_1.jpg" alt="" height="150" width="170"></td>
-                <td width="80%"><h4>Jojhon Suhendi</h4></td>
+                <td width="80%"><h4><?php echo $user->nama_lengkap;?></h4></td>
             </tr>
             <tr>
                 <td><span class="ti-location-pin"></span> Medan</td>
@@ -148,7 +148,7 @@
 </div>
 
 <!-- Tabs -->
-	<!-- modal register -->
+	<!-- modal edit profil -->
 	<div class="modal fade" id="modaleditprofil">
 		<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -169,7 +169,7 @@
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Nama Lengkap</label>
-							<input type="text" name="nama" class="form-control" autocomplete="off" required>
+							<input type="text" name="nama" class="form-control" autocomplete="off" required >
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
@@ -231,10 +231,9 @@
 							<label for="provinsi">Provinsi</label>
 							<select class="form-control" id="provinsi">
 								<option selected disabled>Piih Provinsi</option>
-								<option>Aceh</option>
-								<option>Sumatera Utara</option>
-								<option>Sumatera Barat</option>
-								<option>Sumatera Selatan</option>
+                                <?php foreach($provinsi as $prov): ?>
+									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
+								<?php endforeach; ?>
 							</select>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
