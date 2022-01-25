@@ -44,7 +44,7 @@ class Admin extends CI_Controller {
 						redirect(base_url('dashboard_admin'));
 					
 					}else if($this->session->userdata('level_user')==0){
-						$this->session->set_flashdata('login','Selamat Datang kamu');
+						$this->session->set_flashdata('login','Selamat Datang '.$this->session->userdata('username'));
 						redirect(base_url('beranda'));
 					}
 			}
