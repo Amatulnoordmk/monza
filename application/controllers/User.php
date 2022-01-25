@@ -33,11 +33,7 @@ class User extends CI_Controller {
 
 	//  Halaman beranda
 	public function home_page()
-	{
-<<<<<<< HEAD
-=======
-		
->>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
+	{		
         $this->load->view('user/include/header');
 		$this->load->view('user/home_page');
         $this->load->view('user/include/footer');
@@ -131,36 +127,15 @@ class User extends CI_Controller {
 				'provinsi' => $this->input->post("provinsi"),
 				'kota' => $this->input->post("kota"),
 				'level_user' => '0'
-<<<<<<< HEAD
-			);			
-
-			$this->session->set_userdata($sess);
-					if ($this->session->userdata('id_user_grup')==1) {
-						$this->session->set_flashdata('login','Selamat Datang Admin!');
-						redirect(base_url('dashboard_admin'));
-					}else if($this->session->userdata('id_user_grup')==2){
-						$this->session->set_flashdata('login','Selamat Datang !');
-						redirect(base_url('dashboard_admin'));
-					}else if($this->session->userdata('id_user_grup')==0){
-						$this->session->set_flashdata('login','Selamat Datang !');
-						redirect('beranda');
-					}
-
-=======
 		);			
 			
->>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 			$this->User_model->tambah_user('user', $data);  
 			
 			redirect('');
 	}
 
-<<<<<<< HEAD
-	public function edit_profil() {
-=======
 	public function edit_profil()
 	{
->>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 	}
 
 	// Cek No telepon yg diinput dengan db
@@ -199,8 +174,4 @@ class User extends CI_Controller {
 			echo false;
 		}
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 }

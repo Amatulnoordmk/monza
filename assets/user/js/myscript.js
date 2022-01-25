@@ -1,9 +1,8 @@
-const flashData = $('.flash-data').data('flashdata');
-
-if(flashData) {
-	Swal({
-		title: 'Pendaftaran',
-		text: 'Berhasil Dilakukan' + flashData,
-		type: 'success'
-	});
+const swal = $('.swal').data('swal');
+if(swal) {
+	Swal.fire({
+		title: 'Berhasil' + swal,
+		text: '',
+		icon: 'success'
+	})
 }

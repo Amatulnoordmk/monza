@@ -1,7 +1,11 @@
 <!-- Main Content -->
 <div class="main-content">
 	<!-- Alert berhasil login -->
-
+	<?php if($this->session->flashdata('login')): ?>
+	<div class="alert alert-success" role="alert">
+		<h6><?= $this->session->flashdata('login') ?></h6>
+	</div>
+	<?php endif; ?>
 	<!-- End alert -->
 	<section class="section">
 		<div class="section-header">

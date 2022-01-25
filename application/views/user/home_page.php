@@ -1,53 +1,10 @@
-<!-- Sweet Alert Login-->
-<?php 
-    if($this->session->flashdata('login')){
-  ?>
-    <script>
-      swal("Berhasil Login !", "<?= $this->session->flashdata('login') ?>", "success", {
-        button: "OK",
-      });
-    </script>
-  <?php
-    }
-  ?>
- <?php 
-    if($this->session->flashdata('msg')){
-      if($this->session->flashdata('kondisi')=='1'){
-  ?>
-    <script>
-      swal("Sukses !", "<?= $this->session->flashdata('msg') ?>", "success", {
-        button: "OK",
-      });
-    </script>
-  <?php
-    }else{
-  ?>
-  <script>
-      swal("Gagal !", "<?= $this->session->flashdata('msg') ?>", "failed", {
-        button: "OK",
-      });
-  </script>
-  <?php } } ?>
-<?php 
-    if($this->session->flashdata('status')){
-      if($this->session->flashdata('kondisi')=='1'){
-  ?>
-    <script>
-      swal("Sukses !", "<?= $this->session->flashdata('status') ?>", "success", {
-        button: "OK",
-      });
-    </script>
-  <?php
-    }else{
-  ?>
-  <script>
-      swal("Gagal !", "<?= $this->session->flashdata('status') ?>", "failed", {
-        button: "OK",
-      });
-  </script>
-  <?php } } ?>
-
-<!-- end swal -->
+<!-- Alert berhasil  Login-->
+<?php if($this->session->flashdata('login')): ?>
+	<div class="alert alert-success" role="alert">
+		<h6><?= $this->session->flashdata('login') ?></h6>
+	</div>
+<?php endif; ?>
+<!-- end alert -->
 
 
 <!-- Slider -->

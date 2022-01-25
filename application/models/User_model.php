@@ -84,8 +84,4 @@ class User_model extends CI_Model
     }
 
 // END REGISTER FUNCTION
-<<<<<<< HEAD
-
-=======
->>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 }

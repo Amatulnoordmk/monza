@@ -56,11 +56,19 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="<?=base_url();?>assets/user/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="<?=base_url();?>assets/user/js/custom.js"></script>
-
 <script src="<?=base_url();?>assets/user/js/sweetalert2.all.min.js"></script>
+<script src="<?=base_url();?>assets/user/js/sweetalert2.all.js"></script>
 <script src="<?=base_url();?>assets/user/js/myscript.js"></script>
 
 <script type="text/javascript">
+	$(document).ready(function () {
+      		window.setTimeout(function () {
+      			$(".alert").fadeTo(500, 0).slideUp(500, function () {
+      				$(this).remove();
+      			});
+      		}, 1000);
+      	});
+		  
 	// Validasi nomor telepon cuma boleh input angka
 	function isNumberKey(evt) {
 		var charCode = (evt.which) ? evt.which : evt.keyCode;

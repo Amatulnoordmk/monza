@@ -522,11 +522,7 @@
 							</div>
 						</div>
 						<div class="row">
-<<<<<<< HEAD
-							<div class="form-group col-md-6 col-12">								
-=======
 							<div class="form-group col-md-6 col-12">
->>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 								<label>Provinsi</label>
 								<select class="form-control" style="color: #1e1e27" name="provinsi" id="provinsi"
 									onchange="cekProvinsi()">
@@ -534,11 +530,7 @@
 									<?php foreach($provinsi as $prov): ?>
 									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
 									<?php endforeach; ?>
-<<<<<<< HEAD
-								</select>								
-=======
 								</select>
->>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 								<span id="pesan_prov"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
@@ -551,12 +543,6 @@
 									<option value="metun">Medan Tuntungan</option>
 									<option value="mesel">Medan Selayang</option>
 								</select>
-<<<<<<< HEAD
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
-=======
->>>>>>> fc7290a0470be5fae93ccf4e8ac5f48278a9476d
 								<span id="pesan_kota"></span>
 							</div>
 						</div>
