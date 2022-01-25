@@ -60,19 +60,6 @@ class User_model extends CI_Model
         }
     }
 
-    // Cek password di db
-    public function cekPass($pass)
-    {
-        $this->db->where('password', $pass);
-        $query = $this->db->get('user');
-
-        if($query->num_rows() > 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
     // Menambah user baru ke db
     public function tambah_user($table, $data)
     {
@@ -84,6 +71,7 @@ class User_model extends CI_Model
 	{
 		return $this->db->get('wilayah_provinsi');
 	}
+<<<<<<< HEAD
     
     public function getDataUserById($id)
     {   
@@ -94,4 +82,19 @@ class User_model extends CI_Model
 
 // END REGISTER FUNCTION
 
+=======
+
+	public function getDataKabupaten($idprov)
+	{
+		return $this->db->get_where('wilayah_kabupaten',['provinsi_id'=>$idprov])-> result();
+	}
+	
+    public function getDataUserById($id)
+    {
+        $this->db->where('id_user', $id);
+        return $this->db->get('user_v');
+    }
+
+// END REGISTER FUNCTION
+>>>>>>> db4f8ca5f23bde961485675b5ad5768a32da6cc9
 }

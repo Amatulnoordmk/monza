@@ -29,21 +29,22 @@ class Admin extends CI_Controller {
 					$sess = array(
 						'isLogin' => "1",
 						'id_user' => $user->id_user,
+						'nama_lengkap' => $user->nama_lengkap,
 						'email' => $user->email,
 						'username' => $user->username,
 						'password' => $user->password,
-						'jen_kel' => $user->jenkel,
 						'no_telp' => $user->no_telp,
-						'lokasi' => $user->lokasi,
+						'provinsi' => $user->provinsi,
+						'kota' => $user->kota,
 						'level_user' => $user->level_user
 					);
 					$this->session->set_userdata($sess);
 					if ($this->session->userdata('level_user')==1) {
-						//$this->session->set_flashdata('login','Selamat Datang Admin!');
+						$this->session->set_flashdata('login','Selamat Datang Admin!');
 						redirect(base_url('dashboard_admin'));
 					
 					}else if($this->session->userdata('level_user')==0){
-						// $this->session->set_flashdata('login','Selamat Datang !');
+						$this->session->set_flashdata('login','Selamat Datang kamu');
 						redirect(base_url('beranda'));
 					}
 			}

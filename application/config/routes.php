@@ -88,7 +88,7 @@ $route['produkmurah'] = "user/cheapProduct_page";
 // Post Produk
 $route['postproduk'] = "user/postProduct_page";
 // Profile
-$route['profil/(:any)'] = "user/profile_page/$12";
+$route['profil/(:any)'] = "user/profile_page/$1";
 // Donasi
 $route['donasi'] = "user/event_page";
 // Detail event

@@ -27,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/single_responsive.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_styles.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_responsive.css">
+	
 </head>
 
 <body>
@@ -100,11 +101,13 @@
 										<a class="nav-link dropdown-toggle dropleft" href="#"
 											id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
 											aria-expanded="false" style="color: #1e1e27">
-											<i class="fa fa-user"></i>&nbsp&nbspHai,<?= $this->session->userdata('username') ?>
+											<i
+												class="fa fa-user"></i>&nbsp&nbspHai,&nbsp<?= $this->session->userdata('username') ?>
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-											<a class="dropdown-item" href="<?= base_url('profil/'.$this->session->userdata('id_user')) ?>">Profil</a>
-											<a href="<?=base_url('user/logout')?>"class="dropdown-item">Keluar</a>
+											<a class="dropdown-item"
+												href="<?= base_url('profil/'.$this->session->userdata('id_user')) ?>">Profil</a>
+											<a href="<?=base_url('user/logout')?>" class="dropdown-item">Keluar</a>
 										</div>
 									</li>
 								</ul>

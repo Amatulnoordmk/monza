@@ -1,5 +1,13 @@
-<!-- Slider -->
+<!-- Alert berhasil  Login-->
+<?php if($this->session->flashdata('login')): ?>
+	<div class="alert alert-success" role="alert">
+		<h6><?= $this->session->flashdata('login') ?></h6>
+	</div>
+<?php endif; ?>
+<!-- end alert -->
 
+
+<!-- Slider -->
 <div class="main_slider" style="background-image:url(<?=base_url();?>assets/user/images/slider__1.jpeg)">
 	<div class="container fill_height">
 		<div class="row align-items-center fill_height">
