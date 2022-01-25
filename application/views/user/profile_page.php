@@ -14,7 +14,7 @@
 				<td rowspan="4" style="text-align: center;"><img src="<?=base_url();?>assets/user/images/single_1.jpg"
 						alt="" height="150" width="170"></td>
 				<td width="80%">
-					<h4><?= $this->session->userdata('nama_lengkap') ?></h4>
+					<h4><?= $user->nama_lengkap ?></h4>
 				</td>
 			</tr>
 			<tr>
