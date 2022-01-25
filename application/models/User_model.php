@@ -64,6 +64,8 @@ class User_model extends CI_Model
 	{
 		return $this->db->get('wilayah_provinsi');
 	}
-	
-
+	public function getDataKabupaten($idprov)
+	{
+		return $this->db->get_where('wilayah_kabupaten',['provinsi_id'=>$idprov])-> result();
+	}
 }

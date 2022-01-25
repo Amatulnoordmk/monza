@@ -25,7 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/contact_responsive.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/single_styles.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/single_responsive.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_styles.css">
+	<link rel="style sheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_styles.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_responsive.css">
 </head>
 
@@ -37,17 +37,9 @@
 
 		<header class="header trans_300">
 
-			<!-- Alert -->
-			<?php if($this->session->flashdata('berhasilTambahUser')): ?>
-			<!-- alert berhasil tambah user -->
-			<div class="alert alert-success" role="alert">
-				<h6><?= $this->session->flashdata('berhasilTambahUser') ?></h6>
-			</div>
-			<?php elseif($this->session->flashdata('gagalTambahUser')): ?>
-			<!-- alert gagal tambah user -->
-			<div class="alert alert-warning" role="alert">
-				<h6><?= $this->session->flashdata('gagalTambahUser') ?></h6>
-			</div>
+			<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash');?>"></div>
+			<?php if ($this->session->flashdata('flash')) : ?>
+
 			<?php endif; ?>
 
 			<!-- Main Navigation -->
@@ -523,6 +515,18 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
+								<label for="provinsi">Provinsi</label>
+								<select class="form-control" id="provinsi" style="color: #1e1e27" name="provinsi">
+									<option selected disabled>Piih Provinsi</option>
+									<?php foreach($provinsi as $prov): ?>
+									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
+									<?php endforeach; ?>
+								</select>
+								<div class="invalid-feedback">
+									Kolom wajib diisi
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-12">
 								<label for="kota">Kabupaten/Kota</label>
 								<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
 									<option selected disabled>Pilih</option>
@@ -530,18 +534,6 @@
 									<option value="meko">Medan Kota</option>
 									<option value="metun">Medan Tuntungan</option>
 									<option value="mesel">Medan Selayang</option>
-								</select>
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
-							</div>
-							<div class="form-group col-md-6 col-12">
-								<label for="provinsi">Provinsi</label>
-								<select class="form-control" id="provinsi" style="color: #1e1e27" name="provinsi">
-									<option selected disabled>Piih Provinsi</option>
-									<?php foreach($provinsi as $prov): ?>
-									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
-									<?php endforeach; ?>
 								</select>
 								<div class="invalid-feedback">
 									Kolom wajib diisi
@@ -564,6 +556,32 @@
 
 	<!-- end modal daftar -->
 
+
+	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+	<script>
+		$(document).ready(function(){
+			$('#provinsi').change(function(){
+				var id = $(this).val();
+				$.ajax({
+					type: "POST",
+					url: "<?= base_url('User_model/getKabupaten') ?>",
+					data: {
+						id: id
+					},
+					dataType: "JSON",
+					success: function(response) {
+						console.log(response);
+
+					}
+				})
+			});
+		});
+	</script>
+
 	<!-- <script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script>
@@ -579,6 +597,3 @@
 		})
 	})
  -->
-
-
-	>>>>>>> b793013d50351c8c566717b95a1b97c3335866f5
