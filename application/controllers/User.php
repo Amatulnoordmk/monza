@@ -34,8 +34,7 @@ class User extends CI_Controller {
 	//  Halaman beranda
 	public function home_page()
 	{
-		$data['user'] = $this->User_model->getDataUserById($this->session->userdata('id_user'))->result();
-        $this->load->view('user/include/header', $data);
+        $this->load->view('user/include/header');
 		$this->load->view('user/home_page');
         $this->load->view('user/include/footer');
 	}
@@ -133,7 +132,19 @@ class User extends CI_Controller {
 				'kota' => $this->input->post("kota"),
 				'level_user' => '0'
 			);			
-			
+
+			$this->session->set_userdata($sess);
+					if ($this->session->userdata('id_user_grup')==1) {
+						$this->session->set_flashdata('login','Selamat Datang Admin!');
+						redirect(base_url('dashboard_admin'));
+					}else if($this->session->userdata('id_user_grup')==2){
+						$this->session->set_flashdata('login','Selamat Datang !');
+						redirect(base_url('dashboard_admin'));
+					}else if($this->session->userdata('id_user_grup')==0){
+						$this->session->set_flashdata('login','Selamat Datang !');
+						redirect('beranda');
+					}
+
 			$this->User_model->tambah_user('user', $data);  
 			// log_message('error', 'a');
 			// $this->user_model->tambah_user($data);
@@ -151,13 +162,9 @@ class User extends CI_Controller {
 		}
 	}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-	public function edit_profil()
-	{
+	public function edit_profil() {
+	}
 
-=======
 	// Cek No telepon yg diinput dengan db
 	public function cekNotel(){
 		$notel = $this->input->post('nomor');
@@ -193,7 +200,5 @@ class User extends CI_Controller {
 		} else {
 			echo false;
 		}
->>>>>>> c69829eb002615d8e8c85483249970e48ffcd50e
 	}
->>>>>>> 2a97ff3ac7e0f2473e31d1f92a6c4591ae3c25cf
 }
