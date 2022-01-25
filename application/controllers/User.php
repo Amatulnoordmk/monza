@@ -116,16 +116,12 @@ class User extends CI_Controller {
 	// Fungsi daftar/register
 	public function daftar()
 	{
-		$cek = $this->User_model->cek_regis();
-		if ($cek == false)
-		{
-			
-			$data = array (
+		$data = array (
 				'nama_lengkap' => $this->input->post("nama"),
 				'email' => $this->input->post("email"),
 				'username' => $this->input->post("username"),
 				'password' => md5($this->input->post("password")),				
-				'no_telp' => $this->input->post("nomor"),
+				'no_telp' => '0'.$this->input->post("nomor"),
 				'provinsi' => $this->input->post("provinsi"),
 				'kota' => $this->input->post("kota"),
 				'level_user' => '0'
@@ -172,13 +168,13 @@ class User extends CI_Controller {
 		}
 	}
 
-	// Cak password yg diinput dgn db
-	public function cekPass()
+	// Cak konfirmasi password
+	public function cekKonfirPass()
 	{
-		$pass = substr(md5($this->input->post('password')), 0, 15);
-		$data = $this->User_model->cekPass($pass);
-
-		if ($data == true) {
+		$pass = $this->input->post('password');
+		$konfirpass = $this->input->post('konfirpass');
+		
+		if ($pass == $konfirpass) {
 			echo true;
 		} else {
 			echo false;
