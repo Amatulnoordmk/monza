@@ -57,6 +57,9 @@
 <script src="<?=base_url();?>assets/user/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="<?=base_url();?>assets/user/js/custom.js"></script>
 
+<script src="<?=base_url();?>assets/user/js/sweetalert2.all.min.js"></script>
+<script src="<?=base_url();?>assets/user/js/myscript.js"></script>
+
 <script type="text/javascript">
 	// Validasi nomor telepon cuma boleh input angka
 	function isNumberKey(evt) {

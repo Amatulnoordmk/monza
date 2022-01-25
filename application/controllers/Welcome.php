@@ -28,6 +28,13 @@ class Welcome extends CI_Controller {
 		$this->load->model('User_model');
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		
+<<<<<<< HEAD
+		// $idprov = $this->input->post('id');
+		// $data2 = $this->User_model->getDataKabupaten($idprov);
+		// $this->output->set_output(json_encode($data2));
+		
+=======
+>>>>>>> 2a97ff3ac7e0f2473e31d1f92a6c4591ae3c25cf
 		$this->load->view('user/landing_page', $data);
 		$this->load->view('user/include/footer');
 	}
