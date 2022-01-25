@@ -177,7 +177,7 @@
 
 	// Validasi password
 	function cekPass() {
-		var pass = $('#password').val();
+		var pass = $('.password').val();
 
 		if (pass == "") {
 			$('#pesan_pass').html("Silakan isi sandi Anda");
@@ -198,6 +198,7 @@
 	// Validasi konfirmasi password
 	function cekKonfirPass() {
 		var Kpass = $('#konfirpass').val();
+		var pass = $('.password').val();
 
 		if (Kpass == "") {
 			$('#pesan_konfirPass').html("Konfirmasi sandi Anda");
@@ -209,22 +210,14 @@
 				$('#pesan_konfirPass').css('color', 'red');
 				Kpass_error = 1;
 			} else {
-				$.ajax({
-					url: "<?= base_url('user/cekKonfirPass') ?>",
-					data: 'konfirpass=' + Kpass,
-					type: 'POST',
-					success: function (msg) {
-						if (msg) {
-							$('#pesan_konfirPass').html("Sandi tidak sesuai");
-							$('#pesan_konfirPass').css('color', 'red');
-							Kpass_error = 1;
-						} else {
-							$('#pesan_konfirPass').html("Sandi sesuai");
-							$('#pesan_konfirPass').css('color', 'green');
-							Kpass_error = 0;
-						}
-					}
-				});
+				if (Kpass == pass) {
+					$('#pesan_konfirPass').html("Sandi sesuai");
+					$('#pesan_konfirPass').css('color', 'green');
+				} else {
+					$('#pesan_konfirPass').html("Sandi tidak sesuai");
+					$('#pesan_konfirPass').css('color', 'red');
+				}
+
 			}
 		}
 	}

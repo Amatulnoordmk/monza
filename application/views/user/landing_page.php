@@ -499,8 +499,8 @@
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Password</label>
-								<input type="password" name="password" id="password" class="form-control"
-									autocomplete="off" style="color: #1e1e27" onkeyup="cekPass()">
+								<input type="password" name="password" class="password form-control" autocomplete="off"
+									style="color: #1e1e27" onkeyup="cekPass()">
 								<span id="pesan_pass"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
@@ -512,27 +512,15 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
-<<<<<<< HEAD
-								<label for="provinsi">Provinsi</label>
-								<select class="form-control" id="provinsi" style="color: #1e1e27" name="provinsi">
-									<option selected disabled>Piih Provinsi</option>
-=======
 								<label>Provinsi</label>
 								<select class="form-control" style="color: #1e1e27" name="provinsi" id="provinsi"
 									onchange="cekProvinsi()">
 									<option value="" selected disabled>Piih Provinsi</option>
->>>>>>> 2a97ff3ac7e0f2473e31d1f92a6c4591ae3c25cf
 									<?php foreach($provinsi as $prov): ?>
 									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
 									<?php endforeach; ?>
 								</select>
-<<<<<<< HEAD
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
-=======
 								<span id="pesan_prov"></span>
->>>>>>> 2a97ff3ac7e0f2473e31d1f92a6c4591ae3c25cf
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label for="kota">Kabupaten/Kota</label>
@@ -544,13 +532,7 @@
 									<option value="metun">Medan Tuntungan</option>
 									<option value="mesel">Medan Selayang</option>
 								</select>
-<<<<<<< HEAD
-								<div class="invalid-feedback">
-									Kolom wajib diisi
-								</div>
-=======
 								<span id="pesan_kota"></span>
->>>>>>> 2a97ff3ac7e0f2473e31d1f92a6c4591ae3c25cf
 							</div>
 						</div>
 						<center>
@@ -567,48 +549,3 @@
 		</div>
 	</div>
 	<!-- end modal daftar -->
-<<<<<<< HEAD
-
-
-	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-	<script>
-		$(document).ready(function(){
-			$('#provinsi').change(function(){
-				var id = $(this).val();
-				$.ajax({
-					type: "POST",
-					url: "<?= base_url('User_model/getKabupaten') ?>",
-					data: {
-						id: id
-					},
-					dataType: "JSON",
-					success: function(response) {
-						console.log(response);
-
-					}
-				})
-			});
-		});
-	</script>
-
-	<!-- <script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script>
-	$(document).ready(function(){
-		$.ajax({
-			type:'post',
-			url:'dataprovinsi.php',
-			success:function(hasil)
-			{
-				alert("oke");
-				console.log(hasil);
-			}
-		})
-	})
- -->
-=======
->>>>>>> 2a97ff3ac7e0f2473e31d1f92a6c4591ae3c25cf

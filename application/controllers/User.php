@@ -25,17 +25,17 @@ class User extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('User_model');
-		// if ($this->session->userdata('isLogin')!="1")
-		// {
-		// 	redirect('');
-		// }
+		if ($this->session->userdata('isLogin')!="1")
+		{
+			redirect('');
+		}
 	}
 
 	//  Halaman beranda
 	public function home_page()
 	{
-		$data['user'] = $this->User_model->getDataUserById($this->session->userdata('id_user'))->result();
-        $this->load->view('user/include/header', $data);
+		
+        $this->load->view('user/include/header');
 		$this->load->view('user/home_page');
         $this->load->view('user/include/footer');
 	}
@@ -84,8 +84,8 @@ class User extends CI_Controller {
 	// Halaman profil
 	public function profile_page($id)
 	{	
-		$data['provinsi'] = $this->User_model->getDataProv()->result();
-		$data['user'] = $this->User_model->getDataUserById($id)->result();
+		// $data['provinsi'] = $this->User_model->getDataProv()->result();
+		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);
 		$this->load->view('user/include/footer');
@@ -128,32 +128,17 @@ class User extends CI_Controller {
 				'provinsi' => $this->input->post("provinsi"),
 				'kota' => $this->input->post("kota"),
 				'level_user' => '0'
-			);			
+		);			
 			
 			$this->User_model->tambah_user('user', $data);  
-			// log_message('error', 'a');
-			// $this->user_model->tambah_user($data);
-			// $this->session->set_flashdata('tambah-user', 'Anda berhasil daftar');
-			// redirect(base_url('beranda'));
-			// $this->load->view('user/home_page');
+			
 			redirect('');
-		// }
-			$this->User_model->tambah_user('user', $data);
-			$this->session->set_flashdata('berhasilTambahUser', 'Anda berhasil daftar');
-			redirect();
-		} else {
-			$this->session->set_flashdata('gagalTambahUser', 'Anda sudah terdaftar');
-			redirect();
-		}
 	}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 	public function edit_profil()
 	{
+	}
 
-=======
 	// Cek No telepon yg diinput dengan db
 	public function cekNotel(){
 		$notel = $this->input->post('nomor');
@@ -189,7 +174,6 @@ class User extends CI_Controller {
 		} else {
 			echo false;
 		}
->>>>>>> c69829eb002615d8e8c85483249970e48ffcd50e
 	}
->>>>>>> 2a97ff3ac7e0f2473e31d1f92a6c4591ae3c25cf
+
 }

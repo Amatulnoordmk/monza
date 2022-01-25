@@ -29,12 +29,13 @@ class Admin extends CI_Controller {
 					$sess = array(
 						'isLogin' => "1",
 						'id_user' => $user->id_user,
+						'nama_lengkap' => $user->nama_lengkap,
 						'email' => $user->email,
 						'username' => $user->username,
 						'password' => $user->password,
-						'jen_kel' => $user->jenkel,
 						'no_telp' => $user->no_telp,
-						'lokasi' => $user->lokasi,
+						'provinsi' => $user->provinsi,
+						'kota' => $user->kota,
 						'level_user' => $user->level_user
 					);
 					$this->session->set_userdata($sess);
