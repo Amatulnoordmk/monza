@@ -61,14 +61,32 @@
 <script src="<?=base_url();?>assets/user/js/myscript.js"></script>
 
 <script type="text/javascript">
+	// Alert ootstrap auto dismiss
 	$(document).ready(function () {
-      		window.setTimeout(function () {
-      			$(".alert").fadeTo(500, 0).slideUp(500, function () {
-      				$(this).remove();
-      			});
-      		}, 1000);
-      	});
-		  
+		window.setTimeout(function () {
+			$(".alert").fadeTo(500, 0).slideUp(500, function () {
+				$(this).remove();
+			});
+		}, 1000);
+	});
+
+	$(document).ready(function () {
+		$('.provinsi').change(function () {
+			var id = $(this).val();
+			$.ajax({
+				type: "POST",
+				url: "<?= base_url('welcome/getKabupaten')?>",
+				data: {
+					id: id,
+				},
+				dataType: "JSON",
+				success: function (response) {
+					$('.kota').html(ressponse);
+				}
+			});
+		});
+	});
+
 	// Validasi nomor telepon cuma boleh input angka
 	function isNumberKey(evt) {
 		var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -232,7 +250,7 @@
 
 	// Validasi provinsi
 	function cekProvinsi() {
-		var prov = $('#provinsi option:selected').attr('value');
+		var prov = $('.provinsi option:selected').attr('value');
 
 		if (prov == "") {
 			$('#pesan_prov').html("Silakan pilih provinsi tempat tinggal");
@@ -246,7 +264,7 @@
 
 	// Validasi kabupaten/kota
 	function cekKota() {
-		var kota = $('#kota option:selected').attr('value');
+		var kota = $('.kota option:selected').attr('value');
 
 		if (kota == "") {
 			$('#pesan_kota').html("Silakan pilih kota tempat tinggal");
