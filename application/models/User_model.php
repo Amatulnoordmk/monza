@@ -72,12 +72,12 @@ class User_model extends CI_Model
 		return $this->db->get('wilayah_provinsi');
 	}
     
-    // public function getDataUserById($id)
-    // {   
+    public function getDataUserById($id)
+    {   
         
-    //     $id_user = $this->db->where('id_user', $id);
-    //     return $this->db->get('user', $id_user);
-    // }
+        $this->db->where('id_user', $id);
+        return $this->db->get('user_v');
+    }
 
     public function getDataKabupaten($idprov)
     {
