@@ -34,8 +34,8 @@ class Admin extends CI_Controller {
 						'username' => $user->username,
 						'password' => $user->password,
 						'no_telp' => $user->no_telp,
-						'provinsi' => $user->provinsi,
-						'kota' => $user->kota,
+						'id_provinsi' => $user->id_provinsi,
+						'id_kota' => $user->id_kota,
 						'level_user' => $user->level_user
 					);
 					$this->session->set_userdata($sess);
@@ -50,8 +50,8 @@ class Admin extends CI_Controller {
 			}
 			
 		}else{
-			$this->session->set_flashdata('login','Password atau Username anda tidak cocok !');
-			redirect('login');
+			$this->session->set_flashdata('notLogin','Email atau password salah');
+			redirect();
 		}
     }
 
