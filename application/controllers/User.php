@@ -137,7 +137,7 @@ class User extends CI_Controller {
 	}
 	public function edit($id){
         $where = array('id_user' => $id);
-        $data['user'] = $this->m_data->edit_data($where,'user')->result();
+        $data['user'] = $this->User_model->edit_data($where,'user')->result();
         $this->load->view('user',$data);
     }
 	
@@ -165,7 +165,7 @@ class User extends CI_Controller {
 			'id_user' => $id
 		);
 	
-		$this->m_data->update_data($where,$data,'user');
+		$this->User_model->update_data($where,$data,'user');
 		redirect('');
 	}
 
