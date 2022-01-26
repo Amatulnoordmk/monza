@@ -496,9 +496,9 @@
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Email</label>
-								<input type="email" name="email" id="email" class="form-control" style="color: #1e1e27"
-									placeholder="begini@contoh.com" onkeyup="cekEmail()">
-								<span id="pesan_email"></span>
+								<input type="email" name="email" id="emailku" class="form-control"
+									style="color: #1e1e27" placeholder="begini@contoh.com" onkeyup="cekEmail()">
+								<span id="pesan_emailku"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Username</label>
@@ -528,7 +528,7 @@
 									id="provinsi" onchange="cekProvinsi()">
 									<option value="" selected disabled>Piih Provinsi</option>
 									<?php foreach($provinsi as $prov): ?>
-									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
+									<option value="<?= $prov->id_provinsi; ?>"><?= $prov->nama; ?></option>
 									<?php endforeach; ?>
 								</select>
 								<span id="pesan_prov"></span>
@@ -538,6 +538,7 @@
 								<select class="kota form-control" id="kota" name="kota" style="color: #1e1e27"
 									onchange="cekKota()">
 									<option value="" selected disabled>Pilih</option>
+									<option value="3">Medan</option>
 								</select>
 								<span id="pesan_kota"></span>
 							</div>
