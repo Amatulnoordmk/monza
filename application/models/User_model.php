@@ -71,30 +71,36 @@ class User_model extends CI_Model
 	{
 		return $this->db->get('wilayah_provinsi');
 	}
-<<<<<<< HEAD
     
-    public function getDataUserById($id)
-    {   
+    // public function getDataUserById($id)
+    // {   
         
-        $id_user = $this->db->where('id_user', $id);
-        return $this->db->get('user', $id_user);
-    }
+    //     $id_user = $this->db->where('id_user', $id);
+    //     return $this->db->get('user', $id_user);
+    // }
 
 // END REGISTER FUNCTION
 
-=======
 
 	public function getDataKabupaten($idprov)
 	{
 		return $this->db->get_where('wilayah_kabupaten',['provinsi_id'=>$idprov])-> result();
 	}
-	
+
     public function getDataUserById($id)
     {
         $this->db->where('id_user', $id);
         return $this->db->get('user_v');
     }
 
+    function edit_data($where,$table){                              
+        return $this->db->get_where($table,$where);
+
+    }
+ 
+	function update_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+    }
 // END REGISTER FUNCTION
->>>>>>> db4f8ca5f23bde961485675b5ad5768a32da6cc9
 }
