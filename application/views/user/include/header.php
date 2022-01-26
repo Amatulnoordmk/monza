@@ -27,7 +27,8 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/single_responsive.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_styles.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_responsive.css">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 </head>
 
 <body>
