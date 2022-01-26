@@ -29,10 +29,25 @@ class Welcome extends CI_Controller {
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		
 		// $idprov = $this->input->post('id');
+		// $this->load->model('User_model');
+		// $data['kota'] = $this->User_model->getDataKabupaten($idprov)->result();
+		// $this->output->set_content_type('application/json')->set_output(json_encode($data));
+		// $idprov = $this->input->post('id');
 		// $data2 = $this->User_model->getDataKabupaten($idprov);
 		// $this->output->set_output(json_encode($data2));
 		
 		$this->load->view('user/landing_page', $data);
 		$this->load->view('user/include/footer');
+	}
+	public function getKabupaten()
+	{
+		$idprov = $this->input->post('id');
+		$this->load->model('User_model');
+		$data = $this->User_model->getDataKabupaten($idprov)->result();
+		$output = '<option value="" selected disabled>Pilih</option>';
+		foreach ($data as $row) {
+			$output .= '<option value="'.$row->id.'">'.$row->nama.'</option>';
+		}		
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
 	}
 }

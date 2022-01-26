@@ -83,8 +83,8 @@ class User extends CI_Controller {
 	// Halaman profil
 	public function profile_page($id)
 	{	
-		$data['provinsi'] = $this->User_model->getDataProv()->result();
-		$data['user'] = $this->User_model->getDataUserById($id);
+		// $data['provinsi'] = $this->User_model->getDataProv()->result();
+		// $data['user'] = $this->User_model->getDataUserById($id);
 		// $data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');

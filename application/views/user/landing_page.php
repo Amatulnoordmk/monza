@@ -40,20 +40,20 @@
 
 		<header class="header trans_300">
 
-		<?php
+			<?php
                 if ($this->session->flashdata('login')) :
                 ?>
-				<div class="alert alert-danger" id="alertLogin" role="alert">
-					<?= $this->session->flashdata('login') ?>
-				</div>
-				<?php endif ?>
-				<?php
+			<div class="alert alert-danger" id="alertLogin" role="alert">
+				<?= $this->session->flashdata('login') ?>
+			</div>
+			<?php endif ?>
+			<?php
                 if ($this->session->flashdata('gagal')) :
                 ?>
-				<div class="alert alert-danger" id="alertgagal" role="alert">
-					<?= $this->session->flashdata('gagal') ?>
-				</div>
-				<?php endif ?>
+			<div class="alert alert-danger" id="alertgagal" role="alert">
+				<?= $this->session->flashdata('gagal') ?>
+			</div>
+			<?php endif ?>
 
 			<!-- Main Navigation -->
 
@@ -524,8 +524,8 @@
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Provinsi</label>
-								<select class="form-control" style="color: #1e1e27" name="provinsi" id="provinsi"
-									onchange="cekProvinsi()">
+								<select class="provinsi form-control" style="color: #1e1e27" name="provinsi"
+									id="provinsi" onchange="cekProvinsi()">
 									<option value="" selected disabled>Piih Provinsi</option>
 									<?php foreach($provinsi as $prov): ?>
 									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
@@ -535,13 +535,9 @@
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label for="kota">Kabupaten/Kota</label>
-								<select class="form-control" id="kota" name="kota" style="color: #1e1e27"
+								<select class="kota form-control" id="kota" name="kota" style="color: #1e1e27"
 									onchange="cekKota()">
 									<option value="" selected disabled>Pilih</option>
-									<option value="mera">Medan Area</option>
-									<option value="meko">Medan Kota</option>
-									<option value="metun">Medan Tuntungan</option>
-									<option value="mesel">Medan Selayang</option>
 								</select>
 								<span id="pesan_kota"></span>
 							</div>
