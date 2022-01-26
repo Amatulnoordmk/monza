@@ -89,7 +89,7 @@
 
 					</p>
 
-					<a href="" class="btn btn-primary">Tambah </a>
+					<a href="<?= base_url(); ?>postproduk" class="btn btn-primary">Tambah </a>
 				</div>
 			</div>
 		</div>
