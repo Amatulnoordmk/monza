@@ -85,6 +85,11 @@ class User extends CI_Controller {
 	{	
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id);
+<<<<<<< HEAD
+=======
+		// $data['provinsi'] = $this->User_model->getDataProv()->result();
+		$data['user'] = $this->User_model->getDataUserById($id)->row();
+>>>>>>> 75ac3b88970ce6b212dec573b50f42d3f8b26738
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);
 		$this->load->view('user/include/footer');
@@ -133,10 +138,41 @@ class User extends CI_Controller {
 			
 			redirect('');
 	}
-
-	public function edit_profil()
-	{
+	public function edit($id){
+        $where = array('id_user' => $id);
+        $data['user'] = $this->m_data->edit_data($where,'user')->result();
+        $this->load->view('user',$data);
+    }
+	
+	public function update(){
+		$id = $this->input->post('id');
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$username =$this->input->post('username');
+		$password = $this->input->post('password');
+		$no_telp = '0'. $this->input->post('nomor');
+		$provinsi = $this->input->post('provinsi');
+		$kota = $this->input->post('kota');
+	
+		$data = array(
+			'nama_lengkap' => $nama,
+			'email'=>$email,
+			'password'=>$password,
+			'username'=>$username,
+			'no_telp'=>$no_telp,
+			'provinsi'=>$provinsi,
+			'kota'=>$kota
+		);
+	
+		$where = array(
+			'id_user' => $id
+		);
+	
+		$this->m_data->update_data($where,$data,'user');
+		redirect('');
 	}
+
+	
 
 	// Cek No telepon yg diinput dengan db
 	public function cekNotel(){

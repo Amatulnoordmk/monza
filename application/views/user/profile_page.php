@@ -18,10 +18,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td><span class="ti-location-pin"></span> Medan</td>
+				<td><span class="ti-location-pin"></span> <?= $user->provinsi ?></td>
 			</tr>
 			<tr>
-				<td><span class="fa fa-whatsapp"></span> 0811-2233-4455</td>
+				<td><span class="fa fa-whatsapp"></span> <?= $user->no_telp ?></td>
 			</tr>
 			<tr>
 				<td>
@@ -174,21 +174,27 @@
 				</button>
 			</div>
 			<div class="modal-body p-5">
-				<form action="" method="POST" class="register-form">
+				<form action="" method="POST" action="<?= base_url();?>user/update" enctype="multipart/form-data" class="register-form">
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Nama Lengkap</label>
-							<input type="text" name="nama" class="form-control" autocomplete="off" required>
+                            <input type="hidden" name="id" value="<?php echo $user->id_user ?>">
+							<input type="text" name="nama" class="form-control" autocomplete="off" required value="<?php echo $user->nama_lengkap?>">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Nomor Handphone</label>
-							<input type="number" name="nomor" class="form-control" autocomplete="off"
-								onkeyup="cekNomorHP()" required>
-							<div class="invalid-feedback">
-								Kolom wajib diisi
+                            <div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-secondary" type="button" id="button-addon1"
+											disabled>+62</button>
+									</div>
+									<input type="text" name="nomor" id="nomor" class="form-control"
+										aria-describedby="addon-wrapping" aria-describedby="inputGroup-sizing-default"
+										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
+										onkeyup="cekNo()">
 							</div>
 						</div>
 					</div>
@@ -196,15 +202,15 @@
 						<div class="form-group col-md-6 col-12">
 							<label>Email</label>
 							<input type="email" name="email" class="form-control" autocomplete="off" onkeyup="cekEmail"
-								required>
+								required onkeyup="cekEmail()" value="<?php echo $user->email?>" >
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Username</label>
-							<input type="email" name="username" class="form-control" autocomplete="off"
-								onkeyup="cekUsername()" required>
+							<input type="text" name="username" class="form-control" autocomplete="off"
+								onkeyup="cekUsername()" required value="<?php echo $user->username?>">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
@@ -213,56 +219,35 @@
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Password</label>
-							<input type="password" name="password" class="form-control" autocomplete="off" required>
+							<input type="password" name="password" class="form-control" autocomplete="off" required onkeyup="cekPass()">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Konfirmasi Password</label>
-							<input type="password" name="konfirmasi" class="form-control" autocomplete="off" required>
+							<input type="password" name="konfirmasi" class="form-control" autocomplete="off" required onkeyup="cekKonfirPass()">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="form-group col-md-6 col-12">
-							<label for="provinsi">Jenis Kelamin</label>
-							<select class="form-control" id="jenkel">
-								<option selected disabled>Jenis Kelamin</option>
-								<option>Laki - Laki</option>
-								<option>Perempuan</option>
-								<option>Tidak Mau Disebutkan</option>
-							</select>
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
-						</div>
 						<div class="form-group col-md-6 col-12">
 							<label for="provinsi">Provinsi</label>
-							<select class="form-control" id="provinsi">
+							<select class="form-control" id="provinsi" onchange="cekKota()">
 								<option selected disabled>Piih Provinsi</option>
-								<?php //foreach($provinsi as $prov): ?>
-								<option value=""></option>
-								<?php //endforeach; ?>
+								<?php foreach($provinsi as $prov): ?>
+									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
+								<?php endforeach; ?>
 							</select>
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-md-6 col-12">
-							<label>Alamat Lengkap</label>
-							<textarea name="alamat" class="form-control" autocomplete="off" required=""></textarea>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label for="kota">Kabupaten/Kota</label>
-							<select class="form-control" id="kota">
+							<select class="form-control" id="kota" >
 								<option selected disabled>Pilih</option>
 								<option>Medan Area</option>
 								<option>Medan Kota</option>
