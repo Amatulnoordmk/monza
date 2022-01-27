@@ -1,6 +1,6 @@
 <div class="container single_product_container">
-	<table class="table" width="100%">
-		<thead class="table border table-borderless" colspan="3">
+	<table class="table table-borderless" width="100%">
+		<thead>
 			<tr>
 				<th>
 					<h3 style="color:#f1873b;">Profil Anda</h3>
