@@ -85,7 +85,7 @@ class User extends CI_Controller {
 	{	
 		// $data['provinsi'] = $this->User_model->getDataProv()->result();
 		// $data['user'] = $this->User_model->getDataUserById($id);
-		// $data['provinsi'] = $this->User_model->getDataProv()->result();
+		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);
@@ -163,14 +163,8 @@ class User extends CI_Controller {
 		$where = array(
 			'id_user' => $id
 		);
-	
-<<<<<<< HEAD
-		$this->User_model->update_data($where,$data,'user');
-		redirect('');
-=======
 		$this->User_model->update_profil($where,$data,'user');
 		redirect('profil/'.$id);
->>>>>>> 9e0b6a2c4b0b656f7fbb640fb7ff2f73db3622a5
 	}
 
 	
