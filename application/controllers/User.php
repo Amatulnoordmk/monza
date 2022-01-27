@@ -78,6 +78,14 @@ class User extends CI_Controller {
         $this->load->view('user/include/header');
 		$this->load->view('user/postProduct_page');
         $this->load->view('user/include/footer');
+	}
+	
+	// Halaman upload Event
+	public function postEvent_page()
+	{
+        $this->load->view('user/include/header');
+		$this->load->view('user/postEvent_page');
+        $this->load->view('user/include/footer');
 	}	
 
 	// Halaman profil
@@ -137,7 +145,7 @@ class User extends CI_Controller {
 	}
 	public function edit($id){
         $where = array('id_user' => $id);
-        $data['user'] = $this->m_data->edit_data($where,'user')->result();
+        $data['user'] = $this->User_model->edit_data($where,'user')->result();
         $this->load->view('user',$data);
     }
 	
@@ -163,7 +171,7 @@ class User extends CI_Controller {
 		$where = array(
 			'id_user' => $id
 		);
-	
+		
 		$this->User_model->update_profil($where,$data,'user');
 		redirect('profil/'.$id);
 	}
@@ -206,4 +214,24 @@ class User extends CI_Controller {
 			echo false;
 		}
 	}
+
+	public function postProduk() {
+			$data = array(
+			  'nama_produk' => $this->input->post("nama_produk"),
+			  'kategori_produk' => $this->input->post("kategori_produk"),
+			  'harga_produk' => $this->input->post('harga_produk'),
+			  'foto_produk' => $this->input->post('foto_produk'),
+			  'jenis_barang' => $this->input->post('jenis_barang')
+			);
+	
+			$this->insert_model->insert_data('produk', $data);
+			$this->session->set_flashdata('oke', 'ditambah');
+			redirect('profil');
+		  }
+
+		// else {
+		//   $this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Kode mata kuliah sudah ada</center></div>');
+		//   $this->load->view('add_matkul');  
+		// }    
+	// }
 }

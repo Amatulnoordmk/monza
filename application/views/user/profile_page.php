@@ -30,7 +30,21 @@
 			</tr>
 		<tbody>
 	</table>
-	<h3>List Barang</h3>
+	<h3>List Barang</h3><a href="">Tambah Disini</a>
+	<div class="product_sorting_container product_sorting_container_top">
+					<ul class="product_sorting">
+						<li>
+							<span class="type_sorting_text">Urutkan</span>
+							<i class="fa fa-angle-down"></i>
+							<ul class="sorting_type">
+								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'>
+									<span>Urutkan</span></li>
+								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'>
+									<span>Harga</span></li>
+								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'>
+									<span>jarak</span></li>
+							</ul>
+						</li>
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="card" style="width: 15rem;">
@@ -150,7 +164,7 @@
 
 					</p>
 
-					<a href="#" class="btn btn-primary">Tambah </a>
+					<a href="<?= base_url(); ?>postevent" class="btn btn-primary">Tambah </a>
 				</div>
 			</div>
 		</div>
