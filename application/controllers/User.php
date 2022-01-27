@@ -171,14 +171,9 @@ class User extends CI_Controller {
 		$where = array(
 			'id_user' => $id
 		);
-	
-<<<<<<< HEAD
-		$this->User_model->update_data($where,$data,'user');
-		redirect('');
-=======
+		
 		$this->User_model->update_profil($where,$data,'user');
 		redirect('profil/'.$id);
->>>>>>> 9e0b6a2c4b0b656f7fbb640fb7ff2f73db3622a5
 	}
 
 	
@@ -222,27 +217,21 @@ class User extends CI_Controller {
 
 	public function postProduk() {
 			$data = array(
-			  'kode_matkul' => $this->input->post("kode"),
-			  'nama_matkul' => $this->input->post("nama"),
-			  'semester' => $this->input->post('semester'),
-			  'sks' => $this->input->post('sks'),
-			  'ket' => $this->input->post('ket')
+			  'nama_produk' => $this->input->post("nama_produk"),
+			  'kategori_produk' => $this->input->post("kategori_produk"),
+			  'harga_produk' => $this->input->post('harga_produk'),
+			  'foto_produk' => $this->input->post('foto_produk'),
+			  'jenis_barang' => $this->input->post('jenis_barang')
 			);
 	
-			$this->insert_model->insert_data('matkul', $data);
+			$this->insert_model->insert_data('produk', $data);
 			$this->session->set_flashdata('oke', 'ditambah');
-			redirect('load_ctrl/matkul_list');
+			redirect('profil');
 		  }
-		  //nama mata kuliah sudah ada di db
-		  else {
-			$this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Nama mata kuliah sudah ada</center></div>');
-			$this->load->view('add_matkul');
-		  }
-		}
-		//kode mata kuliah sudah ada di db
-		else {
-		  $this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Kode mata kuliah sudah ada</center></div>');
-		  $this->load->view('add_matkul');  
-		}    
-	  }
+
+		// else {
+		//   $this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Kode mata kuliah sudah ada</center></div>');
+		//   $this->load->view('add_matkul');  
+		// }    
+	// }
 }

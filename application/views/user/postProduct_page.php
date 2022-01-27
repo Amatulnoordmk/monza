@@ -31,7 +31,7 @@
 		<div class="form-group">
 			<br>
 			<label>
-				<h5><b>Kategori Barang<b style="color:red;">*</b></b></h5>
+				<h5><b>Kategori Produk<b style="color:red;">*</b></b></h5>
 			</label>
 			<select class="form-control" id="kategori_produk" required>
 				<option selected disabled>Piih kategori</option>
@@ -54,7 +54,7 @@
 		<div class="form-group">
 			<br>
 			<label><h5><b>Foto Produk <b style="color:red;">*</b></b></h5></label>
-			<input type="file" class="form-control" name="foto" required>
+			<input type="file" class="form-control" name="foto" multiple required>
 		</div>
 
 		<div class="form-group">
