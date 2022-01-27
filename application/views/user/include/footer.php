@@ -70,22 +70,22 @@
 		}, 1000);
 	});
 
-	$(document).ready(function () {
-		$('.provinsi').change(function () {
-			var id = $(this).val();
-			$.ajax({
-				type: "POST",
-				url: "<?= base_url('welcome/getKabupaten')?>",
-				data: {
-					id: id,
-				},
-				dataType: "JSON",
-				success: function (response) {
-					$('.kota').html(ressponse);
-				}
-			});
-		});
-	});
+	// $(document).ready(function () {
+	// 	$('.provinsi').change(function () {
+	// 		var id = $(this).val();
+	// 		$.ajax({
+	// 			type: "POST",
+	// 			url: "",
+	// 			data: {
+	// 				id: id,
+	// 			},
+	// 			dataType: "JSON",
+	// 			success: function (response) {
+	// 				$('.kota').html(ressponse);
+	// 			}
+	// 		});
+	// 	});
+	// });
 
 	// Validasi nomor telepon cuma boleh input angka
 	function isNumberKey(evt) {
@@ -154,17 +154,17 @@
 
 	// Validasi email
 	function cekEmail() {
-		var email = $('#email').val();
+		var email = $('#emailku').val();
 		var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
 
 		if (email == "") {
-			$('#pesan_email').html("Silakan isi email Anda");
-			$('#pesan_email').css('color', 'red');
+			$('#pesan_emailku').html("Silahkan isi email Anda");
+			$('#pesan_emailku').css('color', 'red');
 			email_error = 1;
 		} else {
 			if (filter.test(email) == false) {
-				$('#pesan_email').html("Email tidak valid");
-				$('#pesan_email').css('color', 'red');
+				$('#pesan_emailku').html("Email tidak valid");
+				$('#pesan_emailku').css('color', 'red');
 				email_error = 1;
 			} else {
 				$.ajax({
@@ -173,12 +173,12 @@
 					type: 'POST',
 					success: function (msg) {
 						if (msg) {
-							$('#pesan_email').html("Email telah terdaftar");
-							$('#pesan_email').css('color', 'red');
+							$('#pesan_emailku').html("Email telah terdaftar");
+							$('#pesan_emailku').css('color', 'red');
 							email_error = 1;
 						} else {
-							$('#pesan_email').html("Email dapat digunakan");
-							$('#pesan_email').css('color', 'green');
+							$('#pesan_emailku').html("Email dapat digunakan");
+							$('#pesan_emailku').css('color', 'green');
 							email_error = 0;
 						}
 					}

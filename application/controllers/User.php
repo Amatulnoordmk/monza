@@ -134,8 +134,8 @@ class User extends CI_Controller {
 				'username' => $this->input->post("username"),
 				'password' => md5($this->input->post("password")),				
 				'no_telp' => '0'.$this->input->post("nomor"),
-				'provinsi' => $this->input->post("provinsi"),
-				'kota' => $this->input->post("kota"),
+				'id_provinsi' => $this->input->post("provinsi"),
+				'id_kota' => $this->input->post("kota"),
 				'level_user' => '0'
 		);			
 			
@@ -145,13 +145,13 @@ class User extends CI_Controller {
 	}
 	public function edit($id){
         $where = array('id_user' => $id);
-        $data['user'] = $this->m_data->edit_data($where,'user')->result();
+        $data['user'] = $this->User_model->edit_data($where,'user')->result();
         $this->load->view('user',$data);
     }
 	
-	public function update(){
-		$id = $this->input->post('id');
-		$nama = $this->input->post('nama');
+	public function updateProfil() {
+		$id = $this->input->post('id_user');
+		$nama = $this->input->post('nama_lengkap');
 		$email = $this->input->post('email');
 		$username =$this->input->post('username');
 		$password = $this->input->post('password');
@@ -161,20 +161,24 @@ class User extends CI_Controller {
 	
 		$data = array(
 			'nama_lengkap' => $nama,
-			'email'=>$email,
-			'password'=>$password,
-			'username'=>$username,
-			'no_telp'=>$no_telp,
-			'provinsi'=>$provinsi,
-			'kota'=>$kota
+			'email'=> $email,
+			'username'=> $username,		
+			'no_telp'=> $no_telp,
+			'id_provinsi'=> $provinsi,
+			'id_kota'=> $kota
 		);
 	
 		$where = array(
 			'id_user' => $id
 		);
 	
-		$this->m_data->update_data($where,$data,'user');
+<<<<<<< HEAD
+		$this->User_model->update_data($where,$data,'user');
 		redirect('');
+=======
+		$this->User_model->update_profil($where,$data,'user');
+		redirect('profil/'.$id);
+>>>>>>> 9e0b6a2c4b0b656f7fbb640fb7ff2f73db3622a5
 	}
 
 	

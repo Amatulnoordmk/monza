@@ -30,7 +30,21 @@
 			</tr>
 		<tbody>
 	</table>
-	<h3>List Barang</h3>
+	<h3>List Barang</h3><a href="">Tambah Disini</a>
+	<div class="product_sorting_container product_sorting_container_top">
+					<ul class="product_sorting">
+						<li>
+							<span class="type_sorting_text">Urutkan</span>
+							<i class="fa fa-angle-down"></i>
+							<ul class="sorting_type">
+								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'>
+									<span>Urutkan</span></li>
+								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'>
+									<span>Harga</span></li>
+								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'>
+									<span>jarak</span></li>
+							</ul>
+						</li>
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="card" style="width: 15rem;">
@@ -174,42 +188,44 @@
 				</button>
 			</div>
 			<div class="modal-body p-5">
-				<form action="" method="POST" action="<?= base_url();?>user/update" enctype="multipart/form-data" class="register-form">
+				<form action="" method="POST" action="<?= base_url();?>user/updateProfil" enctype="multipart/form-data"
+					class="register-form">
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Nama Lengkap</label>
-                            <input type="hidden" name="id" value="<?php echo $user->id_user ?>">
-							<input type="text" name="nama" class="form-control" autocomplete="off" required value="<?php echo $user->nama_lengkap?>">
+							<input type="hidden" name="id_user" value="<?php echo $user->id_user ?>">
+							<input type="text" name="nama_lengkap" class="form-control" style="color: #1e1e27" required
+								value="<?php echo $user->nama_lengkap?>">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Nomor Handphone</label>
-                            <div class="input-group">
-									<div class="input-group-prepend">
-										<button class="btn btn-secondary" type="button" id="button-addon1"
-											disabled>+62</button>
-									</div>
-									<input type="text" name="nomor" id="nomor" class="form-control"
-										aria-describedby="addon-wrapping" aria-describedby="inputGroup-sizing-default"
-										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
-										onkeyup="cekNo()">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-secondary" type="button" id="button-addon1"
+										disabled>+62</button>
+								</div>
+								<input type="text" name="nomor" id="nomor" class="form-control"
+									value="<?php echo $user->no_telp ?>" aria-describedby="addon-wrapping"
+									aria-describedby="inputGroup-sizing-default" onkeypress="return isNumberKey(event)"
+									maxlength="13" style="color: #1e1e27" onkeyup="cekNo()">
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Email</label>
-							<input type="email" name="email" class="form-control" autocomplete="off" onkeyup="cekEmail"
-								required onkeyup="cekEmail()" value="<?php echo $user->email?>" >
+							<input type="email" name="email" style="color: #1e1e27" class="form-control"
+								onkeyup="cekEmail" required onkeyup="cekEmail()" value="<?php echo $user->email?>">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Username</label>
-							<input type="text" name="username" class="form-control" autocomplete="off"
+							<input type="text" name="username" class="form-control" style="color: #1e1e27"
 								onkeyup="cekUsername()" required value="<?php echo $user->username?>">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
@@ -219,14 +235,16 @@
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Password</label>
-							<input type="password" name="password" class="form-control" autocomplete="off" required onkeyup="cekPass()">
+							<input type="password" name="password" class="form-control" style="color: #1e1e27"
+								onkeyup="cekPass()">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Konfirmasi Password</label>
-							<input type="password" name="konfirmasi" class="form-control" autocomplete="off" required onkeyup="cekKonfirPass()">
+							<input type="password" name="konfirmasi" class="form-control" style="color: #1e1e27"
+								onkeyup="cekKonfirPass()">
 							<div class="invalid-feedback">
 								Kolom wajib diisi
 							</div>
@@ -235,10 +253,11 @@
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label for="provinsi">Provinsi</label>
-							<select class="form-control" id="provinsi" onchange="cekKota()">
-								<option selected disabled>Piih Provinsi</option>
+							<select class="form-control" id="provinsi" name="provinsi" style="color: #1e1e27"
+								onchange="cekKota()">
+								<option selected disabled><?= $user->provinsi; ?></option>
 								<?php foreach($provinsi as $prov): ?>
-									<option value="<?= $prov->id; ?>"><?= $prov->nama; ?></option>
+								<option value="<?= $prov->id_provinsi; ?>"><?= $prov->nama; ?></option>
 								<?php endforeach; ?>
 							</select>
 							<div class="invalid-feedback">
@@ -247,12 +266,9 @@
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label for="kota">Kabupaten/Kota</label>
-							<select class="form-control" id="kota" >
-								<option selected disabled>Pilih</option>
-								<option>Medan Area</option>
-								<option>Medan Kota</option>
-								<option>Medan Tuntungan</option>
-								<option>Medan Selayang</option>
+							<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
+								<option selected disabled><?= $user->kota; ?></option>
+								<option value="3">Medan</option>
 							</select>
 							<div class="invalid-feedback">
 								Kolom wajib diisi
