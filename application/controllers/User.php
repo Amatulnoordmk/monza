@@ -78,6 +78,14 @@ class User extends CI_Controller {
         $this->load->view('user/include/header');
 		$this->load->view('user/postProduct_page');
         $this->load->view('user/include/footer');
+	}
+	
+	// Halaman upload Event
+	public function postEvent_page()
+	{
+        $this->load->view('user/include/header');
+		$this->load->view('user/postEvent_page');
+        $this->load->view('user/include/footer');
 	}	
 
 	// Halaman profil
@@ -207,4 +215,30 @@ class User extends CI_Controller {
 			echo false;
 		}
 	}
+
+	public function postProduk() {
+			$data = array(
+			  'kode_matkul' => $this->input->post("kode"),
+			  'nama_matkul' => $this->input->post("nama"),
+			  'semester' => $this->input->post('semester'),
+			  'sks' => $this->input->post('sks'),
+			  'ket' => $this->input->post('ket')
+			);
+	
+			$this->insert_model->insert_data('matkul', $data);
+			$this->session->set_flashdata('oke', 'ditambah');
+			redirect('load_ctrl/matkul_list');
+		  }
+		  //nama mata kuliah sudah ada di db
+		  else {
+			$this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Nama mata kuliah sudah ada</center></div>');
+			$this->load->view('add_matkul');
+		  }
+		}
+		//kode mata kuliah sudah ada di db
+		else {
+		  $this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Kode mata kuliah sudah ada</center></div>');
+		  $this->load->view('add_matkul');  
+		}    
+	  }
 }

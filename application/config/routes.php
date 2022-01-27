@@ -87,6 +87,8 @@ $route['produkgratis'] = "user/freeProduct_page";
 $route['produkmurah'] = "user/cheapProduct_page";
 // Post Produk
 $route['postproduk'] = "user/postProduct_page";
+// Post Event
+$route['postevent'] = "user/postEvent_page";
 // Profile
 $route['profil/(:any)'] = "user/profile_page/$1";
 // Donasi
