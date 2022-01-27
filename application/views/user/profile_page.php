@@ -164,7 +164,7 @@
 
 					</p>
 
-					<a href="#" class="btn btn-primary">Tambah </a>
+					<a href="<?= base_url(); ?>postevent" class="btn btn-primary">Tambah </a>
 				</div>
 			</div>
 		</div>
