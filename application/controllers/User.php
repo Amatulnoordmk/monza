@@ -76,8 +76,9 @@ class User extends CI_Controller {
 	// Halaman upload produk
 	public function postProduct_page($id)
 	{
+		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');
-		$this->load->view('user/postProduct_page');
+		$this->load->view('user/postProduct_page', $data);
         $this->load->view('user/include/footer');
 	}
 	
@@ -95,8 +96,7 @@ class User extends CI_Controller {
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');
-		$this->load->view('user/profile_page', $data);
-		// $this->load->view('user/include/sidebar_profile', $data);
+		$this->load->view('user/profile_page', $data);		
 		$this->load->view('user/include/footer');
 	}
 	
@@ -143,11 +143,6 @@ class User extends CI_Controller {
 			
 			redirect('');
 	}
-	public function edit($id){
-        $where = array('id_user' => $id);
-        $data['user'] = $this->User_model->edit_data($where,'user')->result();
-        $this->load->view('user',$data);
-    }
 	
 	// Update profil user
 	public function updateProfil($id) {
@@ -246,9 +241,7 @@ class User extends CI_Controller {
 		
 		$this->User_model->update_profil($id, $data);
 		redirect('profil/'.$id);
-	}
-
-	
+	}	
 
 	// Cek No telepon yg diinput dengan db
 	public function cekNotel(){
@@ -287,40 +280,46 @@ class User extends CI_Controller {
 		}
 	}
 
-	public function postProduk(){
-		$id_user = $this->session->userdata("id_user"); //get user id
-		$data = array(
-			'id_user' => $this->session->userdata('id_user'),
-			'nama_produk' => $this->input->post("nama_produk"),
-			//'kategori_produk' => $this->input->post("kategori_produk"),
-			'harga_produk' => $this->input->post('harga_produk'),
-			//'jenis_barang' => $this->input->post('jenis_barang')
-			'desk_produk' => $this->input->post('desk_produk'),
-		  );
-		  $file_name = $_FILES['foto']['name'];
+	// Upload produk
+	public function uploadProduk($id)
+	{
+		$file_name = $_FILES['fotoProduk']['name'];
 
-		  if(!empty($file_name)){
-			  $config['upload_path'] = 'assets/user/images/fotoupload/';
-			  $config['allowed_types'] = 'jpg|jpeg|png';
-			  $config['file_name'] = $file_name;
-		  }else{
-			  $file_name = '';
-		  }
-		//   $data2['foto_produk'] = $file_name; 
-		  $data2 = array (
-			'id_user' => $this->session->userdata('id_user'),
-			'foto_produk' => $file_name
-		  );
+		if(!empty($file_name)){
+			$config['upload_path'] = 'assets/user/images/Produk/';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['overwrite'] = true;
+			$config['max_size'] = 4096;
+			$config['max_width'] = 4028;
+			$config['max_height'] = 4028;
+			$config['file_name'] = $file_name;
+			$this->load->library('upload', $config);
+		}else{
+			$file_name = '';
+		}		
 
-		  $this->User_model->tambah_barang('produk', $data);
-		  $this->User_model->tambah_foto('foto_produk', $data2);
-		  $this->session->set_flashdata('oke', 'ditambah');
-		  redirect('beranda');
+		if ($this->input->post('katProduk') == 'F')
+		{
+			$data = array (
+				'foto_produk' => $file_name,
+				'id_user' => $id,		
+				'nama_produk' => $this->input->post('nama_produk'),
+				'desk_produk' => $this->input->post('desk_produk'),
+				'kategori_produk' => $this->input->post('katProduk'),
+				'harga_produk' => '0'
+		  	);		  
+		}else {
+			$data = array (
+				'foto_produk' => $file_name,
+				'id_user' => $id,		
+				'nama_produk' => $this->input->post('nama_produk'),
+				'desk_produk' => $this->input->post('desk_produk'),
+				'kategori_produk' => $this->input->post('katProduk'),
+				'harga_produk' => $this->input->post('harga_produk')
+		  	);	
+		}
+
+		$this->User_model->upload_produk($data);
+		redirect('profil/'.$id);
 	}
-
-		// else {
-		//   $this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Kode mata kuliah sudah ada</center></div>');
-		//   $this->load->view('add_matkul');  
-		// }    
-	// }
 }
