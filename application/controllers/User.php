@@ -147,35 +147,7 @@ class User extends CI_Controller {
         $data['user'] = $this->User_model->edit_data($where,'user')->result();
         $this->load->view('user',$data);
     }
-	
-<<<<<<< HEAD
-	public function updateProfil() {
-		$id = $this->input->post('id_user');
-		$nama = $this->input->post('nama_lengkap');
-		$email = $this->input->post('email');
-		$username =$this->input->post('username');
-		// $password = $this->input->post('password');
-		$no_telp = '0'. $this->input->post('nomor');
-		$provinsi = $this->input->post('provinsi');
-		$kota = $this->input->post('kota');
-
-		// var_dump($nama);
-		// exit;
-	
-		$data = array(
-			'nama_lengkap' => $nama,
-			'email'=> $email,
-			'username'=> $username,		
-			'no_telp'=> $no_telp,
-			'id_provinsi'=> $provinsi,
-			'id_kota'=> $kota
-		);
-	
-		$where = array(
-			'id_user' => $id
-		);
-		$this->User_model->update_profil($where,$data,'user');
-=======
+		
 	// Update profil user
 	public function updateProfil($id) {
 		if ($this->input->post('password') == '')
@@ -272,7 +244,6 @@ class User extends CI_Controller {
 		}
 		
 		$this->User_model->update_profil($id, $data);
->>>>>>> a8c36a19a2e5f028ce1b088fc1c991bb167d97da
 		redirect('profil/'.$id);
 	}
 
