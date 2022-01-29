@@ -91,8 +91,6 @@ class User extends CI_Controller {
 	// Halaman profil
 	public function profile_page($id)
 	{	
-		// $data['provinsi'] = $this->User_model->getDataProv()->result();
-		// $data['user'] = $this->User_model->getDataUserById($id);
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');
@@ -149,33 +147,40 @@ class User extends CI_Controller {
         $this->load->view('user',$data);
     }
 	
-	public function updateProfil() {
-		$id = $this->input->post('id_user');
-		$nama = $this->input->post('nama_lengkap');
-		$email = $this->input->post('email');
-		$username =$this->input->post('username');
-		$password = $this->input->post('password');
-		$no_telp = '0'. $this->input->post('nomor');
-		$provinsi = $this->input->post('provinsi');
-		$kota = $this->input->post('kota');
-	
-		$data = array(
-			'nama_lengkap' => $nama,
-			'email'=> $email,
-			'username'=> $username,		
-			'no_telp'=> $no_telp,
-			'id_provinsi'=> $provinsi,
-			'id_kota'=> $kota
-		);
-	
-		$where = array(
-			'id_user' => $id
-		);
-<<<<<<< HEAD
-=======
+	public function updateProfil($id) {
+		if ($this->input->post('password') == '')
+		{
+			if ($this->input->post('provinsi') == '' && $this->input->post('kota') == '')
+			{
+				$data = array(
+					'nama_lengkap' => $this->input->post('nama_lengkap'), 
+					'email' => $this->input->post('email'),
+					'username' => $this->input->post('username'),
+					'no_telp' => '0'. $this->input->post('nomor')
+				);
+			}else{
+				$data = array(
+					'nama_lengkap' => $this->input->post('nama_lengkap'), 
+					'email' => $this->input->post('email'),
+					'username' => $this->input->post('username'),
+					'no_telp' => '0'. $this->input->post('nomor'),
+					'id_provinsi' => $this->input->post('provinsi'),
+					'id_kota' => $this->input->post('kota')
+				);
+			}
+		}else{
+			$data = array(
+				'nama_lengkap' => $this->input->post('nama_lengkap'), 
+				'email' => $this->input->post('email'),
+				'username' => $this->input->post('username'),
+				'password' => $this->input->post('password'),
+				'no_telp' => '0'. $this->input->post('nomor'),
+				'id_provinsi' => $this->input->post('provinsi'),
+				'id_kota' => $this->input->post('kota')
+			);
+		}
 		
->>>>>>> 2483736bd95d3b7f8d7465a4cda46e9f4caa045c
-		$this->User_model->update_profil($where,$data,'user');
+		$this->User_model->update_profil($id, $data);
 		redirect('profil/'.$id);
 	}
 

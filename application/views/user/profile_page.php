@@ -5,8 +5,6 @@
 				<th>
 					<h3 style="color:#f1873b;">Profil Anda</h3>
 				</th>
-				<!-- <th>Lastname</th>
-                <th>Email</th> -->
 			</tr>
 		</thead>
 		<tbody>
@@ -30,21 +28,7 @@
 			</tr>
 		<tbody>
 	</table>
-	<h3>List Barang</h3><a href="">Tambah Disini</a>
-	<div class="product_sorting_container product_sorting_container_top">
-					<ul class="product_sorting">
-						<li>
-							<span class="type_sorting_text">Urutkan</span>
-							<i class="fa fa-angle-down"></i>
-							<ul class="sorting_type">
-								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'>
-									<span>Urutkan</span></li>
-								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'>
-									<span>Harga</span></li>
-								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'>
-									<span>jarak</span></li>
-							</ul>
-						</li>
+	<h3>List Barang</h3>
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="card" style="width: 15rem;">
@@ -171,7 +155,6 @@
 	</div>
 </div>
 
-<!-- Tabs -->
 <!-- modal edit profil -->
 <div class="modal fade" id="modaleditprofil">
 	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -188,17 +171,14 @@
 				</button>
 			</div>
 			<div class="modal-body p-5">
-				<form action="" method="POST" action="<?= base_url();?>user/updateProfil/<?php echo $user->id_user; ?>" enctype="multipart/form-data"
-					class="register-form">
+				<form method="POST" action="<?= base_url('user/updateProfil/'.$user->id_user)?>"
+					enctype="multipart/form-data">
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Nama Lengkap</label>
-							<input type="hidden" name="id_user" value="<?php echo $user->id_user ?>">
-							<input type="text" name="nama_lengkap" class="form-control" style="color: #1e1e27" required
-								value="<?php echo $user->nama_lengkap?>">
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
+							<input type="hidden" name="id_user" value="<?= $user->id_user ?>">
+							<input type="text" name="nama_lengkap" class="form-control" style="color: #1e1e27"
+								value="<?= $user->nama_lengkap ?>">
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Nomor Handphone</label>
@@ -208,9 +188,9 @@
 										disabled>+62</button>
 								</div>
 								<input type="text" name="nomor" id="nomor" class="form-control"
-									value="<?php echo $user->no_telp ?>" aria-describedby="addon-wrapping"
+									value="<?= substr($user->no_telp, 1, 13) ?>" aria-describedby="addon-wrapping"
 									aria-describedby="inputGroup-sizing-default" onkeypress="return isNumberKey(event)"
-									maxlength="13" style="color: #1e1e27" onkeyup="cekNo()">
+									maxlength="13" style="color: #1e1e27">
 							</div>
 						</div>
 					</div>
@@ -218,73 +198,48 @@
 						<div class="form-group col-md-6 col-12">
 							<label>Email</label>
 							<input type="email" name="email" style="color: #1e1e27" class="form-control"
-								onkeyup="cekEmail" required onkeyup="cekEmail()" value="<?php echo $user->email?>">
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
+								onkeyup="cekEmail" value="<?= $user->email?>">
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Username</label>
 							<input type="text" name="username" class="form-control" style="color: #1e1e27"
-								onkeyup="cekUsername()" required value="<?php echo $user->username?>">
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
+								value="<?= $user->username?>">
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label>Password</label>
-							<input type="password" name="password" class="form-control" style="color: #1e1e27"
-								onkeyup="cekPass()">
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
+							<input type="password" name="password" class="form-control" style="color: #1e1e27">
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label>Konfirmasi Password</label>
-							<input type="password" name="konfirmasi" class="form-control" style="color: #1e1e27"
-								onkeyup="cekKonfirPass()">
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
+							<input type="password" name="konfirPass" class="form-control" style="color: #1e1e27">
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
 							<label for="provinsi">Provinsi</label>
-							<select class="form-control" id="provinsi" name="provinsi" style="color: #1e1e27"
-								onchange="cekKota()">
-								<option selected disabled><?= $user->provinsi; ?></option>
+							<select class="form-control" id="provinsi" name="provinsi" style="color: #1e1e27">
+								<option value="" selected disabled><?= $user->provinsi; ?></option>
 								<?php foreach($provinsi as $prov): ?>
 								<option value="<?= $prov->id_provinsi; ?>"><?= $prov->nama; ?></option>
 								<?php endforeach; ?>
 							</select>
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
 						</div>
 						<div class="form-group col-md-6 col-12">
 							<label for="kota">Kabupaten/Kota</label>
 							<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
-								<option selected disabled><?= $user->kota; ?></option>
+								<option value="" selected disabled><?= $user->kota; ?></option>
 								<option value="3">Medan</option>
 							</select>
-							<div class="invalid-feedback">
-								Kolom wajib diisi
-							</div>
 						</div>
 					</div>
 					<center>
 						<br><button type="submit" class="btn btn-lg btn-block"
 							style="background-color:#f1873b; color:white;">Simpan Perubahan</button>
 					</center>
+				</form>
 			</div>
-			</form>
-			<!-- <div class="modal-footer d-flex justify-content-center text-align">
-					<p>Sudah Punya Akun? <a href="#modalLoginForm" data-toggle="modal" data-dismiss="modal"
-							style="color:#f1873b">Masuk di sini</a></p>
-				</div> -->
 		</div>
 	</div>
 </div>
