@@ -1,7 +1,6 @@
 <div class="container single_product_container">
 	<div class="row">
 		<div class="col">
-
 			<!-- Breadcrumbs -->
 			<!-- <div class="breadcrumbs d-flex flex-row align-items-center">
 				<ul>
@@ -10,12 +9,14 @@
 					<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Pakaian Pria</a></li>
 				</ul>
 			</div> -->
+			<button onclick="history.back()" class="btn"
+				style="color: #f1873b; background-color: white; cursor: pointer;"><i
+					class="fa fa-arrow-left"></i>&nbsp&nbspKembali</button>
 		</div>
 	</div>
 
 	<div class="col text-center">
 		<div class="section_title new_arrivals_title">
-		<button onclick="history.back()">Go Back</button>
 			<h3>Tambah barang yang dibagikan</h3>
 		</div>
 	</div>
@@ -43,7 +44,9 @@
 
 		<div class="form-group">
 			<br>
-			<label><h5><b>Harga Produk</b></h5></label>
+			<label>
+				<h5><b>Harga Produk</b></h5>
+			</label>
 			<div class="input-group">
 				<div class="input-group-prepend">
 					<button class="btn btn-secondary" type="button" id="button-addon1" disabled>Rp</button>
@@ -54,13 +57,17 @@
 
 		<div class="form-group">
 			<br>
-			<label><h5><b>Foto Produk <b style="color:red;">*</b></b></h5></label>
+			<label>
+				<h5><b>Foto Produk <b style="color:red;">*</b></b></h5>
+			</label>
 			<input type="file" class="form-control" name="foto" multiple required>
 		</div>
 
 		<div class="form-group">
 			<br>
-			<label for="jenis_barang"><h5><b>Jenis Barang<b style="color:red;">*</b></b></h5></label>
+			<label for="jenis_barang">
+				<h5><b>Jenis Barang<b style="color:red;">*</b></b></h5>
+			</label>
 			<select class="form-control" id="jenis_barang">
 				<option style="color:black" selected disabled required>Piih Jenis Barang</option>
 				<option>Pakaian</option>
@@ -72,9 +79,12 @@
 		</div>
 		<div class="form-group">
 			<br>
-			<label><h5><b>Deskripsi Produk <b style="color:red;">*</b></b></h5></label>
+			<label>
+				<h5><b>Deskripsi Produk <b style="color:red;">*</b></b></h5>
+			</label>
 			<textarea class="form-control" name="desk_produk" rows="5"
-				placeholder="Isilah dengan deskripsi barang seperti warna, lama digunakan, ditujukan kepada siapa, dll" required></textarea>
+				placeholder="Isilah dengan deskripsi barang seperti warna, lama digunakan, ditujukan kepada siapa, dll"
+				required></textarea>
 		</div>
 		<br><br><br>
 		<button type="submit" id="tambahproduk" class="btn btn-lg btn-block" style="background-color:#f1873b; 

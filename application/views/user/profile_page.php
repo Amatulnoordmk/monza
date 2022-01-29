@@ -46,7 +46,7 @@
 					</li>
 
 				</ul>
-				<a href="<?=base_url('postproduct/'.$user->id_user)?>" class="btn btn-outline-warning float-right"
+				<a href="<?=base_url('postproduk/'.$user->id_user)?>" class="btn btn-outline-warning float-right"
 					style="color:#f1873b;" type="button">tambahkan</a>
 
 			</div>
