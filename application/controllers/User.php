@@ -286,7 +286,7 @@ class User extends CI_Controller {
 		$file_name = $_FILES['fotoProduk']['name'];
 
 		if(!empty($file_name)){
-			$config['upload_path'] = 'assets/user/images/Produk/';
+			$config['upload_path'] = './assets/user/images/Produk/';
 			$config['allowed_types'] = 'jpg|jpeg|png';
 			$config['overwrite'] = true;
 			$config['max_size'] = 4096;
