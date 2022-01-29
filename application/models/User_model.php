@@ -98,9 +98,9 @@ class User_model extends CI_Model
         return $this->db->get_where($table,$where);
 
     }
-	function update_profil($where,$data,$table){
-		$this->db->where($where);
-		$this->db->update($table,$data);
+	function update_profil($id, $data){
+		$this->db->where('id_user', $id);
+		return $this->db->update('user', $data);
     }
 
     function getProductById()
