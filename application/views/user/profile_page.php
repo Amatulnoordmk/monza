@@ -188,7 +188,7 @@
 				</button>
 			</div>
 			<div class="modal-body p-5">
-				<form action="" method="POST" action="<?= base_url();?>user/updateProfil" enctype="multipart/form-data"
+				<form action="" method="POST" action="<?= base_url();?>user/updateProfil/<?php echo $user->id_user; ?>" enctype="multipart/form-data"
 					class="register-form">
 					<div class="row">
 						<div class="form-group col-md-6 col-12">
