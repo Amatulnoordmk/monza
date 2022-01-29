@@ -81,6 +81,7 @@ class User_model extends CI_Model
 		return $this->db->get('wilayah_provinsi');
 	}
     
+    // Mengambil data user berdasarkan id
     public function getDataUserById($id)
     {   
         
@@ -88,20 +89,23 @@ class User_model extends CI_Model
         return $this->db->get('user_v');
     }
 
+    // Mengambil =data kabupaten/kota 
     public function getDataKabupaten($idprov)
     {
         $this->db->where('provinsi_id', $idprov);
         return $this->db->get('wilayah_kabupaten');
     }
+// END REGISTER FUNCTION
 
     function edit_data($where,$table){                              
         return $this->db->get_where($table,$where);
 
     }
  
-	function update_profil($where,$data,$table){
-		$this->db->where($where);
-		$this->db->update($table,$data);
+    // Update profil
+	function update_profil($id, $data){
+		$this->db->where('id_user', $id);
+        return $this->db->update('user', $data);
     }
-// END REGISTER FUNCTION
+
 }
