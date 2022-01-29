@@ -74,7 +74,7 @@ class User extends CI_Controller {
 	}
 
 	// Halaman upload produk
-	public function postProduct_page()
+	public function postProduct_page($id)
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/postProduct_page');
@@ -148,7 +148,7 @@ class User extends CI_Controller {
         $data['user'] = $this->User_model->edit_data($where,'user')->result();
         $this->load->view('user',$data);
     }
-		
+	
 	// Update profil user
 	public function updateProfil($id) {
 		if ($this->input->post('password') == '')

@@ -44,9 +44,10 @@
 								<span>Donasi</span></li>
 						</ul>
 					</li>
-		
+
 				</ul>
-				<button class="btn btn-outline-warning float-right" style="color:#f1873b;" type="submit">tambahkan</button>
+				<a href="<?=base_url('postproduct/'.$user->id_user)?>" class="btn btn-outline-warning float-right"
+					style="color:#f1873b;" type="button">tambahkan</a>
 
 			</div>
 			<div class="products_iso">
@@ -66,7 +67,8 @@
 									<div class="favorite favorite_left"></div>
 
 									<div class="product_info">
-										<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
+										<h6 class="product_name"><a href="single.html">Fujifilm
+												X100T 16 MP Digital
 												Camera (Silver)</a></h6>
 										<div class="product_price">Gratis</div>
 									</div>
@@ -81,7 +83,8 @@
 									<div class="favorite favorite_left"></div>
 
 									<div class="product_info">
-										<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
+										<h6 class="product_name"><a href="single.html">Fujifilm
+												X100T 16 MP Digital
 												Camera (Silver)</a></h6>
 										<div class="product_price">Gratis</div>
 									</div>
@@ -97,7 +100,8 @@
 										<div class="favorite favorite_left"></div>
 
 										<div class="product_info">
-											<h6 class="product_name"><a href="">Fujifilm X100T 16 MP Digital
+											<h6 class="product_name"><a href="">Fujifilm X100T 16 MP
+													Digital
 													Camera (Silver)</a></h6>
 											<div class="product_price">Gratis</div>
 										</div>
@@ -116,7 +120,8 @@
 										<div class="favorite favorite_left"></div>
 
 										<div class="product_info">
-											<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
+											<h6 class="product_name"><a href="single.html">Fujifilm
+													X100T 16 MP Digital
 													Camera (Silver)</a></h6>
 											<div class="product_price">Gratis</div>
 										</div>
@@ -131,7 +136,8 @@
 										<div class="favorite favorite_left"></div>
 
 										<div class="product_info">
-											<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
+											<h6 class="product_name"><a href="single.html">Fujifilm
+													X100T 16 MP Digital
 													Camera (Silver)</a></h6>
 											<div class="product_price">Gratis</div>
 										</div>
@@ -146,7 +152,8 @@
 										<div class="favorite favorite_left"></div>
 
 										<div class="product_info">
-											<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
+											<h6 class="product_name"><a href="single.html">Fujifilm
+													X100T 16 MP Digital
 													Camera (Silver)</a></h6>
 											<div class="product_price">Gratis</div>
 										</div>
@@ -157,10 +164,105 @@
 						</div>
 					</div>
 				</div>
+				<!-- modal edit profil -->
+				<div class="modal fade" id="modaleditprofil">
+					<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header center">
+								<div class="col-md-4 offset-md-4">
+									<center>
+										<a href="#"><img src="<?=base_url();?>assets/user/images/logo-log.png" alt=""
+												height="65"></a>
+										<h4 class="modal-title w-100 font-weight-bold">Edit Profil
+										</h4>
+									</center>
+								</div>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body p-5">
+								<form method="POST" action="<?= base_url('user/updateProfil/'.$user->id_user)?>"
+									enctype="multipart/form-data">
+									<div class="row">
+										<div class="form-group col-md-6 col-12">
+											<label>Nama Lengkap</label>
+											<input type="hidden" name="id_user" value="<?= $user->id_user ?>">
+											<input type="text" name="nama_lengkap" class="form-control"
+												style="color: #1e1e27" value="<?= $user->nama_lengkap ?>">
+										</div>
+										<div class="form-group col-md-6 col-12">
+											<label>Nomor Handphone</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<button class="btn btn-secondary" type="button" id="button-addon1"
+														disabled>+62</button>
+												</div>
+												<input type="text" name="nomor" id="nomor" class="form-control"
+													value="<?= substr($user->no_telp, 1, 13) ?>"
+													aria-describedby="addon-wrapping"
+													aria-describedby="inputGroup-sizing-default"
+													onkeypress="return isNumberKey(event)" maxlength="13"
+													style="color: #1e1e27">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-md-6 col-12">
+											<label>Email</label>
+											<input type="email" name="email" style="color: #1e1e27" class="form-control"
+												onkeyup="cekEmail" value="<?= $user->email?>">
+										</div>
+										<div class="form-group col-md-6 col-12">
+											<label>Username</label>
+											<input type="text" name="username" class="form-control"
+												style="color: #1e1e27" value="<?= $user->username?>">
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-md-6 col-12">
+											<label>Password</label>
+											<input type="password" name="password" class="form-control"
+												style="color: #1e1e27">
+										</div>
+										<div class="form-group col-md-6 col-12">
+											<label>Konfirmasi Password</label>
+											<input type="password" name="konfirPass" class="form-control"
+												style="color: #1e1e27">
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-md-6 col-12">
+											<label for="provinsi">Provinsi</label>
+											<select class="form-control" id="provinsi" name="provinsi"
+												style="color: #1e1e27">
+												<option value="" selected disabled>
+													<?= $user->provinsi; ?></option>
+												<?php foreach($provinsi as $prov): ?>
+												<option value="<?= $prov->id_provinsi; ?>">
+													<?= $prov->nama; ?></option>
+												<?php endforeach; ?>
+											</select>
+										</div>
+										<div class="form-group col-md-6 col-12">
+											<label for="kota">Kabupaten/Kota</label>
+											<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
+												<option value="" selected disabled>
+													<?= $user->kota; ?></option>
+												<option value="3">Medan</option>
+											</select>
+										</div>
+									</div>
+									<center>
+										<br><button type="submit" class="btn btn-lg btn-block"
+											style="background-color:#f1873b; color:white;">Simpan
+											Perubahan</button>
+									</center>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
-</div>
-</div>
