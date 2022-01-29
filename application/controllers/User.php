@@ -96,6 +96,7 @@ class User extends CI_Controller {
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);
+		// $this->load->view('user/include/sidebar_profile', $data);
 		$this->load->view('user/include/footer');
 	}
 	
