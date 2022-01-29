@@ -57,6 +57,7 @@
 									<li><a href="<?= base_url(); ?>produkgratis">Gratis</a></li>
 									<li><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
 									<li><a href="<?= base_url(); ?>donasi">Donasi</a></li>
+									<li><a href="<?= base_url(); ?>postproduk">Jual</a></li>
 								</ul>
 								<!-- <ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>

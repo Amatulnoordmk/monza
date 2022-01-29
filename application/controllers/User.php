@@ -41,7 +41,8 @@ class User extends CI_Controller {
 
 	// Halaman detail produk
 	public function productDetail_page()
-	{
+	{	
+		$data['produk'] = $this->User_model->getProductById($id)->row();
         $this->load->view('user/include/header');
 		$this->load->view('user/productDetail_page');
         $this->load->view('user/include/footer');
@@ -154,10 +155,13 @@ class User extends CI_Controller {
 		$nama = $this->input->post('nama_lengkap');
 		$email = $this->input->post('email');
 		$username =$this->input->post('username');
-		$password = $this->input->post('password');
+		// $password = $this->input->post('password');
 		$no_telp = '0'. $this->input->post('nomor');
 		$provinsi = $this->input->post('provinsi');
 		$kota = $this->input->post('kota');
+
+		// var_dump($nama);
+		// exit;
 	
 		$data = array(
 			'nama_lengkap' => $nama,
@@ -171,10 +175,6 @@ class User extends CI_Controller {
 		$where = array(
 			'id_user' => $id
 		);
-<<<<<<< HEAD
-=======
-		
->>>>>>> 2483736bd95d3b7f8d7465a4cda46e9f4caa045c
 		$this->User_model->update_profil($where,$data,'user');
 		redirect('profil/'.$id);
 	}
@@ -218,19 +218,36 @@ class User extends CI_Controller {
 		}
 	}
 
-	public function postProduk() {
-			$data = array(
-			  'nama_produk' => $this->input->post("nama_produk"),
-			  'kategori_produk' => $this->input->post("kategori_produk"),
-			  'harga_produk' => $this->input->post('harga_produk'),
-			  'foto_produk' => $this->input->post('foto_produk'),
-			  'jenis_barang' => $this->input->post('jenis_barang')
-			);
-	
-			$this->insert_model->insert_data('produk', $data);
-			$this->session->set_flashdata('oke', 'ditambah');
-			redirect('profil');
+	public function postProduk(){
+		$id_user = $this->session->userdata("id_user"); //get user id
+		$data = array(
+			'id_user' => $this->session->userdata('id_user'),
+			'nama_produk' => $this->input->post("nama_produk"),
+			//'kategori_produk' => $this->input->post("kategori_produk"),
+			'harga_produk' => $this->input->post('harga_produk'),
+			//'jenis_barang' => $this->input->post('jenis_barang')
+			'desk_produk' => $this->input->post('desk_produk'),
+		  );
+		  $file_name = $_FILES['foto']['name'];
+
+		  if(!empty($file_name)){
+			  $config['upload_path'] = 'assets/user/images/fotoupload/';
+			  $config['allowed_types'] = 'jpg|jpeg|png';
+			  $config['file_name'] = $file_name;
+		  }else{
+			  $file_name = '';
 		  }
+		//   $data2['foto_produk'] = $file_name; 
+		  $data2 = array (
+			'id_user' => $this->session->userdata('id_user'),
+			'foto_produk' => $file_name
+		  );
+
+		  $this->User_model->tambah_barang('produk', $data);
+		  $this->User_model->tambah_foto('foto_produk', $data2);
+		  $this->session->set_flashdata('oke', 'ditambah');
+		  redirect('beranda');
+	}
 
 		// else {
 		//   $this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Kode mata kuliah sudah ada</center></div>');

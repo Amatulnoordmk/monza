@@ -66,6 +66,15 @@ class User_model extends CI_Model
         return $this->db->insert($table, $data);
     }
 
+    public function tambah_barang($table, $data)
+    {
+        return $this->db->insert($table, $data);
+    }
+    public function tambah_foto($table, $data)
+    {
+        return $this->db->insert($table, $data);
+    }
+
     // Mengambil daftar provindi dari db
 	public function getDataProv()
 	{

@@ -21,7 +21,7 @@
 				<td><span class="ti-location-pin"></span> <?= $user->provinsi ?></td>
 			</tr>
 			<tr>
-				<td><span class="fa fa-whatsapp"></span> <?= $user->no_telp ?></td>
+				<td><span class="fa fa-whatsapp"></span> 0<?= $user->no_telp ?></td>
 			</tr>
 			<tr>
 				<td>
