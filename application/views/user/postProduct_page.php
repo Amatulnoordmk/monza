@@ -15,6 +15,7 @@
 
 	<div class="col text-center">
 		<div class="section_title new_arrivals_title">
+		<button onclick="history.back()">Go Back</button>
 			<h3>Tambah barang yang dibagikan</h3>
 		</div>
 	</div>
