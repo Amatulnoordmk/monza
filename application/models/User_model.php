@@ -93,6 +93,7 @@ class User_model extends CI_Model
 
     }
  
+    // Update profil
 	function update_profil($id, $data){
 		$this->db->where('id_user', $id);
         return $this->db->update('user', $data);

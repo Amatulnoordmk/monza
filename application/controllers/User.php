@@ -147,37 +147,99 @@ class User extends CI_Controller {
         $this->load->view('user',$data);
     }
 	
+	// Update profil user
 	public function updateProfil($id) {
 		if ($this->input->post('password') == '')
 		{
-			if ($this->input->post('provinsi') == '' && $this->input->post('kota') == '')
+			if ($this->input->post('provinsi') == '')
 			{
-				$data = array(
-					'nama_lengkap' => $this->input->post('nama_lengkap'), 
-					'email' => $this->input->post('email'),
-					'username' => $this->input->post('username'),
-					'no_telp' => '0'. $this->input->post('nomor')
-				);
+				if ($this->input->post('kota') == '')
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'no_telp' => '0'. $this->input->post('nomor')
+					);
+				}else 
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_kota' => $this->input->post('kota')
+					);
+				}				
 			}else{
-				$data = array(
-					'nama_lengkap' => $this->input->post('nama_lengkap'), 
-					'email' => $this->input->post('email'),
-					'username' => $this->input->post('username'),
-					'no_telp' => '0'. $this->input->post('nomor'),
-					'id_provinsi' => $this->input->post('provinsi'),
-					'id_kota' => $this->input->post('kota')
-				);
+				if ($this->input->post('kota') == '')
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_provinsi' => $this->input->post('provinsi')
+					);
+				}else 
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_provinsi' => $this->input->post('provinsi'),
+						'id_kota' => $this->input->post('kota')
+					);
+				}		
 			}
 		}else{
-			$data = array(
-				'nama_lengkap' => $this->input->post('nama_lengkap'), 
-				'email' => $this->input->post('email'),
-				'username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),
-				'no_telp' => '0'. $this->input->post('nomor'),
-				'id_provinsi' => $this->input->post('provinsi'),
-				'id_kota' => $this->input->post('kota')
-			);
+			if ($this->input->post('provinsi') == '')
+			{
+				if ($this->input->post('kota') == '')
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'password' => md5($this->input->post('password')),
+						'no_telp' => '0'. $this->input->post('nomor')
+					);
+				}else 
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'password' => md5($this->input->post('password')),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_kota' => $this->input->post('kota')
+					);
+				}				
+			}else{
+				if ($this->input->post('kota') == '')
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'password' => md5($this->input->post('password')),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_provinsi' => $this->input->post('provinsi')
+					);
+				}else 
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'password' => md5($this->input->post('password')),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_provinsi' => $this->input->post('provinsi'),
+						'id_kota' => $this->input->post('kota')
+					);
+				}		
+			}
 		}
 		
 		$this->User_model->update_profil($id, $data);
