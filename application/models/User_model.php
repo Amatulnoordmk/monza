@@ -65,22 +65,22 @@ class User_model extends CI_Model
     {
         return $this->db->insert($table, $data);
     }
-
-    public function tambah_barang($table, $data)
-    {
-        return $this->db->insert($table, $data);
-    }
-    public function tambah_foto($table, $data)
-    {
-        return $this->db->insert($table, $data);
-    }
+// END REGISTER FUNCTION    
 
     // Mengambil daftar provindi dari db
 	public function getDataProv()
 	{
 		return $this->db->get('wilayah_provinsi');
 	}
+
+    // Mengambil nama - nama kabupaten/kota
+    public function getDataKabupaten($idprov)
+    {
+        $this->db->where('provinsi_id', $idprov);
+        return $this->db->get('wilayah_kabupaten');
+    }
     
+    // Mengambil data user berdasarkan id
     public function getDataUserById($id)
     {   
         
@@ -88,21 +88,24 @@ class User_model extends CI_Model
         return $this->db->get('user_v');
     }
 
-    public function getDataKabupaten($idprov)
-    {
-        $this->db->where('provinsi_id', $idprov);
-        return $this->db->get('wilayah_kabupaten');
-    }
-
+    // Update profil user
 	function update_profil($id, $data){
 		$this->db->where('id_user', $id);
 		return $this->db->update('user', $data);
     }
 
+    // Upload produk user
     function upload_produk($data)
     {
         $sql = "CALL insert_foto_dan_produk(?, ?, ?, ?, ?, ?)";
         $this->db->query($sql, $data);
     }
-// END REGISTER FUNCTION
+
+    // Menampilkan produk berdasarkan id
+    function tampil_produk($id)
+    {
+        $this->db->where('id_user', $id);
+        return $this->db->get('produk_v');
+    }
+
 }

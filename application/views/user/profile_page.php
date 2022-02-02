@@ -67,108 +67,27 @@
 						<div class="row mt-5">
 
 							<!-- Product 1 -->
+							<?php foreach($produk as $pro) : ?>
 							<div class="col">
 								<div class="product-itm">
-									<div class=" product_image">
-										<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
+									<div class="product_image">
+										<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
+											alt="produk">
 									</div>
 									<div class="favorite favorite_left"></div>
 
 									<div class="product_info">
-										<h6 class="product_name"><a href="single.html">Fujifilm
-												X100T 16 MP Digital
-												Camera (Silver)</a></h6>
+										<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
+										</h6>
+										<?php if ($pro->kategori_produk == 'F'):?>
 										<div class="product_price">Gratis</div>
+										<?php elseif ($pro->kategori_produk == 'P'):?>
+										<div class="product_price"><?= $pro->harga_produk ?></div>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>
-							<!-- Product 2 -->
-							<div class="col">
-								<div class="product-itm">
-									<div class=" product_image">
-										<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-									</div>
-									<div class="favorite favorite_left"></div>
-
-									<div class="product_info">
-										<h6 class="product_name"><a href="single.html">Fujifilm
-												X100T 16 MP Digital
-												Camera (Silver)</a></h6>
-										<div class="product_price">Gratis</div>
-									</div>
-								</div>
-							</div>
-							<!-- Product 3 -->
-							<div class="col">
-								<a href="<?=base_url();?>detailproduk">
-									<div class="product-itm">
-										<div class=" product_image">
-											<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-										</div>
-										<div class="favorite favorite_left"></div>
-
-										<div class="product_info">
-											<h6 class="product_name"><a href="">Fujifilm X100T 16 MP
-													Digital
-													Camera (Silver)</a></h6>
-											<div class="product_price">Gratis</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<!-- Baris 2 -->
-							<div class="row mt-5">
-
-								<!-- Product 1 -->
-								<div class="col">
-									<div class="product-itm">
-										<div class=" product_image">
-											<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-										</div>
-										<div class="favorite favorite_left"></div>
-
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.html">Fujifilm
-													X100T 16 MP Digital
-													Camera (Silver)</a></h6>
-											<div class="product_price">Gratis</div>
-										</div>
-									</div>
-								</div>
-								<!-- Product 2 -->
-								<div class="col">
-									<div class="product-itm">
-										<div class=" product_image">
-											<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-										</div>
-										<div class="favorite favorite_left"></div>
-
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.html">Fujifilm
-													X100T 16 MP Digital
-													Camera (Silver)</a></h6>
-											<div class="product_price">Gratis</div>
-										</div>
-									</div>
-								</div>
-								<!-- Product 3 -->
-								<div class="col">
-									<div class="product-itm">
-										<div class=" product_image">
-											<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-										</div>
-										<div class="favorite favorite_left"></div>
-
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.html">Fujifilm
-													X100T 16 MP Digital
-													Camera (Silver)</a></h6>
-											<div class="product_price">Gratis</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div>

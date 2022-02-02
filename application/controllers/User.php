@@ -95,6 +95,7 @@ class User extends CI_Controller {
 	{	
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
+		$data['produk'] = $this->User_model->tampil_produk($id)->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);		
 		$this->load->view('user/include/footer');
@@ -139,9 +140,32 @@ class User extends CI_Controller {
 				'level_user' => '0'
 		);			
 			
-			$this->User_model->tambah_user('user', $data);  
-			
+			$this->User_model->tambah_user('user', $data);			
 			redirect('');
+	}
+
+	// Cek No telepon yg diinput dengan db
+	public function cekNotel(){
+		$notel = $this->input->post('nomor');
+		$data = $this->User_model->cekNotel($notel);
+		if ($data == true) {
+			echo true;
+		} else {
+			echo false;
+		}
+	}
+
+	// Cak email yg diinput dgn db
+	public function cekEmail()
+	{
+		$email = $this->input->post('email');
+		$data = $this->User_model->cekEmail($email);
+
+		if ($data == true) {
+			echo true;
+		} else {
+			echo false;
+		}
 	}
 	
 	// Update profil user
@@ -243,43 +267,6 @@ class User extends CI_Controller {
 		redirect('profil/'.$id);
 	}	
 
-	// Cek No telepon yg diinput dengan db
-	public function cekNotel(){
-		$notel = $this->input->post('nomor');
-		$data = $this->User_model->cekNotel($notel);
-		if ($data == true) {
-			echo true;
-		} else {
-			echo false;
-		}
-	}
-
-	// Cak email yg diinput dgn db
-	public function cekEmail()
-	{
-		$email = $this->input->post('email');
-		$data = $this->User_model->cekEmail($email);
-
-		if ($data == true) {
-			echo true;
-		} else {
-			echo false;
-		}
-	}
-
-	// Cak konfirmasi password
-	public function cekKonfirPass()
-	{
-		$pass = $this->input->post('password');
-		$konfirpass = $this->input->post('konfirpass');
-		
-		if ($pass == $konfirpass) {
-			echo true;
-		} else {
-			echo false;
-		}
-	}
-
 	// Upload produk
 	public function uploadProduk($id)
 	{
@@ -330,4 +317,5 @@ class User extends CI_Controller {
 		$this->User_model->upload_produk($data);
 		redirect('profil/'.$id);
 	}
+	
 }
