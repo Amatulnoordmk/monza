@@ -1,3 +1,11 @@
+<?php
+    if ($this->session->flashdata('gagalUpload')) :
+?>
+<div class="alert alert-danger" id="alertgagal" role="alert">
+	<?= $this->session->flashdata('gagalUpload') ?>
+</div>
+<?php endif ?>
+
 <div class="container single_product_container">
 	<div class="col text-center">
 		<div class="section_title new_arrivals_title">
@@ -47,7 +55,7 @@
 
 				</ul>
 				<a href="<?=base_url('postproduk/'.$user->id_user)?>" class="btn btn-outline-warning float-right"
-					style="color:#f1873b;" type="button">tambahkan</a>
+					style="color:#f1873b;" type="button">Bagikan</a>
 
 			</div>
 			<div class="products_iso">

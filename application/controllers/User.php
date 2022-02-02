@@ -297,7 +297,8 @@ class User extends CI_Controller {
 			$this->load->library('upload', $config);
 			if (!$this->upload->do_upload('fotoProduk'))
 			{
-				echo "Upload Gagal"; die();
+				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk');
+				redirect('profil/'.$id);
 			} else{
 				$foto = $this->upload->data('file_name');
 			}
