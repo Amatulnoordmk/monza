@@ -285,15 +285,22 @@ class User extends CI_Controller {
 	{
 		$file_name = $_FILES['fotoProduk']['name'];
 
-		if(!empty($file_name)){
+		if(!empty($file_name))
+		{
 			$config['upload_path'] = './assets/user/images/Produk/';
 			$config['allowed_types'] = 'jpg|jpeg|png';
 			$config['overwrite'] = true;
-			$config['max_size'] = 4096;
-			$config['max_width'] = 4028;
-			$config['max_height'] = 4028;
+			$config['max_size'] = 5000;
+			$config['max_width'] = 5000;
+			$config['max_height'] = 5000;
 			$config['file_name'] = $file_name;
 			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('fotoProduk'))
+			{
+				echo "Upload Gagal"; die();
+			} else{
+				$foto = $this->upload->data('file_name');
+			}
 		}else{
 			$file_name = '';
 		}		
@@ -301,7 +308,7 @@ class User extends CI_Controller {
 		if ($this->input->post('katProduk') == 'F')
 		{
 			$data = array (
-				'foto_produk' => $file_name,
+				'foto_produk' => $foto,
 				'id_user' => $id,		
 				'nama_produk' => $this->input->post('nama_produk'),
 				'desk_produk' => $this->input->post('desk_produk'),
@@ -310,7 +317,7 @@ class User extends CI_Controller {
 		  	);		  
 		}else {
 			$data = array (
-				'foto_produk' => $file_name,
+				'foto_produk' => $foto,
 				'id_user' => $id,		
 				'nama_produk' => $this->input->post('nama_produk'),
 				'desk_produk' => $this->input->post('desk_produk'),

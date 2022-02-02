@@ -51,7 +51,7 @@
 				<div class="input-group-prepend">
 					<button class="btn btn-secondary" type="button" id="button-addon1" disabled>Rp</button>
 				</div>
-				<input type="number" class="form-control" name="harga_produk" style="color: #1e1e27" required>
+				<input type="text" class="form-control" name="harga_produk" style="color: #1e1e27">
 			</div>
 		</div>
 
