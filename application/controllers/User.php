@@ -57,19 +57,21 @@ class User extends CI_Controller {
 	
 	// Halaman produk gratis
 	public function freeProduct_page()
-	{
+	{	
+		$data['produk'] = $this->User_model->barang_gratis()->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/include/sidebar');
-		$this->load->view('user/freeProduct_page');
+		$this->load->view('user/freeProduct_page',$data);
         $this->load->view('user/include/footer');
 	}
 
 	// Halaman produk murah
 	public function cheapProduct_page()
 	{
+		$data['produk'] = $this->User_model->barang_murah()->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/include/sidebar');
-		$this->load->view('user/cheapProduct_page');
+		$this->load->view('user/cheapProduct_page',$data);
         $this->load->view('user/include/footer');
 	}
 

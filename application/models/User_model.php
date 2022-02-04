@@ -83,7 +83,6 @@ class User_model extends CI_Model
     // Mengambil data user berdasarkan id
     public function getDataUserById($id)
     {   
-        
         $this->db->where('id_user', $id);
         return $this->db->get('user_v');
     }
@@ -108,4 +107,19 @@ class User_model extends CI_Model
         return $this->db->get('produk_v');
     }
 
+    // menampilkan produk gratis
+    function barang_gratis()
+    {
+        $this->db->where('kategori_produk', 'F');
+        return $this->db->get('produk_v');
+
+        // return $this->db->get('produk');
+    }
+    function barang_murah()
+    {
+        $this->db->where('kategori_produk', 'P');
+        return $this->db->get('produk_v');
+
+        // return $this->db->get('produk');
+    }
 }

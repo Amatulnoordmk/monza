@@ -68,11 +68,11 @@
 
 							<!-- Product 1 -->
 							<?php foreach($produk as $pro) : ?>
-							<div class="col">
+							<div class="col-md-4">
 								<div class="product-itm">
 									<div class="product_image">
 										<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
-											alt="produk">
+											alt="produk" >
 									</div>
 									<div class="favorite favorite_left"></div>
 
