@@ -23,9 +23,10 @@
 						<li class="active"><a href="#"><span><i class="fa fa-angle-double-right"
 										aria-hidden="true"></i></span>Pakaian</a></li>
 						<li><a href="#">Rumah tangga</a></li>
-						<li><a href="#">Buku & majalah</a></li>
-						<li><a href="#">Peralatan kantor</a></li>
-						<li><a href="#">Alat Olahraga</a></li>
+						<li><a href="#">Buku & Majalah</a></li>
+						<li><a href="#">Perlengkapan Sekolah</a></li>
+						<li><a href="#">Hobi & Olahraga</a></li>
+						<li><a href="#">Lainnya</a></li>
 					</ul>
 				</div>
 
