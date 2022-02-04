@@ -70,23 +70,6 @@
 		}, 1000);
 	});
 
-	// $(document).ready(function () {
-	// 	$('.provinsi').change(function () {
-	// 		var id = $(this).val();
-	// 		$.ajax({
-	// 			type: "POST",
-	// 			url: "",
-	// 			data: {
-	// 				id: id,
-	// 			},
-	// 			dataType: "JSON",
-	// 			success: function (response) {
-	// 				$('.kota').html(ressponse);
-	// 			}
-	// 		});
-	// 	});
-	// });
-
 	// Validasi nomor telepon cuma boleh input angka
 	function isNumberKey(evt) {
 		var charCode = (evt.which) ? evt.which : evt.keyCode;
