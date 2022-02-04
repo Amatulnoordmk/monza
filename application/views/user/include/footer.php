@@ -61,7 +61,7 @@
 <script src="<?=base_url();?>assets/user/js/myscript.js"></script> -->
 
 <script type="text/javascript">
-	// Alert ootstrap auto dismiss
+	// Alert bootstrap auto dismiss
 	$(document).ready(function () {
 		window.setTimeout(function () {
 			$(".alert").fadeTo(500, 0).slideUp(500, function () {
@@ -70,7 +70,7 @@
 		}, 1000);
 	});
 
-	// Validasi nomor telepon cuma boleh input angka
+	// Validasi cuma boleh input angka
 	function isNumberKey(evt) {
 		var charCode = (evt.which) ? evt.which : evt.keyCode;
 		if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))

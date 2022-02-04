@@ -16,14 +16,14 @@
 	</div>
 
 	<!-- Nav -->
-	<ul class="nav nav-tabs" id="myTab" role="tablist">
-		<li class="nav-item mx-auto">
-			<a class="nav-link active mx-auto" id="home-tab" data-toggle="tab" href="#barang" role="tab"
-				aria-controls="home" aria-selected="true" style="color: #f1873b;">Barang</a>
+	<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#barang" role="tab" aria-controls="home"
+				aria-selected="true" style="color: #f1873b;">Barang</a>
 		</li>
-		<li class="nav-item mx-auto">
-			<a class="nav-link mx-auto" id="profile-tab" data-toggle="tab" href="#event" role="tab"
-				aria-controls="profile" aria-selected="false" style="color: #f1873b;">Event</a>
+		<li class="nav-item">
+			<a class="nav-link" id="profile-tab" data-toggle="tab" href="#event" role="tab" aria-controls="profile"
+				aria-selected="false" style="color: #f1873b;">Event</a>
 		</li>
 	</ul>
 
@@ -81,7 +81,7 @@
 					<fieldset class="form-group">
 						<!-- <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a> -->
 						<input type="file" id="fotoProduk" name="fotoProduk" class="form-control"
-							accept="image/png, image/jpg, image/jpeg" style="color: #1e1e27">
+							accept="image/png, image/jpg, image/jpeg" style="color: #1e1e27" required>
 					</fieldset>
 					<small class="form-text text-danger">Jenis file yang diterima adalah png, jpg, dan jpeg</small>
 					<!-- <div class="preview-images-zone">
@@ -114,11 +114,13 @@
 					<label for="jenis_barang">
 						<h5><b>Jenis Barang <b style="color:red;">*</b></b></h5>
 					</label>
-					<select class="form-control" id="jenis_barang" style="color: #1e1e27">
+					<select class="form-control" name="jenis_barang" style="color: #1e1e27">
 						<option style="color:black" selected disabled required>Piih Jenis Barang</option>
 						<option value="pakaian">Pakaian</option>
 						<option value="elektronik">Elektronik</option>
-						<option value="hobi">Hobi & Olahraga</option>
+						<option value="buku">Buku & Majalah</option>
+						<option value="rumah_tangga">Rumah tangga</option>
+						<option value="olahraga">Hobi & Olahraga</option>
 						<option value="sekolah">Perlengkapan Sekolah</option>
 						<option value="lainnya">Lainnya</option>
 					</select>
@@ -144,27 +146,39 @@
 				</div>
 			</div>
 
-			<form action="<?= base_url('user/uploadProduk/'.$user->id_user) ?>" method="post"
+			<form action="<?= base_url('user/uploadEvent/'.$user->id_user) ?>" method="post"
 				enctype="multipart/form-data">
 				<br><br><br>
 				<div class="form-group">
 					<label>
 						<h5><b>Nama Event <b style="color:red;">*</b></b></h5>
 					</label>
-					<input type="text" class="form-control" name="nama_produk" style="color: #1e1e27" required>
+					<input type="text" class="form-control" name="nama_event" style="color: #1e1e27" required>
 				</div>
+
+				<div class="form-group">
+					<br>
+					<label>
+						<h5><b>Gambar informasi event <b style="color:red;">*</b></b></h5>
+					</label>
+					<input type="file" class="form-control" name="foto_event" style="color: #1e1e27" required>
+					<small class="form-text text-danger">Jenis file yang diterima adalah png, jpg, dan jpeg</small>
+				</div>
+
 
 				<div class="form-group">
 					<label for="jenis_barang">
 						<h5><b>Jenis Barang yang Ingin Dikumpulkan <b style="color:red;">*</b></b></h5>
 					</label>
-					<select class="form-control" id="jenis_barang" style="color: #1e1e27" required>
-						<option selected disabled>Piih Jenis Barang</option>
-						<option>Pakaian</option>
-						<option>Buku</option>
-						<option>Tas</option>
-						<option>Barang Elektronik</option>
-						<option>Lainnya</option>
+					<select class="form-control" name="jenis_barang" style="color: #1e1e27" required>
+						<option style="color:black" selected disabled required>Piih Jenis Barang</option>
+						<option value="pakaian">Pakaian</option>
+						<option value="elektronik">Elektronik</option>
+						<option value="buku">Buku & Majalah</option>
+						<option value="rumah_tangga">Rumah tangga</option>
+						<option value="olahraga">Hobi & Olahraga</option>
+						<option value="sekolah">Perlengkapan Sekolah</option>
+						<option value="lainnya">Lainnya</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -206,6 +220,7 @@
 						<h5><b>Foto KTP Penanggungjawab <b style="color:red;">*</b></b></h5>
 					</label>
 					<input type="file" class="form-control" name="foto_ktp" style="color: #1e1e27" required>
+					<small class="form-text text-danger">Jenis file yang diterima adalah png, jpg, dan jpeg</small>
 				</div>
 
 				<div class="form-group">
@@ -213,7 +228,7 @@
 					<label>
 						<h5><b>Deskripsi Event <b style="color:red;">*</b></b></h5>
 					</label>
-					<textarea class="form-control" name="desk_produk" style="color: #1e1e27" rows="5"
+					<textarea class="form-control" name="desk_event" style="color: #1e1e27" rows="5"
 						placeholder="Isilah dengan deskripsi barang seperti warna, lama digunakan, ditujukan kepada siapa, dll"
 						required></textarea>
 				</div>

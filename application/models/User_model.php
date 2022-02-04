@@ -97,8 +97,14 @@ class User_model extends CI_Model
     // Upload produk user
     function upload_produk($data)
     {
-        $sql = "CALL insert_foto_dan_produk(?, ?, ?, ?, ?, ?)";
+        $sql = "CALL insert_foto_dan_produk(?, ?, ?, ?, ?, ?, ?)";
         $this->db->query($sql, $data);
+    }
+
+    // Upload event
+    function upload_event($data)
+    {
+        return $this->db->insert('event', $data);
     }
 
     // Menampilkan produk berdasarkan id
