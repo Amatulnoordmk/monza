@@ -98,6 +98,7 @@ class User extends CI_Controller {
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
 		$data['produk'] = $this->User_model->tampil_produk($id)->result();
+		$data['event'] = $this->User_model->tampil_event($id)->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);		
 		$this->load->view('user/include/footer');
@@ -330,83 +331,77 @@ class User extends CI_Controller {
 		// $foto_ktp = $_FILES['foto_ktp']['name'];
 		$this->load->library('upload');
 		
-			$config['upload_path'] = './assets/user/images/Event/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['upload_path'] = './assets/user/images/Event/';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['overwrite'] = true;
+		$config['max_size'] = 5000;	
+		// $config['file_name'] = $foto_event;
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if (!$this->upload->do_upload('foto_event'))
+		{
+			$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
+			redirect('profil/'.$id);
+		} else{
+			// $pic_event = $this->upload->data6('file_name');			
+			$config['upload_path'] = './assets/admin/Proposal/';
+			$config['allowed_types'] = 'pdf';
 			$config['overwrite'] = true;
 			$config['max_size'] = 5000;
-			$config['max_width'] = 5000;
-			$config['max_height'] = 5000;
-			
-			// $config['file_name'] = $foto_event;
+			$gambar = $this->upload->data();
+			$inputFileName = './assets/user/images/Proposal/'.$gambar['file_name'];			
+			// $config['max_width'] = 5000;
+			// $config['max_height'] = 5000;
+			// $config['file_name'] = $proposal_event;
 			$this->load->library('upload', $config);
 			$this->upload->initialize($config);
-			if (!$this->upload->do_upload('foto_event'))
+			if (!$this->upload->do_upload('proposal'))
 			{
 				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
 				redirect('profil/'.$id);
 			} else{
-				// $pic_event = $this->upload->data6('file_name');
-				
-					$config['upload_path'] = './assets/admin/Proposal/';
-					$config['allowed_types'] = 'pdf';
-					$config['overwrite'] = true;
-					$config['max_size'] = 5000;
-					$gambar = $this->upload->data();
-					$inputFileName = './assets/user/images/Proposal/'.$gambar['file_name'];
-					
-					// $config['max_width'] = 5000;
-					// $config['max_height'] = 5000;
-					// $config['file_name'] = $proposal_event;
-					$this->load->library('upload', $config);
-					$this->upload->initialize($config);
-					if (!$this->upload->do_upload('proposal'))
-					{
-						$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
-						redirect('profil/'.$id);
-					} else{
-						// $props_event = $this->upload->data('file_name');
-						
-							$config['upload_path'] = './assets/admin/KTP/';
-							$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-							$config['overwrite'] = true;
-							$config['max_size'] = 5000;
-							$proposal = $this->upload->data();
-							$inputFileName = './assets/admin/KTP/'.$proposal['file_name'];
-							
-							// $config['max_width'] = 5000;
-							// $config['max_height'] = 5000;
-							// $config['file_name'] = $foto_ktp;
-							$this->load->library('upload', $config);
-							$this->upload->initialize($config);
-							if (!$this->upload->do_upload('foto_ktp'))
-							{
-								$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
-								redirect('profil/'.$id);
-							} else{
-								// $ktp_event = $this->upload->data('file_name');
-								$ktp = $this->upload->data();
-								$inputFileName = './assets/admin/KTP/'.$ktp['file_name'];
+				// $props_event = $this->upload->data('file_name');				
+				$config['upload_path'] = './assets/admin/KTP/';
+				$config['allowed_types'] = 'jpg|jpeg|png';
+				$config['overwrite'] = true;
+				$config['max_size'] = 5000;
+				$proposal = $this->upload->data();
+				$inputFileName = './assets/admin/KTP/'.$proposal['file_name'];				
+				// $config['max_width'] = 5000;
+				// $config['max_height'] = 5000;
+				// $config['file_name'] = $foto_ktp;
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+				if (!$this->upload->do_upload('foto_ktp'))
+				{
+					$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
+					redirect('profil/'.$id);
+				} else{
+					// $ktp_event = $this->upload->data('file_name');
+					$ktp = $this->upload->data();
+					$inputFileName = './assets/admin/KTP/'.$ktp['file_name'];
 
-								$data = array (
-									'id_user' => $id,
-									'nama_event' => $this->input->post('nama_event'),
-									'jenis_produk' => $this->input->post('jenis_barang'),
-									'desk_event' => $this->input->post('desk_event'),
-									'foto_event' => $gambar['file_name'],
-									'proposal_Event' => $proposal['file_name'],
-									'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
-									'ktp_penyelenggara' => $ktp['file_name'],
-									'stok_terkumpul' => '0',
-									'stok_butuh' => $this->input->post('stok_produk'),
-									'waktu_tenggat' => $this->input->post('deadline_event')
-								);	
-								$this->User_model->upload_event($data);
-								redirect('profil/'.$id);													
-							}
-						
-					}
+					$data = array (
+						'id_user' => $id,
+						'nama_event' => $this->input->post('nama_event'),
+						'jenis_produk' => $this->input->post('jenis_barang'),
+						'desk_event' => $this->input->post('desk_event'),
+						'foto_event' => $gambar['file_name'],
+						'proposal_Event' => $proposal['file_name'],
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'ktp_penyelenggara' => $ktp['file_name'],
+						'stok_terkumpul' => '0',
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event'),
+						'status' => '0'
+					);	
+					$this->User_model->upload_event($data);
+					redirect('profil/'.$id);													
+				}
 				
 			}
+			
+		}
 				
 	}
 	

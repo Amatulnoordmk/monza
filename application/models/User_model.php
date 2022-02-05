@@ -113,6 +113,13 @@ class User_model extends CI_Model
         return $this->db->get('produk_v');
     }
 
+    // Menampilkan event berdasarkan id
+    function tampil_event($id)
+    {
+        $this->db->where('id_user', $id);
+        return $this->db->get('event_v');
+    }
+
     // menampilkan produk gratis
     function barang_gratis()
     {
