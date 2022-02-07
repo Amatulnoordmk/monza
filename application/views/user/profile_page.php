@@ -95,7 +95,6 @@
 											</div>
 											<div class="favorite favorite_left"></div>
 
-<<<<<<< HEAD
 									<div class="product_info">
 										<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
 										</h6>
@@ -109,18 +108,6 @@
 												<a href="#"><i class="fa fa-edit" style="font-size:30px;color:grey"></i></a>
 												<a href="#hapusbarang" >&nbsp;<i class="fa fa-trash" style="font-size:30px;color:red"></i></a>
 											</div>
-=======
-											<div class="product_info">
-												<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
-												</h6>
-												<?php if ($pro->kategori_produk == 'F'):?>
-												<div class="product_price">Gratis</div>
-												<?php elseif ($pro->kategori_produk == 'P'):?>
-												<div class="product_price"><?= $pro->harga_produk ?></div>
-												<?php endif; ?>
-											</div>
-										</div>
->>>>>>> 96240e6344dc1f5772ea7d45ecafcfc68fa8699a
 									</div>
 									<?php endforeach; ?>
 								</div>
