@@ -42,9 +42,9 @@ class User extends CI_Controller {
 	// Halaman detail produk
 	public function productDetail_page()
 	{	
-		$data['produk'] = $this->User_model->getProductById($id)->row();
+		$data['produk']=$this->User_model->detail_produk($id_produk);
         $this->load->view('user/include/header');
-		$this->load->view('user/productDetail_page');
+		$this->load->view('user/productDetail_page', $data);
         $this->load->view('user/include/footer');
 	}
 

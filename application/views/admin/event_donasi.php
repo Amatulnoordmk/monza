@@ -35,7 +35,7 @@
 											<th>Penyelenggara</th>
 											<th>Deskripsi</th>
 											<th>Lokasi</th>
-                                            <th>Foto</th>
+											<th>Foto</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
@@ -47,18 +47,15 @@
 											<td>penyelenggara</td>
 											<td>deskripsi</td>
 											<td>lokasi</td>
-                                            <td>foto</td>
+											<td>foto</td>
 											<td>
-												<a data-toggle="tooltip"
-													href="<?= base_url('backend/dashboard/det_data/'.$key->id) ?>"
-													role="button" class="btn btn-icon btn-sm icon-left btn-primary">
+												<a data-toggle="tooltip" href="" role="button"
+													class="btn btn-icon btn-sm icon-left btn-primary">
 													<i class="fas fa-info-circle"></i> detail
 												</a>
-												<a role="button" data-toggle="modal" data-target="#hapusalumni"
-													data-idalumni="<?=$key->id?>" class="btn btn-icon btn-sm btn-danger"
-													style="cursor: pointer;">
-													<i class="far fa-trash-alt text-white" data-toggle="tooltip"
-														title="Hapus"></i>
+												<a data-toggle="tooltip" href="" role="button"
+													class="btn btn-icon btn-sm icon-left btn-danger">
+													<i class="fas fa-trash"></i> hapus
 												</a>
 											</td>
 										</tr>

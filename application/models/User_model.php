@@ -86,6 +86,13 @@ class User_model extends CI_Model
         $this->db->where('id_user', $id);
         return $this->db->get('user_v');
     }
+    // Mengambil data user berdasarkan id
+    public function detail_produk($id_produk)
+    {   
+        $query = $this->db->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+        $result = $query->result_array();
+        return $result;
+    }
 
     // Update profil user
 	function update_profil($id, $data){

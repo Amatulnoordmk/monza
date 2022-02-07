@@ -78,7 +78,7 @@ $route['data'] = "admin/data_user";
 // Beranda
 $route['beranda'] = "user/home_page";
 // Detail produk
-$route['detailproduk'] = "user/productDetail_page";
+$route['detailproduk/(:any)'] = "user/productDetail_page/$1";
 // Contact us
 $route['kontak'] = "user/contact_page";
 // Barang gratis

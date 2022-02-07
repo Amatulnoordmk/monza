@@ -17,10 +17,7 @@
 
 		<div class="section-body">
 			<h2 class="section-title">Barang Terdaftar</h2>
-			<!-- <?php 
-			foreach($website as $web): ?>
-			<p class="section-lead"><?=$web->prodi?> - <?=$web->universitas?></p>
-			<?php endforeach; ?> -->
+			
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-12">
 					<div class="card p-3">
@@ -32,31 +29,29 @@
 										<tr>
 											<th>No</th>
 											<th>Nama Barang</th>
-											<th>Pemilik</th>
-											<th>Lokasi</th>
+											<th>Deskripsi</th>
 											<th>Foto</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
-										<!-- <?php foreach ($data as $key): ?> -->
+										<!-- <?php foreach ($produk as $key): ?> -->
 										<tr>
 											<td><?= $nomor++; ?></td>
-											<td>nama</td>
-											<td>pemilik</td>
-											<td>lokasi</td>
-											<td>foto</td>
+											<td><?= $key->nama_produk?></td>
+											<td><?= $key->desk_produk?></td>
+											
+											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>" alt="produk" height="100"></td>
 											<td>
 												<a data-toggle="tooltip"
-													href="<?= base_url('backend/dashboard/det_data/'.$key->id) ?>"
+													href=""
 													role="button" class="btn btn-icon btn-sm icon-left btn-primary">
 													<i class="fas fa-info-circle"></i> detail
 												</a>
-												<a role="button" data-toggle="modal" data-target="#hapusalumni"
-													data-idalumni="<?=$key->id?>" class="btn btn-icon btn-sm btn-danger"
-													style="cursor: pointer;">
-													<i class="far fa-trash-alt text-white" data-toggle="tooltip"
-														title="Hapus"></i>
+												<a data-toggle="tooltip"
+													href=""
+													role="button" class="btn btn-icon btn-sm icon-left btn-danger">
+													<i class="fas fa-trash"></i> hapus
 												</a>
 											</td>
 										</tr>
