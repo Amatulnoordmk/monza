@@ -128,4 +128,15 @@ class User_model extends CI_Model
 
         // return $this->db->get('produk');
     }
+
+	public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->delete('user');
+        if ($query) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 }

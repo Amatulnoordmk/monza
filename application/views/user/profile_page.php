@@ -1,3 +1,12 @@
+<?php if($this->session->flashdata('hapus-alumni')): ?>
+<script>
+	swal("<?= $this->session->flashdata('hapus-alumni') ?>", "", "success", {
+		button: "OK",
+	});
+
+</script>
+<?php endif; ?>
+
 <?php
     if ($this->session->flashdata('gagalUpload')) :
 ?>
@@ -84,6 +93,11 @@
 										<?php elseif ($pro->kategori_produk == 'P'):?>
 										<div class="product_price"><?= $pro->harga_produk ?></div>
 										<?php endif; ?>
+										
+											<div class="social">
+												<a href="#"><i class="fa fa-edit" style="font-size:30px;color:grey"></i></a>
+												<a href="#hapusbarang" >&nbsp;<i class="fa fa-trash" style="font-size:30px;color:red"></i></a>
+											</div>
 									</div>
 								</div>
 							</div>
@@ -193,3 +207,28 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- modal hapus alumni -->
+<div class="modal fade" id="hapusbarang" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"></h5>
+			</div>
+			<form method="post">
+				<div class="modal-body text-center">
+					<h3 class="text-danger mb-5">Apakah Anda Yakin?</h3>
+					<h5>Barang yang telah ditambahkan akan dihapus dan tidak muncul di beranda Anda</h5>
+					<div class="form-group">
+						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+					<button type="submit" class="btn btn-danger">Hapus</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- end modal -->
