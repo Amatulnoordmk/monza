@@ -108,16 +108,18 @@ class User extends CI_Controller {
 
 	public function event_page()
 	{
+		$data['event'] = $this->User_model->tampil_allEvent()->result();
         $this->load->view('user/include/header');		
-		$this->load->view('user/event_page');
+		$this->load->view('user/event_page', $data);
         $this->load->view('user/include/footer');
 	}
 
 	// Halaman detail donasi
-	public function eventDetail_page()
+	public function eventDetail_page($id)
 	{
+		$data['event'] = $this->User_model->tampil_eventSingle($id)->row();
         $this->load->view('user/include/header');		
-		$this->load->view('user/eventDetail_page');
+		$this->load->view('user/eventDetail_page', $data);
         $this->load->view('user/include/footer');
 	}
 

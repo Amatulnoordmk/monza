@@ -66,48 +66,35 @@
 							<!-- Donasi grid -->
 
 							<div class="row mt-4">
+								<?php foreach ($event as $event):
+									date_default_timezone_set('Asia/Jakarta');
+								?>
 								<div class="col-4">
 									<div class="card" style="width: 20rem;">
-										<img class="card-img-top" src="<?=base_url();?>assets/user/images/blogg_1.jpg"
+										<img class="card-img-top"
+											src="<?=base_url();?>assets/user/images/Event/<?= $event->foto_event ?>"
 											alt="Card image cap">
 										<div class="card-body">
-											<p style="color: #f1873b"><i class="fa fa-clock-o"></i> 7 hari lagi</p>
-											<h5 class="card-title">Pakaian bekas bagi anak kurang mampu daerah pedalaman
+											<?php
+												$originalDate = $event->waktu_tenggat;
+												$newDate = date("d-m-Y", strtotime($originalDate));
+											?>
+											<p style="color: #f1873b"><i class="fa fa-clock-o"></i> Berakhir pada
+												<?= $newDate ?>
+											</p>
+											<h5 class="card-title"><?= $event->desk_event ?>
 											</h5>
-											<p class="card-text" style="color: #f1873b">15 dari 20 terkumpul</p>
-											<a href="<?=base_url();?>detailevent" class="btn"
-												style="background-color: #f1873b; color: white;">Lihat</a>
+											<p class="card-text" style="color: #f1873b"><?= $event->stok_terkumpul ?>
+												dari <?= $event->stok_butuh ?> terkumpul</p>
+											<center>
+												<a href="<?=base_url();?>detailevent/<?= $event->id_event ?>"
+													class="btn"
+													style="background-color: #f1873b; color: white;">Lihat</a>
+											</center>
 										</div>
 									</div>
 								</div>
-								<div class="col-4">
-									<div class="card" style="width: 20rem;">
-										<img class="card-img-top" src="<?=base_url();?>assets/user/images/blogg_1.jpg"
-											alt="Card image cap">
-										<div class="card-body">
-											<p style="color: #f1873b"><i class="fa fa-clock-o"></i> 7 hari lagi</p>
-											<h5 class="card-title">Pakaian bekas bagi anak kurang mampu daerah pedalaman
-											</h5>
-											<p class="card-text" style="color: #f1873b">15 dari 20 terkumpul</p>
-											<a href="#" class="btn"
-												style="background-color: #f1873b; color: white;">Lihat</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-4">
-									<div class="card" style="width: 20rem;">
-										<img class="card-img-top" src="<?=base_url();?>assets/user/images/blogg_1.jpg"
-											alt="Card image cap">
-										<div class="card-body">
-											<p style="color: #f1873b"><i class="fa fa-clock-o"></i> 7 hari lagi</p>
-											<h5 class="card-title">Pakaian bekas bagi anak kurang mampu daerah pedalaman
-											</h5>
-											<p class="card-text" style="color: #f1873b">15 dari 20 terkumpul</p>
-											<a href="#" class="btn"
-												style="background-color: #f1873b; color: white;">Lihat</a>
-										</div>
-									</div>
-								</div>
+								<?php endforeach ?>
 							</div>
 
 

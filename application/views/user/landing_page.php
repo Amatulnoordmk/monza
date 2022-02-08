@@ -423,12 +423,12 @@
 								<div class="form-group col-md-12">
 									<label for="exampleInputEmail1">Email</label>
 									<input type="email" name="email" class="form-control" id="exampleInputEmail1"
-										aria-describedby="emailHelp">
+										style="color: #1e1e27" aria-describedby="emailHelp">
 								</div>
 								<br><br><br>
 								<div class="form-group col-md-12">
 									<label for="exampleInputPassword1">Password</label>
-									<input type="password" name="password" class="form-control"
+									<input type="password" name="password" class="form-control" style="color: #1e1e27"
 										id="exampleInputPassword1">
 								</div>
 
