@@ -151,7 +151,7 @@ class User extends CI_Controller {
 
 	// Cek No telepon yg diinput dengan db
 	public function cekNotel(){
-		$notel = $this->input->post('nomor');
+		$notel = substr($this->input->post('nomor'), 1, 15);
 		$data = $this->User_model->cekNotel($notel);
 		if ($data == true) {
 			echo true;

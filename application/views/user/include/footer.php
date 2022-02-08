@@ -91,7 +91,7 @@
 
 	// Validasi nama lengkap
 	function cekNamaLengkap() {
-		var nama_lengkap = $('#nama_lengkap').val();
+		var nama_lengkap = $('.nama_lengkap').val();
 
 		if (nama_lengkap == "") {
 			$('#pesan_nama_lengkap').html("Silakan isi Nama Lengkap Anda");
@@ -105,7 +105,7 @@
 
 	// Validasi nomor telepon
 	function cekNo() {
-		var nomor = $('#nomor').val();
+		var nomor = $('.nomor').val();
 
 		if (nomor == "") {
 			$('#pesan_notel').html("Silakan isi nomor telepon Anda");
@@ -137,7 +137,7 @@
 
 	// Validasi email
 	function cekEmail() {
-		var email = $('#emailku').val();
+		var email = $('.emailku').val();
 		var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
 
 		if (email == "") {
@@ -172,7 +172,7 @@
 
 	// Validasi username
 	function cekUsername() {
-		var username = $('#username').val();
+		var username = $('.usernameKu').val();
 
 		if (username == "") {
 			$('#pesan_username').html("Silakan isi username Anda");
@@ -206,7 +206,7 @@
 
 	// Validasi konfirmasi password
 	function cekKonfirPass() {
-		var Kpass = $('#konfirpass').val();
+		var Kpass = $('.konfirpass').val();
 		var pass = $('.password').val();
 
 		if (Kpass == "") {
