@@ -36,7 +36,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<!-- <?php foreach ($produk as $key): ?> -->
+										<?php foreach ($produk as $key): ?>
 										<tr>
 											<td><?= $nomor++; ?></td>
 											<td><?= $key->nama_produk?></td>
@@ -53,7 +53,7 @@
 												</a>
 											</td>
 										</tr>
-										<!-- <?php endforeach; ?> -->
+										<?php endforeach; ?>
 									</tbody>
 								</table>
 							</div>
