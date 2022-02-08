@@ -233,7 +233,6 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
 
 	<!-- modal hapus alumni -->
 <div class="modal fade" id="hapusbarang" role="dialog">
@@ -259,6 +258,4 @@
 	</div>
 </div>
 <!-- end modal -->
-=======
 </div>
->>>>>>> 96240e6344dc1f5772ea7d45ecafcfc68fa8699a

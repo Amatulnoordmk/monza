@@ -10,6 +10,8 @@ class Admin_model extends CI_Model
 
         // return $this->db->get('produk');
     }
+
+  
     function barang_murah()
     {
         $this->db->where('kategori_produk', 'P');
@@ -23,5 +25,17 @@ class Admin_model extends CI_Model
         return $this->db->get('user_v');
 
         // return $this->db->get('produk');
+    }
+    function daftar_event()
+    {
+        $this->db->where('status', '0'); 
+        return $this->db->get('event_v');
+
+        // return $this->db->get('produk');
+    }
+    function delete_data($id)
+    {
+        $this->db->where('id_produk', $id);
+        $this->db->delete('produk');
     }
 }

@@ -45,17 +45,12 @@
 											<!-- <td>lokasi</td> -->
 											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>" alt="produk" height="100"></td>
 											<td>
-												<a data-toggle="tooltip"
-													href=""
-													role="button" class="btn btn-icon btn-sm icon-left btn-primary">
-													<i class="fas fa-info-circle"></i> detail
+												<a href="#detailproduk" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
+													<i class="fas fa-info-circle"></i>Detail
 												</a>
-												<a data-toggle="tooltip"
-													href=""
-													role="button" class="btn btn-icon btn-sm icon-left btn-danger">
-													<i class="fas fa-trash"></i> hapus
+												<a href="#hapusalumni" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+													<i class="fas fa-trash"></i>Hapus
 												</a>
-												
 											</td>
 										</tr>
 										<!-- <?php endforeach; ?> -->
@@ -88,6 +83,34 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
 					<button type="submit" class="btn btn-danger">Hapus</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- end modal -->
+<!-- modal Detail -->
+<div class="modal fade" id="detailproduk" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"></h5>
+			</div>
+			<form action="<?= base_url('backend/dashboard/hapus_alumni') ?>" method="post">
+				<div class="modal-body text-center">
+					<h1 class="text-primary mb-5">Detail Produk</h1>
+					<table>
+						<tr>
+							<td><? echo $produk['nama_produk']?></td>
+						</tr>
+					</table>
+					<div class="form-group">
+						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+					<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
 				</div>
 			</form>
 		</div>
