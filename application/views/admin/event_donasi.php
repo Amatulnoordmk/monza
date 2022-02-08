@@ -17,10 +17,6 @@
 
 		<div class="section-body">
 			<h2 class="section-title">Event Terdaftar</h2>
-			<!-- <?php 
-			foreach($website as $web): ?>
-			<p class="section-lead"><?=$web->prodi?> - <?=$web->universitas?></p>
-			<?php endforeach; ?> -->
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-12">
 					<div class="card p-3">
@@ -34,20 +30,20 @@
 											<th>Nama Donasi</th>
 											<th>Penyelenggara</th>
 											<th>Deskripsi</th>
-											<th>Lokasi</th>
+											<th>proposal</th>
 											<th>Foto</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
-										<!-- <?php foreach ($data as $key): ?> -->
+										<!-- <?php foreach ($event as $key): ?> -->
 										<tr>
 											<td><?= $nomor++; ?></td>
-											<td>nama</td>
-											<td>penyelenggara</td>
-											<td>deskripsi</td>
-											<td>lokasi</td>
-											<td>foto</td>
+											<td><?= $key->nama_event ?></td>
+											<td><?= $key->nama_penyelenggara?></td>
+											<td><?= $key->desk_event?></td>
+											<td><?= $key->proposal_event?></td>
+											<td><?= $key->foto_event?></td>
 											<td>
 												<a data-toggle="tooltip" href="" role="button"
 													class="btn btn-icon btn-sm icon-left btn-primary">

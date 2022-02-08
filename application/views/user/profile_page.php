@@ -228,8 +228,13 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
+
+	<!-- modal hapus alumni -->
+=======
 </div>
 <!-- modal hapus alumni -->
+>>>>>>> 9d7feb9e70cc3748a18704d66249b73644231b70
 <div class="modal fade" id="hapusbarang" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -253,3 +258,7 @@
 	</div>
 </div>
 <!-- end modal -->
+<<<<<<< HEAD
+</div>
+=======
+>>>>>>> 9d7feb9e70cc3748a18704d66249b73644231b70
