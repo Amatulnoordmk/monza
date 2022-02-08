@@ -87,7 +87,6 @@
 										alt="produk">
 								</div>
 								<div class="favorite favorite_left"></div>
-
 								<div class="product_info">
 									<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
 									</h6>
