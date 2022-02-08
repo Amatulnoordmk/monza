@@ -41,9 +41,10 @@ class User extends CI_Controller {
 
 	// Halaman detail produk
 	public function productDetail_page()
-	{
+	{	
+		$data['produk']=$this->User_model->detail_produk($id_produk);
         $this->load->view('user/include/header');
-		$this->load->view('user/productDetail_page');
+		$this->load->view('user/productDetail_page', $data);
         $this->load->view('user/include/footer');
 	}
 
@@ -56,27 +57,30 @@ class User extends CI_Controller {
 	
 	// Halaman produk gratis
 	public function freeProduct_page()
-	{
+	{	
+		$data['produk'] = $this->User_model->barang_gratis()->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/include/sidebar');
-		$this->load->view('user/freeProduct_page');
+		$this->load->view('user/freeProduct_page',$data);
         $this->load->view('user/include/footer');
 	}
 
 	// Halaman produk murah
 	public function cheapProduct_page()
 	{
+		$data['produk'] = $this->User_model->barang_murah()->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/include/sidebar');
-		$this->load->view('user/cheapProduct_page');
+		$this->load->view('user/cheapProduct_page',$data);
         $this->load->view('user/include/footer');
 	}
 
 	// Halaman upload produk
-	public function postProduct_page()
+	public function postProduct_page($id)
 	{
+		$data['user'] = $this->User_model->getDataUserById($id)->row();
         $this->load->view('user/include/header');
-		$this->load->view('user/postProduct_page');
+		$this->load->view('user/postProduct_page', $data);
         $this->load->view('user/include/footer');
 	}
 	
@@ -91,12 +95,12 @@ class User extends CI_Controller {
 	// Halaman profil
 	public function profile_page($id)
 	{	
-		// $data['provinsi'] = $this->User_model->getDataProv()->result();
-		// $data['user'] = $this->User_model->getDataUserById($id);
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
+		$data['produk'] = $this->User_model->tampil_produk($id)->result();
+		$data['event'] = $this->User_model->tampil_event($id)->result();
         $this->load->view('user/include/header');
-		$this->load->view('user/profile_page', $data);
+		$this->load->view('user/profile_page', $data);		
 		$this->load->view('user/include/footer');
 	}
 	
@@ -104,16 +108,18 @@ class User extends CI_Controller {
 
 	public function event_page()
 	{
+		$data['event'] = $this->User_model->tampil_allEvent()->result();
         $this->load->view('user/include/header');		
-		$this->load->view('user/event_page');
+		$this->load->view('user/event_page', $data);
         $this->load->view('user/include/footer');
 	}
 
 	// Halaman detail donasi
-	public function eventDetail_page()
+	public function eventDetail_page($id)
 	{
+		$data['event'] = $this->User_model->tampil_eventSingle($id)->row();
         $this->load->view('user/include/header');		
-		$this->load->view('user/eventDetail_page');
+		$this->load->view('user/eventDetail_page', $data);
         $this->load->view('user/include/footer');
 	}
 
@@ -139,51 +145,13 @@ class User extends CI_Controller {
 				'level_user' => '0'
 		);			
 			
-			$this->User_model->tambah_user('user', $data);  
-			
+			$this->User_model->tambah_user('user', $data);			
 			redirect('');
 	}
-	public function edit($id){
-        $where = array('id_user' => $id);
-        $data['user'] = $this->User_model->edit_data($where,'user')->result();
-        $this->load->view('user',$data);
-    }
-	
-	public function updateProfil() {
-		$id = $this->input->post('id_user');
-		$nama = $this->input->post('nama_lengkap');
-		$email = $this->input->post('email');
-		$username =$this->input->post('username');
-		$password = $this->input->post('password');
-		$no_telp = '0'. $this->input->post('nomor');
-		$provinsi = $this->input->post('provinsi');
-		$kota = $this->input->post('kota');
-	
-		$data = array(
-			'nama_lengkap' => $nama,
-			'email'=> $email,
-			'username'=> $username,		
-			'no_telp'=> $no_telp,
-			'id_provinsi'=> $provinsi,
-			'id_kota'=> $kota
-		);
-	
-		$where = array(
-			'id_user' => $id
-		);
-<<<<<<< HEAD
-=======
-		
->>>>>>> 2483736bd95d3b7f8d7465a4cda46e9f4caa045c
-		$this->User_model->update_profil($where,$data,'user');
-		redirect('profil/'.$id);
-	}
-
-	
 
 	// Cek No telepon yg diinput dengan db
 	public function cekNotel(){
-		$notel = $this->input->post('nomor');
+		$notel = substr($this->input->post('nomor'), 1, 15);
 		$data = $this->User_model->cekNotel($notel);
 		if ($data == true) {
 			echo true;
@@ -204,37 +172,239 @@ class User extends CI_Controller {
 			echo false;
 		}
 	}
-
-	// Cak konfirmasi password
-	public function cekKonfirPass()
-	{
-		$pass = $this->input->post('password');
-		$konfirpass = $this->input->post('konfirpass');
-		
-		if ($pass == $konfirpass) {
-			echo true;
-		} else {
-			echo false;
+	
+	// Update profil user
+	public function updateProfil($id) {
+		if ($this->input->post('password') == '')
+		{
+			if ($this->input->post('provinsi') == '')
+			{
+				if ($this->input->post('kota') == '')
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'no_telp' => '0'. $this->input->post('nomor')
+					);
+				}else 
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_kota' => $this->input->post('kota')
+					);
+				}				
+			}else{
+				if ($this->input->post('kota') == '')
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_provinsi' => $this->input->post('provinsi')
+					);
+				}else 
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_provinsi' => $this->input->post('provinsi'),
+						'id_kota' => $this->input->post('kota')
+					);
+				}		
+			}
+		}else{
+			if ($this->input->post('provinsi') == '')
+			{
+				if ($this->input->post('kota') == '')
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'password' => md5($this->input->post('password')),
+						'no_telp' => '0'. $this->input->post('nomor')
+					);
+				}else 
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'password' => md5($this->input->post('password')),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_kota' => $this->input->post('kota')
+					);
+				}				
+			}else{
+				if ($this->input->post('kota') == '')
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'password' => md5($this->input->post('password')),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_provinsi' => $this->input->post('provinsi')
+					);
+				}else 
+				{
+					$data = array(
+						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'email' => $this->input->post('email'),
+						'username' => $this->input->post('username'),
+						'password' => md5($this->input->post('password')),
+						'no_telp' => '0'. $this->input->post('nomor'),
+						'id_provinsi' => $this->input->post('provinsi'),
+						'id_kota' => $this->input->post('kota')
+					);
+				}		
+			}
 		}
+		
+		$this->User_model->update_profil($id, $data);
+		redirect('profil/'.$id);
+	}	
+
+	// Upload produk
+	public function uploadProduk($id)
+	{
+		$file_name = $_FILES['fotoProduk']['name'];
+
+		if(!empty($file_name))
+		{
+			$config['upload_path'] = './assets/user/images/Produk/';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['overwrite'] = true;
+			$config['max_size'] = 5000;
+			$config['max_width'] = 5000;
+			$config['max_height'] = 5000;
+			$config['file_name'] = $file_name;
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('fotoProduk'))
+			{
+				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
+				redirect('profil/'.$id);
+			} else{
+				$foto = $this->upload->data('file_name');
+			}
+		}else{
+			$file_name = '';
+		}		
+
+		if ($this->input->post('katProduk') == 'F')
+		{
+			$data = array (
+				'foto_produk' => $foto,
+				'id_user' => $id,		
+				'nama_produk' => $this->input->post('nama_produk'),
+				'jenis_produk' => $this->input->post('jenis_barang'),
+				'desk_produk' => $this->input->post('desk_produk'),
+				'kategori_produk' => $this->input->post('katProduk'),
+				'harga_produk' => '0'
+		  	);		  
+		}else {
+			$data = array (
+				'foto_produk' => $foto,
+				'id_user' => $id,		
+				'nama_produk' => $this->input->post('nama_produk'),
+				'jenis_produk' => $this->input->post('jenis_barang'),
+				'desk_produk' => $this->input->post('desk_produk'),
+				'kategori_produk' => $this->input->post('katProduk'),
+				'harga_produk' => $this->input->post('harga_produk')
+		  	);	
+		}
+
+		$this->User_model->upload_produk($data);
+		redirect('profil/'.$id);
 	}
 
-	public function postProduk() {
-			$data = array(
-			  'nama_produk' => $this->input->post("nama_produk"),
-			  'kategori_produk' => $this->input->post("kategori_produk"),
-			  'harga_produk' => $this->input->post('harga_produk'),
-			  'foto_produk' => $this->input->post('foto_produk'),
-			  'jenis_barang' => $this->input->post('jenis_barang')
-			);
-	
-			$this->insert_model->insert_data('produk', $data);
-			$this->session->set_flashdata('oke', 'ditambah');
-			redirect('profil');
-		  }
+	// Upload event
+	public function uploadEvent($id)
+	{
+		// $foto_event = $_FILES['foto_event']['name'];
+		// $proposal_event = $_FILES['proposal']['name'];
+		// $foto_ktp = $_FILES['foto_ktp']['name'];
+		$this->load->library('upload');
+		
+		$config['upload_path'] = './assets/user/images/Event/';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['overwrite'] = true;
+		$config['max_size'] = 5000;	
+		// $config['file_name'] = $foto_event;
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if (!$this->upload->do_upload('foto_event'))
+		{
+			$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
+			redirect('profil/'.$id);
+		} else{
+			// $pic_event = $this->upload->data6('file_name');			
+			$config['upload_path'] = './assets/admin/Proposal/';
+			$config['allowed_types'] = 'pdf';
+			$config['overwrite'] = true;
+			$config['max_size'] = 5000;
+			$gambar = $this->upload->data();
+			$inputFileName = './assets/user/images/Proposal/'.$gambar['file_name'];			
+			// $config['max_width'] = 5000;
+			// $config['max_height'] = 5000;
+			// $config['file_name'] = $proposal_event;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if (!$this->upload->do_upload('proposal'))
+			{
+				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
+				redirect('profil/'.$id);
+			} else{
+				// $props_event = $this->upload->data('file_name');				
+				$config['upload_path'] = './assets/admin/KTP/';
+				$config['allowed_types'] = 'jpg|jpeg|png';
+				$config['overwrite'] = true;
+				$config['max_size'] = 5000;
+				$proposal = $this->upload->data();
+				$inputFileName = './assets/admin/KTP/'.$proposal['file_name'];				
+				// $config['max_width'] = 5000;
+				// $config['max_height'] = 5000;
+				// $config['file_name'] = $foto_ktp;
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+				if (!$this->upload->do_upload('foto_ktp'))
+				{
+					$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
+					redirect('profil/'.$id);
+				} else{
+					// $ktp_event = $this->upload->data('file_name');
+					$ktp = $this->upload->data();
+					$inputFileName = './assets/admin/KTP/'.$ktp['file_name'];
 
-		// else {
-		//   $this->session->set_flashdata('cek', '<div class="alert alert-danger mb-3"><center>Kode mata kuliah sudah ada</center></div>');
-		//   $this->load->view('add_matkul');  
-		// }    
-	// }
+					$data = array (
+						'id_user' => $id,
+						'nama_event' => $this->input->post('nama_event'),
+						'jenis_produk' => $this->input->post('jenis_barang'),
+						'desk_event' => $this->input->post('desk_event'),
+						'foto_event' => $gambar['file_name'],
+						'proposal_Event' => $proposal['file_name'],
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'ktp_penyelenggara' => $ktp['file_name'],
+						'stok_terkumpul' => '0',
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event'),
+						'status' => '0'
+					);	
+					$this->User_model->upload_event($data);
+					redirect('profil/'.$id);													
+				}
+				
+			}
+			
+		}
+				
+	}
+	
 }

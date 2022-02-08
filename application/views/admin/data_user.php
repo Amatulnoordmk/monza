@@ -32,30 +32,30 @@
 										<tr>
 											<th>No</th>
 											<th>Nama</th>
-											<th>No. HP Aktif</th>
+											<th>Username</th>
 											<th>Email</th>
 											<th>Alamat</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
-										<!-- <?php foreach ($data as $key): ?> -->
+										<!-- <?php foreach ($user as $key): ?> -->
 										<tr>
 											<td><?= $nomor++; ?></td>
-											<td><?= $key->nim ?></td>
-											<td><?= $key->nama_depan ?> <?= $key->nama_belakang ?></td>
-											<td><?= $key->tahun_lulus ?></td>
+											<td><?= $key->nama_lengkap ?></td>
+											<td><?= $key->username ?></td>
+											<td><?= $key->email ?></td>
+											<td><?= $key->provinsi ?>,<?= $key->kota ?></td>
 											<td>
 												<a data-toggle="tooltip"
-													href="<?= base_url('backend/dashboard/det_data/'.$key->id) ?>"
+													href=""
 													role="button" class="btn btn-icon btn-sm icon-left btn-primary">
 													<i class="fas fa-info-circle"></i> detail
 												</a>
-												<a role="button" data-toggle="modal" data-target="#hapusalumni"
-													data-idalumni="<?=$key->id?>" class="btn btn-icon btn-sm btn-danger"
-													style="cursor: pointer;">
-													<i class="far fa-trash-alt text-white" data-toggle="tooltip"
-														title="Hapus"></i>
+												<a data-toggle="tooltip"
+													href=""
+													role="button" class="btn btn-icon btn-sm icon-left btn-danger">
+													<i class="fas fa-trash"></i> hapus
 												</a>
 											</td>
 										</tr>

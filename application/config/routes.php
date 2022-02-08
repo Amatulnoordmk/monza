@@ -78,7 +78,7 @@ $route['data'] = "admin/data_user";
 // Beranda
 $route['beranda'] = "user/home_page";
 // Detail produk
-$route['detailproduk'] = "user/productDetail_page";
+$route['detailproduk/(:any)'] = "user/productDetail_page/$1";
 // Contact us
 $route['kontak'] = "user/contact_page";
 // Barang gratis
@@ -86,7 +86,7 @@ $route['produkgratis'] = "user/freeProduct_page";
 // Barang Murah
 $route['produkmurah'] = "user/cheapProduct_page";
 // Post Produk
-$route['postproduk'] = "user/postProduct_page";
+$route['postproduk/(:any)'] = "user/postProduct_page/$1";
 // Post Event
 $route['postevent'] = "user/postEvent_page";
 // Profile
@@ -94,4 +94,4 @@ $route['profil/(:any)'] = "user/profile_page/$1";
 // Donasi
 $route['donasi'] = "user/event_page";
 // Detail event
-$route['detailevent'] = "user/eventDetail_page";
+$route['detailevent/(:any)'] = "user/eventDetail_page/$1";

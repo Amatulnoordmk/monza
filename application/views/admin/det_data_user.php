@@ -12,8 +12,8 @@
 
 		<div class="section-body">
 			<?php foreach ($detail as $det): ?>
-			<h2 class="section-title"><?= $det->nama_depan ?> <?= $det->nama_belakang?></h2>
-			<p class="section-lead"><?= $det->nim ?></p>
+			<h2 class="section-title"><?= $det->nama_lengkap ?></h2>
+			<p class="section-lead"><?= $det->username ?></p>
 
 			<div class="row">
 				<div class="col-12 col-md-6 col-lg-6">

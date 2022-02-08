@@ -72,34 +72,52 @@ class Admin extends CI_Controller {
 	}
 
 	public function gratis()
-	{
+	{	
+		$this->load->model('Admin_model');
+		$data['produk'] = $this->Admin_model->barang_gratis()->result();
+		// $data['produk'] = $this->Admin_model->barang_gratis()->row();
         $this->load->view('admin/include/header');
 		$this->load->view('admin/include/sidebar');
-		$this->load->view('admin/barang_gratis');
+		$this->load->view('admin/barang_gratis',$data);
         $this->load->view('admin/include/footer');
 	}
 
 	public function murah()
-	{
+	{	
+		$this->load->model('Admin_model');
+		$data['produk'] = $this->Admin_model->barang_murah()->result();
         $this->load->view('admin/include/header');
 		$this->load->view('admin/include/sidebar');
-		$this->load->view('admin/barang_murah');
+		$this->load->view('admin/barang_murah',$data);
         $this->load->view('admin/include/footer');
 	}
 	public function event()
-	{
+	{	
+		$this->load->model('Admin_model');
+		$data['event'] = $this->Admin_model->daftar_event()->result();
         $this->load->view('admin/include/header');
 		$this->load->view('admin/include/sidebar');
-		$this->load->view('admin/event_donasi');
+		$this->load->view('admin/event_donasi', $data);
         $this->load->view('admin/include/footer');
 	}
 	public function data()
-	{
+	{	
+		$this->load->model('Admin_model');
+		$data['user'] = $this->Admin_model->daftar_user()->result();
         $this->load->view('admin/include/header');
 		$this->load->view('admin/include/sidebar');
-		$this->load->view('admin/data_user');
+		$this->load->view('admin/data_user',$data);
         $this->load->view('admin/include/footer');
 	}
+
+	function delete_data()
+	{
+		$id = $this->input->post('idproduk');
+		$this->load->model('Admin_model');
+        $this->Admin_model->delete_data($id);
+		redirect('admin/gratis');
+	}	
+
 	// public function data_user()
 	// {
     //     $this->load->view('admin/include/header');

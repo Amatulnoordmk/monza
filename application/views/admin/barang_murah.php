@@ -17,10 +17,6 @@
 
 		<div class="section-body">
 			<h2 class="section-title">Barang Terdaftar</h2>
-			<!-- <?php 
-			foreach($website as $web): ?>
-			<p class="section-lead"><?=$web->prodi?> - <?=$web->universitas?></p>
-			<?php endforeach; ?> -->
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-12">
 					<div class="card p-3">
@@ -33,36 +29,31 @@
 											<th>No</th>
 											<th>Nama Barang</th>
 											<th>Harga</th>
-											<th>Pemilik</th>
-											<th>Lokasi</th>
+											<th>Deskripsi</th>
+											<!-- <th>Lokasi</th> -->
 											<th>Foto</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
-										<!-- <?php foreach ($data as $key): ?> -->
+										<?php foreach ($produk as $key): ?>
 										<tr>
 											<td><?= $nomor++; ?></td>
-											<td>nama</td>
-											<td>harga</td>
-											<td>pemilik</td>
-											<td>lokasi</td>
-											<td>foto</td>
+											<td><?= $key->nama_produk?></td>
+											<td><?= $key->harga_produk?></td>
+											<td><?= $key->desk_produk?></td>
+											<!-- <td>lokasi</td> -->
+											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>" alt="produk" height="100"></td>
 											<td>
-												<a data-toggle="tooltip"
-													href="<?= base_url('backend/dashboard/det_data/'.$key->id) ?>"
-													role="button" class="btn btn-icon btn-sm icon-left btn-primary">
-													<i class="fas fa-info-circle"></i> detail
+												<a href="#detailproduk" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
+													<i class="fas fa-info-circle"></i>Detail
 												</a>
-												<a role="button" data-toggle="modal" data-target="#hapusalumni"
-													data-idalumni="<?=$key->id?>" class="btn btn-icon btn-sm btn-danger"
-													style="cursor: pointer;">
-													<i class="far fa-trash-alt text-white" data-toggle="tooltip"
-														title="Hapus"></i>
+												<a href="#hapusalumni" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+													<i class="fas fa-trash"></i>Hapus
 												</a>
 											</td>
 										</tr>
-										<!-- <?php endforeach; ?> -->
+										<?php endforeach; ?>
 									</tbody>
 								</table>
 							</div>
@@ -92,6 +83,34 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
 					<button type="submit" class="btn btn-danger">Hapus</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- end modal -->
+<!-- modal Detail -->
+<div class="modal fade" id="detailproduk" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"></h5>
+			</div>
+			<form action="<?= base_url('backend/dashboard/hapus_alumni') ?>" method="post">
+				<div class="modal-body text-center">
+					<h1 class="text-primary mb-5">Detail Produk</h1>
+					<table>
+						<tr>
+							<td><? echo $produk['nama_produk']?></td>
+						</tr>
+					</table>
+					<div class="form-group">
+						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+					<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
 				</div>
 			</form>
 		</div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/single_responsive.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_styles.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/categories_responsive.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/postProduk.css"> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
@@ -57,6 +58,9 @@
 									<li><a href="<?= base_url(); ?>produkgratis">Gratis</a></li>
 									<li><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
 									<li><a href="<?= base_url(); ?>donasi">Donasi</a></li>
+									<li><a
+											href="<?= base_url('postproduk/'.$this->session->userdata('id_user')); ?>">Jual</a>
+									</li>
 								</ul>
 								<!-- <ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>

@@ -56,12 +56,12 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="<?=base_url();?>assets/user/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="<?=base_url();?>assets/user/js/custom.js"></script>
-<script src="<?=base_url();?>assets/user/js/sweetalert2.all.min.js"></script>
+<!-- <script src="<?=base_url();?>assets/user/js/sweetalert2.all.min.js"></script>
 <script src="<?=base_url();?>assets/user/js/sweetalert2.all.js"></script>
-<script src="<?=base_url();?>assets/user/js/myscript.js"></script>
+<script src="<?=base_url();?>assets/user/js/myscript.js"></script> -->
 
 <script type="text/javascript">
-	// Alert ootstrap auto dismiss
+	// Alert bootstrap auto dismiss
 	$(document).ready(function () {
 		window.setTimeout(function () {
 			$(".alert").fadeTo(500, 0).slideUp(500, function () {
@@ -70,24 +70,7 @@
 		}, 1000);
 	});
 
-	// $(document).ready(function () {
-	// 	$('.provinsi').change(function () {
-	// 		var id = $(this).val();
-	// 		$.ajax({
-	// 			type: "POST",
-	// 			url: "",
-	// 			data: {
-	// 				id: id,
-	// 			},
-	// 			dataType: "JSON",
-	// 			success: function (response) {
-	// 				$('.kota').html(ressponse);
-	// 			}
-	// 		});
-	// 	});
-	// });
-
-	// Validasi nomor telepon cuma boleh input angka
+	// Validasi cuma boleh input angka
 	function isNumberKey(evt) {
 		var charCode = (evt.which) ? evt.which : evt.keyCode;
 		if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
@@ -108,7 +91,7 @@
 
 	// Validasi nama lengkap
 	function cekNamaLengkap() {
-		var nama_lengkap = $('#nama_lengkap').val();
+		var nama_lengkap = $('.nama_lengkap').val();
 
 		if (nama_lengkap == "") {
 			$('#pesan_nama_lengkap').html("Silakan isi Nama Lengkap Anda");
@@ -122,7 +105,7 @@
 
 	// Validasi nomor telepon
 	function cekNo() {
-		var nomor = $('#nomor').val();
+		var nomor = $('.nomor').val();
 
 		if (nomor == "") {
 			$('#pesan_notel').html("Silakan isi nomor telepon Anda");
@@ -154,7 +137,7 @@
 
 	// Validasi email
 	function cekEmail() {
-		var email = $('#emailku').val();
+		var email = $('.emailku').val();
 		var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
 
 		if (email == "") {
@@ -189,7 +172,7 @@
 
 	// Validasi username
 	function cekUsername() {
-		var username = $('#username').val();
+		var username = $('.usernameKu').val();
 
 		if (username == "") {
 			$('#pesan_username').html("Silakan isi username Anda");
@@ -223,7 +206,7 @@
 
 	// Validasi konfirmasi password
 	function cekKonfirPass() {
-		var Kpass = $('#konfirpass').val();
+		var Kpass = $('.konfirpass').val();
 		var pass = $('.password').val();
 
 		if (Kpass == "") {
@@ -295,6 +278,72 @@
 			event.preventDefault();
 		}
 	})
+
+	// Hide/show kolom input harga di postProduct_page
+	$(document).ready(function () {
+		toggleFields
+			(); // call this first so we start out with the correct visibility depending on the selected form values
+		// this will call our toggleFields function every time the selection value of our other field changes
+		$("#katProduk").change(function () {
+			toggleFields();
+		});
+
+	});
+	// this toggles the visibility of other server
+	function toggleFields() {
+		if ($("#katProduk").val() === "P")
+			$("#produkBerbayar").show();
+		else
+			$("#produkBerbayar").hide();
+	}
+
+
+	// gambar di post produk
+	// $(document).ready(function () {
+	// 	document.getElementById('pro-image').addEventListener('change', readImage, false);
+
+	// 	$(".preview-images-zone").sortable();
+
+	// 	$(document).on('click', '.image-cancel', function () {
+	// 		let no = $(this).data('no');
+	// 		$(".preview-image.preview-show-" + no).remove();
+	// 	});
+	// });
+
+	// var num = 4;
+
+	// function readImage() {
+	// 	if (window.File && window.FileList && window.FileReader) {
+	// 		var files = event.target.files; //FileList object
+	// 		var output = $(".preview-images-zone");
+
+	// 		for (let i = 0; i < files.length; i++) {
+	// 			var file = files[i];
+	// 			if (!file.type.match('image')) continue;
+
+	// 			var picReader = new FileReader();
+
+	// 			picReader.addEventListener('load', function (event) {
+	// 				var picFile = event.target;
+	// 				var html = '<div class="preview-image preview-show-' + num + '">' +
+	// 					'<div class="image-cancel" data-no="' + num + '">x</div>' +
+	// 					'<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result +
+	// 					'"></div>' +
+	// 					'<div class="tools-edit-image"><a href="javascript:void(0)" data-no="' + num +
+	// 					'" class="btn btn-light btn-edit-image">edit</a></div>' +
+	// 					'</div>';
+
+	// 				output.append(html);
+	// 				num = num + 1;
+	// 			});
+
+	// 			picReader.readAsDataURL(file);
+	// 		}
+	// 		$("#pro-image").val('');
+	// 	} else {
+	// 		console.log('Browser not support');
+	// 	}
+	// }
 
 </script>
 </body>

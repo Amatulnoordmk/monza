@@ -19,16 +19,6 @@
 		<div class="col-lg-7">
 			<div class="single_product_pics">
 				<div class="row">
-					<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
-						<div class="single_product_thumbnails">
-							<ul>
-								<li><img src="<?=base_url();?>assets/user/images/single_1.jpg" alt="" data-image="<?=base_url();?>assets/user/images/single_1.jpg"></li>
-								<li class="active"><img src="<?=base_url();?>assets/user/images/single_2_thumb.jpg" alt=""
-										data-image="<?=base_url();?>assets/user/images/single_2.jpg"></li>
-								<li><img src="<?=base_url();?>assets/user/images/single_3_thumb.jpg" alt="" data-image="<?=base_url();?>assets/user/images/single_3.jpg"></li>
-							</ul>
-						</div>
-					</div>
 					<div class="col-lg-9 image_col order-lg-2 order-1">
 						<div class="single_product_image">
 							<div class="single_product_image_background"
@@ -45,10 +35,10 @@
 					<div class="product_price">Rp 50.000</div>
 					<p>Jaket warna coklat. Ukuran L. Baru dipakai 3-4 kali. Ingin dibagikan karena sudah jarang dipakai. Jika tertarik harap hubungi kontak saya :)</p>
 					<p>Lokasi : <span class="product_price">Medan</span></p>
-					<p>Maps : <a href="">https://goo.gl/maps/KJamN6MybWV5Q7WZ6</a></p>
+					<!-- <p>Maps : <a href="">https://goo.gl/maps/KJamN6MybWV5Q7WZ6</a></p> -->
 					<br>
 					<h4>Diposting Oleh : <span>Mei Mei</span></h4>
-					<p>No HP : <span>0812-2233-4455</span></p>
+					<p>No HP : <span>081222334455</span></p>
 				</div>
 				<a href="https://api.whatsapp.com/send?phone=6285365310823">
 				<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
