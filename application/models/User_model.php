@@ -120,10 +120,23 @@ class User_model extends CI_Model
         return $this->db->get('produk_v');
     }
 
-    // Menampilkan event berdasarkan id
+    // Menampilkan semua donasi/event
+    function tampil_allEvent()
+    {
+        return $this->db->get('event_v');
+    }
+
+    // Menampilkan donasi/event berdasarkan id user
     function tampil_event($id)
     {
         $this->db->where('id_user', $id);
+        return $this->db->get('event_v');
+    }
+
+    // Menampilkan donasi/event berdasarkan id event
+    function tampil_eventSingle($id)
+    {
+        $this->db->where('id_event', $id);
         return $this->db->get('event_v');
     }
 

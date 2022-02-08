@@ -69,20 +69,26 @@
 							<div class="row mt-4">
 								<div class="col-4">
 									<div class="card" style="width: 20rem;">
-										<img class="card-img-top" src="<?=base_url();?>assets/user/images/blogg_1.jpg"
+										<img class="card-img-top"
+											src="<?=base_url();?>assets/user/images/Event/<?= $event->foto_event ?>"
 											alt="Card image cap">
 									</div>
 								</div>
 								<div class="col-8">
 									<div class="">
-										<h3 class="card-title">Pakaian bekas bagi anak kurang mampu daerah pedalaman
+										<h3 class="card-title"><?= $event->nama_event?>
 										</h3>
-										<p style="color: #f1873b"><i class="fa fa-clock-o"></i> 7 hari lagi</p>
+										<?php
+											$originalDate = $event->waktu_tenggat;
+											$newDate = date("d-m-Y", strtotime($originalDate));
+										?>
+										<p style="color: #f1873b"><i class="fa fa-clock-o"></i> Berakhir pada
+											<?= $newDate ?></p>
 										<p class="card-text">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Est reprehenderit
-											sit ipsa dignissimos, accusantium eum odio modi, ad maiores error quod
-											cumque vitae. Sed mollitia molestias totam ratione iure officia!<br><span
-												style="color: #f1873b">15 dari 20 terkumpul</span>
+											<?= $event->desk_event ?><br><span
+												style="color: #f1873b"><?= $event->stok_terkumpul ?> dari
+												<?= $event->stok_butuh ?>
+												terkumpul</span>
 										</p>
 									</div>
 								</div>

@@ -94,4 +94,4 @@ $route['profil/(:any)'] = "user/profile_page/$1";
 // Donasi
 $route['donasi'] = "user/event_page";
 // Detail event
-$route['detailevent'] = "user/eventDetail_page";
+$route['detailevent/(:any)'] = "user/eventDetail_page/$1";
