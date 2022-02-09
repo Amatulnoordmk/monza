@@ -45,7 +45,7 @@
 											<!-- <td>lokasi</td> -->
 											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>" alt="produk" height="100"></td>
 											<td>
-												<a href="#detailproduk" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
+												<a href="#detailproduk<?= $key->id_produk; ?>" data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
 													<i class="fas fa-info-circle"></i>Detail
 												</a>
 												<a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal"  type="button" class="btn btn-icon btn-sm icon-left btn-danger">
@@ -91,18 +91,18 @@
 <?php endforeach ?>
 <!-- end modal -->
 <!-- modal Detail -->
-<div class="modal fade" id="detailproduk" role="dialog">
+<?php foreach($produk as $key) :?>
+<div class="modal fade" id="detailproduk<?= $key->id_produk; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-			<form action="<?= base_url('backend/dashboard/hapus_alumni') ?>" method="post">
 				<div class="modal-body text-center">
 					<h1 class="text-primary mb-5">Detail Produk</h1>
 					<table>
 						<tr>
-							<td><? echo $produk['nama_produk']?></td>
+							<td><? echo $key['nama_produk']?></td>
 						</tr>
 					</table>
 					<div class="form-group">
@@ -113,10 +113,10 @@
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
 					<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
 				</div>
-			</form>
 		</div>
 	</div>
 </div>
+<?php endforeach ?>
 <!-- end modal -->
 
 <script>

@@ -47,15 +47,11 @@
 											<td><?= $key->email ?></td>
 											<td><?= $key->provinsi ?>,<?= $key->kota ?></td>
 											<td>
-												<a data-toggle="tooltip"
-													href=""
-													role="button" class="btn btn-icon btn-sm icon-left btn-primary">
-													<i class="fas fa-info-circle"></i> detail
+											<a href="#detailproduk<?= $key->id_user; ?>" data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
+													<i class="fas fa-info-circle"></i>Detail
 												</a>
-												<a data-toggle="tooltip"
-													href=""
-													role="button" class="btn btn-icon btn-sm icon-left btn-danger">
-													<i class="fas fa-trash"></i> hapus
+												<a data-target="#hapusalumni<?= $key->id_user; ?>" data-toggle="modal"  type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+													<i class="fas fa-trash"></i>Hapus
 												</a>
 											</td>
 										</tr>
@@ -72,28 +68,29 @@
 </div>
 
 <!-- modal hapus alumni -->
-<div class="modal fade" id="hapusalumni" role="dialog">
+<?php foreach($user as $key) :?>
+<div class="modal fade" id="hapusalumni<?= $key->id_user; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-			<form action="<?= base_url('backend/dashboard/hapus_alumni') ?>" method="post">
 				<div class="modal-body text-center">
 					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Alumni terdaftar beserta datanya akan terhapus</h5>
+					<h5>Data user ini akan terhapus dan tidak dapat dikembalikan</h5>
 					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
+						<input type="text" class="form-control" id="recipient-name" name="iduser" hidden>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<button type="submit" class="btn btn-danger">Hapus</button>
+					<a href="<?= base_url('Admin/delete_user/').$key->id_user; ?>" class="btn btn-danger">hapus</a>
 				</div>
-			</form>
+			
 		</div>
 	</div>
 </div>
+<?php endforeach ?>
 <!-- end modal -->
 
 <script>

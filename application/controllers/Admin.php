@@ -124,6 +124,13 @@ class Admin extends CI_Controller {
 		$this->Admin_model->delete_data('produk',$where);
 		redirect('Admin/murah');
 	}	
+	function delete_user($id_user)
+	{
+		$this->load->model('Admin_model');
+		$where = array('id_user'=>$id_user);
+		$this->Admin_model->delete_data('user',$where);
+		redirect('Admin/data');
+	}	
 
 	// public function data_user()
 	// {
