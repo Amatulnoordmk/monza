@@ -110,12 +110,19 @@ class Admin extends CI_Controller {
         $this->load->view('admin/include/footer');
 	}
 
-	function delete_data()
+	function delete_gratis($id_produk)
 	{
-		$id = $this->input->post('idproduk');
 		$this->load->model('Admin_model');
-        $this->Admin_model->delete_data($id);
-		redirect('admin/gratis');
+		$where = array('id_produk'=>$id_produk);
+		$this->Admin_model->delete_data('produk',$where);
+		redirect('Admin/gratis');
+	}	
+	function delete_murah($id_produk)
+	{
+		$this->load->model('Admin_model');
+		$where = array('id_produk'=>$id_produk);
+		$this->Admin_model->delete_data('produk',$where);
+		redirect('Admin/murah');
 	}	
 
 	// public function data_user()

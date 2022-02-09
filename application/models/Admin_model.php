@@ -33,9 +33,10 @@ class Admin_model extends CI_Model
 
         // return $this->db->get('produk');
     }
-    function delete_data($id)
+    function delete_data($table,$where)
     {
-        $this->db->where('id_produk', $id);
-        $this->db->delete('produk');
+        // $this->db->where('id_produk', $id);
+        // $this->db->delete('produk');
+        $this->db->delete($table,$where);
     }
 }
