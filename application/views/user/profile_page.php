@@ -170,7 +170,7 @@
 										disabled>+62</button>
 								</div>
 								<input type="text" name="nomor" id="nomor" class="form-control"
-									value="<?= substr($user->no_telp, 1, 13) ?>" aria-describedby="addon-wrapping"
+									value="<?= substr($user->no_telp, 1, 15) ?>" aria-describedby="addon-wrapping"
 									aria-describedby="inputGroup-sizing-default" onkeypress="return isNumberKey(event)"
 									maxlength="13" style="color: #1e1e27">
 							</div>
