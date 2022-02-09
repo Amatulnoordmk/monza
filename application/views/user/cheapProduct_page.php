@@ -54,29 +54,31 @@
 				<!-- Product Grid -->
 				<!-- Baris 1 -->
 				<div class="row mt-5">
-				<?php foreach($produk as $pro) : ?>
+					<?php foreach($produk as $pro) : ?>
 					<!-- Product 1 -->
 					<div class="col-md-3">
-					
-					<!-- Product 1 -->
-						<div class="product-itm">
-							<div class=" product_image">
-								<!-- <a href=""> -->
-								<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>" alt="produk">
-								<!-- </a> -->
-							</div>
-							<div class="favorite favorite_left"></div>
+						<a href="<?=base_url();?>detailproduk/<?= $pro->id_produk ?>">
+							<!-- Product 1 -->
+							<div class="product-itm">
+								<div class=" product_image">
+									<!-- <a href=""> -->
+									<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
+										alt="produk">
+									<!-- </a> -->
+								</div>
+								<div class="favorite favorite_left"></div>
 
-							<div class="product_info">
-								<h6 class="product_name"><a href=""><?= $pro->nama_produk ?></a></h6>
-								<div class="product_price">Rp <?= $pro->harga_produk ?></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href=""><?= $pro->nama_produk ?></a></h6>
+									<div class="product_price">Rp <?= $pro->harga_produk ?></div>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					<?php endforeach; ?>
 				</div>
 
-				
+
 
 				<!-- Product Sorting -->
 

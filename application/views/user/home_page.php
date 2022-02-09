@@ -14,7 +14,8 @@
 					<h2>Barang Menumpuk di Rumah?</h2>
 					<h2>Daripada Dibuang, Bagikan Saja di Monza</h2>
 					<h5>Berikan pada yang membutuhkan, bersihkan barang bekas di rumah sembari berbagi ke sesama</h5>
-					<div class="red_button shop_now_button"><a href="#">Bagikan</a></div>
+					<div class="red_button shop_now_button"><a
+							href="<?= base_url('postproduk/'.$this->session->userdata('id_user')); ?>">Bagikan</a></div>
 				</div>
 			</div>
 		</div>
@@ -66,130 +67,29 @@
 			</div>
 		</div>
 		<div class="row mt-5">
+			<?php foreach ($produk as $produk): ?>
 			<!-- Product 1 -->
-			<div class="col">
-				<a href="<?=base_url();?>detailproduk">
+			<div class="col-md-3 col-lg-3">
+				<a href="<?=base_url();?>detailproduk/<?= $produk->id_produk ?>">
 					<div class="product-itm">
 						<div class=" product_image">
-							<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
+							<img src="<?=base_url();?>assets/user/images/Produk/<?= $produk->foto_produk ?>" alt="">
 						</div>
 						<div class="favorite favorite_left"></div>
 
 						<div class="product_info">
-							<h6 class="product_name"><a href="<?=base_url();?>detailproduk">Fujifilm X100T 16 MP Digital
-									Camera (Silver)</a></h6>
-							<div class="product_price">RP 43.000</div>
+							<h6 class="product_name"><a
+									href="<?=base_url();?>detailproduk"><?= $produk->nama_produk ?></a></h6>
+							<?php if ($produk->kategori_produk == 'F'): ?>
+							<div class="product_price">Gratis</div>
+							<?php elseif ($produk->kategori_produk == 'P'): ?>
+							<div class="product_price"><?= $produk->harga_produk ?></div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</a>
 			</div>
-			<!-- Product 2 -->
-			<div class="col">
-				<div class="product-itm">
-					<div class=" product_image">
-						<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-					</div>
-					<div class="favorite favorite_left"></div>
-
-					<div class="product_info">
-						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-								Camera (Silver)</a></h6>
-						<div class="product_price">RP 43.000</div>
-					</div>
-				</div>
-			</div>
-			<!-- Product 3 -->
-			<div class="col">
-				<div class="product-itm">
-					<div class=" product_image">
-						<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-					</div>
-					<div class="favorite favorite_left"></div>
-
-					<div class="product_info">
-						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-								Camera (Silver)</a></h6>
-						<div class="product_price">RP 43.000</div>
-					</div>
-				</div>
-			</div>
-			<!-- Product 4 -->
-			<div class="col">
-				<div class="product-itm">
-					<div class=" product_image">
-						<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-					</div>
-					<div class="favorite favorite_left"></div>
-
-					<div class="product_info">
-						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-								Camera (Silver)</a></h6>
-						<div class="product_price">RP 43.000</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row mt-5">
-			<!-- Product 1 -->
-			<div class="col">
-				<div class="product-itm">
-					<div class=" product_image">
-						<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-					</div>
-					<div class="favorite favorite_left"></div>
-
-					<div class="product_info">
-						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-								Camera (Silver)</a></h6>
-						<div class="product_price">RP 43.000</div>
-					</div>
-				</div>
-			</div>
-			<!-- Product 2 -->
-			<div class="col">
-				<div class="product-itm">
-					<div class=" product_image">
-						<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-					</div>
-					<div class="favorite favorite_left"></div>
-
-					<div class="product_info">
-						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-								Camera (Silver)</a></h6>
-						<div class="product_price">RP 43.000</div>
-					</div>
-				</div>
-			</div>
-			<!-- Product 3 -->
-			<div class="col">
-				<div class="product-itm">
-					<div class=" product_image">
-						<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-					</div>
-					<div class="favorite favorite_left"></div>
-
-					<div class="product_info">
-						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-								Camera (Silver)</a></h6>
-						<div class="product_price">RP 43.000</div>
-					</div>
-				</div>
-			</div>
-			<!-- Product 4 -->
-			<div class="col">
-				<div class="product-itm">
-					<div class=" product_image">
-						<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
-					</div>
-					<div class="favorite favorite_left"></div>
-
-					<div class="product_info">
-						<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital
-								Camera (Silver)</a></h6>
-						<div class="product_price">RP 43.000</div>
-					</div>
-				</div>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </div>
@@ -242,39 +142,20 @@
 			</div>
 		</div>
 		<div class="row blogs_container">
-			<div class="col-lg-4 blog_item_col">
+			<?php foreach ($event as $event): ?>
+			<div class="col-md-4 col-lg-4 blog_item_col">
 				<div class="blog_item">
 					<div class="blog_background"
-						style="background-image:url(<?=base_url();?>assets/user/images/blogg_1.jpg)"></div>
+						style="background-image:url(<?=base_url();?>assets/user/images/Event/<?= $event->foto_event ?>">
+					</div>
 					<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-						<h4 class="blog_title">Pakaian bekas bagi anak kurang mampu daerah pedalaman</h4>
-						<span class="blog_meta">oleh admin | 20 April 2021</span>
-						<a class="blog_more" href="<?= base_url(); ?>donasi">Baca</a>
+						<h4 class="blog_title"><?= $event->nama_event ?></h4>
+						<span class="blog_meta">oleh admin | <?= $event->waktu_mulai?></span>
+						<a class="blog_more" href="<?=base_url();?>detailevent/<?= $event->id_event ?>">Lihat</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 blog_item_col">
-				<div class="blog_item">
-					<div class="blog_background"
-						style="background-image:url(<?=base_url();?>assets/user/images/blogg_2.jpg)"></div>
-					<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-						<h4 class="blog_title">Mari berbagi untuk mereka yang hidup di bawah garis kemiskinan</h4>
-						<span class="blog_meta">oleh admin | 20 April 2021</span>
-						<a class="blog_more" href="#">Baca</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 blog_item_col">
-				<div class="blog_item">
-					<div class="blog_background"
-						style="background-image:url(<?=base_url();?>assets/user/images/blogg_3.jpg)"></div>
-					<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-						<h4 class="blog_title">Seragam sekolah bagi anak SD daerah Kalimantan</h4>
-						<span class="blog_meta">oleh admin | 20 April 2021</span>
-						<a class="blog_more" href="#">Baca</a>
-					</div>
-				</div>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </div>
