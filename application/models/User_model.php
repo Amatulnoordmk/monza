@@ -119,9 +119,25 @@ class User_model extends CI_Model
         return $this->db->get('produk_v');
     }
 
+    // Menampilkan semua produk
+    function tampil_allProduk()
+    {
+        $this->db->order_by('id_produk', 'DESC');
+        $this->db->limit(8);
+        return $this->db->get('produk_v');
+    }
+
     // Menampilkan semua donasi/event
     function tampil_allEvent()
     {
+        return $this->db->get('event_v');
+    }
+
+    // Menampilkan semua donasi/event di home_page
+    function tampil_allEventLimit()
+    {
+        $this->db->order_by('id_event', 'DESC');
+        $this->db->limit(3);
         return $this->db->get('event_v');
     }
 

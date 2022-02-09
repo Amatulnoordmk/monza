@@ -33,9 +33,11 @@ class User extends CI_Controller {
 
 	//  Halaman beranda
 	public function home_page()
-	{		
+	{	
+		$data['produk'] = $this->User_model->tampil_allProduk()->result();
+		$data['event'] = $this->User_model->tampil_allEventLimit()->result();
         $this->load->view('user/include/header');
-		$this->load->view('user/home_page');
+		$this->load->view('user/home_page', $data);
         $this->load->view('user/include/footer');
 	}
 
