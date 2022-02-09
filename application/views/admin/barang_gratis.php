@@ -46,9 +46,12 @@
 												<a href="#detailproduk" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
 													<i class="fas fa-info-circle"></i>Detail
 												</a>
-												<a data-target="#hapusalumni" data-toggle="modal" data-idproduk="<?= $key->id_produk ?>" type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+												<a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal"  type="button" class="btn btn-icon btn-sm icon-left btn-danger">
 													<i class="fas fa-trash"></i>Hapus
 												</a>
+												<!-- <a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal" data-idproduk="<?= $key->id_produk ?>" type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+													<i class="fas fa-trash"></i>Hapus
+												</a> -->
 												
 											</td>
 										</tr>
@@ -65,13 +68,13 @@
 </div>
 
 <!-- modal hapus alumni -->
-<div class="modal fade" id="hapusalumni" role="dialog">
+<?php foreach($produk as $key) :?>
+<div class="modal fade" id="hapusalumni<?= $key->id_produk; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-			<form action="<?= base_url('Admin/delete_data') ?>" method="post">
 				<div class="modal-body text-center">
 					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
 					<h5>Data produk ini akan terhapus dan tidak dapat dikembalikan</h5>
@@ -81,12 +84,13 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<button type="submit" class="btn btn-danger">Hapus</button>
+					<a href="<?= base_url('Admin/delete_gratis/').$key->id_produk; ?>" class="btn btn-danger">hapus</a>
 				</div>
-			</form>
+			
 		</div>
 	</div>
 </div>
+<?php endforeach ?>
 <!-- end modal -->
 <!-- modal Detail -->
 <div class="modal fade" id="detailproduk" role="dialog">

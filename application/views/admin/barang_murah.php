@@ -45,10 +45,10 @@
 											<!-- <td>lokasi</td> -->
 											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>" alt="produk" height="100"></td>
 											<td>
-												<a href="#detailproduk" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
+												<a href="#detailproduk<?= $key->id_produk; ?>" data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
 													<i class="fas fa-info-circle"></i>Detail
 												</a>
-												<a href="#hapusalumni" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+												<a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal"  type="button" class="btn btn-icon btn-sm icon-left btn-danger">
 													<i class="fas fa-trash"></i>Hapus
 												</a>
 											</td>
@@ -66,42 +66,43 @@
 </div>
 
 <!-- modal hapus alumni -->
-<div class="modal fade" id="hapusalumni" role="dialog">
+<?php foreach($produk as $key) :?>
+<div class="modal fade" id="hapusalumni<?= $key->id_produk; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-			<form action="<?= base_url('backend/dashboard/hapus_alumni') ?>" method="post">
 				<div class="modal-body text-center">
 					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Alumni terdaftar beserta datanya akan terhapus</h5>
+					<h5>Data produk ini akan terhapus dan tidak dapat dikembalikan</h5>
 					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
+						<input type="text" class="form-control" id="recipient-name" name="idproduk" hidden>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<button type="submit" class="btn btn-danger">Hapus</button>
+					<a href="<?= base_url('Admin/delete_murah/').$key->id_produk; ?>" class="btn btn-danger">hapus</a>
 				</div>
-			</form>
+			
 		</div>
 	</div>
 </div>
+<?php endforeach ?>
 <!-- end modal -->
 <!-- modal Detail -->
-<div class="modal fade" id="detailproduk" role="dialog">
+<?php foreach($produk as $key) :?>
+<div class="modal fade" id="detailproduk<?= $key->id_produk; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-			<form action="<?= base_url('backend/dashboard/hapus_alumni') ?>" method="post">
 				<div class="modal-body text-center">
 					<h1 class="text-primary mb-5">Detail Produk</h1>
 					<table>
 						<tr>
-							<td><? echo $produk['nama_produk']?></td>
+							<td><? echo $key['nama_produk']?></td>
 						</tr>
 					</table>
 					<div class="form-group">
@@ -112,10 +113,10 @@
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
 					<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
 				</div>
-			</form>
 		</div>
 	</div>
 </div>
+<?php endforeach ?>
 <!-- end modal -->
 
 <script>
