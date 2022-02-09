@@ -103,8 +103,7 @@ class User_model extends CI_Model
     // Upload produk user
     function upload_produk($data)
     {
-        $sql = "CALL insert_foto_dan_produk(?, ?, ?, ?, ?, ?, ?)";
-        $this->db->query($sql, $data);
+        return $this->db->insert('produk', $data);
     }
 
     // Upload event
@@ -145,9 +144,15 @@ class User_model extends CI_Model
     {
         $this->db->where('kategori_produk', 'F');
         return $this->db->get('produk_v');
-
-        // return $this->db->get('produk');
     }
+
+    // menampilkan produk gratis berdasarkan id
+    function barang_gratisSingle($id)
+    {
+        $this->db->where('id_produk', $id);
+        return $this->db->get('produk_v');
+    }
+
     function barang_murah()
     {
         $this->db->where('kategori_produk', 'P');

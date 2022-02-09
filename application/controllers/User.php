@@ -40,9 +40,9 @@ class User extends CI_Controller {
 	}
 
 	// Halaman detail produk
-	public function productDetail_page()
+	public function productDetail_page($id)
 	{	
-		$data['produk']=$this->User_model->detail_produk($id_produk);
+		$data['produk'] = $this->User_model->barang_gratisSingle($id)->row();		
         $this->load->view('user/include/header');
 		$this->load->view('user/productDetail_page', $data);
         $this->load->view('user/include/footer');
@@ -135,18 +135,30 @@ class User extends CI_Controller {
 	public function daftar()
 	{
 		$data = array (
-				'nama_lengkap' => $this->input->post("nama"),
-				'email' => $this->input->post("email"),
-				'username' => $this->input->post("username"),
-				'password' => md5($this->input->post("password")),				
-				'no_telp' => '0'.$this->input->post("nomor"),
-				'id_provinsi' => $this->input->post("provinsi"),
-				'id_kota' => $this->input->post("kota"),
-				'level_user' => '0'
-		);			
+			'nama_lengkap' => 'nadya',
+			'email' => 'nadya@mail.com',
+			'username' => 'nababan',
+			'password' => 'nababan',				
+			'no_telp' => '081344556677',
+			'id_provinsi' => 14,
+			'id_kota' => 1101,
+			'level_user' => '0'
+		);
+		// $data = array (
+		// 		'nama_lengkap' => $this->input->post("nama"),
+		// 		'email' => $this->input->post("email"),
+		// 		'username' => $this->input->post("username"),
+		// 		'password' => md5($this->input->post("password")),				
+		// 		'no_telp' => '0'.$this->input->post("nomor"),
+		// 		'id_provinsi' => $this->input->post("provinsi"),
+		// 		'id_kota' => $this->input->post("kota"),
+		// 		'level_user' => '0'
+		// );			
 			
-			$this->User_model->tambah_user('user', $data);			
-			redirect('');
+			$this->User_model->tambah_user('user', $data);
+			$data2['provinsi'] = $this->User_model->getDataProv()->result();			
+			$this->load->view('user/landing_page', $data2);
+			$this->load->view('user/include/footer');
 	}
 
 	// Cek No telepon yg diinput dengan db
@@ -300,22 +312,22 @@ class User extends CI_Controller {
 
 		if ($this->input->post('katProduk') == 'F')
 		{
-			$data = array (
-				'foto_produk' => $foto,
+			$data = array (				
 				'id_user' => $id,		
 				'nama_produk' => $this->input->post('nama_produk'),
 				'jenis_produk' => $this->input->post('jenis_barang'),
 				'desk_produk' => $this->input->post('desk_produk'),
+				'foto_produk' => $foto,
 				'kategori_produk' => $this->input->post('katProduk'),
 				'harga_produk' => '0'
 		  	);		  
 		}else {
-			$data = array (
-				'foto_produk' => $foto,
+			$data = array (				
 				'id_user' => $id,		
 				'nama_produk' => $this->input->post('nama_produk'),
 				'jenis_produk' => $this->input->post('jenis_barang'),
 				'desk_produk' => $this->input->post('desk_produk'),
+				'foto_produk' => $foto,
 				'kategori_produk' => $this->input->post('katProduk'),
 				'harga_produk' => $this->input->post('harga_produk')
 		  	);	

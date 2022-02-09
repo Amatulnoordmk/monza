@@ -8,7 +8,8 @@
 				<ul>
 					<li><a href="index.html">Beranda</a></li>
 					<li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pakaian</a></li>
-					<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Pakaian Pria</a></li>
+					<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Pakaian Pria</a>
+					</li>
 				</ul>
 			</div>
 
@@ -22,7 +23,8 @@
 					<div class="col-lg-9 image_col order-lg-2 order-1">
 						<div class="single_product_image">
 							<div class="single_product_image_background"
-								style="background-image:url(<?=base_url();?>assets/user/images/single_1.jpg)"></div>
+								style="background-image:url(<?=base_url();?>assets/user/images/Produk/<?= $produk->foto_produk ?>)">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -31,22 +33,26 @@
 		<div class="col-lg-5">
 			<div class="product_details">
 				<div class="product_details_title">
-					<h2>Jaket Warna Coklat</h2>
-					<div class="product_price">Rp 50.000</div>
-					<p>Jaket warna coklat. Ukuran L. Baru dipakai 3-4 kali. Ingin dibagikan karena sudah jarang dipakai. Jika tertarik harap hubungi kontak saya :)</p>
-					<p>Lokasi : <span class="product_price">Medan</span></p>
+					<h2><?= $produk->nama_produk ?></h2>
+					<?php if ($produk->kategori_produk == 'F'):?>
+					<div class="product_price">Gratis</div>
+					<?php elseif ($produk->kategori_produk == 'P'): ?>
+					<div class="product_price"><?= $produk->harga_produk ?></div>
+					<?php endif; ?>
+					<p><?= $produk->desk_produk ?></p>
+					<p>Lokasi : <span class="product_price"><?= $produk->kota ?>, <?= $produk->provinsi ?></span></p>
 					<!-- <p>Maps : <a href="">https://goo.gl/maps/KJamN6MybWV5Q7WZ6</a></p> -->
 					<br>
-					<h4>Diposting Oleh : <span>Mei Mei</span></h4>
-					<p>No HP : <span>081222334455</span></p>
+					<h4>Diposting Oleh : <span><?= $produk->nama_lengkap ?></span></h4>
+					<p>No HP : <span><?= $produk->no_telp ?></span></p>
 				</div>
-				<a href="https://api.whatsapp.com/send?phone=6285365310823">
-				<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-					<span class="fa fa-whatsapp"></span>Hubungi via WhatsApp
-				</div>
+				<a href="https://api.whatsapp.com/send?phone=.<?=$produk->no_telp?>">
+					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+						<span class="fa fa-whatsapp"></span>Hubungi via WhatsApp
+					</div>
 				</a>
 				<!-- <div class="original_price">$629.99</div> -->
-				
+
 				<!-- <ul class="star_rating">
 					<li><i class="fa fa-star" aria-hidden="true"></i></li>
 					<li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -74,10 +80,11 @@
 				</div> -->
 				<br>
 				<div class="alert alert-danger d-flex align-items-center" role="alert">
-  					<!-- <svg svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
-  					<div>
-   						<b>Pembayaran hanya via COD.</b> Mohon berhati-hati dalam bertransaksi. Monza hanyalah sarana publikasi. Segala kegiatan transaksi diluar tanggung jawab Monza.
-  					</div>
+					<!-- <svg svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+					<div>
+						<b>Pembayaran hanya via COD.</b> Mohon berhati-hati dalam bertransaksi. Monza hanyalah sarana
+						publikasi. Segala kegiatan transaksi diluar tanggung jawab Monza.
+					</div>
 				</div>
 			</div>
 		</div>
@@ -86,5 +93,3 @@
 </div>
 
 <!-- Tabs -->
-
-
