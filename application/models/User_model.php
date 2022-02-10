@@ -187,4 +187,18 @@ class User_model extends CI_Model
             return FALSE;
         }
     }
+
+    // Hapus produk di halaman profil user
+    public function hapusProdukUser($id)
+    {
+        $this->db->where('id_produk', $id);
+        $this->db->delete('produk');
+    }
+
+    // Hapus event di halaman profil user
+    public function hapusEventUser($id)
+    {
+        $this->db->where('id_event', $id);
+        $this->db->delete('event');
+    }
 }

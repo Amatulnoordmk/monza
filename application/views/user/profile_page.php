@@ -1,21 +1,15 @@
-<?php if($this->session->flashdata('hapus-alumni')): ?>
-<script>
-	swal("<?= $this->session->flashdata('hapus-alumni') ?>", "", "success", {
-		button: "OK",
-	});
-
-</script>
-<?php endif; ?>
-
-<?php
-    if ($this->session->flashdata('gagalUpload')) :
-?>
-<div class="alert alert-danger" id="alertgagal" role="alert">
-	<?= $this->session->flashdata('gagalUpload') ?>
-</div>
-<?php endif ?>
-
 <div class="container single_product_container">
+	<!-- Alert berhasil Hapus-->
+	<?php if($this->session->flashdata('hapus-produk')): ?>
+	<div class="alert alert-success" role="alert">
+		<h6><?= $this->session->flashdata('hapus-produk') ?></h6>
+	</div>
+	<?php elseif ($this->session->flashdata('gagalUpload')): ?>
+	<div class="alert alert-danger" id="alertgagal" role="alert">
+		<?= $this->session->flashdata('gagalUpload') ?>
+	</div>
+	<?php endif; ?>
+	<!-- end alert -->
 	<div class="col text-center">
 		<div class="section_title new_arrivals_title">
 			<h3>Profil Anda</h3>
@@ -87,6 +81,12 @@
 										alt="produk">
 								</div>
 								<div class="favorite favorite_left"></div>
+								<div class="product_bubble d-flex flex-column align-items-center">
+									<a role="button" data-toggle="modal"
+										data-target="#hapusproduk<?= $pro->id_produk ?>">
+										<i class="fa fa-trash" style="font-size:30px;color:red"></i>
+									</a>
+								</div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
 									</h6>
@@ -119,7 +119,12 @@
 										alt="produk">
 								</div>
 								<div class="favorite favorite_left"></div>
-
+								<div class="product_bubble d-flex flex-column align-items-center">
+									<a role="button" data-toggle="modal"
+										data-target="#hapusevent<?= $event->id_event ?>">
+										<i class="fa fa-trash" style="font-size:30px;color:red"></i>
+									</a>
+								</div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="#"><?= $event->nama_event ?></a>
 									</h6>
@@ -133,8 +138,6 @@
 		</div>
 	</div>
 </div>
-
-
 
 <!-- modal edit profil -->
 <div class="modal fade" id="modaleditprofil">
@@ -229,27 +232,58 @@
 		</div>
 	</div>
 </div>
-<!-- modal hapus alumni -->
-<div class="modal fade" id="hapusbarang" role="dialog">
+
+<!-- modal hapus produk -->
+<?php foreach ($produk as $pro): ?>
+<div class="modal fade" id="hapusproduk<?= $pro->id_produk ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-			<form method="post">
+			<form action="" method="post">
 				<div class="modal-body text-center">
-					<h3 class="text-danger mb-5">Apakah Anda Yakin?</h3>
-					<h5>Barang yang telah ditambahkan akan dihapus dan tidak muncul di beranda Anda</h5>
+					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+					<h5>Produk yang sudah dihapus tidak akan bisa dipulihkan lagi</h5>
 					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
+						<input type="text" class="form-control" name="idproduk" hidden>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<button type="submit" class="btn btn-danger">Hapus</button>
+					<a href="<?=base_url();?>user/hapusProduk/<?= $pro->id_produk ?>" type="button"
+						class="btn btn-danger" style="color: white;">Hapus</a>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
+<?php endforeach; ?>
+<!-- end modal -->
+
+<!-- modal hapus produk -->
+<?php foreach ($event as $key): ?>
+<div class="modal fade" id="hapusevent<?= $key->id_event; ?>" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"></h5>
+			</div>
+			<form action="" method="post">
+				<div class="modal-body text-center">
+					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+					<h5>Produk yang sudah dihapus tidak akan bisa dipulihkan lagi</h5>
+					<div class="form-group">
+						<input type="text" class="form-control" name="idproduk" hidden>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+					<a href="" type="button" class="btn btn-danger" style="color: white;">Hapus</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<?php endforeach; ?>
 <!-- end modal -->

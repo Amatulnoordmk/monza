@@ -76,7 +76,6 @@
 							<img src="<?=base_url();?>assets/user/images/Produk/<?= $produk->foto_produk ?>" alt="">
 						</div>
 						<div class="favorite favorite_left"></div>
-
 						<div class="product_info">
 							<h6 class="product_name"><a
 									href="<?=base_url();?>detailproduk"><?= $produk->nama_produk ?></a></h6>
