@@ -43,13 +43,18 @@
 											<td><?= $key->harga_produk?></td>
 											<td><?= $key->desk_produk?></td>
 											<!-- <td>lokasi</td> -->
-											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>" alt="produk" height="100"></td>
+											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>"
+													alt="produk" height="100"></td>
 											<td>
-												<a href="#detailproduk<?= $key->id_produk; ?>" data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
-													<i class="fas fa-info-circle"></i>Detail
+												<a class="btn btn-icon btn-sm icon-left btn-primary" data-toggle="modal"
+													data-target="#detailproduk<?= $key->id_produk; ?>" type="button">
+													<i class="fa fa-info-circle" aria-hidden="true"
+														style="color:white"></i><span style="color:white"> Detail</span>
 												</a>
-												<a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal"  type="button" class="btn btn-icon btn-sm icon-left btn-danger">
-													<i class="fas fa-trash"></i>Hapus
+												<a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal"
+													type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+													<i class="fas fa-trash" style="color:white"></i><span
+														style="color:white">Hapus</span>
 												</a>
 											</td>
 										</tr>
@@ -73,18 +78,18 @@
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-				<div class="modal-body text-center">
-					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Data produk ini akan terhapus dan tidak dapat dikembalikan</h5>
-					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="idproduk" hidden>
-					</div>
+			<div class="modal-body text-center">
+				<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+				<h5>Data produk ini akan terhapus dan tidak dapat dikembalikan</h5>
+				<div class="form-group">
+					<input type="text" class="form-control" id="recipient-name" name="idproduk" hidden>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<a href="<?= base_url('Admin/delete_murah/').$key->id_produk; ?>" class="btn btn-danger">hapus</a>
-				</div>
-			
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+				<a href="<?= base_url('Admin/delete_murah/').$key->id_produk; ?>" class="btn btn-danger">hapus</a>
+			</div>
+
 		</div>
 	</div>
 </div>
@@ -98,21 +103,49 @@
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-				<div class="modal-body text-center">
-					<h1 class="text-primary mb-5">Detail Produk</h1>
-					<table>
+			<div class="modal-body text-center">
+				<h1 class="text-primary mb-5">Detail Produk</h1>
+				<table class="table table-striped">
+					<tbody>
 						<tr>
-							<td><? echo $key['nama_produk']?></td>
+							<th scope="row">Nama</th>
+							<td><?= $key->nama_produk?></td>
 						</tr>
-					</table>
-					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
-					</div>
+						<tr>
+							<th scope="row">Pemilik</th>
+							<td><?= $key->nama_lengkap ?></td>
+						</tr>
+						<tr>
+							<th scope="row">No. HP Pemilik</th>
+							<td><?= $key->no_telp ?></td>
+						</tr>
+						<tr>
+							<th scope="row">Harga</th>
+							<td><?= $key->harga_produk ?></td>
+						</tr>
+						<tr>
+							<th scope="row">Deskripsi</th>
+							<td><?= $key->desk_produk?></td>
+						</tr>
+						<tr>
+							<th scope="row">Lokasi</th>
+							<td><?= $key->provinsi ?>, <?= $key->kota ?></td>
+						</tr>
+						<tr>
+							<th scope="row">Gambar</th>
+							<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>"
+									alt="produk" height="100"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-group">
+					<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
-				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+				<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
+			</div>
 		</div>
 	</div>
 </div>

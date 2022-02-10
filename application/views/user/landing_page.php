@@ -66,10 +66,10 @@
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
-									<li><a href="#">Beranda</a></li>
-									<li><a href="#">Gratis</a></li>
-									<li><a href="#">Termurah</a></li>
-									<li><a href="#">Donasi</a></li>
+									<li><a href="<?= base_url(); ?>beranda">Beranda</a></li>
+									<li><a href="<?= base_url(); ?>produkgratis">Gratis</a></li>
+									<li><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
+									<li><a href="<?= base_url(); ?>donasi">Donasi</a></li>
 									<li><a href="#modalregisterform" data-toggle="modal"
 											style="color: #F1873B;"><b>daftar</b></a></li>
 								</ul>

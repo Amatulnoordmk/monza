@@ -47,10 +47,21 @@
 											<td><?= $key->email ?></td>
 											<td><?= $key->provinsi ?>,<?= $key->kota ?></td>
 											<td>
-											<a href="#detailproduk<?= $key->id_user; ?>" data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
-													<i class="fas fa-info-circle"></i>Detail
+												<a class="btn btn-icon btn-sm icon-left btn-primary" data-toggle="modal"
+													data-target="#detailproduk<?= $key->id_user; ?>" type="button">
+													<!--
+													data-nama_lengkap="<?= $key->nama_lengkap; ?>"
+													data-email="<?= $key->email; ?>"
+													data-no_telp="<?= $key->no_telp; ?>"
+													data-username="<?= $key->username; ?>"
+													data-provinsi="<?= $key->provinsi; ?>"
+													data-kota="<?= $key->kota; ?>"
+													 -->
+													<i class="fa fa-info-circle" aria-hidden="true"
+														style="color:white"></i><span style="color:white"> Detail</span>
 												</a>
-												<a data-target="#hapusalumni<?= $key->id_user; ?>" data-toggle="modal"  type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+												<a data-target="#hapusalumni<?= $key->id_user; ?>" data-toggle="modal"
+													type="button" class="btn btn-icon btn-sm icon-left btn-danger">
 													<i class="fas fa-trash"></i>Hapus
 												</a>
 											</td>
@@ -75,18 +86,65 @@
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-				<div class="modal-body text-center">
-					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Data user ini akan terhapus dan tidak dapat dikembalikan</h5>
-					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="iduser" hidden>
-					</div>
+			<div class="modal-body text-center">
+				<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+				<h5>Data user ini akan terhapus dan tidak dapat dikembalikan</h5>
+				<div class="form-group">
+					<input type="text" class="form-control" id="recipient-name" name="iduser" hidden>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<a href="<?= base_url('Admin/delete_user/').$key->id_user; ?>" class="btn btn-danger">hapus</a>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+				<a href="<?= base_url('Admin/delete_user/').$key->id_user; ?>" class="btn btn-danger">hapus</a>
+			</div>
+
+		</div>
+	</div>
+</div>
+<?php endforeach ?>
+<!-- end modal -->
+<!-- modal Detail -->
+<?php foreach($user as $key) :?>
+<div class="modal fade" id="detailproduk<?= $key->id_user; ?>" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"></h5>
+			</div>
+			<div class="modal-body text-center">
+				<h1 class="text-primary mb-5">Detail User</h1>
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Nama</th>
+							<td><?= $key->nama_lengkap?></td>
+						</tr>
+						<tr>
+							<th scope="row">Email</th>
+							<td><?= $key->email ?></td>
+						</tr>
+						<tr>
+							<th scope="row">No. HP Pemilik</th>
+							<td><?= $key->no_telp ?></td>
+						</tr>
+						<tr>
+							<th scope="row">Username</th>
+							<td><?= $key->username ?></td>
+						</tr>
+						<tr>
+							<th scope="row">Lokasi</th>
+							<td><?= $key->provinsi ?>, <?= $key->kota ?></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-group">
+					<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
 				</div>
-			
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+				<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
+			</div>
 		</div>
 	</div>
 </div>

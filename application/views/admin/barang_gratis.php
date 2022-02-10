@@ -17,7 +17,7 @@
 
 		<div class="section-body">
 			<h2 class="section-title">Barang Terdaftar</h2>
-			
+
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-12">
 					<div class="card p-3">
@@ -40,19 +40,23 @@
 											<td><?= $nomor++; ?></td>
 											<td><?= $key->nama_produk?></td>
 											<td><?= $key->desk_produk?></td>
-											
-											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>" alt="produk" height="100"></td>
+
+											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>"
+													alt="produk" height="100"></td>
 											<td>
-												<a href="#detailproduk" data-toggle="modal" type="button" class="btn btn-icon btn-sm icon-left btn-primary">
-													<i class="fas fa-info-circle"></i>Detail
+												<a class="btn btn-icon btn-sm icon-left btn-primary" data-toggle="modal"
+													data-target="#detailproduk<?= $key->id_produk; ?>" type="button">
+													<i class="fa fa-info-circle" aria-hidden="true"
+														style="color:white"></i><span style="color:white"> Detail</span>
 												</a>
-												<a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal"  type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+												<a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal"
+													type="button" class="btn btn-icon btn-sm icon-left btn-danger">
 													<i class="fas fa-trash"></i>Hapus
 												</a>
 												<!-- <a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal" data-idproduk="<?= $key->id_produk ?>" type="button" class="btn btn-icon btn-sm icon-left btn-danger">
 													<i class="fas fa-trash"></i>Hapus
 												</a> -->
-												
+
 											</td>
 										</tr>
 										<?php endforeach; ?>
@@ -75,50 +79,78 @@
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-				<div class="modal-body text-center">
-					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Data produk ini akan terhapus dan tidak dapat dikembalikan</h5>
-					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="idproduk" hidden>
-					</div>
+			<div class="modal-body text-center">
+				<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+				<h5>Data produk ini akan terhapus dan tidak dapat dikembalikan</h5>
+				<div class="form-group">
+					<input type="text" class="form-control" id="recipient-name" name="idproduk" hidden>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<a href="<?= base_url('Admin/delete_gratis/').$key->id_produk; ?>" class="btn btn-danger">hapus</a>
-				</div>
-			
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+				<a href="<?= base_url('Admin/delete_gratis/').$key->id_produk; ?>" class="btn btn-danger">hapus</a>
+			</div>
+
 		</div>
 	</div>
 </div>
 <?php endforeach ?>
 <!-- end modal -->
 <!-- modal Detail -->
-<div class="modal fade" id="detailproduk" role="dialog">
+<?php foreach($produk as $key) :?>
+<div class="modal fade" id="detailproduk<?= $key->id_produk; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-			<form action="#" method="post">
-				<div class="modal-body text-center">
-					<h1 class="text-primary mb-5">Detail Produk</h1>
-					<table>
+			<div class="modal-body text-center">
+				<h1 class="text-primary mb-5">Detail Produk</h1>
+				<table class="table table-striped">
+					<tbody>
 						<tr>
-							<td><? echo $produk['nama_produk']?></td>
+							<th scope="row">Nama</th>
+							<td><?= $key->nama_produk?></td>
 						</tr>
-					</table>
-					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
-					</div>
+						<tr>
+							<th scope="row">Pemilik</th>
+							<td><?= $key->nama_lengkap ?></td>
+						</tr>
+						<tr>
+							<th scope="row">No. HP Pemilik</th>
+							<td><?= $key->no_telp ?></td>
+						</tr>
+						<tr>
+							<th scope="row">Harga</th>
+							<td><b style="color:#f1873b">GRATIS</b></td>
+						</tr>
+						<tr>
+							<th scope="row">Deskripsi</th>
+							<td><?= $key->desk_produk?></td>
+						</tr>
+						<tr>
+							<th scope="row">Lokasi</th>
+							<td><?= $key->provinsi ?>, <?= $key->kota ?></td>
+						</tr>
+						<tr>
+							<th scope="row">Gambar</th>
+							<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->foto_produk ?>"
+									alt="produk" height="100"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-group">
+					<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
-				</div>
-			</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+				<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
+			</div>
 		</div>
 	</div>
 </div>
+<?php endforeach ?>
 <!-- end modal -->
 
 <script>

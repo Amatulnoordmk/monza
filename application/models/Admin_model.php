@@ -28,7 +28,7 @@ class Admin_model extends CI_Model
     }
     function daftar_event()
     {
-        $this->db->where('status', '0'); 
+        // $this->db->where('status', '0'); 
         return $this->db->get('event_v');
 
         // return $this->db->get('produk');
@@ -38,5 +38,10 @@ class Admin_model extends CI_Model
         // $this->db->where('id_produk', $id);
         // $this->db->delete('produk');
         $this->db->delete($table,$where);
+    }
+    function updatestatus_event($table,$data, $where)
+    {
+        // $this->db->where('id_event', $id);
+		$this->db->update($table, $data, $where);
     }
 }
