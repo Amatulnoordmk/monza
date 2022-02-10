@@ -25,10 +25,10 @@ class User extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('User_model');
-		if ($this->session->userdata('isLogin')!="1")
-		{
-			redirect('');
-		}
+		// if ($this->session->userdata('isLogin')!="1")
+		// {
+		// 	redirect('');
+		// }
 	}
 
 	//  Halaman beranda
