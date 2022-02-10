@@ -18,22 +18,22 @@ class User extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	
+
 	//  Load model - model
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->load->model('User_model');
-		if ($this->session->userdata('isLogin')!="1")
-		{
-			redirect('');
-		}
+		// if ($this->session->userdata('isLogin')!="1")
+		// {
+		// 	redirect('');
+		// }
 	}
 
 	//  Halaman beranda
 	public function home_page()
-	{	
+	{
 		$data['produk'] = $this->User_model->tampil_allProduk()->result();
 		$data['event'] = $this->User_model->tampil_allEventLimit()->result();
         $this->load->view('user/include/header');
@@ -43,8 +43,8 @@ class User extends CI_Controller {
 
 	// Halaman detail produk
 	public function productDetail_page($id)
-	{	
-		$data['produk'] = $this->User_model->barang_gratisSingle($id)->row();		
+	{
+		$data['produk'] = $this->User_model->barang_gratisSingle($id)->row();
         $this->load->view('user/include/header');
 		$this->load->view('user/productDetail_page', $data);
         $this->load->view('user/include/footer');
@@ -56,10 +56,10 @@ class User extends CI_Controller {
 		$this->load->view('user/contact_page');
 
 	}
-	
+
 	// Halaman produk gratis
 	public function freeProduct_page()
-	{	
+	{
 		$data['produk'] = $this->User_model->barang_gratis()->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/include/sidebar');
@@ -85,33 +85,33 @@ class User extends CI_Controller {
 		$this->load->view('user/postProduct_page', $data);
         $this->load->view('user/include/footer');
 	}
-	
+
 	// Halaman upload Event
 	public function postEvent_page()
 	{
         $this->load->view('user/include/header');
 		$this->load->view('user/postEvent_page');
         $this->load->view('user/include/footer');
-	}	
+	}
 
 	// Halaman profil
 	public function profile_page($id)
-	{	
+	{
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
 		$data['produk'] = $this->User_model->tampil_produk($id)->result();
 		$data['event'] = $this->User_model->tampil_event($id)->result();
         $this->load->view('user/include/header');
-		$this->load->view('user/profile_page', $data);		
+		$this->load->view('user/profile_page', $data);
 		$this->load->view('user/include/footer');
 	}
-	
+
 	// Halaman list donasi
 
 	public function event_page()
 	{
 		$data['event'] = $this->User_model->tampil_allEvent()->result();
-        $this->load->view('user/include/header');		
+        $this->load->view('user/include/header');
 		$this->load->view('user/event_page', $data);
         $this->load->view('user/include/footer');
 	}
@@ -120,7 +120,7 @@ class User extends CI_Controller {
 	public function eventDetail_page($id)
 	{
 		$data['event'] = $this->User_model->tampil_eventSingle($id)->row();
-        $this->load->view('user/include/header');		
+        $this->load->view('user/include/header');
 		$this->load->view('user/eventDetail_page', $data);
         $this->load->view('user/include/footer');
 	}
@@ -140,7 +140,7 @@ class User extends CI_Controller {
 			'nama_lengkap' => 'nadya',
 			'email' => 'nadya@mail.com',
 			'username' => 'nababan',
-			'password' => 'nababan',				
+			'password' => 'nababan',
 			'no_telp' => '081344556677',
 			'id_provinsi' => 14,
 			'id_kota' => 1101,
@@ -150,17 +150,17 @@ class User extends CI_Controller {
 		// 		'nama_lengkap' => $this->input->post("nama"),
 		// 		'email' => $this->input->post("email"),
 		// 		'username' => $this->input->post("username"),
-		// 		'password' => md5($this->input->post("password")),				
+		// 		'password' => md5($this->input->post("password")),
 		// 		'no_telp' => '0'.$this->input->post("nomor"),
 		// 		'id_provinsi' => $this->input->post("provinsi"),
 		// 		'id_kota' => $this->input->post("kota"),
 		// 		'level_user' => '0'
-		// );			
-			
+		// );
+
 			$this->User_model->tambah_user('user', $data);
-			$data2['provinsi'] = $this->User_model->getDataProv()->result();			
-			$this->load->view('user/landing_page', $data2);
-			$this->load->view('user/include/footer');
+			// $data2['provinsi'] = $this->User_model->getDataProv()->result();
+			// $this->load->view('user/landing_page', $data2);
+			// $this->load->view('user/include/footer');
 	}
 
 	// Cek No telepon yg diinput dengan db
@@ -186,7 +186,7 @@ class User extends CI_Controller {
 			echo false;
 		}
 	}
-	
+
 	// Update profil user
 	public function updateProfil($id) {
 		if ($this->input->post('password') == '')
@@ -196,42 +196,42 @@ class User extends CI_Controller {
 				if ($this->input->post('kota') == '')
 				{
 					$data = array(
-						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'nama_lengkap' => $this->input->post('nama_lengkap'),
 						'email' => $this->input->post('email'),
 						'username' => $this->input->post('username'),
 						'no_telp' => '0'. $this->input->post('nomor')
 					);
-				}else 
+				}else
 				{
 					$data = array(
-						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'nama_lengkap' => $this->input->post('nama_lengkap'),
 						'email' => $this->input->post('email'),
 						'username' => $this->input->post('username'),
 						'no_telp' => '0'. $this->input->post('nomor'),
 						'id_kota' => $this->input->post('kota')
 					);
-				}				
+				}
 			}else{
 				if ($this->input->post('kota') == '')
 				{
 					$data = array(
-						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'nama_lengkap' => $this->input->post('nama_lengkap'),
 						'email' => $this->input->post('email'),
 						'username' => $this->input->post('username'),
 						'no_telp' => '0'. $this->input->post('nomor'),
 						'id_provinsi' => $this->input->post('provinsi')
 					);
-				}else 
+				}else
 				{
 					$data = array(
-						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'nama_lengkap' => $this->input->post('nama_lengkap'),
 						'email' => $this->input->post('email'),
 						'username' => $this->input->post('username'),
 						'no_telp' => '0'. $this->input->post('nomor'),
 						'id_provinsi' => $this->input->post('provinsi'),
 						'id_kota' => $this->input->post('kota')
 					);
-				}		
+				}
 			}
 		}else{
 			if ($this->input->post('provinsi') == '')
@@ -239,38 +239,38 @@ class User extends CI_Controller {
 				if ($this->input->post('kota') == '')
 				{
 					$data = array(
-						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'nama_lengkap' => $this->input->post('nama_lengkap'),
 						'email' => $this->input->post('email'),
 						'username' => $this->input->post('username'),
 						'password' => md5($this->input->post('password')),
 						'no_telp' => '0'. $this->input->post('nomor')
 					);
-				}else 
+				}else
 				{
 					$data = array(
-						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'nama_lengkap' => $this->input->post('nama_lengkap'),
 						'email' => $this->input->post('email'),
 						'username' => $this->input->post('username'),
 						'password' => md5($this->input->post('password')),
 						'no_telp' => '0'. $this->input->post('nomor'),
 						'id_kota' => $this->input->post('kota')
 					);
-				}				
+				}
 			}else{
 				if ($this->input->post('kota') == '')
 				{
 					$data = array(
-						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'nama_lengkap' => $this->input->post('nama_lengkap'),
 						'email' => $this->input->post('email'),
 						'username' => $this->input->post('username'),
 						'password' => md5($this->input->post('password')),
 						'no_telp' => '0'. $this->input->post('nomor'),
 						'id_provinsi' => $this->input->post('provinsi')
 					);
-				}else 
+				}else
 				{
 					$data = array(
-						'nama_lengkap' => $this->input->post('nama_lengkap'), 
+						'nama_lengkap' => $this->input->post('nama_lengkap'),
 						'email' => $this->input->post('email'),
 						'username' => $this->input->post('username'),
 						'password' => md5($this->input->post('password')),
@@ -278,13 +278,13 @@ class User extends CI_Controller {
 						'id_provinsi' => $this->input->post('provinsi'),
 						'id_kota' => $this->input->post('kota')
 					);
-				}		
+				}
 			}
 		}
-		
+
 		$this->User_model->update_profil($id, $data);
 		redirect('profil/'.$id);
-	}	
+	}
 
 	// Upload produk
 	public function uploadProduk($id)
@@ -310,29 +310,29 @@ class User extends CI_Controller {
 			}
 		}else{
 			$file_name = '';
-		}		
+		}
 
 		if ($this->input->post('katProduk') == 'F')
 		{
-			$data = array (				
-				'id_user' => $id,		
+			$data = array (
+				'id_user' => $id,
 				'nama_produk' => $this->input->post('nama_produk'),
 				'jenis_produk' => $this->input->post('jenis_barang'),
 				'desk_produk' => $this->input->post('desk_produk'),
 				'foto_produk' => $foto,
 				'kategori_produk' => $this->input->post('katProduk'),
 				'harga_produk' => '0'
-		  	);		  
+		  	);
 		}else {
-			$data = array (				
-				'id_user' => $id,		
+			$data = array (
+				'id_user' => $id,
 				'nama_produk' => $this->input->post('nama_produk'),
 				'jenis_produk' => $this->input->post('jenis_barang'),
 				'desk_produk' => $this->input->post('desk_produk'),
 				'foto_produk' => $foto,
 				'kategori_produk' => $this->input->post('katProduk'),
 				'harga_produk' => $this->input->post('harga_produk')
-		  	);	
+		  	);
 		}
 
 		$this->User_model->upload_produk($data);
@@ -346,11 +346,11 @@ class User extends CI_Controller {
 		// $proposal_event = $_FILES['proposal']['name'];
 		// $foto_ktp = $_FILES['foto_ktp']['name'];
 		$this->load->library('upload');
-		
+
 		$config['upload_path'] = './assets/user/images/Event/';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 		$config['overwrite'] = true;
-		$config['max_size'] = 5000;	
+		$config['max_size'] = 5000;
 		// $config['file_name'] = $foto_event;
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
@@ -359,13 +359,13 @@ class User extends CI_Controller {
 			$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
 			redirect('profil/'.$id);
 		} else{
-			// $pic_event = $this->upload->data6('file_name');			
+			// $pic_event = $this->upload->data6('file_name');
 			$config['upload_path'] = './assets/admin/Proposal/';
 			$config['allowed_types'] = 'pdf';
 			$config['overwrite'] = true;
 			$config['max_size'] = 5000;
 			$gambar = $this->upload->data();
-			$inputFileName = './assets/user/images/Proposal/'.$gambar['file_name'];			
+			$inputFileName = './assets/user/images/Proposal/'.$gambar['file_name'];
 			// $config['max_width'] = 5000;
 			// $config['max_height'] = 5000;
 			// $config['file_name'] = $proposal_event;
@@ -376,13 +376,13 @@ class User extends CI_Controller {
 				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
 				redirect('profil/'.$id);
 			} else{
-				// $props_event = $this->upload->data('file_name');				
+				// $props_event = $this->upload->data('file_name');
 				$config['upload_path'] = './assets/admin/KTP/';
 				$config['allowed_types'] = 'jpg|jpeg|png';
 				$config['overwrite'] = true;
 				$config['max_size'] = 5000;
 				$proposal = $this->upload->data();
-				$inputFileName = './assets/admin/KTP/'.$proposal['file_name'];				
+				$inputFileName = './assets/admin/KTP/'.$proposal['file_name'];
 				// $config['max_width'] = 5000;
 				// $config['max_height'] = 5000;
 				// $config['file_name'] = $foto_ktp;
@@ -410,15 +410,15 @@ class User extends CI_Controller {
 						'stok_butuh' => $this->input->post('stok_produk'),
 						'waktu_tenggat' => $this->input->post('deadline_event'),
 						'status' => '0'
-					);	
+					);
 					$this->User_model->upload_event($data);
-					redirect('profil/'.$id);													
+					redirect('profil/'.$id);
 				}
-				
+
 			}
-			
+
 		}
-				
+
 	}
 
 	// Hapus produk
@@ -429,7 +429,7 @@ class User extends CI_Controller {
 		$this->session->set_flashdata('hapus-produk', 'Produk Berhasil Dihapus');
 		redirect('profil/'.$this->session->userdata('id_user'));
 	}
-	
+
 
 	// Hapus event
 	public function hapusEvent($id)
