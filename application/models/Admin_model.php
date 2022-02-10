@@ -44,4 +44,13 @@ class Admin_model extends CI_Model
         // $this->db->where('id_event', $id);
 		$this->db->update($table, $data, $where);
     }
+    // function get_eventbyid($table, $column, $id)
+    // {
+    //     return $this->db->query("SELECT * FROM $table t WHERE t.$column = '$id'")->result();
+    // }
+    function download($id)
+    {
+        $query = $this->db->get_where('event',array('id_event'=>$id));
+        return $query->row_array();
+    }
 }

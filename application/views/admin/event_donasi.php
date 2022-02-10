@@ -44,7 +44,9 @@
 											<td><?= $key->nama_event ?></td>
 											<td><?= $key->nama_penyelenggara?></td>
 											<td><?= $key->desk_event?></td>
-											<td><?= $key->proposal_event?></td>
+											<td><a href="<?= base_url('Admin/download/'.$key->id_event) ?>"
+													class="btn btn-primary"><?= $key->proposal_event?></a>
+											</td>
 											<td><?= $key->waktu_tenggat?></td>
 											<td><img src="<?=base_url();?>assets/user/images/Event/<?= $key->foto_event ?>"
 													alt="produk" height="100">

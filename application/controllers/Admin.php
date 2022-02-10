@@ -159,6 +159,15 @@ class Admin extends CI_Controller {
 		$this->Admin_model->updatestatus_event('event',$data,$where);
 		redirect('Admin/event');
 	}
+	function download($id)
+	{ 
+		$this->load->model('Admin_model');
+		$this->load->helper('download');
+		$this->load->helper('download');
+		$fileinfo = $this->Admin_model->download($id);
+		$file = 'Assets/admin/Proposal/'.$fileinfo['proposal_event'];
+		force_download($file, NULL);
+	}
 	// public function data_user()
 	// {
     //     $this->load->view('admin/include/header');
