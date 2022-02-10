@@ -459,7 +459,7 @@
 				<div class="modal-header center">
 					<div class="col-md-4 offset-md-4">
 						<center>
-							<a href="#"><img src="<?=base_url();?>assets/user/images/logo-log.png" alt=""
+							<a href="#"><img src="<?=base_url();?>assets/user/images/logo-log.png" alt="monza"
 									height="65"></a>
 							<h4 class="modal-title w-100 font-weight-bold">Daftar</h4>
 						</center>
@@ -474,8 +474,8 @@
 							<div class="form-group col-md-6 col-12">
 								<label>Nama Lengkap</label>
 								<input type="text" name="nama" id="" class="form-control nama_lengkap"
-									style="color: #1e1e27" onkeyup="cekNamaLengkap()">
-								<span id="pesan_nama_lengkap"></span>
+									style="color: #1e1e27">
+								<!-- <span id="pesan_nama_lengkap"></span> -->
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Nomor Telepon</label>
@@ -486,60 +486,58 @@
 									</div>
 									<input type="text" name="nomor" id="" class="form-control nomor"
 										aria-describedby="addon-wrapping" aria-describedby="inputGroup-sizing-default"
-										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
-										onkeyup="cekNo()">
+										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27">
 								</div>
-								<span id="pesan_notel"></span>
+								<!-- <span id="pesan_notel"></span> -->
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Email</label>
-								<input type="email" name="email" id="" class="form-control emailku"
-									style="color: #1e1e27" placeholder="begini@contoh.com" onkeyup="cekEmail()">
-								<span id="pesan_emailku"></span>
+								<input type="email" name="email" id="email" class="form-control emailku"
+									style="color: #1e1e27" placeholder="begini@contoh.com">
+								<!-- <span id="pesan_emailku"></span> -->
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Username</label>
 								<input type="text" name="username" id="" class="form-control usernameKu"
-									style="color: #1e1e27" onkeyup="cekUsername()">
-								<span id="pesan_username"></span>
+									style="color: #1e1e27">
+								<!-- <span id="pesan_username"></span> -->
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Password</label>
 								<input type="password" name="password" class="form-control password" autocomplete="off"
-									style="color: #1e1e27" onkeyup="cekPass()">
-								<span id="pesan_pass"></span>
+									style="color: #1e1e27">
+								<!-- <span id="pesan_pass"></span> -->
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Konfirmasi Password</label>
 								<input type="password" name="konfirpass" id="" class="form-control konfirpass"
-									style="color: #1e1e27" onkeyup="cekKonfirPass()" required>
-								<span id="pesan_konfirPass"></span>
+									style="color: #1e1e27">
+								<!-- <span id="pesan_konfirPass"></span> -->
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Provinsi</label>
 								<select class="provinsi form-control" style="color: #1e1e27" name="provinsi"
-									id="provinsi" onchange="cekProvinsi()">
+									id="provinsi">
 									<option value="" selected disabled>Piih Provinsi</option>
 									<?php foreach($provinsi as $prov): ?>
 									<option value="<?= $prov->id_provinsi; ?>"><?= $prov->nama; ?></option>
 									<?php endforeach; ?>
 								</select>
-								<span id="pesan_prov"></span>
+								<!-- <span id="pesan_prov"></span> -->
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label for="kota">Kabupaten/Kota</label>
-								<select class="kota form-control" id="kota" name="kota" style="color: #1e1e27"
-									onchange="cekKota()">
+								<select class="kota form-control" id="kota" name="kota" style="color: #1e1e27">
 									<option value="" selected disabled>Pilih</option>
 									<option value="3">Medan</option>
 								</select>
-								<span id="pesan_kota"></span>
+								<!-- <span id="pesan_kota"></span> -->
 							</div>
 						</div>
 						<center>

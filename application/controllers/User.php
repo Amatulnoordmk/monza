@@ -420,5 +420,23 @@ class User extends CI_Controller {
 		}
 				
 	}
+
+	// Hapus produk
+	public function hapusProduk($id)
+	{
+		// $id = $this->input->post('idproduk');
+		$this->User_model->hapusProdukUser($id);
+		$this->session->set_flashdata('hapus-produk', 'Produk Berhasil Dihapus');
+		redirect('profil/'.$this->session->userdata('id_user'));
+	}
 	
+
+	// Hapus event
+	public function hapusEvent($id)
+	{
+		// $id = $this->input->post('idproduk');
+		$this->User_model->hapusEventUser($id);
+		$this->session->set_flashdata('hapus-event', 'Event Berhasil Dihapus');
+		redirect('profil/'.$this->session->userdata('id_user'));
+	}
 }
