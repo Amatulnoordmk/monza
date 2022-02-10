@@ -39,9 +39,9 @@ class Admin_model extends CI_Model
         // $this->db->delete('produk');
         $this->db->delete($table,$where);
     }
-    function terima_event()
+    function updatestatus_event($table,$data, $where)
     {
-        $this->db->where('id_event', $id);
-		return $this->db->update('user', $data);
+        // $this->db->where('id_event', $id);
+		$this->db->update($table, $data, $where);
     }
 }

@@ -131,7 +131,34 @@ class Admin extends CI_Controller {
 		$this->Admin_model->delete_data('user',$where);
 		redirect('Admin/data');
 	}	
+	function delete_event($id_event)
+	{
+		$this->load->model('Admin_model');
+		$where = array('id_event'=>$id_event);
+		$this->Admin_model->delete_data('event',$where);
+		redirect('Admin/event');
+	}	
 
+	function terima_event($id_event)
+	{
+		$data = array (
+			'status' => '1'
+		);
+		$where = array('id_event'=>$id_event);
+		$this->load->model('Admin_model');
+		$this->Admin_model->updatestatus_event('event',$data,$where);
+		redirect('Admin/event');	
+	}
+	function tolak_event($id_event)
+	{
+		$data = array (
+			'status' => '2'
+		);
+		$where = array('id_event'=>$id_event);
+		$this->load->model('Admin_model');
+		$this->Admin_model->updatestatus_event('event',$data,$where);
+		redirect('Admin/event');
+	}
 	// public function data_user()
 	// {
     //     $this->load->view('admin/include/header');

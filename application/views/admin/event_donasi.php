@@ -55,8 +55,10 @@
 												if($stats == '0')
 												{
 													echo "<p style='color:red; font-weight:bold;'>" . "Dalam Antrian" . "</p>";
-												}else{
+												}elseif($stats=='1'){
 													echo "<p style='color:green; font-weight:bold;'>" . "Sudah berjalan" . "</p>";
+												}else{
+													echo "<p style='color:orange; font-weight:bold;'>" . "Ditolak" . "</p>";
 												}
 												?>
 											</td>
@@ -86,28 +88,29 @@
 </div>
 
 <!-- modal hapus alumni -->
-<div class="modal fade" id="hapusalumni" role="dialog">
+<?php foreach($event as $key) :?>
+<div class="modal fade" id="hapusalumni<?= $key->id_event; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title"></h5>
 			</div>
-			<form action="<?= base_url('backend/dashboard/hapus_alumni') ?>" method="post">
-				<div class="modal-body text-center">
-					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Alumni terdaftar beserta datanya akan terhapus</h5>
-					<div class="form-group">
-						<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
-					</div>
+			<div class="modal-body text-center">
+				<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+				<h5>Data event ini akan terhapus dan tidak dapat dikembalikan</h5>
+				<div class="form-group">
+					<input type="text" class="form-control" id="recipient-name" name="idproduk" hidden>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<button type="submit" class="btn btn-danger">Hapus</button>
-				</div>
-			</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+				<a href="<?= base_url('Admin/delete_event/').$key->id_event; ?>" class="btn btn-danger">hapus</a>
+			</div>
+
 		</div>
 	</div>
 </div>
+<?php endforeach ?>
 <!-- end modal -->
 <!-- modal Detail -->
 <?php foreach($event as $key) :?>
@@ -158,23 +161,15 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<?php
-					$stats = $key->status;
-					if($stats == '0')
-					{	
-						echo "<button type='button' class='btn btn-secondary data-dismiss='modal''>"."tutup"."</button>";
-						echo "<a href='#' class='btn btn-success'>" . "Terima" ."</a>";
-						echo "<a href='#' class='btn btn-danger'>" . "Tolak"."</a>";
-					}else{
-						echo "<button type='button' class='btn btn-secondary data-dismiss=' modal''>"."tutup"."</button>";
-						}
-				?>
-				<!-- <a href="<?= base_url('Admin/terima_event/').$key->id_user; ?>" class="btn btn-success"><i
-						class="fa fa-check"></i>
-					Terima</a>
-				<a href="<?= base_url('Admin/tolak_event/').$key->id_event; ?>" class="btn btn-danger"><i
-						class="fa fa-times" aria-hidden="true"></i> Tolak</a> -->
-				<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
+				<?php if ($key->status == '0'): ?>
+				<button type="button" class="btn btn-secondary" data-dismiss='modal'>Tutup</button>
+				<a href="<?= base_url('Admin/terima_event/').$key->id_event?>" class="btn btn-success">Terima</a>
+				<a href="<?= base_url('Admin/tolak_event/').$key->id_event?>" class="btn btn-danger">Tolak</a>
+				<?php elseif ($key->status == '1'): ?>
+				<button type="button" class="btn btn-secondary" data-dismiss='modal'>Tutup</button>
+				<?php elseif ($key->status == '2'): ?>
+				<button type="button" class="btn btn-secondary" data-dismiss='modal'>Tutup</button>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
