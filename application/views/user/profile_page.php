@@ -111,22 +111,22 @@
 				<div class="tab-pane fade" id="tabEvent" role="tabpanel" aria-labelledby="profile-tab">
 					<div class="row">
 						<!-- Product 1 -->
-						<?php foreach($event as $event) : ?>
+						<?php foreach($event as $ev) : ?>
 						<div class="col-md-4">
 							<div class="product-itm">
 								<div class="product_image">
-									<img src="<?=base_url();?>assets/user/images/Event/<?= $event->foto_event ?>"
+									<img src="<?=base_url();?>assets/user/images/Event/<?= $ev->foto_event ?>"
 										alt="produk">
 								</div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_bubble d-flex flex-column align-items-center">
 									<a role="button" data-toggle="modal"
-										data-target="#hapusevent<?= $event->id_event ?>">
+										data-target="#hapusevent<?= $ev->id_event ?>">
 										<i class="fa fa-trash" style="font-size:30px;color:red"></i>
 									</a>
 								</div>
 								<div class="product_info">
-									<h6 class="product_name"><a href="#"><?= $event->nama_event ?></a>
+									<h6 class="product_name"><a href="#"><?= $ev->nama_event ?></a>
 									</h6>
 								</div>
 							</div>
