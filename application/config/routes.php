@@ -95,3 +95,5 @@ $route['profil/(:any)'] = "user/profile_page/$1";
 $route['donasi'] = "user/event_page";
 // Detail event
 $route['detailevent/(:any)'] = "user/eventDetail_page/$1";
+// Edit Produk
+$route['editproduk/(:any)'] = "user/editProduct_page/$1";

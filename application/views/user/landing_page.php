@@ -387,20 +387,6 @@
 
 
 		<!-- Modal masuk -->
-		<?php
-                if ($this->session->flashdata('login')) :
-                ?>
-		<div class="alert alert-danger" id="alertLogin" role="alert">
-			<?= $this->session->flashdata('login') ?>
-		</div>
-		<?php endif; ?>
-		<?php
-                if ($this->session->flashdata('gagal')) :
-                ?>
-		<div class="alert alert-danger" id="alertgagal" role="alert">
-			<?= $this->session->flashdata('gagal') ?>
-		</div>
-		<?php endif; ?>
 		<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog" role="document">

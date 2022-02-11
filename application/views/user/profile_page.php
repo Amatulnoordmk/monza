@@ -14,6 +14,7 @@
 	</div>
 	<?php endif; ?>
 	<!-- end alert -->
+
 	<div class="col text-center">
 		<div class="section_title new_arrivals_title">
 			<h3>Profil Anda</h3>
@@ -79,35 +80,30 @@
 						<!-- Product 1 -->
 						<?php foreach($produk as $pro) : ?>
 						<div class="col-md-4">
-							<div class="product-itm">
-								<div class="product_image">
-									<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
-										alt="produk">
+							<a href="<?= base_url(); ?>editproduk/<?= $pro->id_produk ?>">
+								<div class="product-itm">
+									<div class="product_image">
+										<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
+											alt="produk">
+									</div>
+									<div class="favorite favorite_left"></div>
+									<div class="product_bubble d-flex flex-column align-items-center">
+										<a role="button" data-toggle="modal"
+											data-target="#hapusproduk<?= $pro->id_produk ?>">
+											<i class="fa fa-trash" style="font-size:30px;color:red"></i>
+										</a>
+									</div>
+									<div class="product_info">
+										<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
+										</h6>
+										<?php if ($pro->kategori_produk == 'F'):?>
+										<div class="product_price">Gratis</div>
+										<?php elseif ($pro->kategori_produk == 'P'):?>
+										<div class="product_price"><?= $pro->harga_produk ?></div>
+										<?php endif; ?>
+									</div>
 								</div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_bubble d-flex flex-column align-items-center">
-									<a role="button" data-toggle="modal"
-										data-target="#hapusproduk<?= $pro->id_produk ?>">
-										<i class="fa fa-trash" style="font-size:30px;color:red"></i>
-									</a>
-								</div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
-									</h6>
-									<?php if ($pro->kategori_produk == 'F'):?>
-									<div class="product_price">Gratis</div>
-									<?php elseif ($pro->kategori_produk == 'P'):?>
-									<div class="product_price"><?= $pro->harga_produk ?></div>
-									<?php endif; ?>
-
-									<!-- <div class="social">
-													<a href="#"><i class="fa fa-edit"
-															style="font-size:30px;color:grey"></i></a>
-													<a href="#hapusbarang">&nbsp;<i class="fa fa-trash"
-															style="font-size:30px;color:red"></i></a>
-												</div> -->
-								</div>
-							</div>
+							</a>
 						</div>
 						<?php endforeach; ?>
 					</div>

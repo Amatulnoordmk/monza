@@ -85,6 +85,7 @@ class User_model extends CI_Model
         $this->db->where('id_user', $id);
         return $this->db->get('user_v');
     }
+
     // Mengambil data user berdasarkan id
     public function detail_produk($id_produk)
     {   
@@ -199,5 +200,12 @@ class User_model extends CI_Model
     {
         $this->db->where('id_event', $id);
         $this->db->delete('event');
+    }
+
+    // Edit produk
+    public function editProduk($id, $data)
+    {
+        $this->db->where('id_produk', $id);
+        return $this->db->update('produk', $data);
     }
 }
