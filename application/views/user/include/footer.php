@@ -96,53 +96,209 @@
 			$("#produkBerbayar").hide();
 	}
 
+	// Validasi register
+	var error = 1;
+	var nama_lengkap_error = 1;
+	var notel_error = 1;
+	var email_error = 1;
+	var username_error = 1;
+	var pass_error = 1;
+	var Kpass_error = 1;
+	var prov_error = 1;
+	var kota_error = 1;
 
-	// gambar di post produk
-	// $(document).ready(function () {
-	// 	document.getElementById('pro-image').addEventListener('change', readImage, false);
+	// Validasi nama lengkap
+	function cekNamaLengkap() {
+		var nama_lengkap = $('.nama_lengkapKu').val();
 
-	// 	$(".preview-images-zone").sortable();
+		if (nama_lengkap == "") {
+			$('.pesan_nama_lengkapKu').html("Silakan Isi Nama Lengkap Anda");
+			$('.pesan_nama_lengkapKu').css('color', 'red');
+			nama_lengkap_error = 1;
+		} else {
+			$('.pesan_nama_lengkapKu').html("");
+			nama_lengkap_error = 0;
+		}
+	}
 
-	// 	$(document).on('click', '.image-cancel', function () {
-	// 		let no = $(this).data('no');
-	// 		$(".preview-image.preview-show-" + no).remove();
-	// 	});
-	// });
+	// Validasi nomor telepon
+	function cekNoTel() {
+		var nomor = $('.nomorKu').val();
 
-	// var num = 4;
+		if (nomor == "") {
+			$('.pesan_noTelKu').html("Silakan Isi Nomor Telepon Anda");
+			$('.pesan_noTelKu').css('color', 'red');
+			notel_error = 1;
+		} else if (nomor.length > 13) {
+			$('.pesan_noTelKu').html("Nomor Telepon Tidak Boleh Lebih Dari 13 Digit.");
+			$('.pesan_noTelKu').css('color', 'red');
+			notel_error = 1;
+		} else {
+			$.ajax({
+				url: "<?= base_url('daftar/cekNoTel'); ?>",
+				data: 'nomor=' + nomor,
+				type: 'POST',
+				success: function (msg) {
+					if (msg) {
+						$('.pesan_noTelKu').html("Nomor Telepon Telah Terdaftar");
+						$('.pesan_noTelKu').css('color', 'red');
+						notel_error = 1;
+					} else {
+						$('.pesan_noTelKu').html("Nomor Telepon Dapat Digunakan");
+						$('.pesan_noTelKu').css('color', 'green');
+						notel_error = 0;
+					}
+				}
+			});
+		}
+	}
 
-	// function readImage() {
-	// 	if (window.File && window.FileList && window.FileReader) {
-	// 		var files = event.target.files; //FileList object
-	// 		var output = $(".preview-images-zone");
+	// Validasi email
+	function cekEmail() {
+		var email = $('.emailKu').val();
+		var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
 
-	// 		for (let i = 0; i < files.length; i++) {
-	// 			var file = files[i];
-	// 			if (!file.type.match('image')) continue;
+		if (email == "") {
+			$('.pesan_emailKu').html("Silakan Isi Email Anda");
+			$('.pesan_emailKu').css('color', 'red');
+			email_error = 1;
+		} else {
+			if (filter.test(email) == false) {
+				$('.pesan_emailKu').html("Email Tidak Valid");
+				$('.pesan_emailKu').css('color', 'red');
+				email_error = 1;
+			} else {
+				$.ajax({
+					url: "<?= base_url('daftar/cekEmail'); ?>",
+					data: 'email=' + email,
+					type: 'POST',
+					success: function (msg) {
+						if (msg) {
+							$('.pesan_emailKu').html("Email Telah Terdaftar");
+							$('.pesan_emailKu').css('color', 'red');
+							email_error = 1;
+						} else {
+							$('.pesan_emailKu').html("Email Dapat Digunakan");
+							$('.pesan_emailKu').css('color', 'green');
+							email_error = 0;
+						}
+					}
+				});
+			}
+		}
+	}
 
-	// 			var picReader = new FileReader();
+	// Validasi username
+	function cekUsername() {
+		var username = $('.usernameKu').val();
 
-	// 			picReader.addEventListener('load', function (event) {
-	// 				var picFile = event.target;
-	// 				var html = '<div class="preview-image preview-show-' + num + '">' +
-	// 					'<div class="image-cancel" data-no="' + num + '">x</div>' +
-	// 					'<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result +
-	// 					'"></div>' +
-	// 					'<div class="tools-edit-image"><a href="javascript:void(0)" data-no="' + num +
-	// 					'" class="btn btn-light btn-edit-image">edit</a></div>' +
-	// 					'</div>';
+		if (username == "") {
+			$('.pesan_usernameKu').html("Silakan Isi Username Anda");
+			$('.pesan_usernameKu').css('color', 'red');
+			username_error = 1;
+		} else {
+			$('.pesan_usernameKu').html("");
+			username_error = 0;
+		}
+	}
 
-	// 				output.append(html);
-	// 				num = num + 1;
-	// 			});
+	// Validasi password
+	function cekPass() {
+		var pass = $('.passwordKu').val();
 
-	// 			picReader.readAsDataURL(file);
-	// 		}
-	// 		$("#pro-image").val('');
-	// 	} else {
-	// 		console.log('Browser not support');
-	// 	}
-	// }
+		if (pass == "") {
+			$('.pesan_passKu').html("Silakan Isi Sandi Anda");
+			$('.pesan_passKu').css('color', 'red');
+			pass_error = 1;
+		} else {
+			if (pass.length < 6) {
+				$('.pesan_passKu').html("Sandi Minimal 6 Digit");
+				$('.pesan_passKu').css('color', 'red');
+				pass_error = 1;
+			} else {
+				$('.pesan_passKu').html("");
+				pass_error = 0;
+			}
+		}
+	}
+
+	// Validasi konfirmasi password
+	function cekKonfirPass() {
+		var Kpass = $('.konfirpassKu').val();
+		var pass = $('.passwordKu').val();
+
+		if (Kpass == "") {
+			$('.pesan_konfirPassKu').html("Konfirmasi Sandi Anda");
+			$('.pesan_konfirPassKu').css('color', 'red');
+			Kpass_error = 1;
+		} else {
+			if (Kpass.length < 6) {
+				$('.pesan_konfirPassKu').html("Sandi Minimal 6 Digit");
+				$('.pesan_konfirPassKu').css('color', 'red');
+				Kpass_error = 1;
+			} else {
+				if (Kpass == pass) {
+					$('.pesan_konfirPassKu').html("Sandi Sesuai");
+					$('.pesan_konfirPassKu').css('color', 'green');
+					Kpass_error = 0;
+				} else {
+					$('.pesan_konfirPassKu').html("Sandi Tidak Sesuai");
+					$('.pesan_konfirPassKu').css('color', 'red');
+					Kpass_error = 1;
+				}
+
+			}
+		}
+	}
+
+	// Validasi provinsi
+	function cekProvinsi() {
+		var prov = $('.provinsiKu option:selected').attr('value');
+
+		if (prov == "") {
+			$('.pesan_provKu').html("Silakan Pilih Provinsi Tempat Tinggal");
+			$('.pesan_provKu').css('color', 'red');
+			prov_error = 1;
+		} else {
+			$('.pesan_provKu').html("");
+			prov_error = 0;
+		}
+	}
+
+	// Validasi kabupaten/kota
+	function cekKota() {
+		var kota = $('.kotaKu option:selected').attr('value');
+
+		if (kota == "") {
+			$('.pesan_kotaKu').html("Silakan Pilih Kota Tempat Tinggal");
+			$('.pesan_kotaKu').css('color', 'red');
+			kota_error = 1;
+		} else {
+			$('.pesan_kotaKu').html("");
+			kota_error = 0;
+		}
+	}
+
+	$('.btn-validasi').click(function () {
+		cekNamaLengkap();
+		cekNoTel();
+		cekEmail();
+		cekUsername();
+		cekPass();
+		cekKonfirPass();
+		cekPass();
+		cekProvinsi();
+		cekKota();
+
+		if (nama_lengkap_error == 0 && notel_error == 0 && email_error == 0 && username_error == 0 && pass_error ==
+			0 && Kpass_error == 0 && prov_error == 0 && kota_error == 0) {
+			error = 0;
+		}
+
+		if (error == 1) {
+			event.preventDefault();
+		}
+	})
 
 </script>
 </body>

@@ -74,9 +74,8 @@ class User_model extends CI_Model
 	}
 
     // Mengambil nama - nama kabupaten/kota
-    public function getDataKabupaten($idprov)
+    public function getDataKabupaten()
     {
-        $this->db->where('provinsi_id', $idprov);
         return $this->db->get('wilayah_kabupaten');
     }
     
@@ -86,6 +85,7 @@ class User_model extends CI_Model
         $this->db->where('id_user', $id);
         return $this->db->get('user_v');
     }
+
     // Mengambil data user berdasarkan id
     public function detail_produk($id_produk)
     {   
@@ -201,6 +201,7 @@ class User_model extends CI_Model
         $this->db->where('id_event', $id);
         $this->db->delete('event');
     }
+<<<<<<< HEAD
     
     function fetch_filter_type($jenis_produk)
     {
@@ -270,4 +271,13 @@ class User_model extends CI_Model
 }
 
 ?>
+=======
+
+    // Edit produk
+    public function editProduk($id, $data)
+    {
+        $this->db->where('id_produk', $id);
+        return $this->db->update('produk', $data);
+    }
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 }

@@ -66,10 +66,10 @@
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
-									<li><a href="<?= base_url(); ?>beranda">Beranda</a></li>
-									<li><a href="<?= base_url(); ?>produkgratis">Gratis</a></li>
-									<li><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
-									<li><a href="<?= base_url(); ?>donasi">Donasi</a></li>
+									<li><a href="#modalLoginForm" data-toggle="modal"> Beranda</a> </li>
+									<li><a href="#modalLoginForm" data-toggle="modal">Gratis</a></li>
+									<li><a href="#modalLoginForm" data-toggle="modal">Termurah</a></li>
+									<li><a href="#modalLoginForm" data-toggle="modal">Donasi</a></li>
 									<li><a href="#modalregisterform" data-toggle="modal"
 											style="color: #F1873B;"><b>daftar</b></a></li>
 								</ul>
@@ -95,10 +95,10 @@
 			<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="hamburger_menu_content text-right">
 				<ul class="menu_top_nav">
-					<li class="menu_item"><a href="#">beranda</a></li>
-					<li class="menu_item"><a href="#">gratis</a></li>
-					<li class="menu_item"><a href="#">termurah</a></li>
-					<li class="menu_item"><a href="#">jual</a></li>
+					<li class="menu_item"><a href="#modalLoginForm" data-toggle="modal">beranda</a></li>
+					<li class="menu_item"><a href="#modalLoginForm" data-toggle="modal">gratis</a></li>
+					<li class="menu_item"><a href="#modalLoginForm" data-toggle="modal">termurah</a></li>
+					<li class="menu_item"><a href="#modalLoginForm" data-toggle="modal">jual</a></li>
 					<li class="menu_item"><a href="#" style="color: #F1873B;" data-toggle="modal"
 							data-target="#modalregisterform"><b>daftar</b></a></li>
 				</ul>
@@ -116,7 +116,8 @@
 							<h2>Daripada Dibuang, Bagikan Saja di Monza</h2>
 							<h5>Berikan pada yang membutuhkan, bersihkan barang bekas di rumah sembari berbagi ke sesama
 							</h5>
-							<div class="red_button shop_now_button"><a href="#">Bagikan</a></div>
+							<div class="red_button shop_now_button"><a href="#modalLoginForm"
+									data-toggle="modal">Bagikan</a></div>
 						</div>
 					</div>
 				</div>
@@ -132,7 +133,11 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__1.jpeg)">
 							<div class="banner_category">
+<<<<<<< HEAD
 								<a href="<?= base_url(); ?>produkgratis">Gratis</a>
+=======
+								<a href="#modalLoginForm" data-toggle="modal">Gratis</a>
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 							</div>
 						</div>
 					</div>
@@ -140,7 +145,11 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__2.jpeg)">
 							<div class="banner_category">
+<<<<<<< HEAD
 								<a href="<?= base_url(); ?>produkmurah">Termurah</a>
+=======
+								<a href="#modalLoginForm" data-toggle="modal">Termurah</a>
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 							</div>
 						</div>
 					</div>
@@ -148,7 +157,11 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__3.jpeg)">
 							<div class="banner_category">
+<<<<<<< HEAD
 								<a href="<?= base_url(); ?>donasi">Donasi</a>
+=======
+								<a href="#modalLoginForm" data-toggle="modal">Donasi</a>
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 							</div>
 						</div>
 					</div>
@@ -170,7 +183,7 @@
 				<div class="row mt-5">
 					<!-- Product 1 -->
 					<div class="col">
-						<a href="<?=base_url();?>detailproduk">
+						<a href="#modalLoginForm" data-toggle="modal">
 							<div class="product-itm">
 								<div class=" product_image">
 									<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
@@ -352,7 +365,7 @@
 								class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Pakaian bekas bagi anak kurang mampu daerah pedalaman</h4>
 								<span class="blog_meta">oleh admin | 20 April 2021</span>
-								<a class="blog_more" href="#">Baca</a>
+								<a class="blog_more" href="#modalLoginForm" data-toggle="modal">Baca</a>
 							</div>
 						</div>
 					</div>
@@ -387,20 +400,6 @@
 
 
 		<!-- Modal masuk -->
-		<?php
-                if ($this->session->flashdata('login')) :
-                ?>
-		<div class="alert alert-danger" id="alertLogin" role="alert">
-			<?= $this->session->flashdata('login') ?>
-		</div>
-		<?php endif; ?>
-		<?php
-                if ($this->session->flashdata('gagal')) :
-                ?>
-		<div class="alert alert-danger" id="alertgagal" role="alert">
-			<?= $this->session->flashdata('gagal') ?>
-		</div>
-		<?php endif; ?>
 		<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog" role="document">
@@ -418,7 +417,7 @@
 						</button>
 					</div>
 					<div class="modal-body p-5">
-						<form action="<?= base_url('admin/doLogin') ?>" method="POST" id="login-form">
+						<form action="<?= base_url('daftar/doLogin') ?>" method="POST" id="login-form">
 							<div class="row">
 								<div class="form-group col-md-12">
 									<label for="exampleInputEmail1">Email</label>
@@ -468,14 +467,14 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form method="POST" action="<?= base_url();?>user/daftar" enctype="multipart/form-data">
+				<form method="POST" action="<?= base_url();?>daftar/daftar" enctype="multipart/form-data">
 					<div class="modal-body p-5">
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Nama Lengkap</label>
-								<input type="text" name="nama" id="" class="form-control nama_lengkap"
-									style="color: #1e1e27">
-								<!-- <span id="pesan_nama_lengkap"></span> -->
+								<input type="text" name="nama" class="form-control nama_lengkapKu"
+									style="color: #1e1e27" onkeyup="cekNamaLengkap()">
+								<span class="pesan_nama_lengkapKu"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Nomor Telepon</label>
@@ -484,64 +483,68 @@
 										<button class="btn btn-secondary" type="button" id="button-addon1"
 											disabled>+62</button>
 									</div>
-									<input type="text" name="nomor" id="" class="form-control nomor"
+									<input type="text" name="nomor" class="form-control nomorKu"
 										aria-describedby="addon-wrapping" aria-describedby="inputGroup-sizing-default"
-										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27">
+										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
+										onkeyup="cekNoTel()">
 								</div>
-								<!-- <span id="pesan_notel"></span> -->
+								<span class="pesan_noTelKu"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Email</label>
-								<input type="email" name="email" id="email" class="form-control emailku"
-									style="color: #1e1e27" placeholder="begini@contoh.com">
-								<!-- <span id="pesan_emailku"></span> -->
+								<input type="email" name="email" class="form-control emailKu" style="color: #1e1e27"
+									placeholder="begini@contoh.com" onkeyup="cekEmail()">
+								<span class="pesan_emailKu"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Username</label>
-								<input type="text" name="username" id="" class="form-control usernameKu"
-									style="color: #1e1e27">
-								<!-- <span id="pesan_username"></span> -->
+								<input type="text" name="username" class="form-control usernameKu"
+									style="color: #1e1e27" onkeyup="cekUsername()">
+								<span class="pesan_usernameKu"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Password</label>
-								<input type="password" name="password" class="form-control password" autocomplete="off"
-									style="color: #1e1e27">
-								<!-- <span id="pesan_pass"></span> -->
+								<input type="password" name="password" class="form-control passwordKu"
+									autocomplete="off" style="color: #1e1e27" onkeyup="cekPass()">
+								<span class="pesan_passKu"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Konfirmasi Password</label>
-								<input type="password" name="konfirpass" id="" class="form-control konfirpass"
-									style="color: #1e1e27">
-								<!-- <span id="pesan_konfirPass"></span> -->
+								<input type="password" name="konfirpass" class="form-control konfirpassKu"
+									style="color: #1e1e27" onkeyup="cekKonfirPass()">
+								<span class="pesan_konfirPassKu"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Provinsi</label>
-								<select class="provinsi form-control" style="color: #1e1e27" name="provinsi"
-									id="provinsi">
+								<select class="form-control provinsiKu" style="color: #1e1e27" name="provinsi"
+									onchange="cekProvinsi()">
 									<option value="" selected disabled>Piih Provinsi</option>
 									<?php foreach($provinsi as $prov): ?>
 									<option value="<?= $prov->id_provinsi; ?>"><?= $prov->nama; ?></option>
 									<?php endforeach; ?>
 								</select>
-								<!-- <span id="pesan_prov"></span> -->
+								<span class="pesan_provKu"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label for="kota">Kabupaten/Kota</label>
-								<select class="kota form-control" id="kota" name="kota" style="color: #1e1e27">
-									<option value="" selected disabled>Pilih</option>
-									<option value="3">Medan</option>
+								<select class="form-control kotaKu" name="kota" style="color: #1e1e27"
+									onchange="cekKota()">
+									<option value="" selected disabled>Pilih Kabupaten/Kota</option>
+									<?php foreach ($kota as $kt):?>
+									<option value="<?= $kt->id_kota ?>"><?= $kt->nama ?></option>
+									<?php endforeach; ?>
 								</select>
-								<!-- <span id="pesan_kota"></span> -->
+								<span class="pesan_kotaKu"></span>
 							</div>
 						</div>
 						<center>
-							<br><button type="submit" id="signup" class="btn btn-lg btn-block"
+							<br><button type="submit" class="btn btn-lg btn-block btn-validasi"
 								style="background-color:#f1873b; color:white; cursor: pointer;">Daftar</button>
 						</center>
 					</div>

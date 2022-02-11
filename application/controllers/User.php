@@ -25,10 +25,10 @@ class User extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('User_model');
-		// if ($this->session->userdata('isLogin')!="1")
-		// {
-		// 	redirect('');
-		// }
+		if ($this->session->userdata('isLogin')!="1")
+		{
+			redirect('');
+		}
 	}
 
 	//  Halaman beranda
@@ -126,12 +126,22 @@ class User extends CI_Controller {
         $this->load->view('user/include/footer');
 	}
 
+	// Halaman detail donasi
+	public function editProduct_page($id)
+	{
+		$data['produk'] = $this->User_model->barang_gratisSingle($id)->row();
+        $this->load->view('user/include/header');		
+		$this->load->view('user/editProduct_page', $data);
+        $this->load->view('user/include/footer');
+	}
+
 	// Keluar
 	public function logout()
     {
         $this->session->set_userdata('isLogin')=="0";
         $this->session->sess_destroy();
         redirect('');
+<<<<<<< HEAD
     }
 
 	// Fungsi daftar/register
@@ -187,6 +197,9 @@ class User extends CI_Controller {
 			echo false;
 		}
 	}
+=======
+    }	
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 	
 	// Update profil user
 	public function updateProfil($id) {
@@ -441,6 +454,7 @@ class User extends CI_Controller {
 		redirect('profil/'.$this->session->userdata('id_user'));
 	}
 
+<<<<<<< HEAD
 	function fetch_data()
 	{
 		sleep(1);
@@ -477,5 +491,180 @@ class User extends CI_Controller {
    'product_list'   => $this->product_filter_model->fetch_data($config["per_page"], $start,$jenis_produk)
   );
   echo json_encode($output);
+=======
+	// Edit produk
+	public function editProduk($id)
+	{
+		$file_name = $_FILES['fotoProduk']['name'];
+
+		// Kalo upload foto baru
+		if(!empty($file_name))
+		{
+			$config['upload_path'] = './assets/user/images/Produk/';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['overwrite'] = true;
+			$config['max_size'] = 5000;
+			$config['max_width'] = 5000;
+			$config['max_height'] = 5000;
+			$config['file_name'] = $file_name;
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('fotoProduk'))
+			{
+				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
+				redirect('profil/'.$this->session->userdata('id_user'));
+			} else{
+				$foto = $this->upload->data('file_name');
+			}
+
+			if ($this->input->post('katProduk') == '')
+			{
+				if ($this->input->post('jenis_barang') == '')
+				{
+					if ($this->input->post('desk_produk') == '')
+					{
+						$data = array (		
+							'nama_produk' => $this->input->post('nama_produk'),
+							'foto_produk' => $foto
+						);	
+					}else{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'desk_produk' => $this->input->post('desk_produk'),
+							'foto_produk' => $foto
+						);
+					}
+				}else{
+					if ($this->input->post('desk_produk') == '')
+					{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'jenis_produk' => $this->input->post('jenis_barang'),
+							'foto_produk' => $foto
+						);	
+					}else{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'jenis_produk' => $this->input->post('jenis_barang'),
+							'desk_produk' => $this->input->post('desk_produk'),
+							'foto_produk' => $foto
+						);
+					}
+				}				
+			}else {
+				if ($this->input->post('jenis_barang') == '')
+				{
+					if ($this->input->post('desk_produk') == '')
+					{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'foto_produk' => $foto,
+							'kategori_produk' => $this->input->post('katProduk'),
+							'harga_produk' => $this->input->post('harga_produk')
+						);	
+					}else{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'desk_produk' => $this->input->post('desk_produk'),
+							'foto_produk' => $foto,
+							'kategori_produk' => $this->input->post('katProduk'),
+							'harga_produk' => $this->input->post('harga_produk')
+						);
+					}
+				}else{
+					if ($this->input->post('desk_produk') == '')
+					{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'jenis_produk' => $this->input->post('jenis_barang'),
+							'foto_produk' => $foto,
+							'kategori_produk' => $this->input->post('katProduk'),
+							'harga_produk' => $this->input->post('harga_produk')
+						);	
+					}else{
+						$data = array (		
+							'nama_produk' => $this->input->post('nama_produk'),
+							'jenis_produk' => $this->input->post('jenis_barang'),
+							'desk_produk' => $this->input->post('desk_produk'),
+							'foto_produk' => $foto,
+							'kategori_produk' => $this->input->post('katProduk'),
+							'harga_produk' => $this->input->post('harga_produk')
+						);
+					}
+				}
+			}
+		}else{
+			if ($this->input->post('katProduk') == '')
+			{
+				if ($this->input->post('jenis_barang') == '')
+				{
+					if ($this->input->post('desk_produk') == '')
+					{
+						$data = array (		
+							'nama_produk' => $this->input->post('nama_produk')
+						);	
+					}else{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'desk_produk' => $this->input->post('desk_produk')
+						);
+					}
+				}else{
+					if ($this->input->post('desk_produk') == '')
+					{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'jenis_produk' => $this->input->post('jenis_barang')
+						);	
+					}else{
+						$data = array (		
+							'nama_produk' => $this->input->post('nama_produk'),
+							'jenis_produk' => $this->input->post('jenis_barang'),
+							'desk_produk' => $this->input->post('desk_produk')
+						);
+					}
+				}				
+			}else {
+				if ($this->input->post('jenis_barang') == '')
+				{
+					if ($this->input->post('desk_produk') == '')
+					{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'kategori_produk' => $this->input->post('katProduk'),
+							'harga_produk' => $this->input->post('harga_produk')
+						);	
+					}else{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'desk_produk' => $this->input->post('desk_produk'),
+							'kategori_produk' => $this->input->post('katProduk'),
+							'harga_produk' => $this->input->post('harga_produk')
+						);
+					}
+				}else{
+					if ($this->input->post('desk_produk') == '')
+					{
+						$data = array (			
+							'nama_produk' => $this->input->post('nama_produk'),
+							'jenis_produk' => $this->input->post('jenis_barang'),
+							'kategori_produk' => $this->input->post('katProduk'),
+							'harga_produk' => $this->input->post('harga_produk')
+						);	
+					}else{
+						$data = array (		
+							'nama_produk' => $this->input->post('nama_produk'),
+							'jenis_produk' => $this->input->post('jenis_barang'),
+							'desk_produk' => $this->input->post('desk_produk'),
+							'kategori_produk' => $this->input->post('katProduk'),
+							'harga_produk' => $this->input->post('harga_produk')
+						);
+					}
+				}
+			}
+		}				
+
+		$this->User_model->editProduk($id, $data);
+		redirect('profil/'.$this->session->userdata('id_user'));
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 	}
 }

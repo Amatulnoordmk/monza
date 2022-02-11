@@ -4,12 +4,17 @@
 	<div class="alert alert-success" role="alert">
 		<h6><?= $this->session->flashdata('hapus-produk') ?></h6>
 	</div>
+	<?php elseif($this->session->flashdata('hapus-event')): ?>
+	<div class="alert alert-success" role="alert">
+		<h6><?= $this->session->flashdata('hapus-event') ?></h6>
+	</div>
 	<?php elseif ($this->session->flashdata('gagalUpload')): ?>
 	<div class="alert alert-danger" id="alertgagal" role="alert">
 		<?= $this->session->flashdata('gagalUpload') ?>
 	</div>
 	<?php endif; ?>
 	<!-- end alert -->
+
 	<div class="col text-center">
 		<div class="section_title new_arrivals_title">
 			<h3>Profil Anda</h3>
@@ -75,35 +80,30 @@
 						<!-- Product 1 -->
 						<?php foreach($produk as $pro) : ?>
 						<div class="col-md-4">
-							<div class="product-itm">
-								<div class="product_image">
-									<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
-										alt="produk">
+							<a href="<?= base_url(); ?>editproduk/<?= $pro->id_produk ?>">
+								<div class="product-itm">
+									<div class="product_image">
+										<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
+											alt="produk">
+									</div>
+									<div class="favorite favorite_left"></div>
+									<div class="product_bubble d-flex flex-column align-items-center">
+										<a role="button" data-toggle="modal"
+											data-target="#hapusproduk<?= $pro->id_produk ?>">
+											<i class="fa fa-trash" style="font-size:30px;color:red"></i>
+										</a>
+									</div>
+									<div class="product_info">
+										<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
+										</h6>
+										<?php if ($pro->kategori_produk == 'F'):?>
+										<div class="product_price">Gratis</div>
+										<?php elseif ($pro->kategori_produk == 'P'):?>
+										<div class="product_price"><?= $pro->harga_produk ?></div>
+										<?php endif; ?>
+									</div>
 								</div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_bubble d-flex flex-column align-items-center">
-									<a role="button" data-toggle="modal"
-										data-target="#hapusproduk<?= $pro->id_produk ?>">
-										<i class="fa fa-trash" style="font-size:30px;color:red"></i>
-									</a>
-								</div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="#"><?= $pro->nama_produk ?></a>
-									</h6>
-									<?php if ($pro->kategori_produk == 'F'):?>
-									<div class="product_price">Gratis</div>
-									<?php elseif ($pro->kategori_produk == 'P'):?>
-									<div class="product_price"><?= $pro->harga_produk ?></div>
-									<?php endif; ?>
-
-									<!-- <div class="social">
-													<a href="#"><i class="fa fa-edit"
-															style="font-size:30px;color:grey"></i></a>
-													<a href="#hapusbarang">&nbsp;<i class="fa fa-trash"
-															style="font-size:30px;color:red"></i></a>
-												</div> -->
-								</div>
-							</div>
+							</a>
 						</div>
 						<?php endforeach; ?>
 					</div>
@@ -111,22 +111,21 @@
 				<div class="tab-pane fade" id="tabEvent" role="tabpanel" aria-labelledby="profile-tab">
 					<div class="row">
 						<!-- Product 1 -->
-						<?php foreach($event as $event) : ?>
+						<?php foreach($event as $ev) : ?>
 						<div class="col-md-4">
 							<div class="product-itm">
 								<div class="product_image">
-									<img src="<?=base_url();?>assets/user/images/Event/<?= $event->foto_event ?>"
+									<img src="<?=base_url();?>assets/user/images/Event/<?= $ev->foto_event ?>"
 										alt="produk">
 								</div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_bubble d-flex flex-column align-items-center">
-									<a role="button" data-toggle="modal"
-										data-target="#hapusevent<?= $event->id_event ?>">
+									<a role="button" data-toggle="modal" data-target="#hapusevent<?= $ev->id_event ?>">
 										<i class="fa fa-trash" style="font-size:30px;color:red"></i>
 									</a>
 								</div>
 								<div class="product_info">
-									<h6 class="product_name"><a href="#"><?= $event->nama_event ?></a>
+									<h6 class="product_name"><a href="#"><?= $ev->nama_event ?></a>
 									</h6>
 								</div>
 							</div>
@@ -261,7 +260,7 @@
 <?php endforeach; ?>
 <!-- end modal -->
 
-<!-- modal hapus produk -->
+<!-- modal hapus event -->
 <?php foreach ($event as $key): ?>
 <div class="modal fade" id="hapusevent<?= $key->id_event; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
@@ -272,14 +271,15 @@
 			<form action="" method="post">
 				<div class="modal-body text-center">
 					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Produk yang sudah dihapus tidak akan bisa dipulihkan lagi</h5>
+					<h5>Event yang sudah dihapus tidak akan bisa dipulihkan lagi</h5>
 					<div class="form-group">
 						<input type="text" class="form-control" name="idproduk" hidden>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<a href="" type="button" class="btn btn-danger" style="color: white;">Hapus</a>
+					<a href="<?=base_url();?>user/hapusEvent/<?=$key->id_event?>" type="button" class="btn btn-danger"
+						style="color: white;">Hapus</a>
 				</div>
 			</form>
 		</div>
