@@ -141,7 +141,7 @@ class User extends CI_Controller {
 			'email' => 'nadya@mail.com',
 			'username' => 'nababan',
 			'password' => 'nababan',				
-			'no_telp' => '081344556677',
+			'no_telp' => '81344556677',
 			'id_provinsi' => 14,
 			'id_kota' => 1101,
 			'level_user' => '0'
