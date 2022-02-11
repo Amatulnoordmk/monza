@@ -132,7 +132,7 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__1.jpeg)">
 							<div class="banner_category">
-								<a href="categories.html">Gratis</a>
+								<a href="<?= base_url(); ?>produkgratis">Gratis</a>
 							</div>
 						</div>
 					</div>
@@ -140,7 +140,7 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__2.jpeg)">
 							<div class="banner_category">
-								<a href="categories.html">Termurah</a>
+								<a href="<?= base_url(); ?>produkmurah">Termurah</a>
 							</div>
 						</div>
 					</div>
@@ -148,7 +148,7 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__3.jpeg)">
 							<div class="banner_category">
-								<a href="categories.html">Donasi</a>
+								<a href="<?= base_url(); ?>donasi">Donasi</a>
 							</div>
 						</div>
 					</div>

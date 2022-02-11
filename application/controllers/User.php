@@ -61,8 +61,9 @@ class User extends CI_Controller {
 	public function freeProduct_page()
 	{	
 		$data['produk'] = $this->User_model->barang_gratis()->result();
+		$data2['produk'] = $this->User_model->fetch_filter_type('jenis_produk');
         $this->load->view('user/include/header');
-		$this->load->view('user/include/sidebar');
+		$this->load->view('user/include/sidebar',);
 		$this->load->view('user/freeProduct_page',$data);
         $this->load->view('user/include/footer');
 	}
@@ -136,26 +137,26 @@ class User extends CI_Controller {
 	// Fungsi daftar/register
 	public function daftar()
 	{
-		$data = array (
-			'nama_lengkap' => 'nadya',
-			'email' => 'nadya@mail.com',
-			'username' => 'nababan',
-			'password' => 'nababan',				
-			'no_telp' => '081344556677',
-			'id_provinsi' => 14,
-			'id_kota' => 1101,
-			'level_user' => '0'
-		);
 		// $data = array (
-		// 		'nama_lengkap' => $this->input->post("nama"),
-		// 		'email' => $this->input->post("email"),
-		// 		'username' => $this->input->post("username"),
-		// 		'password' => md5($this->input->post("password")),				
-		// 		'no_telp' => '0'.$this->input->post("nomor"),
-		// 		'id_provinsi' => $this->input->post("provinsi"),
-		// 		'id_kota' => $this->input->post("kota"),
-		// 		'level_user' => '0'
-		// );			
+		// 	'nama_lengkap' => 'nadya',
+		// 	'email' => 'nadya@mail.com',
+		// 	'username' => 'nababan',
+		// 	'password' => 'nababan',				
+		// 	'no_telp' => '081344556677',
+		// 	'id_provinsi' => 14,
+		// 	'id_kota' => 1101,
+		// 	'level_user' => '0'
+		// );
+		$data = array (
+				'nama_lengkap' => $this->input->post("nama"),
+				'email' => $this->input->post("email"),
+				'username' => $this->input->post("username"),
+				'password' => md5($this->input->post("password")),				
+				'no_telp' => '0'.$this->input->post("nomor"),
+				'id_provinsi' => $this->input->post("provinsi"),
+				'id_kota' => $this->input->post("kota"),
+				'level_user' => '0'
+		);			
 			
 			$this->User_model->tambah_user('user', $data);
 			$data2['provinsi'] = $this->User_model->getDataProv()->result();			
@@ -438,5 +439,43 @@ class User extends CI_Controller {
 		$this->User_model->hapusEventUser($id);
 		$this->session->set_flashdata('hapus-event', 'Event Berhasil Dihapus');
 		redirect('profil/'.$this->session->userdata('id_user'));
+	}
+
+	function fetch_data()
+	{
+		sleep(1);
+  $jenis_produk = $this->input->post('jenis_produk');
+  $this->load->library('pagination');
+  $config = array();
+  $config['base_url'] = '#';
+  $config['total_rows'] = $this->product_filter_model->count_all($jenis_produk);
+  $config['per_page'] = 8;
+  $config['uri_segment'] = 3;
+  $config['use_page_numbers'] = TRUE;
+  $config['full_tag_open'] = '<ul class="pagination">';
+  $config['full_tag_close'] = '</ul>';
+  $config['first_tag_open'] = '<li>';
+  $config['first_tag_close'] = '</li>';
+  $config['last_tag_open'] = '<li>';
+  $config['last_tag_close'] = '</li>';
+  $config['next_link'] = '&gt;';
+  $config['next_tag_open'] = '<li>';
+  $config['next_tag_close'] = '</li>';
+  $config['prev_link'] = '&lt;';
+  $config['prev_tag_open'] = '<li>';
+  $config['prev_tag_close'] = '</li>';
+  $config['cur_tag_open'] = "<li class='active'><a href='#'>";
+  $config['cur_tag_close'] = '</a></li>';
+  $config['num_tag_open'] = '<li>';
+  $config['num_tag_close'] = '</li>';
+  $config['num_links'] = 3;
+  $this->pagination->initialize($config);
+  $page = $this->uri->segment(3);
+  $start = ($page - 1) * $config['per_page'];
+  $output = array(
+   'pagination_link'  => $this->pagination->create_links(),
+   'product_list'   => $this->product_filter_model->fetch_data($config["per_page"], $start,$jenis_produk)
+  );
+  echo json_encode($output);
 	}
 }
