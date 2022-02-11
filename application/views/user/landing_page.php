@@ -418,7 +418,7 @@
 						</button>
 					</div>
 					<div class="modal-body p-5">
-						<form action="<?= base_url('admin/doLogin') ?>" method="POST" id="login-form">
+						<form action="<?= base_url('daftar/doLogin') ?>" method="POST" id="login-form">
 							<div class="row">
 								<div class="form-group col-md-12">
 									<label for="exampleInputEmail1">Email</label>

@@ -55,6 +55,42 @@ class Daftar extends CI_Controller {
 			redirect();
 	}
 
+	//  Fungsi login
+	public function doLogin()
+    {
+        $this->load->model('User_model');
+        $cek_user = $this->User_model->cek_user();
+		if ($cek_user->num_rows() > 0) {
+			foreach($cek_user->result() as $user){
+					$sess = array(
+						'isLogin' => "1",
+						'id_user' => $user->id_user,
+						'nama_lengkap' => $user->nama_lengkap,
+						'email' => $user->email,
+						'username' => $user->username,
+						'password' => $user->password,
+						'no_telp' => $user->no_telp,
+						'id_provinsi' => $user->id_provinsi,
+						'id_kota' => $user->id_kota,
+						'level_user' => $user->level_user
+					);
+					$this->session->set_userdata($sess);
+					if ($this->session->userdata('level_user')==1) {
+						$this->session->set_flashdata('login','Selamat Datang Admin!');
+						redirect(base_url('dashboard_admin'));
+					
+					}else if($this->session->userdata('level_user')==0){
+						$this->session->set_flashdata('login','Selamat Datang '.$this->session->userdata('username'));
+						redirect(base_url('beranda'));
+					}
+			}
+			
+		}else{
+			$this->session->set_flashdata('notLogin','Email atau password salah');
+			redirect();
+		}
+    }
+
 	// Cek No telepon yg diinput dengan db
 	public function cekNoTel(){
 		$notel = '0'.$this->input->post('nomor');
