@@ -66,10 +66,10 @@
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
-									<li><a href="<?= base_url(); ?>beranda">Beranda</a></li>
-									<li><a href="<?= base_url(); ?>produkgratis">Gratis</a></li>
-									<li><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
-									<li><a href="<?= base_url(); ?>donasi">Donasi</a></li>
+									<li><a href="#modalLoginForm" data-toggle="modal"> Beranda</a> </li>
+									<li><a href="#modalLoginForm" data-toggle="modal">Gratis</a></li>
+									<li><a href="#modalLoginForm" data-toggle="modal">Termurah</a></li>
+									<li><a href="#modalLoginForm" data-toggle="modal">Donasi</a></li>
 									<li><a href="#modalregisterform" data-toggle="modal"
 											style="color: #F1873B;"><b>daftar</b></a></li>
 								</ul>
@@ -95,10 +95,10 @@
 			<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="hamburger_menu_content text-right">
 				<ul class="menu_top_nav">
-					<li class="menu_item"><a href="#">beranda</a></li>
-					<li class="menu_item"><a href="#">gratis</a></li>
-					<li class="menu_item"><a href="#">termurah</a></li>
-					<li class="menu_item"><a href="#">jual</a></li>
+					<li class="menu_item"><a href="#modalLoginForm" data-toggle="modal">beranda</a></li>
+					<li class="menu_item"><a href="#modalLoginForm" data-toggle="modal">gratis</a></li>
+					<li class="menu_item"><a href="#modalLoginForm" data-toggle="modal">termurah</a></li>
+					<li class="menu_item"><a href="#modalLoginForm" data-toggle="modal">jual</a></li>
 					<li class="menu_item"><a href="#" style="color: #F1873B;" data-toggle="modal"
 							data-target="#modalregisterform"><b>daftar</b></a></li>
 				</ul>
@@ -116,7 +116,8 @@
 							<h2>Daripada Dibuang, Bagikan Saja di Monza</h2>
 							<h5>Berikan pada yang membutuhkan, bersihkan barang bekas di rumah sembari berbagi ke sesama
 							</h5>
-							<div class="red_button shop_now_button"><a href="#">Bagikan</a></div>
+							<div class="red_button shop_now_button"><a href="#modalLoginForm"
+									data-toggle="modal">Bagikan</a></div>
 						</div>
 					</div>
 				</div>
@@ -132,7 +133,7 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__1.jpeg)">
 							<div class="banner_category">
-								<a href="categories.html">Gratis</a>
+								<a href="#modalLoginForm" data-toggle="modal">Gratis</a>
 							</div>
 						</div>
 					</div>
@@ -140,7 +141,7 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__2.jpeg)">
 							<div class="banner_category">
-								<a href="categories.html">Termurah</a>
+								<a href="#modalLoginForm" data-toggle="modal">Termurah</a>
 							</div>
 						</div>
 					</div>
@@ -148,7 +149,7 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__3.jpeg)">
 							<div class="banner_category">
-								<a href="categories.html">Donasi</a>
+								<a href="#modalLoginForm" data-toggle="modal">Donasi</a>
 							</div>
 						</div>
 					</div>
@@ -170,7 +171,7 @@
 				<div class="row mt-5">
 					<!-- Product 1 -->
 					<div class="col">
-						<a href="<?=base_url();?>detailproduk">
+						<a href="#modalLoginForm" data-toggle="modal">
 							<div class="product-itm">
 								<div class=" product_image">
 									<img src="<?=base_url();?>assets/user/images/product_1.png" alt="">
@@ -352,7 +353,7 @@
 								class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Pakaian bekas bagi anak kurang mampu daerah pedalaman</h4>
 								<span class="blog_meta">oleh admin | 20 April 2021</span>
-								<a class="blog_more" href="#">Baca</a>
+								<a class="blog_more" href="#modalLoginForm" data-toggle="modal">Baca</a>
 							</div>
 						</div>
 					</div>
