@@ -74,9 +74,8 @@ class User_model extends CI_Model
 	}
 
     // Mengambil nama - nama kabupaten/kota
-    public function getDataKabupaten($idprov)
+    public function getDataKabupaten()
     {
-        $this->db->where('provinsi_id', $idprov);
         return $this->db->get('wilayah_kabupaten');
     }
     

@@ -25,10 +25,10 @@ class User extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('User_model');
-		// if ($this->session->userdata('isLogin')!="1")
-		// {
-		// 	redirect('');
-		// }
+		if ($this->session->userdata('isLogin')!="1")
+		{
+			redirect('');
+		}
 	}
 
 	//  Halaman beranda
@@ -131,61 +131,7 @@ class User extends CI_Controller {
         $this->session->set_userdata('isLogin')=="0";
         $this->session->sess_destroy();
         redirect('');
-    }
-
-	// Fungsi daftar/register
-	public function daftar()
-	{
-		$data = array (
-			'nama_lengkap' => 'nadya',
-			'email' => 'nadya@mail.com',
-			'username' => 'nababan',
-			'password' => 'nababan',				
-			'no_telp' => '81344556677',
-			'id_provinsi' => 14,
-			'id_kota' => 1101,
-			'level_user' => '0'
-		);
-		// $data = array (
-		// 		'nama_lengkap' => $this->input->post("nama"),
-		// 		'email' => $this->input->post("email"),
-		// 		'username' => $this->input->post("username"),
-		// 		'password' => md5($this->input->post("password")),				
-		// 		'no_telp' => '0'.$this->input->post("nomor"),
-		// 		'id_provinsi' => $this->input->post("provinsi"),
-		// 		'id_kota' => $this->input->post("kota"),
-		// 		'level_user' => '0'
-		// );			
-			
-			$this->User_model->tambah_user('user', $data);
-			$data2['provinsi'] = $this->User_model->getDataProv()->result();			
-			$this->load->view('user/landing_page', $data2);
-			$this->load->view('user/include/footer');
-	}
-
-	// Cek No telepon yg diinput dengan db
-	public function cekNotel(){
-		$notel = substr($this->input->post('nomor'), 1, 15);
-		$data = $this->User_model->cekNotel($notel);
-		if ($data == true) {
-			echo true;
-		} else {
-			echo false;
-		}
-	}
-
-	// Cak email yg diinput dgn db
-	public function cekEmail()
-	{
-		$email = $this->input->post('email');
-		$data = $this->User_model->cekEmail($email);
-
-		if ($data == true) {
-			echo true;
-		} else {
-			echo false;
-		}
-	}
+    }	
 	
 	// Update profil user
 	public function updateProfil($id) {

@@ -468,14 +468,14 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form method="POST" action="<?= base_url();?>user/daftar" enctype="multipart/form-data">
+				<form method="POST" action="<?= base_url();?>daftar/daftar" enctype="multipart/form-data">
 					<div class="modal-body p-5">
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Nama Lengkap</label>
-								<input type="text" name="nama" id="" class="form-control nama_lengkap"
-									style="color: #1e1e27">
-								<!-- <span id="pesan_nama_lengkap"></span> -->
+								<input type="text" name="nama" class="form-control nama_lengkapKu"
+									style="color: #1e1e27" onkeyup="cekNamaLengkap()">
+								<span class="pesan_nama_lengkapKu"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Nomor Telepon</label>
@@ -484,64 +484,68 @@
 										<button class="btn btn-secondary" type="button" id="button-addon1"
 											disabled>+62</button>
 									</div>
-									<input type="text" name="nomor" id="" class="form-control nomor"
+									<input type="text" name="nomor" class="form-control nomorKu"
 										aria-describedby="addon-wrapping" aria-describedby="inputGroup-sizing-default"
-										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27">
+										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27"
+										onkeyup="cekNoTel()">
 								</div>
-								<!-- <span id="pesan_notel"></span> -->
+								<span class="pesan_noTelKu"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Email</label>
-								<input type="email" name="email" id="email" class="form-control emailku"
-									style="color: #1e1e27" placeholder="begini@contoh.com">
-								<!-- <span id="pesan_emailku"></span> -->
+								<input type="email" name="email" class="form-control emailKu" style="color: #1e1e27"
+									placeholder="begini@contoh.com" onkeyup="cekEmail()">
+								<span class="pesan_emailKu"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Username</label>
-								<input type="text" name="username" id="" class="form-control usernameKu"
-									style="color: #1e1e27">
-								<!-- <span id="pesan_username"></span> -->
+								<input type="text" name="username" class="form-control usernameKu"
+									style="color: #1e1e27" onkeyup="cekUsername()">
+								<span class="pesan_usernameKu"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Password</label>
-								<input type="password" name="password" class="form-control password" autocomplete="off"
-									style="color: #1e1e27">
-								<!-- <span id="pesan_pass"></span> -->
+								<input type="password" name="password" class="form-control passwordKu"
+									autocomplete="off" style="color: #1e1e27" onkeyup="cekPass()">
+								<span class="pesan_passKu"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label>Konfirmasi Password</label>
-								<input type="password" name="konfirpass" id="" class="form-control konfirpass"
-									style="color: #1e1e27">
-								<!-- <span id="pesan_konfirPass"></span> -->
+								<input type="password" name="konfirpass" class="form-control konfirpassKu"
+									style="color: #1e1e27" onkeyup="cekKonfirPass()">
+								<span class="pesan_konfirPassKu"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-6 col-12">
 								<label>Provinsi</label>
-								<select class="provinsi form-control" style="color: #1e1e27" name="provinsi"
-									id="provinsi">
+								<select class="form-control provinsiKu" style="color: #1e1e27" name="provinsi"
+									onchange="cekProvinsi()">
 									<option value="" selected disabled>Piih Provinsi</option>
 									<?php foreach($provinsi as $prov): ?>
 									<option value="<?= $prov->id_provinsi; ?>"><?= $prov->nama; ?></option>
 									<?php endforeach; ?>
 								</select>
-								<!-- <span id="pesan_prov"></span> -->
+								<span class="pesan_provKu"></span>
 							</div>
 							<div class="form-group col-md-6 col-12">
 								<label for="kota">Kabupaten/Kota</label>
-								<select class="kota form-control" id="kota" name="kota" style="color: #1e1e27">
-									<option value="" selected disabled>Pilih</option>
-									<option value="3">Medan</option>
+								<select class="form-control kotaKu" name="kota" style="color: #1e1e27"
+									onchange="cekKota()">
+									<option value="" selected disabled>Pilih Kabupaten/Kota</option>
+									<?php foreach ($kota as $kt):?>
+									<option value="<?= $kt->id_kota ?>"><?= $kt->nama ?></option>
+									<?php endforeach; ?>
 								</select>
-								<!-- <span id="pesan_kota"></span> -->
+								<span class="pesan_kotaKu"></span>
 							</div>
 						</div>
 						<center>
-							<br><button type="submit" id="signup" class="btn btn-lg btn-block"
+							<br><button type="submit" class="btn btn-lg btn-block btn-validasi"
 								style="background-color:#f1873b; color:white; cursor: pointer;">Daftar</button>
 						</center>
 					</div>
