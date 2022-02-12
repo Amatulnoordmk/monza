@@ -80,3 +80,18 @@
 				</div> -->
 
 			</div>
+			<script>
+				$(document).ready(function () {
+					function filter_data(page) {
+						$('$filter_data').html("<div id='loading'></div>");
+						var action = 'fetch_data';
+						var jenis_produk = get_filter('jenis_produk')
+					}
+
+					function get_filter(class_name) {
+						var filter = [];
+						$('.' + )
+					}
+				});
+
+			</script>

@@ -38,10 +38,10 @@
 					<p>Lokasi : <span class="product_price"><?= $produk->kota ?>, <?= $produk->provinsi ?></span></p>
 					<!-- <p>Maps : <a href="">https://goo.gl/maps/KJamN6MybWV5Q7WZ6</a></p> -->
 					<br>
-					<h4>Diposting Oleh : <span><?= $produk->nama_lengkap ?></span></h4>
+					<h4 style>Diposting Oleh : <?= $produk->nama_lengkap ?></h4>
 					<p>No HP : <span><?= $produk->no_telp ?></span></p>
 				</div>
-				<a href="https://api.whatsapp.com/send?phone=.<?=$produk->no_telp?>">
+				<a href="https://api.whatsapp.com/send?phone=.62<?=$produk->no_telp?>">
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 						<span class="fa fa-whatsapp"></span>Hubungi via WhatsApp
 					</div>

@@ -133,7 +133,11 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__1.jpeg)">
 							<div class="banner_category">
+<<<<<<< HEAD
+								<a href="<?= base_url(); ?>produkgratis">Gratis</a>
+=======
 								<a href="#modalLoginForm" data-toggle="modal">Gratis</a>
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 							</div>
 						</div>
 					</div>
@@ -141,7 +145,11 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__2.jpeg)">
 							<div class="banner_category">
+<<<<<<< HEAD
+								<a href="<?= base_url(); ?>produkmurah">Termurah</a>
+=======
 								<a href="#modalLoginForm" data-toggle="modal">Termurah</a>
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 							</div>
 						</div>
 					</div>
@@ -149,7 +157,11 @@
 						<div class="banner_item align-items-center"
 							style="background-image:url(<?=base_url();?>assets/user/images/banner__3.jpeg)">
 							<div class="banner_category">
+<<<<<<< HEAD
+								<a href="<?= base_url(); ?>donasi">Donasi</a>
+=======
 								<a href="#modalLoginForm" data-toggle="modal">Donasi</a>
+>>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 							</div>
 						</div>
 					</div>

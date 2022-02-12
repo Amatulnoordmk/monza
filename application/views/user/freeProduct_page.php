@@ -53,6 +53,7 @@
 
 				<!-- Product Grid -->
 				<!-- Baris 1 -->
+
 				<div class="row mt-5">
 					<?php foreach($produk as $pro) : ?>
 					<!-- Product 1 -->
@@ -66,7 +67,10 @@
 								<div class="favorite favorite_left"></div>
 
 								<div class="product_info">
-									<h6 class="product_name"><a href="single.html"><?= $pro->nama_produk ?></a></h6>
+									<h6 class="product_name"><a
+											href="<?=base_url();?>detailproduk/<?= $pro->id_produk ?>"><?= $pro->nama_produk ?></a>
+									</h6>
+									<h6 class="product_name"><?= $pro->jenis_produk ?></h6>
 									<div class="product_price">Gratis</div>
 								</div>
 							</div>
