@@ -69,7 +69,7 @@
 								<?php foreach ($event as $event):
 									date_default_timezone_set('Asia/Jakarta');
 								?>
-								<div class="col-4">
+								<div class="col-md-4">
 									<div class="card" style="width: 20rem;">
 										<img class="card-img-top"
 											src="<?=base_url();?>assets/user/images/Event/<?= $event->foto_event ?>"

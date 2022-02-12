@@ -19,14 +19,17 @@
 						<h5>Kategori produk</h5>
 					</div>
 					<ul class="sidebar_categories">
-						<li><a href="#">Elektronik</a></li>
-						<li class="active"><a href="#"><span><i class="fa fa-angle-double-right"
-										aria-hidden="true"></i></span>Pakaian</a></li>
-						<li><a href="#">Rumah tangga</a></li>
-						<li><a href="#">Buku & Majalah</a></li>
-						<li><a href="#">Perlengkapan Sekolah</a></li>
-						<li><a href="#">Hobi & Olahraga</a></li>
-						<li><a href="#">Lainnya</a></li>
+						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'elektronik')?>">Elektronik</a></li>
+						<li class="active"><a href="<?= base_url('User/kategori/'.$jenis_produk = 'pakaian')?>"><span><i
+										class="fa fa-angle-double-right" aria-hidden="true"></i></span>Pakaian</a></li>
+						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'rumah_tangga')?>">Rumah tangga</a>
+						</li>
+						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'buku')?>">Buku & Majalah</a></li>
+						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'sekolah')?>">Perlengkapan
+								Sekolah</a></li>
+						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'olahraga')?>">Hobi & Olahraga</a>
+						</li>
+						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'lainnya')?>">Lainnya</a></li>
 					</ul>
 				</div>
 

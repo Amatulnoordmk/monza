@@ -70,7 +70,8 @@
 
 								<div class="product_info">
 									<h6 class="product_name"><a href=""><?= $pro->nama_produk ?></a></h6>
-									<div class="product_price">Rp <?= $pro->harga_produk ?></div>
+									<h6 class="product_name"><?= $pro->jenis_produk ?></h6>
+									<div class="product_price">Rp <?= number_format($pro->harga_produk) ?></div>
 								</div>
 							</div>
 						</a>
