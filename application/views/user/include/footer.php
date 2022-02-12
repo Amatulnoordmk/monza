@@ -96,6 +96,19 @@
 			$("#produkBerbayar").hide();
 	}
 
+	// Button tambah stok
+	const setup = () => {
+
+		document
+			.getElementById("sum-button")
+			.addEventListener("click", () => {
+				const outputBox = document.getElementById("input-stok");
+				outputBox.value = +outputBox.value + 1;
+			});
+	};
+
+	window.addEventListener('load', setup);
+
 	// Validasi register
 	var error = 1;
 	var nama_lengkap_error = 1;

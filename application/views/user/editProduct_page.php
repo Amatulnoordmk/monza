@@ -17,7 +17,6 @@
 
 	<!-- Form Content -->
 	<div class="tab-content" id="myTabContent">
-
 		<div class="col text-center">
 			<div class="section_title new_arrivals_title">
 				<h3>Edit Barang</h3>
@@ -29,7 +28,7 @@
 			<br><br><br>
 			<div class="form-group">
 				<label>
-					<h5><b>Nama Produk <b style="color:red;">*</b></b></h5>
+					<h5><b>Nama Produk</h5>
 				</label>
 				<input type="text" class="form-control" name="nama_produk" value="<?= $produk->nama_produk ?>"
 					style="color: #1e1e27">
@@ -38,7 +37,7 @@
 			<div class="form-group">
 				<br>
 				<label>
-					<h5><b>Kategori Produk <b style="color:red;">*</b></b></h5>
+					<h5><b>Kategori Produk</h5>
 				</label>
 				<select class="form-control" id="katProduk" name="katProduk" style="color: #1e1e27">
 					<?php if ($produk->kategori_produk == 'F'): ?>
@@ -69,7 +68,7 @@
 			<div class="form-group">
 				<br>
 				<label>
-					<h5><b>Foto Produk <b style="color:red;">*</b></b></h5>
+					<h5><b>Foto Produk</h5>
 				</label>
 				<fieldset class="form-group">
 					<!-- <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a> -->
@@ -82,7 +81,7 @@
 			<div class="form-group">
 				<br>
 				<label for="jenis_barang">
-					<h5><b>Jenis Barang <b style="color:red;">*</b></b></h5>
+					<h5><b>Jenis Barang</h5>
 				</label>
 				<select class="form-control" name="jenis_barang" style="color: #1e1e27">
 					<option style="color:black" value="" selected disabled><?= $produk->jenis_produk ?>
@@ -99,7 +98,7 @@
 			<div class="form-group">
 				<br>
 				<label>
-					<h5><b>Deskripsi Produk <b style="color:red;">*</b></b></h5>
+					<h5><b>Deskripsi Produk</h5>
 				</label>
 				<textarea class="form-control" name="desk_produk" style="color: #1e1e27" rows="5" value=""
 					placeholder="<?= $produk->desk_produk ?>"></textarea>

@@ -208,4 +208,11 @@ class User_model extends CI_Model
         $this->db->where('id_produk', $id);
         return $this->db->update('produk', $data);
     }
+
+    // Edit event
+    public function editEvent($id, $data)
+    {
+        $this->db->where('id_event', $id);
+        return $this->db->update('event', $data);
+    }
 }

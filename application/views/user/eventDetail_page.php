@@ -4,13 +4,9 @@
 
 			<!-- Breadcrumbs -->
 
-			<div class="breadcrumbs d-flex flex-row align-items-center">
-				<ul>
-					<li>Beranda</li>
-					<li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>Detail
-						donasi</li>
-				</ul>
-			</div>
+			<button onclick="history.back()" class="btn"
+				style="color: #f1873b; background-color: white; cursor: pointer;"><i
+					class="fa fa-arrow-left"></i>&nbsp&nbspKembali</button>
 
 			<!-- Main Content -->
 

@@ -113,22 +113,25 @@
 						<!-- Product 1 -->
 						<?php foreach($event as $ev) : ?>
 						<div class="col-md-4">
-							<div class="product-itm">
-								<div class="product_image">
-									<img src="<?=base_url();?>assets/user/images/Event/<?= $ev->foto_event ?>"
-										alt="produk">
+							<a href="<?= base_url();?>user/editEvent_page/<?=$ev->id_event?>">
+								<div class="product-itm">
+									<div class="product_image">
+										<img src="<?=base_url();?>assets/user/images/Event/<?= $ev->foto_event ?>"
+											alt="produk">
+									</div>
+									<div class="favorite favorite_left"></div>
+									<div class="product_bubble d-flex flex-column align-items-center">
+										<a role="button" data-toggle="modal"
+											data-target="#hapusevent<?= $ev->id_event ?>">
+											<i class="fa fa-trash" style="font-size:30px;color:red"></i>
+										</a>
+									</div>
+									<div class="product_info">
+										<h6 class="product_name"><a href="#"><?= $ev->nama_event ?></a>
+										</h6>
+									</div>
 								</div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_bubble d-flex flex-column align-items-center">
-									<a role="button" data-toggle="modal" data-target="#hapusevent<?= $ev->id_event ?>">
-										<i class="fa fa-trash" style="font-size:30px;color:red"></i>
-									</a>
-								</div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="#"><?= $ev->nama_event ?></a>
-									</h6>
-								</div>
-							</div>
+							</a>
 						</div>
 						<?php endforeach; ?>
 					</div>
