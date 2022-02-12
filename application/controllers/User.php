@@ -125,12 +125,21 @@ class User extends CI_Controller {
         $this->load->view('user/include/footer');
 	}
 
-	// Halaman detail donasi
+	// Halaman edit produk
 	public function editProduct_page($id)
 	{
 		$data['produk'] = $this->User_model->barang_gratisSingle($id)->row();
         $this->load->view('user/include/header');		
 		$this->load->view('user/editProduct_page', $data);
+        $this->load->view('user/include/footer');
+	}
+
+	// Halaman edit event
+	public function editEvent_page($id)
+	{
+		$data['event'] = $this->User_model->tampil_eventSingle($id)->row();
+        $this->load->view('user/include/header');		
+		$this->load->view('user/editEvent_page', $data);
         $this->load->view('user/include/footer');
 	}
 
@@ -140,6 +149,7 @@ class User extends CI_Controller {
         $this->session->set_userdata('isLogin')=="0";
         $this->session->sess_destroy();
         redirect('');
+<<<<<<< HEAD
     }
 
 	// Fungsi daftar/register
@@ -195,6 +205,9 @@ class User extends CI_Controller {
 			echo false;
 		}
 	}
+=======
+    }	
+>>>>>>> 377fbf884293ef0e3ed388f550bf96c924a3264b
 	
 	// Update profil user
 	public function updateProfil($id) {
@@ -351,16 +364,12 @@ class User extends CI_Controller {
 	// Upload event
 	public function uploadEvent($id)
 	{
-		// $foto_event = $_FILES['foto_event']['name'];
-		// $proposal_event = $_FILES['proposal']['name'];
-		// $foto_ktp = $_FILES['foto_ktp']['name'];
 		$this->load->library('upload');
 		
 		$config['upload_path'] = './assets/user/images/Event/';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 		$config['overwrite'] = true;
-		$config['max_size'] = 5000;	
-		// $config['file_name'] = $foto_event;
+		$config['max_size'] = 5000;
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 		if (!$this->upload->do_upload('foto_event'))
@@ -368,16 +377,12 @@ class User extends CI_Controller {
 			$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
 			redirect('profil/'.$id);
 		} else{
-			// $pic_event = $this->upload->data6('file_name');			
 			$config['upload_path'] = './assets/admin/Proposal/';
 			$config['allowed_types'] = 'pdf';
 			$config['overwrite'] = true;
 			$config['max_size'] = 5000;
 			$gambar = $this->upload->data();
-			$inputFileName = './assets/user/images/Proposal/'.$gambar['file_name'];			
-			// $config['max_width'] = 5000;
-			// $config['max_height'] = 5000;
-			// $config['file_name'] = $proposal_event;
+			$inputFileName = './assets/user/images/Proposal/'.$gambar['file_name'];
 			$this->load->library('upload', $config);
 			$this->upload->initialize($config);
 			if (!$this->upload->do_upload('proposal'))
@@ -385,16 +390,12 @@ class User extends CI_Controller {
 				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
 				redirect('profil/'.$id);
 			} else{
-				// $props_event = $this->upload->data('file_name');				
 				$config['upload_path'] = './assets/admin/KTP/';
 				$config['allowed_types'] = 'jpg|jpeg|png';
 				$config['overwrite'] = true;
 				$config['max_size'] = 5000;
 				$proposal = $this->upload->data();
-				$inputFileName = './assets/admin/KTP/'.$proposal['file_name'];				
-				// $config['max_width'] = 5000;
-				// $config['max_height'] = 5000;
-				// $config['file_name'] = $foto_ktp;
+				$inputFileName = './assets/admin/KTP/'.$proposal['file_name'];
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
 				if (!$this->upload->do_upload('foto_ktp'))
@@ -402,7 +403,6 @@ class User extends CI_Controller {
 					$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
 					redirect('profil/'.$id);
 				} else{
-					// $ktp_event = $this->upload->data('file_name');
 					$ktp = $this->upload->data();
 					$inputFileName = './assets/admin/KTP/'.$ktp['file_name'];
 
@@ -457,6 +457,7 @@ class User extends CI_Controller {
 		$this->load->view('user/freeProduct_page',$data);
         $this->load->view('user/include/footer');
 
+<<<<<<< HEAD
 	}
 
 	// 	function fetch_data()
@@ -496,6 +497,46 @@ class User extends CI_Controller {
 	// );
 	// echo json_encode($output);
 	// }
+=======
+	function fetch_data()
+	{
+		sleep(1);
+		$jenis_produk = $this->input->post('jenis_produk');
+		$this->load->library('pagination');
+		$config = array();
+		$config['base_url'] = '#';
+		$config['total_rows'] = $this->product_filter_model->count_all($jenis_produk);
+		$config['per_page'] = 8;
+		$config['uri_segment'] = 3;
+		$config['use_page_numbers'] = TRUE;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['next_link'] = '&gt;';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_link'] = '&lt;';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['cur_tag_open'] = "<li class='active'><a href='#'>";
+		$config['cur_tag_close'] = '</a></li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['num_links'] = 3;
+		$this->pagination->initialize($config);
+		$page = $this->uri->segment(3);
+		$start = ($page - 1) * $config['per_page'];
+		$output = array(
+			'pagination_link'  => $this->pagination->create_links(),
+			'product_list'   => $this->product_filter_model->fetch_data($config["per_page"], $start,$jenis_produk)
+		);
+		echo json_encode($output);
+	}
+	
+>>>>>>> 377fbf884293ef0e3ed388f550bf96c924a3264b
 	// Edit produk
 	public function editProduk($id)
 	{
@@ -669,5 +710,129 @@ class User extends CI_Controller {
 
 		$this->User_model->editProduk($id, $data);
 		redirect('profil/'.$this->session->userdata('id_user'));
+<<<<<<< HEAD
+=======
+	}
+
+	// Edit Event
+	public function editEvent($id)
+	{
+		$file_name = $_FILES['foto_event']['name'];
+
+		// Kalo upload foto baru
+		if(!empty($file_name))
+		{
+			$config['upload_path'] = './assets/user/images/Event/';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['overwrite'] = true;
+			$config['max_size'] = 5000;
+			$config['file_name'] = $file_name;
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('foto_event'))
+			{
+				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event');
+				redirect('profil/'.$this->session->userdata('id_user'));
+			} else{
+				$foto = $this->upload->data('file_name');
+			}
+
+			if ($this->input->post('jenis_barang') == '')
+			{
+				if ($this->input->post('desk_event') == '')
+				{
+					$data = array (
+						'nama_event' => $this->input->post('nama_event'),
+						'foto_event' => $foto,
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'stok_terkumpul' => $this->input->post('stok_terkumpul'),
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event')
+					);
+				}else {
+					$data = array (
+						'nama_event' => $this->input->post('nama_event'),
+						'desk_event' => $this->input->post('desk_event'),
+						'foto_event' => $foto,
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'stok_terkumpul' => $this->input->post('stok_terkumpul'),
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event')
+					);
+				}
+			}else {
+				if ($this->input->post('desk_event') == '')
+				{
+					$data = array (
+						'nama_event' => $this->input->post('nama_event'),
+						'jenis_produk' => $this->input->post('jenis_barang'),
+						'foto_event' => $foto,
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'stok_terkumpul' => $this->input->post('stok_terkumpul'),
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event')
+					);
+				}else {
+					$data = array (
+						'nama_event' => $this->input->post('nama_event'),
+						'jenis_produk' => $this->input->post('jenis_barang'),
+						'desk_event' => $this->input->post('desk_event'),
+						'foto_event' => $foto,
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'stok_terkumpul' => $this->input->post('stok_terkumpul'),
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event')
+					);	
+				}
+			}			
+		}else{
+			if ($this->input->post('jenis_barang') == '')
+			{
+				if ($this->input->post('desk_event') == '')
+				{
+					$data = array (
+						'nama_event' => $this->input->post('nama_event'),
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'stok_terkumpul' => $this->input->post('stok_terkumpul'),
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event')
+					);
+				}else {
+					$data = array (
+						'nama_event' => $this->input->post('nama_event'),
+						'desk_event' => $this->input->post('desk_event'),
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'stok_terkumpul' => $this->input->post('stok_terkumpul'),
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event')
+					);
+				}
+			}else {
+				if ($this->input->post('desk_event') == '')
+				{
+					$data = array (
+						'nama_event' => $this->input->post('nama_event'),
+						'jenis_produk' => $this->input->post('jenis_barang'),
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'stok_terkumpul' => $this->input->post('stok_terkumpul'),
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event')
+					);
+				}else {
+					$data = array (
+						'nama_event' => $this->input->post('nama_event'),
+						'jenis_produk' => $this->input->post('jenis_barang'),
+						'desk_event' => $this->input->post('desk_event'),
+						'nama_penyelenggara' => $this->input->post('nama_penyelenggara'),
+						'stok_terkumpul' => $this->input->post('stok_terkumpul'),
+						'stok_butuh' => $this->input->post('stok_produk'),
+						'waktu_tenggat' => $this->input->post('deadline_event')
+					);	
+				}
+			}	
+		}				
+
+		$this->User_model->editEvent($id, $data);
+		redirect('profil/'.$this->session->userdata('id_user'));
+>>>>>>> 377fbf884293ef0e3ed388f550bf96c924a3264b
 	}
 }

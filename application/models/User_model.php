@@ -201,6 +201,7 @@ class User_model extends CI_Model
         $this->db->where('id_event', $id);
         $this->db->delete('event');
     }
+<<<<<<< HEAD
     public function kategori_gratis($jenis_produk)
     {   
         $this->db->where('jenis_produk',$jenis_produk);
@@ -276,3 +277,87 @@ class User_model extends CI_Model
 
 //     
  }
+=======
+
+    // Edit produk
+    public function editProduk($id, $data)
+    {
+        $this->db->where('id_produk', $id);
+        return $this->db->update('produk', $data);
+    }
+    // Edit event
+    public function editEvent($id, $data)
+    {
+        $this->db->where('id_event', $id);
+        return $this->db->update('event', $data);
+	}
+    
+    function fetch_filter_type($jenis_produk)
+    {
+        $this->db->distinct();
+        $this->db->select($jenis_produk);
+        $this->db->from('produk');
+        return $this->db->get();
+        
+    }
+    function make_query($jenis_produk)
+    {
+        $query = "
+        SELECT * FROM product
+        ";
+
+        if(isset($jenis_produk))
+        {
+        $jenis_produk_filter = implode("','", $jenis_produk);
+        $query .= "
+            AND product_jenis_produk IN('".$jenis_produk_filter."')
+        ";
+        }
+
+        return $query;
+    }
+
+    function count_all( $jenis_produk)
+    {
+        $query = $this->make_query($jenis_produk);
+        $data = $this->db->query($query);
+        return $data->num_rows();
+    }
+
+    function fetch_data($jenis_produk)
+    {
+        $query = $this->make_query($jenis_produk);
+
+        //   $query .= ' LIMIT '.$start.', ' . $limit;
+
+        $data = $this->db->query($query);
+
+        $output = '';
+        if($data->num_rows() > 0)
+        {
+            foreach($data->result_array() as $row)
+            {
+                $output .= '
+                <div class="col-sm-4 col-lg-3 col-md-3">
+                <div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
+                <img src="'.base_url().'Assets/user/images/Produk/'. $row['foto_produk'] .'" alt="" class="img-responsive" >
+                <p align="center"><strong><a href="#">'. $row['nama_produk'] .'</a></strong></p>
+                <h4 style="text-align:center;" class="text-danger" >'. $row['harga_produk'] .'</h4>
+                <p>
+                jenis_produk : '. $row['product_jenis_produk'] .' <br />
+                </p>
+                </div>
+                </div>
+                ';
+            }
+        }
+        else
+        {
+            $output = '<h3>No Data Found</h3>';
+        }
+        return $output;
+    }
+}
+
+?>
+>>>>>>> 377fbf884293ef0e3ed388f550bf96c924a3264b

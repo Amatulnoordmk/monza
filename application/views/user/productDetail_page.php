@@ -2,16 +2,11 @@
 	<div class="row">
 		<div class="col">
 
-			<!-- Breadcrumbs -->
+			<!-- Button back -->
 
-			<div class="breadcrumbs d-flex flex-row align-items-center">
-				<ul>
-					<li><a href="index.html">Beranda</a></li>
-					<li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pakaian</a></li>
-					<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Pakaian Pria</a>
-					</li>
-				</ul>
-			</div>
+			<button onclick="history.back()" class="btn"
+				style="color: #f1873b; background-color: white; cursor: pointer;"><i
+					class="fa fa-arrow-left"></i>&nbsp&nbspKembali</button>
 
 		</div>
 	</div>
