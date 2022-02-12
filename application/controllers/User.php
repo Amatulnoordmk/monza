@@ -72,7 +72,7 @@ class User extends CI_Controller {
 	{
 		$data['produk'] = $this->User_model->barang_murah()->result();
         $this->load->view('user/include/header');
-		$this->load->view('user/include/sidebar');
+		$this->load->view('user/include/sidebar_bayar');
 		$this->load->view('user/cheapProduct_page',$data);
         $this->load->view('user/include/footer');
 	}
@@ -149,7 +149,6 @@ class User extends CI_Controller {
         $this->session->set_userdata('isLogin')=="0";
         $this->session->sess_destroy();
         redirect('');
-<<<<<<< HEAD
     }
 
 	// Fungsi daftar/register
@@ -205,9 +204,6 @@ class User extends CI_Controller {
 			echo false;
 		}
 	}
-=======
-    }	
->>>>>>> 377fbf884293ef0e3ed388f550bf96c924a3264b
 	
 	// Update profil user
 	public function updateProfil($id) {
@@ -453,90 +449,22 @@ class User extends CI_Controller {
 		// $data['produk'] = $this->User_model->barang_gratis()->result();
 		$data['produk']= $this->User_model->kategori_gratis($jenis_produk)->result();
 		$this->load->view('user/include/header');
-		$this->load->view('user/include/sidebar',);
+		$this->load->view('user/include/sidebar');
 		$this->load->view('user/freeProduct_page',$data);
         $this->load->view('user/include/footer');
 
-<<<<<<< HEAD
+	}
+	public function kategori_bayar($jenis_produk)
+	{	
+		// $data['produk'] = $this->User_model->barang_gratis()->result();
+		$data['produk']= $this->User_model->kategori_bayar($jenis_produk)->result();
+		$this->load->view('user/include/header');
+		$this->load->view('user/include/sidebar_bayar');
+		$this->load->view('user/cheapProduct_page',$data);
+        $this->load->view('user/include/footer');
+
 	}
 
-	// 	function fetch_data()
-	// 	{
-	// 		sleep(1);
-	// $jenis_produk = $this->input->post('jenis_produk');
-	// $this->load->library('pagination');
-	// $config = array();
-	// $config['base_url'] = '#';
-	// $config['total_rows'] = $this->product_filter_model->count_all($jenis_produk);
-	// $config['per_page'] = 8;
-	// $config['uri_segment'] = 3;
-	// $config['use_page_numbers'] = TRUE;
-	// $config['full_tag_open'] = '<ul class="pagination">';
-	// $config['full_tag_close'] = '</ul>';
-	// $config['first_tag_open'] = '<li>';
-	// $config['first_tag_close'] = '</li>';
-	// $config['last_tag_open'] = '<li>';
-	// $config['last_tag_close'] = '</li>';
-	// $config['next_link'] = '&gt;';
-	// $config['next_tag_open'] = '<li>';
-	// $config['next_tag_close'] = '</li>';
-	// $config['prev_link'] = '&lt;';
-	// $config['prev_tag_open'] = '<li>';
-	// $config['prev_tag_close'] = '</li>';
-	// $config['cur_tag_open'] = "<li class='active'><a href='#'>";
-	// $config['cur_tag_close'] = '</a></li>';
-	// $config['num_tag_open'] = '<li>';
-	// $config['num_tag_close'] = '</li>';
-	// $config['num_links'] = 3;
-	// $this->pagination->initialize($config);
-	// $page = $this->uri->segment(3);
-	// $start = ($page - 1) * $config['per_page'];
-	// $output = array(
-	// 'pagination_link'  => $this->pagination->create_links(),
-	// 'product_list'   => $this->product_filter_model->fetch_data($config["per_page"], $start,$jenis_produk)
-	// );
-	// echo json_encode($output);
-	// }
-=======
-	function fetch_data()
-	{
-		sleep(1);
-		$jenis_produk = $this->input->post('jenis_produk');
-		$this->load->library('pagination');
-		$config = array();
-		$config['base_url'] = '#';
-		$config['total_rows'] = $this->product_filter_model->count_all($jenis_produk);
-		$config['per_page'] = 8;
-		$config['uri_segment'] = 3;
-		$config['use_page_numbers'] = TRUE;
-		$config['full_tag_open'] = '<ul class="pagination">';
-		$config['full_tag_close'] = '</ul>';
-		$config['first_tag_open'] = '<li>';
-		$config['first_tag_close'] = '</li>';
-		$config['last_tag_open'] = '<li>';
-		$config['last_tag_close'] = '</li>';
-		$config['next_link'] = '&gt;';
-		$config['next_tag_open'] = '<li>';
-		$config['next_tag_close'] = '</li>';
-		$config['prev_link'] = '&lt;';
-		$config['prev_tag_open'] = '<li>';
-		$config['prev_tag_close'] = '</li>';
-		$config['cur_tag_open'] = "<li class='active'><a href='#'>";
-		$config['cur_tag_close'] = '</a></li>';
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-		$config['num_links'] = 3;
-		$this->pagination->initialize($config);
-		$page = $this->uri->segment(3);
-		$start = ($page - 1) * $config['per_page'];
-		$output = array(
-			'pagination_link'  => $this->pagination->create_links(),
-			'product_list'   => $this->product_filter_model->fetch_data($config["per_page"], $start,$jenis_produk)
-		);
-		echo json_encode($output);
-	}
-	
->>>>>>> 377fbf884293ef0e3ed388f550bf96c924a3264b
 	// Edit produk
 	public function editProduk($id)
 	{
@@ -710,8 +638,6 @@ class User extends CI_Controller {
 
 		$this->User_model->editProduk($id, $data);
 		redirect('profil/'.$this->session->userdata('id_user'));
-<<<<<<< HEAD
-=======
 	}
 
 	// Edit Event
@@ -833,6 +759,5 @@ class User extends CI_Controller {
 
 		$this->User_model->editEvent($id, $data);
 		redirect('profil/'.$this->session->userdata('id_user'));
->>>>>>> 377fbf884293ef0e3ed388f550bf96c924a3264b
 	}
 }

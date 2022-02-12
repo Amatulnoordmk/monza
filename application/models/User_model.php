@@ -201,10 +201,16 @@ class User_model extends CI_Model
         $this->db->where('id_event', $id);
         $this->db->delete('event');
     }
-<<<<<<< HEAD
     public function kategori_gratis($jenis_produk)
     {   
-        $this->db->where('jenis_produk',$jenis_produk);
+        $array = array('jenis_produk' => $jenis_produk, 'kategori_produk' => 'F');
+        $this->db->where($array);
+        return $this->db->get('produk_v');
+    }
+    public function kategori_bayar($jenis_produk)
+    {   
+        $array = array('jenis_produk' => $jenis_produk, 'kategori_produk' => 'P');
+        $this->db->where($array);
         return $this->db->get('produk_v');
     }
     
@@ -276,8 +282,7 @@ class User_model extends CI_Model
 //     }
 
 //     
- }
-=======
+ 
 
     // Edit produk
     public function editProduk($id, $data)
@@ -360,4 +365,3 @@ class User_model extends CI_Model
 }
 
 ?>
->>>>>>> 377fbf884293ef0e3ed388f550bf96c924a3264b
