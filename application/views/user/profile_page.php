@@ -25,9 +25,7 @@
 	<div class="row">
 		<div class="col-sm-12 col-md-4 col-md-4">
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-					alt="Card image cap">
+				<img class="card-img-top" src="<?=base_url();?>assets/user/images/user.png" alt="Card image cap">
 				<div class="card-body">
 					<div class="text-center">
 						<h5 class="card-title"><?= $user->nama_lengkap ?></h5>
