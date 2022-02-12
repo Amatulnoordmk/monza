@@ -42,13 +42,13 @@
 				</label>
 				<select class="form-control" name="jenis_barang" style="color: #1e1e27">
 					<option style="color:black" value="" selected disabled required><?=$event->jenis_produk?></option>
-					<option value="pakaian">Pakaian</option>
-					<option value="elektronik">Elektronik</option>
-					<option value="buku">Buku & Majalah</option>
-					<option value="rumah_tangga">Rumah tangga</option>
-					<option value="olahraga">Hobi & Olahraga</option>
-					<option value="sekolah">Perlengkapan Sekolah</option>
-					<option value="lainnya">Lainnya</option>
+					<option value="Pakaian">Pakaian</option>
+					<option value="Elektronik">Elektronik</option>
+					<option value="Buku">Buku & Majalah</option>
+					<option value="RumahTangga">Rumah tangga</option>
+					<option value="Olahraga">Hobi & Olahraga</option>
+					<option value="Sekolah">Perlengkapan Sekolah</option>
+					<option value="Lainnya">Lainnya</option>
 				</select>
 			</div>
 

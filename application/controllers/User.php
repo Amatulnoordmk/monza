@@ -150,65 +150,7 @@ class User extends CI_Controller {
         $this->session->set_userdata('isLogin')=="0";
         $this->session->sess_destroy();
         redirect('');
-<<<<<<< HEAD
-    }
-
-	// Fungsi daftar/register
-	public function daftar()
-	{
-		// $data = array (
-		// 	'nama_lengkap' => 'nadya',
-		// 	'email' => 'nadya@mail.com',
-		// 	'username' => 'nababan',
-		// 	'password' => 'nababan',				
-		// 	'no_telp' => '081344556677',
-		// 	'id_provinsi' => 14,
-		// 	'id_kota' => 1101,
-		// 	'level_user' => '0'
-		// );
-		$data = array (
-				'nama_lengkap' => $this->input->post("nama"),
-				'email' => $this->input->post("email"),
-				'username' => $this->input->post("username"),
-				'password' => md5($this->input->post("password")),				
-				'no_telp' => '0'.$this->input->post("nomor"),
-				'id_provinsi' => $this->input->post("provinsi"),
-				'id_kota' => $this->input->post("kota"),
-				'level_user' => '0'
-		);			
-			
-			$this->User_model->tambah_user('user', $data);
-			$data2['provinsi'] = $this->User_model->getDataProv()->result();			
-			$this->load->view('user/landing_page', $data2);
-			$this->load->view('user/include/footer');
-	}
-
-	// Cek No telepon yg diinput dengan db
-	public function cekNotel(){
-		$notel = substr($this->input->post('nomor'), 1, 15);
-		$data = $this->User_model->cekNotel($notel);
-		if ($data == true) {
-			echo true;
-		} else {
-			echo false;
-		}
-	}
-
-	// Cak email yg diinput dgn db
-	public function cekEmail()
-	{
-		$email = $this->input->post('email');
-		$data = $this->User_model->cekEmail($email);
-
-		if ($data == true) {
-			echo true;
-		} else {
-			echo false;
-		}
-	}
-=======
     }	
->>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 	
 	// Update profil user
 	public function updateProfil($id) {
@@ -450,44 +392,44 @@ class User extends CI_Controller {
 		redirect('profil/'.$this->session->userdata('id_user'));
 	}
 
-<<<<<<< HEAD
 	function fetch_data()
 	{
 		sleep(1);
-  $jenis_produk = $this->input->post('jenis_produk');
-  $this->load->library('pagination');
-  $config = array();
-  $config['base_url'] = '#';
-  $config['total_rows'] = $this->product_filter_model->count_all($jenis_produk);
-  $config['per_page'] = 8;
-  $config['uri_segment'] = 3;
-  $config['use_page_numbers'] = TRUE;
-  $config['full_tag_open'] = '<ul class="pagination">';
-  $config['full_tag_close'] = '</ul>';
-  $config['first_tag_open'] = '<li>';
-  $config['first_tag_close'] = '</li>';
-  $config['last_tag_open'] = '<li>';
-  $config['last_tag_close'] = '</li>';
-  $config['next_link'] = '&gt;';
-  $config['next_tag_open'] = '<li>';
-  $config['next_tag_close'] = '</li>';
-  $config['prev_link'] = '&lt;';
-  $config['prev_tag_open'] = '<li>';
-  $config['prev_tag_close'] = '</li>';
-  $config['cur_tag_open'] = "<li class='active'><a href='#'>";
-  $config['cur_tag_close'] = '</a></li>';
-  $config['num_tag_open'] = '<li>';
-  $config['num_tag_close'] = '</li>';
-  $config['num_links'] = 3;
-  $this->pagination->initialize($config);
-  $page = $this->uri->segment(3);
-  $start = ($page - 1) * $config['per_page'];
-  $output = array(
-   'pagination_link'  => $this->pagination->create_links(),
-   'product_list'   => $this->product_filter_model->fetch_data($config["per_page"], $start,$jenis_produk)
-  );
-  echo json_encode($output);
-=======
+		$jenis_produk = $this->input->post('jenis_produk');
+		$this->load->library('pagination');
+		$config = array();
+		$config['base_url'] = '#';
+		$config['total_rows'] = $this->product_filter_model->count_all($jenis_produk);
+		$config['per_page'] = 8;
+		$config['uri_segment'] = 3;
+		$config['use_page_numbers'] = TRUE;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['next_link'] = '&gt;';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_link'] = '&lt;';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['cur_tag_open'] = "<li class='active'><a href='#'>";
+		$config['cur_tag_close'] = '</a></li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['num_links'] = 3;
+		$this->pagination->initialize($config);
+		$page = $this->uri->segment(3);
+		$start = ($page - 1) * $config['per_page'];
+		$output = array(
+			'pagination_link'  => $this->pagination->create_links(),
+			'product_list'   => $this->product_filter_model->fetch_data($config["per_page"], $start,$jenis_produk)
+		);
+		echo json_encode($output);
+	}
+	
 	// Edit produk
 	public function editProduk($id)
 	{
@@ -661,7 +603,6 @@ class User extends CI_Controller {
 
 		$this->User_model->editProduk($id, $data);
 		redirect('profil/'.$this->session->userdata('id_user'));
->>>>>>> 3676c0d80f81241130f2823666a44c6e76fa6ed1
 	}
 
 	// Edit Event
