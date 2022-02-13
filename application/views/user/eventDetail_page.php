@@ -72,8 +72,9 @@
 								</div>
 								<div class="col-8">
 									<div class="">
-										<h3 class="card-title"><?= $event->nama_event?>
-										</h3>
+										<h2 class="card-title"><?= $event->nama_event?>
+										</h2>
+										<h4>Diselenggarakan oleh <?= $event->nama_penyelenggara?></h4>
 										<?php
 											$originalDate = $event->waktu_tenggat;
 											$newDate = date("d-m-Y", strtotime($originalDate));

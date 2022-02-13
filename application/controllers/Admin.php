@@ -25,6 +25,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('User_model');
+		$this->load->model('Admin_model');
 		if ($this->session->userdata('isLogin')!="1")
 		{
 			redirect('');
@@ -40,10 +41,13 @@ class Admin extends CI_Controller {
     }
 
 	public function dashboard()
-	{
+	{		
+		$data['user'] = $this->Admin_model->total_user()->num_rows();
+		$data['produk'] = $this->Admin_model->total_produk()->num_rows();
+		$data['event'] = $this->Admin_model->total_event()->num_rows();
         $this->load->view('admin/include/header');
 		$this->load->view('admin/include/sidebar');
-		$this->load->view('admin/dashboard');
+		$this->load->view('admin/dashboard', $data);
         $this->load->view('admin/include/footer');
 	}
 
@@ -119,7 +123,7 @@ class Admin extends CI_Controller {
 	function tolak_event($id_event)
 	{
 		$data = array (
-			'status' => '2'
+			'status' => '0'
 		);
 		$where = array('id_event'=>$id_event);
 		$this->Admin_model->updatestatus_event('event',$data,$where);

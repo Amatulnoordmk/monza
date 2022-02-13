@@ -18,78 +18,60 @@
 		<div class="section-body">
 			<h2 class="section-title">Event Terdaftar</h2>
 			<div class="row">
-				<div class="col-12 col-md-12 col-lg-12">
-					<div class="card p-3">
-						<div class="card-body p-0">
-							<div class="table-responsive">
-								<table class="table table-striped table-md" id="myAlumni">
-									<?php $nomor=1; ?>
-									<thead>
-										<tr>
-											<th>No</th>
-											<th>Nama Donasi</th>
-											<th>Penyelenggara</th>
-											<th>Deskripsi</th>
-											<th>proposal</th>
-											<th>Waktu tenggat</th>
-											<th>Foto</th>
-											<th>status</th>
-											<th>Aksi</th>
-										</tr>
-									</thead>
-									<tbody>
-										<!-- <?php foreach ($event as $key): ?> -->
-										<tr>
-											<td><?= $nomor++; ?></td>
-											<td><?= $key->nama_event ?></td>
-											<td><?= $key->nama_penyelenggara?></td>
-											<td><?= $key->desk_event?></td>
-											<td><a href="<?= base_url('Admin/download/'.$key->id_event) ?>"
-													class="btn btn-primary"><?= $key->proposal_event?></a>
-											</td>
-											<td><?= $key->waktu_tenggat?></td>
-											<td><img src="<?=base_url();?>assets/user/images/Event/<?= $key->foto_event ?>"
-													alt="produk" height="100">
-											</td>
-											<td>
-												<?php
-												$stats = $key->status;
-												if($stats == '0')
-												{
-													echo "<p style='color:red; font-weight:bold;'>" . "Dalam Antrian" . "</p>";
-												}elseif($stats=='1'){
-													echo "<p style='color:green; font-weight:bold;'>" . "Sudah berjalan" . "</p>";
-												}else{
-													echo "<p style='color:orange; font-weight:bold;'>" . "Ditolak" . "</p>";
-												}
-												?>
-											</td>
-											<td>
-												<a class="btn btn-icon btn-sm icon-left btn-primary" data-toggle="modal"
-													data-target="#detailproduk<?= $key->id_event; ?>" type="button">
-													<i class="fa fa-info-circle" aria-hidden="true"
-														style="color:white"></i><span style="color:white"> Detail</span>
-												</a>
-												<a data-target="#hapusalumni<?= $key->id_event; ?>" data-toggle="modal"
-													type="button" class="btn btn-icon btn-sm icon-left btn-danger">
-													<i class="fas fa-trash" style="color:white;"></i><span
-														style="color:white">Hapus</span>
-												</a>
-											</td>
-										</tr>
-										<!-- <?php endforeach; ?> -->
-									</tbody>
-								</table>
+				<?php foreach ($event as $key): ?>
+				<div class="col-12 col-md-6 col-lg-6">
+					<div class="card card-primary">
+						<div class="card-header">
+							<h4><?= substr($key->nama_event, 0, 27) ?>...</h4>
+							<div class="card-header-action">
+								<?php if($key->status == '0'): ?>
+								<a href="<?= base_url('Admin/terima_event/').$key->id_event?>" class="btn btn-success"
+									data-toggle="tooltip" title="posting">
+									<i class="fas fa-arrow-up"></i>
+								</a>
+								<?php elseif($key->status == '1'): ?>
+								<a href="<?= base_url('Admin/tolak_event/').$key->id_event?>" class="btn btn-danger"
+									data-toggle="tooltip" title="turunkan">
+									<i class="fas fa-arrow-down"></i>
+								</a>
+								<?php endif; ?>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"
+										class="btn btn-warning dropdown-toggle">Pilihan</a>
+									<div class="dropdown-menu">
+										<a data-toggle="modal" data-target="#detailproduk<?= $key->id_event; ?>"
+											type="button" class="dropdown-item has-icon" style="cursor: pointer;"><i
+												class="fas fa-eye"></i> Detail</a>
+										<div class="dropdown-divider"></div>
+										<a data-target="#hapusalumni<?= $key->id_event; ?>" data-toggle="modal"
+											type="button" class="dropdown-item has-icon text-danger"><i
+												class="far fa-trash-alt" style="cursor: pointer;"></i>
+											Hapus</a>
+									</div>
+								</div>
 							</div>
+						</div>
+						<div class="card-body">
+							<?php if($key->status == '1'): ?>
+							<h5 class="badge badge-success">disetujui</h5>
+							<?php elseif($key->status == '0'): ?>
+							<h5 class="badge badge-danger">Menunggu</h5>
+							<?php endif; ?>
+							<br><br>
+							<p>Diselenggarakan oleh <?=$key->nama_penyelenggara?></p>
+							<p>Berakhir pada <?=$key->waktu_tenggat?></p>
+							<a href="<?= base_url('Admin/download/'.$key->id_event) ?>"
+								class="btn btn-primary"><?= $key->proposal_event?></a>
 						</div>
 					</div>
 				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
 </div>
 
-<!-- modal hapus alumni -->
+<!-- modal hapus event -->
 <?php foreach($event as $key) :?>
 <div class="modal fade" id="hapusalumni<?= $key->id_event; ?>" role="dialog">
 	<div class="modal-dialog" role="document">

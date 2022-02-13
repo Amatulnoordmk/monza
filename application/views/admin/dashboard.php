@@ -13,7 +13,7 @@
 		</div>
 		<!-- Info -->
 		<div class="row">
-			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-primary">
 						<i class="far fa-user"></i>
@@ -23,12 +23,12 @@
 							<h4>Total User</h4>
 						</div>
 						<div class="card-body">
-							<h4>10</h4>
+							<h4><?=$user?></h4>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
 						<i class="fas fa-briefcase"></i>
@@ -38,37 +38,22 @@
 							<h4>Total Barang</h4>
 						</div>
 						<div class="card-body">
-							<h4>9</h4>
+							<h4><?=$produk?></h4>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-					<i class="fas fa-heart"></i>
+						<i class="fas fa-heart"></i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
 							<h4>Total Event</h4>
 						</div>
 						<div class="card-body">
-							<h4>5</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-				<div class="card card-statistic-1">
-					<div class="card-icon bg-success">
-						<i class="fas fa-hand-holding-usd"></i>	
-					</div>
-					<div class="card-wrap">
-						<div class="card-header">
-							<h4>Total Penjual</h4>
-						</div>
-						<div class="card-body">
-							<h4>2</h4>
+							<h4><?=$event?></h4>
 						</div>
 					</div>
 				</div>

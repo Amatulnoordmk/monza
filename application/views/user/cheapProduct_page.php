@@ -12,7 +12,7 @@
 
 				<div class="product_sorting_container product_sorting_container_top">
 					<ul class="product_sorting">
-						<li>
+						<!-- <li>
 							<span class="type_sorting_text">Urutkan</span>
 							<i class="fa fa-angle-down"></i>
 							<ul class="sorting_type">
@@ -23,7 +23,7 @@
 								<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'>
 									<span>jarak</span></li>
 							</ul>
-						</li>
+						</li> -->
 						<!-- <li>
 							<span>Show</span>
 							<span class="num_sorting_text">6</span>

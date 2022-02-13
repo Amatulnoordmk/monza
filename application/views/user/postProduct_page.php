@@ -120,7 +120,7 @@
 						<option value="Elektronik">Elektronik</option>
 						<option value="Buku">Buku & Majalah</option>
 						<option value="RumahTangga">Rumah tangga</option>
-						<option value="Olahraga">Hobi & Olahraga</option>
+						<option value="Hobi">Hobi & Olahraga</option>
 						<option value="Sekolah">Perlengkapan Sekolah</option>
 						<option value="Lainnya">Lainnya</option>
 					</select>
@@ -176,7 +176,7 @@
 						<option value="Elektronik">Elektronik</option>
 						<option value="Buku">Buku & Majalah</option>
 						<option value="RumahTangga">Rumah tangga</option>
-						<option value="Olahraga">Hobi & Olahraga</option>
+						<option value="Hobi">Hobi & Olahraga</option>
 						<option value="Sekolah">Perlengkapan Sekolah</option>
 						<option value="Lainnya">Lainnya</option>
 					</select>

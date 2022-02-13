@@ -1,3 +1,7 @@
+<?php
+  $notif = $this->Admin_model->antrian_Event()->num_rows();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +10,7 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
 	<title>Dashboard &mdash; Admin</title>
 	<!-- Logo  -->
-	<link rel="shortcut icon" href="">
+	<link rel="shortcut icon" href="<?=base_url();?>assets/user/images/logo-log.png" />
 
 	<!-- General CSS Files -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -48,15 +52,15 @@
 				<ul class="navbar-nav navbar-right">
 					<li class="nav-item">
 						<h6>
-							<a href="" class="nav-link nav-link-lg">
+							<a href="<?=base_url();?>admin/event" class="nav-link nav-link-lg">
 								<i class="far fa-bell"></i>
-								<span class="badge badge-danger">8</span>
+								<span class="badge badge-danger"><?=$notif?></span>
 							</a>
 						</h6>
 					</li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown"
 							class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-							<img alt="image" src="<?=base_url();?>assets/backend/img/avatar-1.png"
+							<img alt="image" src="<?=base_url();?>assets/admin/img/avatar-4.png"
 								class="rounded-circle mr-1">
 							<div class="d-sm-none d-lg-inline-block">Hi,<?= $this->session->userdata('username') ?>
 							</div>

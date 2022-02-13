@@ -32,7 +32,7 @@
 					<?php if ($produk->kategori_produk == 'F'):?>
 					<div class="product_price">Gratis</div>
 					<?php elseif ($produk->kategori_produk == 'P'): ?>
-					<div class="product_price"><?= $produk->harga_produk ?></div>
+					<div class="product_price">Rp <?= $produk->harga_produk ?></div>
 					<?php endif; ?>
 					<p><?= $produk->desk_produk ?></p>
 					<p>Lokasi : <span class="product_price"><?= $produk->kota ?>, <?= $produk->provinsi ?></span></p>
@@ -42,7 +42,8 @@
 					<p>No HP : <span><?= $produk->no_telp ?></span></p>
 				</div>
 				<a href="https://api.whatsapp.com/send?phone=.62<?=$produk->no_telp?>">
-					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+					<div class="free_delivery d-flex flex-row align-items-center justify-content-center" style="color:
+						#1e1e27;">
 						<span class="fa fa-whatsapp"></span>Hubungi via WhatsApp
 					</div>
 				</a>

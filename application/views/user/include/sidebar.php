@@ -7,7 +7,7 @@
 			<div class="breadcrumbs d-flex flex-row align-items-center">
 				<ul>
 					<li>Beranda</li>
-					<li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>Barang</li>
+					<li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>Barang Gratis</li>
 				</ul>
 			</div>
 
@@ -19,17 +19,31 @@
 						<h5>Kategori produk</h5>
 					</div>
 					<ul class="sidebar_categories">
-						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'Elektronik')?>">Elektronik</a></li>
-						<li class="active"><a href="<?= base_url('User/kategori/'.$jenis_produk = 'Pakaian')?>"><span><i
-										class="fa fa-angle-double-right" aria-hidden="true"></i></span>Pakaian</a></li>
-						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'RumahTangga')?>">Rumah tangga</a>
+						<li
+							class="<?php if(current_url() == base_url('User/kategori/'.$jenis_produk = 'Elektronik')){?>active<?php } ?>">
+							<a href="<?= base_url('User/kategori/'.$jenis_produk = 'Elektronik')?>">Elektronik</a></li>
+						<li
+							class="<?php if(current_url() == base_url('User/kategori/'.$jenis_produk = 'Pakaian')){?>active<?php } ?>">
+							<a href="<?= base_url('User/kategori/'.$jenis_produk = 'Pakaian')?>">Pakaian</a>
 						</li>
-						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'Buku')?>">Buku & Majalah</a></li>
-						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'Sekolah')?>">Perlengkapan
+						<li
+							class="<?php if(current_url() == base_url('User/kategori/'.$jenis_produk = 'RumahTangga')){?>active<?php } ?>">
+							<a href="<?= base_url('User/kategori/'.$jenis_produk = 'RumahTangga')?>">Rumah tangga</a>
+						</li>
+						<li
+							class="<?php if(current_url() == base_url('User/kategori/'.$jenis_produk = 'Buku')){?>active<?php } ?>">
+							<a href="<?= base_url('User/kategori/'.$jenis_produk = 'Buku')?>">Buku & Majalah</a></li>
+						<li
+							class="<?php if(current_url() == base_url('User/kategori/'.$jenis_produk = 'Sekolah')){?>active<?php } ?>">
+							<a href="<?= base_url('User/kategori/'.$jenis_produk = 'Sekolah')?>">Perlengkapan
 								Sekolah</a></li>
-						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'Olahraga')?>">Hobi & Olahraga</a>
+						<li
+							class="<?php if(current_url() == base_url('User/kategori/'.$jenis_produk = 'Hobi')){?>active<?php } ?>">
+							<a href="<?= base_url('User/kategori/'.$jenis_produk = 'Hobi')?>">Hobi & Olahraga</a>
 						</li>
-						<li><a href="<?= base_url('User/kategori/'.$jenis_produk = 'Lainnya')?>">Lainnya</a></li>
+						<li
+							class="<?php if(current_url() == base_url('User/kategori/'.$jenis_produk = 'Lainnya')){?>active<?php } ?>">
+							<a href="<?= base_url('User/kategori/'.$jenis_produk = 'Lainnya')?>">Lainnya</a></li>
 					</ul>
 				</div>
 

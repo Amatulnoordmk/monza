@@ -130,6 +130,7 @@ class User_model extends CI_Model
     // Menampilkan semua donasi/event
     function tampil_allEvent()
     {
+        $this->db->where('status', '1');
         return $this->db->get('event_v');
     }
 

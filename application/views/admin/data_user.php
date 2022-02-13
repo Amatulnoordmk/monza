@@ -61,7 +61,8 @@
 														style="color:white"></i><span style="color:white"> Detail</span>
 												</a>
 												<a data-target="#hapusalumni<?= $key->id_user; ?>" data-toggle="modal"
-													type="button" class="btn btn-icon btn-sm icon-left btn-danger">
+													type="button" class="btn btn-icon btn-sm icon-left btn-danger"
+													style="color: white;">
 													<i class="fas fa-trash"></i>Hapus
 												</a>
 											</td>

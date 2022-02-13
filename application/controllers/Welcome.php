@@ -24,6 +24,8 @@ class Welcome extends CI_Controller {
 		$this->load->model('User_model');
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
 		$data['kota'] = $this->User_model->getDataKabupaten()->result();
+		$data['produk'] = $this->User_model->tampil_allProduk()->result();
+		$data['event'] = $this->User_model->tampil_allEventLimit()->result();
 		
 		$this->load->view('user/landing_page', $data);
 		$this->load->view('user/include/footer');

@@ -25,7 +25,7 @@
 
 							<div class="product_sorting_container product_sorting_container_top">
 								<ul class="product_sorting">
-									<li>
+									<!-- <li>
 										<span class="type_sorting_text">Urutkan</span>
 										<i class="fa fa-angle-down"></i>
 										<ul class="sorting_type">
@@ -35,7 +35,7 @@
 											<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'>
 												<span>Waktu</span></li>
 										</ul>
-									</li>
+									</li> -->
 									<!-- <li>
 							<span>Show</span>
 							<span class="num_sorting_text">6</span>
@@ -82,11 +82,13 @@
 											<p style="color: #f1873b"><i class="fa fa-clock-o"></i> Berakhir pada
 												<?= $newDate ?>
 											</p>
-											<h5 class="card-title"><?= $event->desk_event ?>
+											<h5 class="card-title text-center">
+												<?= substr($event->desk_event, 0, 70) ?>....
 											</h5>
-											<p class="card-text" style="color: #f1873b"><?= $event->stok_terkumpul ?>
-												dari <?= $event->stok_butuh ?> terkumpul</p>
 											<center>
+												<p class="card-text" style="color: #f1873b">
+													<?= $event->stok_terkumpul ?>
+													dari <?= $event->stok_butuh ?> terkumpul</p>
 												<a href="<?=base_url();?>detailevent/<?= $event->id_event ?>"
 													class="btn"
 													style="background-color: #f1873b; color: white;">Lihat</a>

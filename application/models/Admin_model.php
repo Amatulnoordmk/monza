@@ -3,6 +3,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin_model extends CI_Model
 {
+    public function antrian_event()
+    {
+        $this->db->where('status', '0');
+        return $this->db->get('event_v');
+    }
+
+    public function total_user()
+    {
+        return $this->db->get('user_v');
+
+    }
+
+    public function total_produk()
+    {
+        return $this->db->get('produk_v');
+
+    }
+
+    public function total_event()
+    {
+        return $this->db->get('event_v');
+
+    }
+
     function barang_gratis()
     {
         $this->db->where('kategori_produk', 'F');
