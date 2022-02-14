@@ -75,7 +75,7 @@
 					<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
 				</div> -->
 				<br>
-				<div class="alert alert-danger d-flex align-items-center" role="alert">
+				<div class="alert-danger d-flex align-items-center p-3" role="alert">
 					<!-- <svg svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
 					<div>
 						<b>Pembayaran hanya via COD.</b> Mohon berhati-hati dalam bertransaksi. Monza hanyalah sarana
