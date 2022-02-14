@@ -60,7 +60,7 @@
 
 			<div class="tab-content mt-3" id="myTabContent">
 				<div class="tab-pane fade show active" id="tabBarang" role="tabpanel" aria-labelledby="home-tab">
-					<div class="product_sorting_container product_sorting_container_top">
+					<!-- <div class="product_sorting_container product_sorting_container_top">
 						<ul class="product_sorting">
 							<li>
 								<span class="type_sorting_text">Filter</span>
@@ -73,7 +73,7 @@
 								</ul>
 							</li>
 						</ul>
-					</div>
+					</div> -->
 					<div class="row">
 						<!-- Product 1 -->
 						<?php foreach($produk as $pro) : ?>
@@ -97,7 +97,7 @@
 										<?php if ($pro->kategori_produk == 'F'):?>
 										<div class="product_price">Gratis</div>
 										<?php elseif ($pro->kategori_produk == 'P'):?>
-										<div class="product_price"><?= $pro->harga_produk ?></div>
+										<div class="product_price">Rp <?= number_format($pro->harga_produk) ?></div>
 										<?php endif; ?>
 									</div>
 								</div>
