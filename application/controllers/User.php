@@ -314,7 +314,7 @@ class User extends CI_Controller {
 			$config['upload_path'] = './assets/user/images/Produk/';
 			$config['allowed_types'] = 'jpg|jpeg|png';
 			$config['overwrite'] = true;
-			$config['max_size'] = 5000;
+			$config['max_size'] = 5050;
 			$config['max_width'] = 5000;
 			$config['max_height'] = 5000;
 			$config['file_name'] = $file_name;
