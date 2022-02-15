@@ -30,7 +30,7 @@
 					<div class="text-center">
 						<h5 class="card-title"><?= $user->nama_lengkap ?></h5>
 						<p class="card-text">
-							<td><span class="ti-location-pin"></span> <?= $user->provinsi ?></td>
+							<td><span class="ti-location-pin"></span> <?= $user->provinsi?>, <?= $user->kota  ?></td>
 						</p>
 						<p class="card-text">
 							<td><span class="fa fa-whatsapp"></span> <?= $user->no_telp ?></td>
@@ -43,8 +43,8 @@
 		</div>
 
 		<div class="col-sm-12 col-md-8 col-lg-8">
-			<a href="<?=base_url('postproduk/'.$user->id_user)?>" class="btn btn-outline-warning float-right"
-				style="color:#f1873b;" type="button">Bagikan</a>
+			<!-- <a href="<?=base_url('postproduk/'.$user->id_user)?>" class="btn btn-outline-warning float-right"
+				style="color:#f1873b;" type="button">Bagikan</a> -->
 
 			<!-- Nav -->
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -54,7 +54,7 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" id="profile-tab" data-toggle="tab" href="#tabEvent" role="tab"
-						aria-controls="profile" aria-selected="false" style="color: #f1873b;">Event</a>
+						aria-controls="profile" aria-selected="false" style="color: #f1873b;">Donasi</a>
 				</li>
 			</ul>
 
@@ -96,8 +96,10 @@
 										</h6>
 										<?php if ($pro->kategori_produk == 'F'):?>
 										<div class="product_price">Gratis</div>
+										<p><small><?= $pro->kota ?>, <?= $pro->provinsi ?></small></p>
 										<?php elseif ($pro->kategori_produk == 'P'):?>
 										<div class="product_price"><?= $pro->harga_produk ?></div>
+										<p><small><?= $pro->kota ?>, <?= $pro->provinsi ?></small></p>
 										<?php endif; ?>
 									</div>
 								</div>
@@ -135,156 +137,157 @@
 					</div>
 				</div>
 			</div>
+			<!-- </div> -->
 		</div>
 	</div>
-</div>
 
-<!-- modal edit profil -->
-<div class="modal fade" id="modaleditprofil">
-	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header center">
-				<div class="col-md-4 offset-md-4">
-					<center>
-						<a href="#"><img src="<?=base_url();?>assets/user/images/logo-log.png" alt="" height="65"></a>
-						<h4 class="modal-title w-100 font-weight-bold">Edit Profil
-						</h4>
-					</center>
+	<!-- modal edit profil -->
+	<div class="modal fade" id="modaleditprofil">
+		<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header center">
+					<div class="col-md-4 offset-md-4">
+						<center>
+							<a href="#"><img src="<?=base_url();?>assets/user/images/logo-log.png" alt=""
+									height="65"></a>
+							<h4 class="modal-title w-100 font-weight-bold">Edit Profil
+							</h4>
+						</center>
+					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body p-5">
-				<form method="POST" action="<?= base_url('user/updateProfil/'.$user->id_user)?>"
-					enctype="multipart/form-data">
-					<div class="row">
-						<div class="form-group col-md-6 col-12">
-							<label>Nama Lengkap</label>
-							<input type="hidden" name="id_user" value="<?= $user->id_user ?>">
-							<input type="text" name="nama_lengkap" class="form-control" style="color: #1e1e27"
-								value="<?= $user->nama_lengkap ?>">
-						</div>
-						<div class="form-group col-md-6 col-12">
-							<label>Nomor Handphone</label>
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<button class="btn btn-secondary" type="button" id="button-addon1"
-										disabled>+62</button>
+				<div class="modal-body p-5">
+					<form method="POST" action="<?= base_url('user/updateProfil/'.$user->id_user)?>"
+						enctype="multipart/form-data">
+						<div class="row">
+							<div class="form-group col-md-6 col-12">
+								<label>Nama Lengkap</label>
+								<input type="hidden" name="id_user" value="<?= $user->id_user ?>">
+								<input type="text" name="nama_lengkap" class="form-control" style="color: #1e1e27"
+									value="<?= $user->nama_lengkap ?>">
+							</div>
+							<div class="form-group col-md-6 col-12">
+								<label>Nomor Handphone</label>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-secondary" type="button" id="button-addon1"
+											disabled>+62</button>
+									</div>
+									<input type="text" name="nomor" id="nomor" class="form-control"
+										value="<?= substr($user->no_telp, 1, 15) ?>" aria-describedby="addon-wrapping"
+										aria-describedby="inputGroup-sizing-default"
+										onkeypress="return isNumberKey(event)" maxlength="13" style="color: #1e1e27">
 								</div>
-								<input type="text" name="nomor" id="nomor" class="form-control"
-									value="<?= substr($user->no_telp, 1, 15) ?>" aria-describedby="addon-wrapping"
-									aria-describedby="inputGroup-sizing-default" onkeypress="return isNumberKey(event)"
-									maxlength="13" style="color: #1e1e27">
 							</div>
 						</div>
+						<div class="row">
+							<div class="form-group col-md-6 col-12">
+								<label>Email</label>
+								<input type="email" name="email" style="color: #1e1e27" class="form-control"
+									onkeyup="cekEmail" value="<?= $user->email?>">
+							</div>
+							<div class="form-group col-md-6 col-12">
+								<label>Username</label>
+								<input type="text" name="username" class="form-control" style="color: #1e1e27"
+									value="<?= $user->username?>">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6 col-12">
+								<label>Password</label>
+								<input type="password" name="password" class="form-control" style="color: #1e1e27">
+							</div>
+							<div class="form-group col-md-6 col-12">
+								<label>Konfirmasi Password</label>
+								<input type="password" name="konfirPass" class="form-control" style="color: #1e1e27">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6 col-12">
+								<label for="provinsi">Provinsi</label>
+								<select class="form-control" id="provinsi" name="provinsi" style="color: #1e1e27">
+									<option value="" selected disabled>
+										<?= $user->provinsi; ?></option>
+									<?php foreach($provinsi as $prov): ?>
+									<option value="<?= $prov->id_provinsi; ?>">
+										<?= $prov->nama; ?></option>
+									<?php endforeach; ?>
+								</select>
+							</div>
+							<div class="form-group col-md-6 col-12">
+								<label for="kota">Kabupaten/Kota</label>
+								<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
+									<option value="" selected disabled>
+										<?= $user->kota; ?></option>
+									<option value="3">Medan</option>
+								</select>
+							</div>
+						</div>
+						<center>
+							<br><button type="submit" class="btn btn-lg btn-block"
+								style="background-color:#f1873b; color:white;">Simpan
+								Perubahan</button>
+						</center>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- modal hapus produk -->
+	<?php foreach ($produk as $pro): ?>
+	<div class="modal fade" id="hapusproduk<?= $pro->id_produk ?>" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"></h5>
+				</div>
+				<form action="" method="post">
+					<div class="modal-body text-center">
+						<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+						<h5>Produk yang sudah dihapus tidak akan bisa dipulihkan lagi</h5>
+						<div class="form-group">
+							<input type="text" class="form-control" name="idproduk" hidden>
+						</div>
 					</div>
-					<div class="row">
-						<div class="form-group col-md-6 col-12">
-							<label>Email</label>
-							<input type="email" name="email" style="color: #1e1e27" class="form-control"
-								onkeyup="cekEmail" value="<?= $user->email?>">
-						</div>
-						<div class="form-group col-md-6 col-12">
-							<label>Username</label>
-							<input type="text" name="username" class="form-control" style="color: #1e1e27"
-								value="<?= $user->username?>">
-						</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+						<a href="<?=base_url();?>user/hapusProduk/<?= $pro->id_produk ?>" type="button"
+							class="btn btn-danger" style="color: white;">Hapus</a>
 					</div>
-					<div class="row">
-						<div class="form-group col-md-6 col-12">
-							<label>Password</label>
-							<input type="password" name="password" class="form-control" style="color: #1e1e27">
-						</div>
-						<div class="form-group col-md-6 col-12">
-							<label>Konfirmasi Password</label>
-							<input type="password" name="konfirPass" class="form-control" style="color: #1e1e27">
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-md-6 col-12">
-							<label for="provinsi">Provinsi</label>
-							<select class="form-control" id="provinsi" name="provinsi" style="color: #1e1e27">
-								<option value="" selected disabled>
-									<?= $user->provinsi; ?></option>
-								<?php foreach($provinsi as $prov): ?>
-								<option value="<?= $prov->id_provinsi; ?>">
-									<?= $prov->nama; ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-						<div class="form-group col-md-6 col-12">
-							<label for="kota">Kabupaten/Kota</label>
-							<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
-								<option value="" selected disabled>
-									<?= $user->kota; ?></option>
-								<option value="3">Medan</option>
-							</select>
-						</div>
-					</div>
-					<center>
-						<br><button type="submit" class="btn btn-lg btn-block"
-							style="background-color:#f1873b; color:white;">Simpan
-							Perubahan</button>
-					</center>
 				</form>
 			</div>
 		</div>
 	</div>
-</div>
+	<?php endforeach; ?>
+	<!-- end modal -->
 
-<!-- modal hapus produk -->
-<?php foreach ($produk as $pro): ?>
-<div class="modal fade" id="hapusproduk<?= $pro->id_produk ?>" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title"></h5>
-			</div>
-			<form action="" method="post">
-				<div class="modal-body text-center">
-					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Produk yang sudah dihapus tidak akan bisa dipulihkan lagi</h5>
-					<div class="form-group">
-						<input type="text" class="form-control" name="idproduk" hidden>
+	<!-- modal hapus event -->
+	<?php foreach ($event as $key): ?>
+	<div class="modal fade" id="hapusevent<?= $key->id_event; ?>" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"></h5>
+				</div>
+				<form action="" method="post">
+					<div class="modal-body text-center">
+						<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
+						<h5>Event yang sudah dihapus tidak akan bisa dipulihkan lagi</h5>
+						<div class="form-group">
+							<input type="text" class="form-control" name="idproduk" hidden>
+						</div>
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<a href="<?=base_url();?>user/hapusProduk/<?= $pro->id_produk ?>" type="button"
-						class="btn btn-danger" style="color: white;">Hapus</a>
-				</div>
-			</form>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+						<a href="<?=base_url();?>user/hapusEvent/<?=$key->id_event?>" type="button"
+							class="btn btn-danger" style="color: white;">Hapus</a>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
-<?php endforeach; ?>
-<!-- end modal -->
-
-<!-- modal hapus event -->
-<?php foreach ($event as $key): ?>
-<div class="modal fade" id="hapusevent<?= $key->id_event; ?>" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title"></h5>
-			</div>
-			<form action="" method="post">
-				<div class="modal-body text-center">
-					<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-					<h5>Event yang sudah dihapus tidak akan bisa dipulihkan lagi</h5>
-					<div class="form-group">
-						<input type="text" class="form-control" name="idproduk" hidden>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-					<a href="<?=base_url();?>user/hapusEvent/<?=$key->id_event?>" type="button" class="btn btn-danger"
-						style="color: white;">Hapus</a>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-<?php endforeach; ?>
-<!-- end modal -->
+	<?php endforeach; ?>
+	<!-- end modal -->

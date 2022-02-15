@@ -81,8 +81,10 @@
 									href="<?=base_url();?>detailproduk"><?= $produk->nama_produk ?></a></h6>
 							<?php if ($produk->kategori_produk == 'F'): ?>
 							<div class="product_price">Gratis</div>
+							<p><small><?= $produk->kota ?>, <?= $produk->provinsi ?></small></p>
 							<?php elseif ($produk->kategori_produk == 'P'): ?>
 							<div class="product_price"><?= $produk->harga_produk ?></div>
+							<p><small><?= $produk->kota ?>, <?= $produk->provinsi ?></small></p>
 							<?php endif; ?>
 						</div>
 					</div>

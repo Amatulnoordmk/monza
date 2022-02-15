@@ -60,7 +60,7 @@
 									<li><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
 									<li><a href="<?= base_url(); ?>donasi">Donasi</a></li>
 									<li><a
-											href="<?= base_url('postproduk/'.$this->session->userdata('id_user')); ?>">Jual</a>
+											href="<?= base_url('postproduk/'.$this->session->userdata('id_user')); ?>">tambahkan</a>
 									</li>
 								</ul>
 								<!-- <ul class="navbar_user">
@@ -113,6 +113,14 @@
 										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 											<a class="dropdown-item"
 												href="<?= base_url('profil/'.$this->session->userdata('id_user')) ?>">Profil</a>
+
+											<a href="<?=base_url('postproduk/'.$this->session->userdata('id_user')); ?>"
+												class="dropdown-item">Tambah
+												Barang</a>
+
+											<a href="<?= base_url('postevent/'.$this->session->userdata('id_user')); ?>"
+												class="dropdown-item">Ajukan
+												Donasi</a>
 											<a href="<?=base_url('user/logout')?>" class="dropdown-item">Keluar</a>
 										</div>
 									</li>
@@ -140,7 +148,7 @@
 					<li class="menu_item"><a href="#">beranda</a></li>
 					<li class="menu_item"><a href="#">gratis</a></li>
 					<li class="menu_item"><a href="#">termurah</a></li>
-					<li class="menu_item"><a href="#">jual</a></li>
+					<li class="menu_item"><a href="#">tambahkan</a></li>
 				</ul>
 			</div>
 		</div>

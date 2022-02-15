@@ -72,6 +72,7 @@
 									<h6 class="product_name"><a href=""><?= $pro->nama_produk ?></a></h6>
 									<h6 class="product_name"><?= $pro->jenis_produk ?></h6>
 									<div class="product_price">Rp <?= number_format($pro->harga_produk) ?></div>
+									<p><small><?= $pro->kota ?>, <?= $pro->provinsi ?></small></p>
 								</div>
 							</div>
 						</a>

@@ -72,16 +72,11 @@
 									</h6>
 									<h6 class="product_name"><?= $pro->jenis_produk ?></h6>
 									<div class="product_price">Gratis</div>
+									<p><small><?= $pro->kota ?>, <?= $pro->provinsi ?></small></p>
 								</div>
 							</div>
-						</a>
-					</div>
-					<?php endforeach; ?>
-				</div>
-
-
-
-				<!-- Product Sorting -->
+						</a> </div> <?php endforeach; ?>
+				</div> <!-- Product Sorting -->
 
 				<!-- <div class="product_sorting_container product_sorting_container_bottom clearfix">
 					<ul class="product_sorting">

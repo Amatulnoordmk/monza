@@ -9,6 +9,11 @@
 					<li>Beranda</li>
 					<li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>Donasi</li>
 				</ul>
+				<div class="col-sm-12 col-md-10 col-lg-10">
+					<a href="<?= base_url('postevent/'.$this->session->userdata('id_user')); ?>"
+						class="btn btn-outline-warning float-right" style="color:#f1873b;" type="button">Tambahkan
+						Donasi</a>
+				</div>
 			</div>
 
 			<!-- Main Content -->
