@@ -52,6 +52,7 @@ class Daftar extends CI_Controller {
 		);			
 			
 			$this->User_model->tambah_user('user', $data);
+			$this->session->set_flashdata('daftar','Anda Berhasil Daftar! Silakan Masuk untuk Mulai Berbagi');
 			redirect();
 	}
 

@@ -109,6 +109,11 @@
 
 		<div class="main_slider" style="background-image:url(<?=base_url();?>assets/user/images/slider__1.jpeg)">
 			<div class="container fill_height">
+				<?php if ($this->session->flashdata('daftar')) : ?>
+				<div class="alert alert-success" id="alertLogin" role="alert">
+					<?= $this->session->flashdata('daftar') ?>
+				</div>
+				<?php endif; ?>
 				<div class="row align-items-center fill_height">
 					<div class="col">
 						<div class="main_slider_content">
