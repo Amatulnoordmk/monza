@@ -132,9 +132,18 @@ class Admin extends CI_Controller {
 	function download($id)
 	{ 
 		$this->load->helper('download');
-		$this->load->helper('download');
+		// $this->load->helper('download');
 		$fileinfo = $this->Admin_model->download($id);
 		$file = 'Assets/admin/Proposal/'.$fileinfo['proposal_event'];
+		force_download($file, NULL);
+	}
+
+	function downloadKTP($id)
+	{ 
+		$this->load->helper('download');
+		// $this->load->helper('download');
+		$fileinfo = $this->Admin_model->download($id);
+		$file = 'Assets/admin/KTP/'.$fileinfo['ktp_penyelenggara'];
 		force_download($file, NULL);
 	}
 }

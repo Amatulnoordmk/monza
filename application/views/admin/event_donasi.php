@@ -60,8 +60,13 @@
 							<br><br>
 							<p>Diselenggarakan oleh <?=$key->nama_penyelenggara?></p>
 							<p>Berakhir pada <?=$key->waktu_tenggat?></p>
+							<p>Proposal Acara :</p>
 							<a href="<?= base_url('Admin/download/'.$key->id_event) ?>"
 								class="btn btn-primary"><?= $key->proposal_event?></a>
+							<br><br>
+							<p>KTP Penyelenggara :</p>
+							<a href="<?= base_url('Admin/downloadKTP/'.$key->id_event) ?>"
+								class="btn btn-info"><?= $key->ktp_penyelenggara?></a>
 						</div>
 					</div>
 				</div>
