@@ -63,14 +63,14 @@
 							<!-- Detail donasi -->
 
 							<div class="row mt-4">
-								<div class="col-4">
+								<div class="col-sm-12 col-md-4 col-lg-4">
 									<div class="card" style="width: 20rem;">
 										<img class="card-img-top"
 											src="<?=base_url();?>assets/user/images/Event/<?= $event->foto_event ?>"
 											alt="Card image cap">
 									</div>
 								</div>
-								<div class="col-8">
+								<div class="col-sm-12 col-md-8 col-lg-8">
 									<div class="">
 										<h2 class="card-title"><?= $event->nama_event?>
 										</h2>
@@ -90,41 +90,6 @@
 									</div>
 								</div>
 							</div>
-
-
-							<!-- Product Sorting -->
-
-							<!-- <div class="product_sorting_container product_sorting_container_bottom clearfix">
-					<ul class="product_sorting">
-						<li>
-							<span>Show:</span>
-							<span class="num_sorting_text">04</span>
-							<i class="fa fa-angle-down"></i>
-							<ul class="sorting_num">
-								<li class="num_sorting_btn"><span>01</span></li>
-								<li class="num_sorting_btn"><span>02</span></li>
-								<li class="num_sorting_btn"><span>03</span></li>
-								<li class="num_sorting_btn"><span>04</span></li>
-							</ul>
-						</li>
-					</ul>
-					<span class="showing_results">Showing 1–3 of 12 results</span>
-					<div class="pages d-flex flex-row align-items-center">
-						<div class="page_current">
-							<span>1</span>
-							<ul class="page_selection">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-							</ul>
-						</div>
-						<div class="page_total"><span>of</span> 3</div>
-						<div id="next_page_1" class="page_next"><a href="#"><i class="fa fa-long-arrow-right"
-									aria-hidden="true"></i></a></div>
-					</div>
-
-				</div> -->
-
 						</div>
 					</div>
 				</div>

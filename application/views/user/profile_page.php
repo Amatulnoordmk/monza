@@ -77,11 +77,11 @@
 					<div class="row">
 						<!-- Product 1 -->
 						<?php foreach($produk as $pro) : ?>
-						<div class="col-md-4">
+						<div class="col-sm-12 col-md-4 col-lg-4">
 							<a href="<?= base_url(); ?>editproduk/<?= $pro->id_produk ?>">
 								<div class="product-itm">
 									<div class="product_image">
-										<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
+										<img src="<?=base_url();?>assets/user/images/Produk/thumb/<?= $pro->foto_produk ?>"
 											alt="produk">
 									</div>
 									<div class="favorite favorite_left"></div>
@@ -99,6 +99,7 @@
 										<p><small><?= $pro->kota ?>, <?= $pro->provinsi ?></small></p>
 										<?php elseif ($pro->kategori_produk == 'P'):?>
 										<div class="product_price">Rp <?= number_format($pro->harga_produk) ?></div>
+										<p><small><?= $pro->kota ?>, <?= $pro->provinsi ?></small></p>
 										<?php endif; ?>
 									</div>
 								</div>
@@ -220,7 +221,9 @@
 								<select class="form-control" id="kota" name="kota" style="color: #1e1e27">
 									<option value="" selected disabled>
 										<?= $user->kota; ?></option>
-									<option value="3">Medan</option>
+									<?php foreach($kota as $k): ?>
+									<option value="<?= $k->id_kota ?>"><?= $k->nama ?></option>
+									<?php endforeach; ?>
 								</select>
 							</div>
 						</div>

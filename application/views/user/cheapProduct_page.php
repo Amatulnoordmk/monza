@@ -62,7 +62,7 @@
 							<div class="product-itm">
 								<div class=" product_image">
 									<!-- <a href=""> -->
-									<img src="<?=base_url();?>assets/user/images/Produk/<?= $pro->foto_produk ?>"
+									<img src="<?=base_url();?>assets/user/images/Produk/thumb/<?= $pro->foto_produk ?>"
 										alt="produk">
 									<!-- </a> -->
 								</div>

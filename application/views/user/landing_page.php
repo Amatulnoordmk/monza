@@ -180,7 +180,7 @@
 						<a href="#modalLoginForm" data-toggle="modal">
 							<div class="product-itm">
 								<div class=" product_image">
-									<img src="<?=base_url();?>assets/user/images/Produk/<?= $produk->foto_produk ?>"
+									<img src="<?=base_url();?>assets/user/images/Produk/thumb/<?= $produk->foto_produk ?>"
 										alt="">
 								</div>
 								<div class="favorite favorite_left"></div>
@@ -189,8 +189,10 @@
 											href="<?=base_url();?>detailproduk"><?= $produk->nama_produk ?></a></h6>
 									<?php if ($produk->kategori_produk == 'F'): ?>
 									<div class="product_price">Gratis</div>
+									<p><small><?= $produk->kota ?>, <?= $produk->provinsi ?></small></p>
 									<?php elseif ($produk->kategori_produk == 'P'): ?>
 									<div class="product_price">Rp <?= number_format($produk->harga_produk) ?></div>
+									<p><small><?= $produk->kota ?>, <?= $produk->provinsi ?></small></p>
 									<?php endif; ?>
 								</div>
 							</div>

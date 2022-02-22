@@ -145,10 +145,12 @@
 			<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="hamburger_menu_content text-right">
 				<ul class="menu_top_nav">
-					<li class="menu_item"><a href="#">beranda</a></li>
-					<li class="menu_item"><a href="#">gratis</a></li>
-					<li class="menu_item"><a href="#">termurah</a></li>
-					<li class="menu_item"><a href="#">tambahkan</a></li>
+					<li class="menu_item"><a href="<?= base_url(); ?>beranda">Beranda</a></li>
+					<li class="menu_item"><a href="<?= base_url(); ?>produkgratis">Gratis</a></li>
+					<li class="menu_item"><a href="<?= base_url(); ?>produkmurah">Termurah</a></li>
+					<li class="menu_item"><a href="<?= base_url(); ?>donasi">Donasi</a></li>
+					<li class="menu_item"><a
+							href="<?=base_url('postproduk/'.$this->session->userdata('id_user')); ?>">Tambahkan</a></li>
 				</ul>
 			</div>
 		</div>
