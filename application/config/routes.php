@@ -85,6 +85,8 @@ $route['kontak'] = "user/contact_page";
 $route['produkgratis'] = "user/freeProduct_page";
 // Barang Murah
 $route['produkmurah'] = "user/cheapProduct_page";
+// Barang Murah
+$route['semuaproduk'] = "user/allproduct";
 // Post Produk
 $route['postproduk/(:any)'] = "user/postProduct_page/$1";
 // Post Event

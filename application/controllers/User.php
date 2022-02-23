@@ -66,6 +66,15 @@ class User extends CI_Controller {
 		$this->load->view('user/freeProduct_page',$data);
         $this->load->view('user/include/footer');
 	}
+	// Halaman semua produk 
+	public function allProduct_page()
+	{	
+		$data['produk'] = $this->User_model->semua_barang()->result();
+        $this->load->view('user/include/header');
+		$this->load->view('user/include/sidebar_all');
+		$this->load->view('user/allproduct',$data);
+        $this->load->view('user/include/footer');
+	}
 
 	// Halaman produk murah
 	public function cheapProduct_page()
@@ -470,6 +479,16 @@ class User extends CI_Controller {
 		$this->load->view('user/include/header');
 		$this->load->view('user/include/sidebar');
 		$this->load->view('user/freeProduct_page',$data);
+        $this->load->view('user/include/footer');
+
+	}
+	public function kategori_all($jenis_produk)
+	{	
+		// $data['produk'] = $this->User_model->barang_gratis()->result();
+		$data['produk']= $this->User_model->kategori_all($jenis_produk)->result();
+		$this->load->view('user/include/header');
+		$this->load->view('user/include/sidebar_all');
+		$this->load->view('user/allproduct',$data);
         $this->load->view('user/include/footer');
 
 	}

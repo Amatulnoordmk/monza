@@ -22,6 +22,24 @@
 	</div>
 </div>
 
+<div class="container">
+	<h3>Kategori</h3>
+	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Elektronik')?>"><img
+			src="<?=base_url();?>assets/user/images/icon/electronic.png" alt="elektronik" style="height:75px"></a>
+	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Pakaian')?>"><img
+			src="<?=base_url();?>assets/user/images/icon/pakaian.png" alt="pakaian" style="height:75px"></a>
+	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Buku')?>"><img
+			src="<?=base_url();?>assets/user/images/icon/buku.png" alt="buku" style="height:75px"></a>
+	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'RumahTangga')?>"><img
+			src="<?=base_url();?>assets/user/images/icon/rumah.png" alt="rumah" style="height:75px"></a>
+	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Sekolah')?>"><img
+			src="<?=base_url();?>assets/user/images/icon/sekolah.png" alt="sekolah" style="height:75px"></a>
+	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Hobi')?>"><img
+			src="<?=base_url();?>assets/user/images/icon/olahraga.png" alt="olahraga" style="height:75px"></a>
+	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Lainnya')?>"><img
+			src="<?=base_url();?>assets/user/images/icon/lainlain.png" alt="lainlain" style="height:75px"></a>
+
+</div>
 <!-- Banner -->
 
 <div class="banner">
