@@ -18,7 +18,7 @@
 					<div class="col-lg-9 image_col order-lg-2 order-1">
 						<div class="single_product_image">
 							<div class="single_product_image_background"
-								style="background-image:url(<?=base_url();?>assets/user/images/Produk/<?= $produk->foto_produk ?>)">
+								style="background-image:url(<?=base_url();?>assets/user/images/Produk/thumb/<?= $produk->foto_produk ?>)">
 							</div>
 						</div>
 					</div>

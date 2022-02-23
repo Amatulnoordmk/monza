@@ -107,6 +107,7 @@ class User extends CI_Controller {
 	public function profile_page($id)
 	{	
 		$data['provinsi'] = $this->User_model->getDataProv()->result();
+		$data['kota'] = $this->User_model->getDataKabupaten()->result();
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
 		$data['produk'] = $this->User_model->tampil_produk($id)->result();
 		$data['event'] = $this->User_model->tampil_event($id)->result();
@@ -322,48 +323,57 @@ class User extends CI_Controller {
 		{
 			$config['upload_path'] = './assets/user/images/Produk/';
 			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['overwrite'] = true;
-			$config['max_size'] = 5050;
-			$config['max_width'] = 5000;
-			$config['max_height'] = 5000;
-			$config['file_name'] = $file_name;
-			$this->load->library('upload', $config);
+
+			$this->load->library('upload', $config);			
+			
 			if (!$this->upload->do_upload('fotoProduk'))
 			{
 				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event!');
 				redirect('profil/'.$id);
 			} else{
 				$foto = $this->upload->data('file_name');
+
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/user/images/Produk/'.$foto;
+				$config['width'] = '300';
+				$config['height'] = '300';
+				$config['maintain_ratio'] = FALSE;
+				$config['new_image'] = './assets/user/images/Produk/thumb/'.$foto;
+
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+
+				$config['overwrite'] = true;				
+				$config['file_name'] = $file_name;
+
+				if ($this->input->post('katProduk') == 'F')
+				{
+					$data = array (				
+						'id_user' => $id,		
+						'nama_produk' => $this->input->post('nama_produk'),
+						'jenis_produk' => $this->input->post('jenis_barang'),
+						'desk_produk' => $this->input->post('desk_produk'),
+						'foto_produk' => $foto,
+						'kategori_produk' => $this->input->post('katProduk'),
+						'harga_produk' => '0'
+					);		  
+				}else {
+					$data = array (				
+						'id_user' => $id,		
+						'nama_produk' => $this->input->post('nama_produk'),
+						'jenis_produk' => $this->input->post('jenis_barang'),
+						'desk_produk' => $this->input->post('desk_produk'),
+						'foto_produk' => $foto,
+						'kategori_produk' => $this->input->post('katProduk'),
+						'harga_produk' => $this->input->post('harga_produk')
+					);	
+				}
+				$this->User_model->upload_produk($data);
+				redirect('profil/'.$id);				
 			}
 		}else{
 			$file_name = '';
 		}		
-
-		if ($this->input->post('katProduk') == 'F')
-		{
-			$data = array (				
-				'id_user' => $id,		
-				'nama_produk' => $this->input->post('nama_produk'),
-				'jenis_produk' => $this->input->post('jenis_barang'),
-				'desk_produk' => $this->input->post('desk_produk'),
-				'foto_produk' => $foto,
-				'kategori_produk' => $this->input->post('katProduk'),
-				'harga_produk' => '0'
-		  	);		  
-		}else {
-			$data = array (				
-				'id_user' => $id,		
-				'nama_produk' => $this->input->post('nama_produk'),
-				'jenis_produk' => $this->input->post('jenis_barang'),
-				'desk_produk' => $this->input->post('desk_produk'),
-				'foto_produk' => $foto,
-				'kategori_produk' => $this->input->post('katProduk'),
-				'harga_produk' => $this->input->post('harga_produk')
-		  	);	
-		}
-
-		$this->User_model->upload_produk($data);
-		redirect('profil/'.$id);
 	}
 
 	// Upload event
