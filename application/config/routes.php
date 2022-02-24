@@ -69,6 +69,8 @@ $route['event'] = "admin/event_donasi";
 
 //Data User
 $route['data'] = "admin/data_user";
+//Data User
+$route['slider'] = "admin/slider";
 
 
 

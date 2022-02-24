@@ -10,7 +10,8 @@
 		<ul class="sidebar-menu">
 			<li class="menu-header">Dashboard</li>
 			<li class="<?php if(current_url() == base_url('admin/dashboard')){?>active<?php } ?>"><a class="nav-link"
-					href="<?=base_url();?>admin/dashboard"><i class="fas fa-columns"></i> <span>Dashboard</span></a></li>
+					href="<?=base_url();?>admin/dashboard"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
+			</li>
 			<li class="<?php if(current_url() == base_url('admin/data')){?>active<?php } ?>"><a class="nav-link"
 					href="<?=base_url();?>admin/data"><i class="fas fa-users"></i> <span>Data User</span></a></li>
 			<li

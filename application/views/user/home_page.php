@@ -21,10 +21,51 @@
 		</div>
 	</div>
 </div>
+<style type="text/css">
+	td {
+		padding: 0 15px;
+		text-align: center;
+	}
 
+</style>
 <div class="container">
 	<h3>Kategori</h3>
-	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Elektronik')?>"><img
+	<table style="margin-left:auto;margin-right:auto;">
+		<tr>
+			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Elektronik')?>"><img
+						src="<?=base_url();?>assets/user/images/icon/electronic.png" alt="elektronik"
+						style="height:75px"></a></td>
+			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Pakaian')?>"><img
+						src="<?=base_url();?>assets/user/images/icon/pakaian.png" alt="pakaian" style="height:75px"></a>
+			</td>
+			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Buku')?>"><img
+						src="<?=base_url();?>assets/user/images/icon/buku.png" alt="buku" style="height:75px"></a></td>
+			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'RumahTangga')?>"><img
+						src="<?=base_url();?>assets/user/images/icon/rumah.png" alt="rumah" style="height:75px"></a>
+			</td>
+			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Sekolah')?>"><img
+						src="<?=base_url();?>assets/user/images/icon/sekolah.png" alt="sekolah" style="height:75px"></a>
+			</td>
+			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Hobi')?>"><img
+						src="<?=base_url();?>assets/user/images/icon/olahraga.png" alt="olahraga"
+						style="height:75px"></a>
+			</td>
+			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Lainnya')?>"><img
+						src="<?=base_url();?>assets/user/images/icon/lainlain.png" alt="lainlain"
+						style="height:75px"></a>
+			</td>
+		</tr>
+		<tr>
+			<td class="ml-2">Elektronik</td>
+			<td class="ml-2">Pakaian</td>
+			<td class="ml-2">Buku & Majalah</td>
+			<td class="ml-2">Rumah Tangga</td>
+			<td class="ml-2">Peralatan Sekolah</td>
+			<td class="ml-2">Hobi & Olahraga</td>
+			<td class="ml-2">Lainnya</td>
+		</tr>
+	</table>
+	<!-- <a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Elektronik')?>"><img
 			src="<?=base_url();?>assets/user/images/icon/electronic.png" alt="elektronik" style="height:75px"></a>
 	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Pakaian')?>"><img
 			src="<?=base_url();?>assets/user/images/icon/pakaian.png" alt="pakaian" style="height:75px"></a>
@@ -37,7 +78,7 @@
 	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Hobi')?>"><img
 			src="<?=base_url();?>assets/user/images/icon/olahraga.png" alt="olahraga" style="height:75px"></a>
 	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Lainnya')?>"><img
-			src="<?=base_url();?>assets/user/images/icon/lainlain.png" alt="lainlain" style="height:75px"></a>
+			src="<?=base_url();?>assets/user/images/icon/lainlain.png" alt="lainlain" style="height:75px"></a> -->
 
 </div>
 <!-- Banner -->

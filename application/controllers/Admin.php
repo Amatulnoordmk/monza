@@ -77,6 +77,14 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/event_donasi', $data);
         $this->load->view('admin/include/footer');
 	}
+	public function slider()
+	{	
+		$data['event'] = $this->Admin_model->daftar_event()->result();
+        $this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/slider', $data);
+        $this->load->view('admin/include/footer');
+	}
 	public function data()
 	{	
 		$data['user'] = $this->Admin_model->daftar_user()->result();
