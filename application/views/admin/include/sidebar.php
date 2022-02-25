@@ -34,6 +34,8 @@
 				class="<?php if(current_url() == base_url('admin/event') || current_url() == base_url('admin/surveiDetail/(:any)') ){?>active<?php } ?>">
 				<a class="nav-link" href="<?=base_url();?>admin/event"><i class="fas fa-tasks"></i>
 					<span>Event Donasi</span></a></li>
+			<li class="<?php if(current_url() == base_url('admin/slider')){?>active<?php } ?>"><a class="nav-link"
+					href="<?=base_url();?>admin/slider"><i class="fas fa-image"></i> <span>Slider</span></a></li>
 			<!-- <li
 				class="<?php if(current_url() == base_url('admin/testi')){?>active<?php } elseif(current_url() == base_url('admin/kritik-saran')){?>active<?php } ?>">
 				<a class="nav-link has-dropdown" data-toggle="dropdown" href="#">

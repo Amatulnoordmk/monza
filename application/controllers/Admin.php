@@ -79,7 +79,7 @@ class Admin extends CI_Controller {
 	}
 	public function slider()
 	{	
-		$data['event'] = $this->Admin_model->daftar_event()->result();
+		$data['slider'] = $this->Admin_model->slider()->result();
         $this->load->view('admin/include/header');
 		$this->load->view('admin/include/sidebar');
 		$this->load->view('admin/slider', $data);
@@ -154,4 +154,47 @@ class Admin extends CI_Controller {
 		$file = 'Assets/admin/KTP/'.$fileinfo['ktp_penyelenggara'];
 		force_download($file, NULL);
 	}
+	function upload_slider()
+	{
+		$file_name = $_FILES['slider']['name'];
+
+		if(!empty($file_name))
+		{
+			$config['upload_path'] = './assets/admin/slider/';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+
+			$this->load->library('upload', $config);			
+			
+			if (!$this->upload->do_upload('slider'))
+			{
+				$this->session->set_flashdata('gagalUpload', 'Gagal Menambah Produk/Event!');
+				redirect('admin/slider');
+			} else{
+				$foto = $this->upload->data('file_name');
+				$config['overwrite'] = true;				
+				$config['file_name'] = $file_name;
+
+				$data = array (				
+					'gambar_slider' => $foto,
+					'status' => '0'
+				);		 
+			}
+		}
+	}
+
+	function aktif_slider($id_slider)
+	{
+		$data = array (
+			'status' => '1'
+		);
+		$where = array('id_slider'=>$id_slider);
+		$this->Admin_model->updatestatus_slider('slider',$data,$where);
+		redirect('Admin/slider');	
+	}
+	function delete_slider($id_slider)
+	{
+		$where = array('id_slider'=>$id_slider);
+		$this->Admin_model->delete_data('slider',$where);
+		redirect('Admin/slider');
+	}	
 }

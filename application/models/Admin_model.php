@@ -77,4 +77,21 @@ class Admin_model extends CI_Model
         $query = $this->db->get_where('event',array('id_event'=>$id));
         return $query->row_array();
     }
+    function slider()
+    {
+        
+        return $this->db->get('slider');
+
+        // return $this->db->get('produk');
+    }
+    function upload_slider($data)
+    {
+        return $this->db->insert('slider', $data);
+    }
+
+    function updatestatus_slider($table,$data, $where)
+    {
+        // $this->db->where('id_event', $id);
+		$this->db->update($table, $data, $where);
+    }
 }
