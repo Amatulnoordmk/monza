@@ -21,66 +21,55 @@
 		</div>
 	</div>
 </div>
-<style type="text/css">
-	td {
-		padding: 0 15px;
-		text-align: center;
-	}
 
-</style>
-<div class="container">
-	<h3>Kategori</h3>
-	<table style="margin-left:auto;margin-right:auto;">
-		<tr>
-			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Elektronik')?>"><img
-						src="<?=base_url();?>assets/user/images/icon/electronic.png" alt="elektronik"
-						style="height:75px"></a></td>
-			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Pakaian')?>"><img
-						src="<?=base_url();?>assets/user/images/icon/pakaian.png" alt="pakaian" style="height:75px"></a>
-			</td>
-			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Buku')?>"><img
-						src="<?=base_url();?>assets/user/images/icon/buku.png" alt="buku" style="height:75px"></a></td>
-			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'RumahTangga')?>"><img
-						src="<?=base_url();?>assets/user/images/icon/rumah.png" alt="rumah" style="height:75px"></a>
-			</td>
-			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Sekolah')?>"><img
-						src="<?=base_url();?>assets/user/images/icon/sekolah.png" alt="sekolah" style="height:75px"></a>
-			</td>
-			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Hobi')?>"><img
-						src="<?=base_url();?>assets/user/images/icon/olahraga.png" alt="olahraga"
-						style="height:75px"></a>
-			</td>
-			<td class="ml-2"><a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Lainnya')?>"><img
-						src="<?=base_url();?>assets/user/images/icon/lainlain.png" alt="lainlain"
-						style="height:75px"></a>
-			</td>
-		</tr>
-		<tr>
-			<td class="ml-2">Elektronik</td>
-			<td class="ml-2">Pakaian</td>
-			<td class="ml-2">Buku & Majalah</td>
-			<td class="ml-2">Rumah Tangga</td>
-			<td class="ml-2">Peralatan Sekolah</td>
-			<td class="ml-2">Hobi & Olahraga</td>
-			<td class="ml-2">Lainnya</td>
-		</tr>
-	</table>
-	<!-- <a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Elektronik')?>"><img
-			src="<?=base_url();?>assets/user/images/icon/electronic.png" alt="elektronik" style="height:75px"></a>
-	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Pakaian')?>"><img
-			src="<?=base_url();?>assets/user/images/icon/pakaian.png" alt="pakaian" style="height:75px"></a>
-	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Buku')?>"><img
-			src="<?=base_url();?>assets/user/images/icon/buku.png" alt="buku" style="height:75px"></a>
-	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'RumahTangga')?>"><img
-			src="<?=base_url();?>assets/user/images/icon/rumah.png" alt="rumah" style="height:75px"></a>
-	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Sekolah')?>"><img
-			src="<?=base_url();?>assets/user/images/icon/sekolah.png" alt="sekolah" style="height:75px"></a>
-	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Hobi')?>"><img
-			src="<?=base_url();?>assets/user/images/icon/olahraga.png" alt="olahraga" style="height:75px"></a>
-	<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Lainnya')?>"><img
-			src="<?=base_url();?>assets/user/images/icon/lainlain.png" alt="lainlain" style="height:75px"></a> -->
+<!-- Slider Kategori -->
 
-</div>
+<center>
+	<div class="container mt-4">
+		<h2 class="text-center">Kategori</h2>
+		<div id="carouselExampleControls" class="carousel slide mt-4" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="row">
+						<div class="col-sm-6 col-md-2 col-lg-2">
+							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/book.png" alt="buku"
+								width="100">
+							<p>Buku & Majalah</p>
+						</div>
+						<div class="col-sm-6 col-md-2 col-lg-2">
+							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/gadget.png"
+								alt="elektronik" width="100">
+							<p>Elektronik</p>
+						</div>
+						<div class=" col-sm-6 col-md-2 col-lg-2">
+							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/clothes.png" alt="pakaian"
+								width="100">
+							<p>Pakaian</p>
+						</div>
+						<div class="col-sm-6 col-md-2 col-lg-2">
+							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/sport.png" alt="olahraga"
+								width="100">
+							<p>Hobi & Olahraga</p>
+						</div>
+						<div class="col-sm-6 col-md-2 col-lg-2">
+							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/stationery.png"
+								alt="perlengkapan_sekolah" width="100">
+							<p>Perlengkapan Sekolah</p>
+						</div>
+						<div class="col-sm-6 col-md-2 col-lg-2">
+							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/household.png"
+								alt="perlengkapan_rumah_tangga" width="100">
+							<p>Rumah Tangga</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</center>
+
+<!-- END slider kategori -->
+
 <!-- Banner -->
 
 <div class="banner">
@@ -132,7 +121,8 @@
 				<a href="<?=base_url();?>detailproduk/<?= $produk->id_produk ?>">
 					<div class="product-itm">
 						<div class=" product_image">
-							<img src="<?=base_url();?>assets/user/images/Produk/<?= $produk->foto_produk ?>" alt="">
+							<img src="<?=base_url();?>assets/user/images/Produk/thumb/<?= $produk->foto_produk ?>"
+								alt="">
 						</div>
 						<div class="favorite favorite_left"></div>
 						<div class="product_info">
