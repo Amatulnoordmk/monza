@@ -149,15 +149,15 @@
 	<div id="carouselExample" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/carousel_1.jpg"
+				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/slide_1.png"
 					alt="First slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/carousel_2.jpg"
+				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/slide_2.png"
 					alt="Second slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/carousel_4.jpg"
+				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/slide_3.jpg"
 					alt="Third slide">
 			</div>
 		</div>
