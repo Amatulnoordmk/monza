@@ -20,8 +20,32 @@
 					</div>
 					<ul class="sidebar_categories">
 						<li
+							class="<?php if(current_url() == base_url('admin/loker')){?>active<?php } elseif(current_url() == base_url('admin/bidang-pekerjaan')){?>active<?php }?>">
+							<a class="nav-link has-dropdown" data-toggle="dropdown" href="#">
+								<i class="fas fa-briefcase"></i> <span>Loker</span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="nav-link <?php if(current_url() == base_url('admin/loker')){?>active<?php } ?>"
+										href="<?=base_url();?>admin/loker">Data loker</a>
+								</li>
+								<li>
+									<a class="nav-link <?php if(current_url() == base_url('admin/bidang-pekerjaan')){?>active<?php } ?>"
+										href="<?=base_url();?>admin/bidang-pekerjaan">Bidang pekerjaan</a>
+								</li>
+							</ul>
+						</li>
+						<li
 							class="<?php if(current_url() == base_url('User/kategori_bayar/'.$jenis_produk = 'Elektronik')){?>active<?php } ?>">
-							<a href="<?= base_url('User/kategori_bayar/'.$jenis_produk = 'Elektronik')?>">Elektronik</a>
+							<a href="#" class="nav-link has-dropdown" data-toggle="dropdown">Elektronik</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="nav-link" href="<?=base_url();?>admin/loker">Data loker</a>
+								</li>
+								<li>
+									<a class="" href="<?=base_url();?>admin/bidang-pekerjaan">Bidang pekerjaan</a>
+								</li>
+							</ul>
 						</li>
 						<li
 							class="<?php if(current_url() == base_url('User/kategori_bayar/'.$jenis_produk = 'Pakaian')){?>active<?php } ?>">
