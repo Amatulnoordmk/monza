@@ -4,12 +4,12 @@
 
 			<!-- Breadcrumbs -->
 
-			<div class="breadcrumbs d-flex flex-row align-items-center">
+			<!-- <div class="breadcrumbs d-flex flex-row align-items-center">
 				<ul>
 					<li>Beranda</li>
-					<li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>Barang Gratis</li>
+					<li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i></li>
 				</ul>
-			</div>
+			</div> -->
 
 			<!-- Sidebar -->
 

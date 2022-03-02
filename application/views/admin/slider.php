@@ -26,8 +26,8 @@
 					<input type="file" class="form-control" name="slider" style="color: #1e1e27" required>
 					<small class="form-text text-danger">Jenis file yang diterima adalah png, jpg, dan jpeg</small>
 				</div>
+				<button type="submit" id="slider" class="btn btn-success">Upload</button>
 			</form>
-			<button type="submit" id="ajukanevent" class="btn btn-success">Upload</button>
 			<!-- <label>
 				<h5><b>Upload Banner/Slider </b></h5>
 			</label>
