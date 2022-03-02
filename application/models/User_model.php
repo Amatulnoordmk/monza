@@ -177,6 +177,11 @@ class User_model extends CI_Model
 
         // return $this->db->get('produk');
     }
+    function semua_barang()
+    {
+        return $this->db->get('produk_v');
+        // return $this->db->get('produk');
+    }
 
 	public function delete($id)
     {
@@ -211,6 +216,12 @@ class User_model extends CI_Model
     public function kategori_bayar($jenis_produk)
     {   
         $array = array('jenis_produk' => $jenis_produk, 'kategori_produk' => 'P');
+        $this->db->where($array);
+        return $this->db->get('produk_v');
+    }
+    public function kategori_all($jenis_produk)
+    {   
+        $array = array('jenis_produk' => $jenis_produk);
         $this->db->where($array);
         return $this->db->get('produk_v');
     }

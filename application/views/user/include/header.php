@@ -1,4 +1,3 @@
-`
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +49,8 @@
 					<div class="row">
 						<div class="col-lg-12 text-right">
 							<div class="logo_container">
-								<a href="#"><img src="<?=base_url();?>assets/user/images/logo-nav.png" alt="monza"
+								<a href="<?= base_url(); ?>beranda"><img
+										src="<?=base_url();?>assets/user/images/logo-nav.png" alt="monza"
 										height="36"></a>
 							</div>
 							<nav class="navbar">
