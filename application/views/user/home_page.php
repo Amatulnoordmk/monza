@@ -32,33 +32,44 @@
 				<div class="carousel-item active">
 					<div class="row">
 						<div class="col-sm-6 col-md-2 col-lg-2">
-							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/book.png" alt="buku"
-								width="100">
+							<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Buku')?>">
+								<img class="d-block" src="<?=base_url();?>assets/user/images/icon/book.png" alt="buku"
+									width="100">
+							</a>
 							<p>Buku & Majalah</p>
 						</div>
 						<div class="col-sm-6 col-md-2 col-lg-2">
-							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/gadget.png"
-								alt="elektronik" width="100">
+							<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Elektronik')?>">
+								<img class="d-block" src="<?=base_url();?>assets/user/images/icon/gadget.png"
+									alt="elektronik" width="100">
+							</a>
 							<p>Elektronik</p>
 						</div>
 						<div class=" col-sm-6 col-md-2 col-lg-2">
-							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/clothes.png" alt="pakaian"
-								width="100">
+							<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Pakaian')?>">
+								<img class="d-block" src="<?=base_url();?>assets/user/images/icon/clothes.png"
+									alt="pakaian" width="100"></a>
 							<p>Pakaian</p>
 						</div>
 						<div class="col-sm-6 col-md-2 col-lg-2">
-							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/sport.png" alt="olahraga"
-								width="100">
+							<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Hobi')?>">
+								<img class="d-block" src="<?=base_url();?>assets/user/images/icon/sport.png"
+									alt="olahraga" width="100">
+							</a>
 							<p>Hobi & Olahraga</p>
 						</div>
 						<div class="col-sm-6 col-md-2 col-lg-2">
-							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/stationery.png"
-								alt="perlengkapan_sekolah" width="100">
+							<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'Sekolah')?>">
+								<img class="d-block" src="<?=base_url();?>assets/user/images/icon/stationery.png"
+									alt="perlengkapan_sekolah" width="100">
+							</a>
 							<p>Perlengkapan Sekolah</p>
 						</div>
 						<div class="col-sm-6 col-md-2 col-lg-2">
-							<img class="d-block" src="<?=base_url();?>assets/user/images/icon/household.png"
-								alt="perlengkapan_rumah_tangga" width="100">
+							<a href="<?= base_url('User/kategori_all/'.$jenis_produk = 'RumahTangga')?>">
+								<img class="d-block" src="<?=base_url();?>assets/user/images/icon/household.png"
+									alt="perlengkapan_rumah_tangga" width="100">
+							</a>
 							<p>Rumah Tangga</p>
 						</div>
 					</div>
