@@ -121,6 +121,9 @@
 											<a href="<?= base_url('postevent/'.$this->session->userdata('id_user')); ?>"
 												class="dropdown-item">Ajukan
 												Donasi</a>
+											<a href="<?= base_url('chatadmin/'.$this->session->userdata('id_user')); ?>"
+												class="dropdown-item">Hubungi Admin
+											</a>
 											<a href="<?=base_url('user/logout')?>" class="dropdown-item">Keluar</a>
 										</div>
 									</li>

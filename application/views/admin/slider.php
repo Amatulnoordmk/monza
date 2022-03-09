@@ -17,7 +17,7 @@
 
 		<div class="section-body">
 			<h2 class="section-title">Banner/Slider Terdaftar</h2>
-			<form action="<?= base_url('user/upload_slider') ?>" method="post" enctype="multipart/form-data">
+			<form action="<?= base_url('admin/upload_slider') ?>" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<br>
 					<label>
@@ -28,13 +28,6 @@
 				</div>
 				<button type="submit" id="slider" class="btn btn-success">Upload</button>
 			</form>
-			<!-- <label>
-				<h5><b>Upload Banner/Slider </b></h5>
-			</label>
-			<input type="file" class="form-control" name="slider" style="color: #1e1e27" required>
-			<small class="form-text text-danger">Jenis file yang diterima adalah png, jpg, dan jpeg</small>
-
-			<a href="<?= base_url('Admin/upload_slider/'); ?>" class="btn btn-success">Upload</a> -->
 			<p> </p>
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-12">
@@ -57,9 +50,21 @@
 											<td><?= $nomor++; ?></td>
 
 											<!-- <td>lokasi</td> -->
-											<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->gambar_slider ?>"
-													alt="produk" height="100"></td>
-											<td><?= $key->status; ?></td>
+											<td><img src="<?=base_url();?>assets/admin/slider/<?= $key->gambar_slider ?>"
+													alt="gambar" height="100"></td>
+											<td>
+												<?php if ($key->status == '1'): ?>
+												<b style="color:green">
+													Sedang Aktif
+												</b>
+												<?php elseif($key->status == '2'):?>
+												<b style="color:blue">Aktif Pertama</b>
+												<?php else: ?>
+												<b style="color:red">
+													Belum Aktif
+												</b>
+												<?php endif ?>
+											</td>
 											<td>
 												<a class="btn btn-icon btn-sm icon-left btn-primary" data-toggle="modal"
 													data-target="#detailproduk<?= $key->id_slider; ?>" type="button">
@@ -88,31 +93,6 @@
 
 <!-- modal hapus alumni -->
 <?php foreach($slider as $key) :?>
-<div class="modal fade" id="hapusalumni<?= $key->id_slider; ?>" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title"></h5>
-			</div>
-			<div class="modal-body text-center">
-				<h1 class="text-danger mb-5">Apakah Anda Yakin?</h1>
-				<h5>Banner/Slider ini akan terhapus dan tidak dapat dikembalikan</h5>
-				<div class="form-group">
-					<input type="text" class="form-control" id="recipient-name" name="idproduk" hidden>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-				<a href="<?= base_url('Admin/delete_slider/').$key->id_slider; ?>" class="btn btn-danger">hapus</a>
-			</div>
-
-		</div>
-	</div>
-</div>
-<?php endforeach ?>
-<!-- end modal -->
-<!-- modal Detail -->
-<?php foreach($slider as $key) :?>
 <div class="modal fade" id="detailproduk<?= $key->id_slider; ?>" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -120,32 +100,47 @@
 				<h5 class="modal-title"></h5>
 			</div>
 			<div class="modal-body text-center">
-				<h1 class="text-primary mb-5">Detail Banner/Slider</h1>
+				<h1 class="text-primary mb-5">Detail Slider</h1>
 				<table class="table table-striped">
 					<tbody>
 						<tr>
 							<th scope="row">Status</th>
-							<td><?= $key->status?></td>
+							<td><?php if ($key->status == '1'): ?>
+								<b style="color:green">
+									Sedang Aktif
+								</b>
+								<?php elseif($key->status == '2'):?>
+								<b style="color:blue">Aktif Pertama</b>
+								<?php else: ?>
+								<b style="color:red">
+									Belum Aktif
+								</b>
+								<?php endif ?>
+							</td>
 						</tr>
 						<tr>
 							<th scope="row">Gambar</th>
-							<td><img src="<?=base_url();?>assets/user/images/Produk/<?= $key->gambar_slider ?>"
-									alt="produk" height="100"></td>
+							<td><img src="<?=base_url();?>assets/admin/slider/<?= $key->gambar_slider ?>" alt="slider"
+									height="100"></td>
 						</tr>
 					</tbody>
 				</table>
-				<div class="form-group">
-					<input type="text" class="form-control" id="recipient-name" name="idalumni" hidden>
+			</div>
+			<div class="modal-footer">
+				<?php if ($key->status == '0'): ?>
+				<a href="<?= base_url('Admin/aktif_slider/').$key->id_slider?>" class="btn btn-success">Aktifkan</a>
+				<a href="<?= base_url('Admin/aktifpertama_slider/').$key->id_slider?>" class="btn btn-primary">Jadikan
+					Gambar Pertama</a>
+				<?php elseif ($key->status == '1'): ?>
+				<a href="<?= base_url('Admin/aktifpertama_slider/').$key->id_slider?>" class="btn btn-primary">Jadikan
+					Gambar Pertama</a>
+				<a href="<?= base_url('Admin/nonaktif_slider/').$key->id_slider?>" class="btn btn-warning">Non
+					aktifkan</a>
+				<?php endif; ?>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+					<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
 				</div>
-			</div>
-			<div class="modal-footer">
-				<a href="<?= base_url('Admin/aktif_slider/').$key->id_slider; ?>" class="btn btn-success"
-					data-dismiss="modal">Aktifkan</a>
-				<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
-				<!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
 			</div>
 		</div>
 	</div>

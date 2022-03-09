@@ -180,6 +180,8 @@ class Admin extends CI_Controller {
 				);		 
 			}
 		}
+		$this->Admin_model->upload_slider($data);
+		redirect('Admin/slider');
 	}
 
 	function aktif_slider($id_slider)
@@ -188,8 +190,26 @@ class Admin extends CI_Controller {
 			'status' => '1'
 		);
 		$where = array('id_slider'=>$id_slider);
+		$this->Admin_model->updatestatus_event('slider',$data,$where);
+		redirect('Admin/slider');
+	}
+	function aktifpertama_slider($id_slider)
+	{
+		$data = array (
+			'status' => '2'
+		);
+		$where = array('id_slider'=>$id_slider);
+		$this->Admin_model->updatestatus_event('slider',$data,$where);
+		redirect('Admin/slider');
+	}
+	function nonaktif_slider($id_slider)
+	{
+		$data = array (
+			'status' => '0'
+		);
+		$where = array('id_slider'=>$id_slider);
 		$this->Admin_model->updatestatus_slider('slider',$data,$where);
-		redirect('Admin/slider');	
+		redirect('Admin/slider');
 	}
 	function delete_slider($id_slider)
 	{

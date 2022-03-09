@@ -63,7 +63,7 @@ class Admin_model extends CI_Model
         // $this->db->delete('produk');
         $this->db->delete($table,$where);
     }
-    function updatestatus_event($table,$data, $where)
+    function updatestatus_event($table,$data,$where)
     {
         // $this->db->where('id_event', $id);
 		$this->db->update($table, $data, $where);
@@ -89,9 +89,8 @@ class Admin_model extends CI_Model
         return $this->db->insert('slider', $data);
     }
 
-    function updatestatus_slider($table,$data, $where)
+    function updatestatus_slider($table, $data, $where)
     {
-        // $this->db->where('id_event', $id);
-		$this->db->update($table, $data, $where);
+        $this->db->update($table, $data, $where);
     }
 }

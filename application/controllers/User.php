@@ -36,6 +36,8 @@ class User extends CI_Controller {
 	{	
 		$data['produk'] = $this->User_model->tampil_allProduk()->result();
 		$data['event'] = $this->User_model->tampil_allEventLimit()->result();
+		$data['slider'] = $this->User_model->ambil_slider()->result();
+		$data['slider_pertama'] = $this->User_model->ambil_slider_pertama()->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/home_page', $data);
         $this->load->view('user/include/footer');

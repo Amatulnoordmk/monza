@@ -156,22 +156,28 @@
 </div>
 
 <!-- Carousel -->
+
 <div class="container mt-4">
 	<div id="carouselExample" class="carousel slide" data-ride="carousel">
+		<?php foreach($slider_pertama as $key):?>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/slide_1.png"
+				<img class="d-block w-100" src="<?=base_url();?>assets/admin/slider/<?= $key->gambar_slider?>"
 					alt="First slide">
 			</div>
+			<?php endforeach ?>
+			<?php foreach($slider as $sli): ?>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/slide_2.png"
+				<img class="d-block w-100" src="<?=base_url();?>assets/admin/slider/<?= $sli->gambar_slider ?>"
 					alt="Second slide">
 			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="<?=base_url();?>assets/user/images/Slider/slide_3.jpg"
-					alt="Third slide">
-			</div>
+			<?php endforeach; ?>
+			<!--<div class="carousel-item">
+					<img class="d-block w-100" src="<?=base_url();?>assets/admin/slider/<?= $sli->gambar_slider ?>"
+						alt="Third slide">
+				</div> -->
 		</div>
+
 		<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="sr-only">Previous</span>
@@ -181,6 +187,7 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
+
 </div>
 
 <!-- Benefit -->

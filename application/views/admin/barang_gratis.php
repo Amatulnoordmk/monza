@@ -51,7 +51,7 @@
 												</a>
 												<a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal"
 													type="button" class="btn btn-icon btn-sm icon-left btn-danger">
-													<i class="fas fa-trash"></i>Hapus
+													<i class="fas fa-trash"></i><span style="color:white">Hapus</span>
 												</a>
 												<!-- <a data-target="#hapusalumni<?= $key->id_produk; ?>" data-toggle="modal" data-idproduk="<?= $key->id_produk ?>" type="button" class="btn btn-icon btn-sm icon-left btn-danger">
 													<i class="fas fa-trash"></i>Hapus
