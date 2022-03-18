@@ -137,6 +137,17 @@ class User extends CI_Controller {
         $this->load->view('user/include/footer');
 	}
 
+	// halaman chat
+	public function chatadmin()
+	{
+		//$data['chat'] = $this->User_model->tampil_allEvent()->result();
+        // $this->load->view('user/include/header');
+		$no =  $this->uri->segment(2);
+		$data['data'] = $this->ChatModel->getDataById($no);		
+		$this->load->view('user/chat', $data);
+        $this->load->view('user/include/footer');
+	}
+
 	// Halaman detail donasi
 	public function eventDetail_page($id)
 	{

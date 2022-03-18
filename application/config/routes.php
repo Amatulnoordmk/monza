@@ -69,7 +69,7 @@ $route['event'] = "admin/event_donasi";
 
 //Data User
 $route['data'] = "admin/data_user";
-//Data User
+//Data slider
 $route['slider'] = "admin/slider";
 
 
@@ -103,3 +103,5 @@ $route['detailevent/(:any)'] = "user/eventDetail_page/$1";
 $route['editproduk/(:any)'] = "user/editProduct_page/$1";
 // Edit Event
 $route['editevent/(:any)'] = "user/editEvent_page/$1";
+// chat
+$route['chatadmin'] = "user/chat";
