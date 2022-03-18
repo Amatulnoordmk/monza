@@ -136,6 +136,11 @@
 					Gambar Pertama</a>
 				<a href="<?= base_url('Admin/nonaktif_slider/').$key->id_slider?>" class="btn btn-warning">Non
 					aktifkan</a>
+				<?php else: ?>
+				<a href="<?= base_url('Admin/aktif_slider/').$key->id_slider?>" class="btn btn-success">Aktifkan (Bukan
+					Gambar Pertama)</a>
+				<a href="<?= base_url('Admin/nonaktif_slider/').$key->id_slider?>" class="btn btn-warning">Non
+					aktifkan</a>
 				<?php endif; ?>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
