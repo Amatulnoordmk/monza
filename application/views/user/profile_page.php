@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/user/styles/pesan.css">
+
 <div class="container single_product_container">
 	<!-- Alert berhasil Hapus-->
 	<?php if($this->session->flashdata('hapus-produk')): ?>
@@ -24,8 +26,9 @@
 
 	<div class="row">
 		<div class="col-sm-12 col-md-4 col-md-4">
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top" src="<?=base_url();?>assets/user/images/user.png" alt="Card image cap">
+			<!-- Profil -->
+			<div class="card">
+				<img class="card-img-top" src="<?=base_url();?>assets/user/images/user.png" alt="Foto profil">
 				<div class="card-body">
 					<div class="text-center">
 						<h5 class="card-title"><?= $user->nama_lengkap ?></h5>
@@ -40,8 +43,74 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Chat ke Admin -->
+			<div class="card" style="overflow: auto; height: 40;">
+				<div class="chat">
+					<div class="chat-header clearfix">
+						<div class="row">
+							<div class="col">
+								<!-- <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar"> -->
+								<span class="align-self-center">Admin</span>
+							</div>
+						</div>
+					</div>
+					<div class="chat-history">
+						<ul class="m-b-0">
+							<?php foreach($pesan as $p): ?>
+							<?php if($p->id_pengirim == 2): ?>
+							<li class="clearfix">
+								<div class="message-data">
+									<span class="message-data-time">
+										<?php
+										$old_date_timestamp = strtotime($p->waktu_kirim);
+										$new_date = date('d-m-Y H:i:s', $old_date_timestamp);
+										echo $new_date;	
+										?>
+									</span>
+								</div>
+								<div class="message my-message"><?= $p->pesan ?></div>
+							</li>
+							<?php else: ?>
+							<li class="clearfix">
+								<div class="message-data text-right">
+									<span class="message-data-time">
+										<?php
+										$old_date_timestamp = strtotime($p->waktu_kirim);
+										$new_date = date('d-m-Y H:i:s', $old_date_timestamp);
+										echo $new_date;	
+										?>
+									</span>
+									<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+								</div>
+								<div class="message other-message float-right"><?= $p->pesan?></div>
+							</li>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+					<div class="chat-message clearfix">
+						<form method="POST" action="<?= base_url('user/kirimPesan/'.$user->id_user)?>"
+							enctype="multipart/form-data">
+							<div class="form-group mb-0">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn" style="background-color: #f1873b; color:white;"
+											type="submit">
+											<i class="fa fa-send"></i>
+										</button>
+									</div>
+									<input type="text" class="form-control" name="pesan"
+										placeholder="Tulis pesan disini..." autocomplete="off">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 
+		<!-- Tampilan Produk dan Event -->
 		<div class="col-sm-12 col-md-8 col-lg-8">
 			<!-- <a href="<?=base_url('postproduk/'.$user->id_user)?>" class="btn btn-outline-warning float-right"
 				style="color:#f1873b;" type="button">Bagikan</a> -->
@@ -74,6 +143,7 @@
 							</li>
 						</ul>
 					</div> -->
+					<!-- Tampilan Produk yang Di posting -->
 					<div class="row">
 						<!-- Product 1 -->
 						<?php foreach($produk as $pro) : ?>
@@ -108,6 +178,7 @@
 						<?php endforeach; ?>
 					</div>
 				</div>
+				<!-- Tampilan Event yang Di posting -->
 				<div class="tab-pane fade" id="tabEvent" role="tabpanel" aria-labelledby="profile-tab">
 					<div class="row">
 						<!-- Product 1 -->

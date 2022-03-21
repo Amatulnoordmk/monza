@@ -315,5 +315,17 @@ class User_model extends CI_Model
         $this->db->limit(8);
         return $this->db->get('slider');
     }
+
+    public function tampilChat($id)
+    {
+        $this->db->where('id_pengirim', $id);
+        $this->db->or_where('id_penerima', $id);
+        return $this->db->get('pesan_v');
+    }
+
+    public function kirimChat($data)
+    {
+        return $this->db->insert('pesan', $data);
+    }
 }
 ?>

@@ -93,4 +93,31 @@ class Admin_model extends CI_Model
     {
         $this->db->update($table, $data, $where);
     }
+
+    public function chatList()
+	{
+		$this->db->where_not_in('nama_pengirim', 'adminku');
+        // $this->db->distinct();
+        $this->db->group_by("nama_pengirim");
+        return $this->db->get('pesan_v');
+	}
+
+    public function namaUser($id)
+    {
+        $this->db->where('id_pengirim', $id);
+        $this->db->group_by("nama_pengirim");
+        return $this->db->get('pesan_v');
+    }
+
+    public function isiPesan($id)
+    {
+        $this->db->where('id_pengirim', $id);
+        $this->db->or_where('id_penerima', $id);
+        return $this->db->get('pesan_v');
+    }
+
+    public function balasChat($data)
+    {
+        return $this->db->insert('pesan', $data);
+    }
 }

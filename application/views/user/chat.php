@@ -232,8 +232,6 @@ $id_user = $_SESSION['id_user'];
 					</div>
 				</div>
 
-
-
 				<div class="card-footer">
 					<div class="input-group">
 						<div class="input-group-append">

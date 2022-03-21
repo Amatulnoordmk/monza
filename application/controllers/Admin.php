@@ -85,6 +85,27 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/slider', $data);
         $this->load->view('admin/include/footer');
 	}
+
+	public function pesanAdmin()
+	{
+		$data['username'] = $this->Admin_model->chatList()->result();
+		$this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/pesan_admin', $data);
+        $this->load->view('admin/include/footer');
+	}
+
+	public function pesanAdminSelect($id)
+	{
+		$data['username'] = $this->Admin_model->chatList()->result();
+		$data['user'] = $this->Admin_model->namaUser($id)->row();
+		$data['isiPesan'] = $this->Admin_model->isiPesan($id)->result();
+		$this->load->view('admin/include/header');
+		$this->load->view('admin/include/sidebar');
+		$this->load->view('admin/pesan_admin_select', $data);
+        $this->load->view('admin/include/footer');
+	}
+
 	public function data()
 	{	
 		$data['user'] = $this->Admin_model->daftar_user()->result();
@@ -216,5 +237,19 @@ class Admin extends CI_Controller {
 		$where = array('id_slider'=>$id_slider);
 		$this->Admin_model->delete_data('slider',$where);
 		redirect('Admin/slider');
-	}	
+	}
+
+	// Balas Pesan
+	public function balasPesan($id)
+	{
+		$data = array (
+			'id_pengirim' => 2,
+			'pesan' => $this->input->post("pesan"),
+			'id_penerima' => $id
+		);			
+		
+		$this->Admin_model->balasChat($data);
+		redirect('pesan');
+	}
+	
 }

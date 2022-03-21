@@ -57,24 +57,18 @@ $route['translate_uri_dashes'] = FALSE;
 // Beranda
 $route['dashboard_admin'] = "admin/dashboard";
 $route['data_user'] = "admin/data_user";
-
 //barang gratis
 $route['gratis'] = "admin/barang_gratis";
-
 //barang murah
 $route['murah'] = "admin/barang_murah";
-
 //Event Donasi
 $route['event'] = "admin/event_donasi";
-
 //Data User
 $route['data'] = "admin/data_user";
 //Data slider
 $route['slider'] = "admin/slider";
-
-
-
-
+//Data slider
+$route['pesan'] = "admin/pesanAdmin";
 
 // HALAMAN USER
 // Beranda
@@ -104,4 +98,4 @@ $route['editproduk/(:any)'] = "user/editProduct_page/$1";
 // Edit Event
 $route['editevent/(:any)'] = "user/editEvent_page/$1";
 // chat
-$route['chatadmin'] = "user/chat";
+// $route['chatadmin'] = "user/chat";

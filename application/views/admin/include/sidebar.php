@@ -33,34 +33,14 @@
 			<li
 				class="<?php if(current_url() == base_url('admin/event') || current_url() == base_url('admin/surveiDetail/(:any)') ){?>active<?php } ?>">
 				<a class="nav-link" href="<?=base_url();?>admin/event"><i class="fas fa-tasks"></i>
-					<span>Event Donasi</span></a></li>
-			<li class="<?php if(current_url() == base_url('admin/slider')){?>active<?php } ?>"><a class="nav-link"
-					href="<?=base_url();?>admin/slider"><i class="fas fa-image"></i> <span>Slider</span></a></li>
-			<!-- <li
-				class="<?php if(current_url() == base_url('admin/testi')){?>active<?php } elseif(current_url() == base_url('admin/kritik-saran')){?>active<?php } ?>">
-				<a class="nav-link has-dropdown" data-toggle="dropdown" href="#">
-					<i class="fas fa-comment-alt"></i>
-					<span>Testimoni</span>
-				</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a class="nav-link <?php if(current_url() == base_url('admin/testi')){?>active<?php } ?>"
-							href="<?=base_url();?>admin/testi">Testimoni</a>
-					</li>
-					<li>
-						<a class="nav-link <?php if(current_url() == base_url('admin/kritik-saran')){?>active<?php } ?>"
-							href="<?=base_url();?>admin/kritik-saran">Kritik & Saran</a>
-					</li>
-				</ul>
+					<span>Event Donasi</span></a>
 			</li>
-			<li
-				class="<?php if(current_url() == base_url('admin/report') || current_url() == base_url('admin/reportDetail/(:any)') ){?>active<?php } ?>">
-				<a class="nav-link" href="<?=base_url();?>admin/report"><i class="fas fa-flag"></i>
-					<span>Report</span></a></li>
-			<li class="<?php if(current_url() == base_url('admin/custom')){?>active<?php } ?>"><a class="nav-link"
-					href="<?=base_url();?>admin/custom"><i class="fas fa-cog"></i> <span>Custom App</span></a></li>
-			<li class="<?php if(current_url() == base_url('admin/history')){?>active<?php } ?>"><a class="nav-link"
-					href="<?=base_url();?>admin/history"><i class="fas fa-history"></i> <span>Aktifitas</span></a></li> -->
+			<li class="<?php if(current_url() == base_url('admin/slider')){?>active<?php } ?>"><a class="nav-link"
+					href="<?=base_url();?>admin/slider"><i class="fas fa-image"></i> <span>Slider</span></a>
+			</li>
+			<li class="<?php if(current_url() == base_url('pesan')){?>active<?php } ?>"><a class="nav-link"
+					href="<?=base_url();?>pesan"><i class="fas fa-envelope"></i> <span>Pesan</span></a>
+			</li>
 		</ul>
 
 	</aside>

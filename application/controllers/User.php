@@ -122,6 +122,7 @@ class User extends CI_Controller {
 		$data['user'] = $this->User_model->getDataUserById($id)->row();
 		$data['produk'] = $this->User_model->tampil_produk($id)->result();
 		$data['event'] = $this->User_model->tampil_event($id)->result();
+		$data['pesan'] = $this->User_model->tampilChat($id)->result();
         $this->load->view('user/include/header');
 		$this->load->view('user/profile_page', $data);		
 		$this->load->view('user/include/footer');
@@ -138,15 +139,15 @@ class User extends CI_Controller {
 	}
 
 	// halaman chat
-	public function chatadmin()
-	{
-		//$data['chat'] = $this->User_model->tampil_allEvent()->result();
-        // $this->load->view('user/include/header');
-		$no =  $this->uri->segment(2);
-		$data['data'] = $this->ChatModel->getDataById($no);		
-		$this->load->view('user/chat', $data);
-        $this->load->view('user/include/footer');
-	}
+	// public function chatadmin()
+	// {
+	// 	//$data['chat'] = $this->User_model->tampil_allEvent()->result();
+    //     // $this->load->view('user/include/header');
+	// 	$no =  $this->uri->segment(2);
+	// 	$data['data'] = $this->ChatModel->getDataById($no);		
+	// 	$this->load->view('user/chat', $data);
+    //     $this->load->view('user/include/footer');
+	// }
 
 	// Halaman detail donasi
 	public function eventDetail_page($id)
@@ -809,6 +810,19 @@ class User extends CI_Controller {
 		}				
 
 		$this->User_model->editEvent($id, $data);
+		redirect('profil/'.$this->session->userdata('id_user'));
+	}
+
+	// Kirim pesan ke admin
+	public function kirimPesan($id)
+	{
+		$data = array (
+			'id_pengirim' => $id,
+			'pesan' => $this->input->post("pesan"),
+			'id_penerima' => 2
+		);			
+		
+		$this->User_model->kirimChat($data);
 		redirect('profil/'.$this->session->userdata('id_user'));
 	}
 }
